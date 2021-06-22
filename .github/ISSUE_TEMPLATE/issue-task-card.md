@@ -7,19 +7,19 @@ assignees: ''
 
 ---
 
-> ### ISSUE
+### ISSUE
  * Group:  `Client`
  * Type: `feature`, `bug`, `delete`
  * Detail: 
-> 
-> ### TODO
+ 
+### TODO
  1. [ ] 
-> 
-> ### Estimated time
+ 
+### Estimated time
 
  ### `3h`
 
-> ### Labels
+ ### Labels
  * Estimated time: `E: 3h`
  * Group : `Client`
  * Sprint: `Sprint__NUMBER__`

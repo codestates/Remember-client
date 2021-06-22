@@ -2,29 +2,25 @@
 name: Issue Task Card
 about: Issue Task Card
 title: "[client] "
-labels: issue
+labels: ''
 assignees: ''
 
 ---
 
 > ### ISSUE
-> * Group:  `Client`
-> * Type: `bug`, `feature`, `delete`
-> * Detail: 
+ * Group:  `Client`
+ * Type: `feature`, `bug`, `delete`
+ * Detail: 
 > 
 > ### TODO
-> 1. [ ]  Job1
-> 2. [ ]  Job2
-> 3. [ ]  Job3
+ 1. [ ] 
 > 
 > ### Estimated time
-> > Pick one
-> 
 
-> ### `1h`
+ ### `3h`
 
 > ### Labels
-> * Estimated time: `E: 1h`
-> * Group : `Client`
-> * Sprint: `Sprint__NUMBER__`
-> * Urgency: `High`, `Middle`, `Low`
+ * Estimated time: `E: 3h`
+ * Group : `Client`
+ * Sprint: `Sprint__NUMBER__`
+ * Urgency: `High`,`Middle`, `Low`

@@ -1,7 +1,7 @@
 ---
 name: Issue Task Card
 about: Issue Task Card
-title: "[server] "
+title: "[client] "
 labels: issue
 assignees: ''
 

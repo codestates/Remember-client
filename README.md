@@ -31,7 +31,7 @@
 ---
 
 
-🗨️ [For more details about 4ForHobby project, please check our Wiki!](https://github.com/codestates/Remember-client/wiki)
+🗨️ [For more details about Remember project, please check our Wiki!](https://github.com/codestates/Remember-client/wiki)
 
 
 # **About Us**

@@ -1,5 +1,3 @@
-
->>>
 # **Service Intro**
 
 ## 잊지 말아야할 것들을 너무 쉽게 잊어버리는 요즘. 
@@ -64,3 +62,4 @@ Crew | Role | GitHub
 
 - [Check Client side dev-logs!](https://github.com/codestates/Remember-client/projects/1)
 - [Check Sever side dev-logs!](https://github.com/codestates/Remember-server/projects/2)
+

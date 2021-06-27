@@ -1,46 +1,65 @@
-# Getting Started with Create React App
+# **Service Intro**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 잊지 말아야할 것들을 너무 쉽게 잊어버리는 요즘. 
 
-## Available Scripts
+프로젝트 서비스의 핵심기능은`잊지 말아야 할 일들 그리고 잊혀져가는 일들을 단순히 후원 한번에 그치지 않고, 내용과 날짜를 지속적으로 떠올리게 해주는 것이 다른 서비스와의 차별점이자 가장 대표적인 기능`입니다.
 
-In the project directory, you can run:
+# **Service Purpose**
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# **Used Tech Stack**
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+---
 
-### `npm test`
+- **Common** : TypeScript / Axios 
+- **Front-end** : React (React-Hooks) / Redux (Redux-Hooks) / Css
+- **Back-end** : Node.js / Express / sequelize / Mysql / JWT
+- **Deploy** : AWS S3 / AWS EC2 / AWS RDS / AWS CloudFront
+- **Tools** : Notion / Postman (API) / Figma (Flowchart, Wireframe, Mockup) / Discord
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# **Flow Chart**
 
-### `npm run build`
+## **Client Side**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
+![121147769-222ff400-c87c-11eb-9b3a-012faca5f003](https://user-images.githubusercontent.com/76901060/122878803-1ca1d600-d373-11eb-955e-d7f2c6153035.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## **Server Side**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+🗨️ [For more details about Remember project, please check our Wiki!](https://github.com/codestates/Remember-client/wiki)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# **About Us**
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+### **Period**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- 2021.06.21 - 2021.07-20
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+
+### **Link**
+
+- [http://www.Remember.com](링크)
+
+
+### **Repository**
+
+- [Client repository](https://github.com/codestates/Remember-client/tree/dev)
+- [Server repository](https://github.com/codestates/Remember-server/tree/dev)
+
+### **OPTIMIZED CREW (OC)**
+
+Crew | Role | GitHub
+----- | ----- | -----
+김승무	| Front-end	| https://github.com/KimseungMoo
+이동건 | Front-end	| https://github.com/dong-geon-Lee
+김성희	| Back-end |	https://github.com/heesmile0310
+이주형	| Back-end | https://github.com/johny985
+
+
+- [Check Client side dev-logs!](https://github.com/codestates/Remember-client/projects/1)
+- [Check Sever side dev-logs!](https://github.com/codestates/Remember-server/projects/2)
+

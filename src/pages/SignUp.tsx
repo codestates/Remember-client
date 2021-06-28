@@ -5,12 +5,12 @@ function SignUp() {
 
   return (
     <div className="navbar__body">
-      <button
-      className="navbar__signin-btn"
+      <div
+      className="navbar__btn"
       onClick={() => setIsVisible(true)}
       >
-        SignUp
-      </button>
+        Sign Up
+      </div>
       <div className={isVisible? "show": "hide"}>
         <div className="modal__overlay" onClick={() => setIsVisible(false)}></div>
         <div className="modal__content">

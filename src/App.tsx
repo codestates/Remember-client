@@ -7,13 +7,14 @@ import {
   Redirect,
 } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import PostDetail from "./components/PostDetail";
 
-function App () {
+function App() {
   return (
     <Router>
       <Navbar></Navbar>
       <div>
-        
+        <PostDetail></PostDetail>
       </div>
     </Router>
   )

@@ -14,7 +14,6 @@ function App() {
     <Router>
       <Navbar></Navbar>
       <div>
-        <PostDetail></PostDetail>
       </div>
     </Router>
   )

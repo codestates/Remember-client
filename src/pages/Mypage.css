@@ -1,42 +1,46 @@
-.postdetail__main-box {
+.mypage__main-box {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.postdetail__content-box {
+.mypage__content-box {
   display: flex;
   justify-content: left;
   align-items: center;
 }
 
-.postdetail__content {
+.mypage__content-list {
+  display: flex;
+}
+
+.mypage__content {
   background-color: teal;
   width: 800px;
   height: 300px;
-  line-height: 20;
-  text-align: center;
   margin: 0 auto 50px auto;
 }
 
-.postdetail__image {
+.mypage__image {
   background-color: slateblue;
   width: 400px;
-  height: 400px;
+  height: 450px;
   text-align: center;
   line-height: 25;
   margin-top: 150px;
 }
 
-.postdetail__image-title {
+.mypage__content-item {
   background-color: wheat;
-  width: 400px;
-  height: 50px;
+  width: 150px;
+  height: 200px;
   text-align: center;
-  line-height: 3.5;
+  line-height: 12;
+  list-style: none;
+  margin-left: 20px;
 }
 
-.postdetail__side {
+.mypage__side {
   background-color: thistle;
   width: 400px;
   height: 450px;
@@ -44,17 +48,17 @@
   margin-top: 150px;
 }
 
-.postdetail__side-title {
-  background-color: tomato;
+.mypage__side-title {
+  /* background-color: tomato; */
   width: 60%;
   height: 40px;
   line-height: 3;
-  margin-top: 100px;
+  margin-top: 40px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.postdetail__side-bar {
+.mypage__side-bar {
   background-color: violet;
   width: 60%;
   height: 40px;
@@ -64,14 +68,19 @@
   margin-right: auto;
 }
 
-.postdetail__side-support {
+/* .mypage__side-support {
   margin: 150px 10px 0 10px;
+  cursor: pointer;
+  padding: 10px;
+} */
+
+.mypage__side-save {
+  margin: 80px 10px 0 10px;
   cursor: pointer;
   padding: 10px;
 }
 
-.postdetail__side-share {
-  margin: 150px 10px 0 10px;
-  cursor: pointer;
+.mypage__receipt {
   padding: 10px;
+  margin: 20px;
 }

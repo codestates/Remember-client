@@ -24,7 +24,7 @@ function SignUp() {
           placeholder="NAME"
           ></input>
           <input
-          placeholder="DATA OF BIRTH"
+          placeholder="DATE OF BIRTH"
           ></input>
           <button>SignUp</button>
         </div>

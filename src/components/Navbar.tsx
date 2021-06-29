@@ -15,10 +15,9 @@ const StyledMenu = styled.nav`
   }
 `;
 
-
 function Navbar() {
-
   return (
+
       <div>
         <div className="header__box">
           <div className="header__title">Remember</div>
@@ -29,8 +28,14 @@ function Navbar() {
       <StyledMenu >
         <Hamburger/>
       </StyledMenu>
+
       </div>
-  )
+
+      <StyledMenu>
+        <Hamburger />
+      </StyledMenu>
+    </div>
+  );
 }
 
 export default Navbar;

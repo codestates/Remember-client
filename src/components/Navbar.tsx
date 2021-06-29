@@ -5,7 +5,7 @@ import Hamburger from '../pages/Hamburger';
 
 const StyledMenu = styled.nav`
   width: 100%;
-  height: 55px;
+  height: 0px;
   padding: 0 20px;
   display: flex;
   justify-content: space-between;

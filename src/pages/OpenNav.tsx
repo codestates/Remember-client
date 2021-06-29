@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 import styled from 'styled-components';
-import SignIn from '../pages/SignIn';
-import SignUp from '../pages/SignUp';
 
 const Ul = styled.ul<{ open: boolean }>`
   list-style: none;
@@ -11,6 +10,10 @@ const Ul = styled.ul<{ open: boolean }>`
     padding: 18px 10px;
     margin-right: 220px;
     cursor: pointer;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
   }
   @media {
     flex-flow: column nowrap;
@@ -42,6 +45,11 @@ const OpenNav = ({ open }:Props) => {
         <li>후원하기</li>
         <li onClick={() => setSignInClick(true)}>로그인</li>
         <li onClick={() => setSignUpClick(true)}>회원가입</li>
+        <li>
+          <Link to="/mypage">
+            내정보
+          </Link>
+        </li>
       </Ul>
 
       <div className={signUpClick? "show": "hide"}>

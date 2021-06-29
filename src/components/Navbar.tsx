@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import './Navbar.css';
-import Hamburger from '../pages/Hamburger';
+import "./Navbar.css";
+import Hamburger from "../pages/Hamburger";
 
 const StyledMenu = styled.nav`
   width: 100%;
@@ -17,18 +17,17 @@ const StyledMenu = styled.nav`
 
 function Navbar() {
   return (
-
+    <div>
       <div>
         <div className="header__box">
           <div className="header__title">Remember</div>
           {/* <div className="header__btn"><SignUp/></div>
           <div className="header__btn"><SignIn/></div> */}
-       </div>
-      
-      <StyledMenu >
-        <Hamburger/>
-      </StyledMenu>
+        </div>
 
+        <StyledMenu>
+          <Hamburger />
+        </StyledMenu>
       </div>
 
       <StyledMenu>

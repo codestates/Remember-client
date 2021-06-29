@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import "./Navbar.css";
-import Hamburger from "../pages/Hamburger";
-import SignIn from "../pages/SignIn";
-import SignUp from "../pages/SignUp";
+import './Navbar.css';
+import Hamburger from '../pages/Hamburger';
 
 const StyledMenu = styled.nav`
   width: 100%;
-  height: 55px;
+  height: 0px;
   padding: 0 20px;
   display: flex;
   justify-content: space-between;
@@ -19,15 +17,18 @@ const StyledMenu = styled.nav`
 
 function Navbar() {
   return (
-    <div>
-      <div className="header__box">
-        <div className="header__title">Remember</div>
-        <div className="header__btn">
-          <SignUp />
-        </div>
-        <div className="header__btn">
-          <SignIn />
-        </div>
+
+      <div>
+        <div className="header__box">
+          <div className="header__title">Remember</div>
+          {/* <div className="header__btn"><SignUp/></div>
+          <div className="header__btn"><SignIn/></div> */}
+       </div>
+      
+      <StyledMenu >
+        <Hamburger/>
+      </StyledMenu>
+
       </div>
 
       <StyledMenu>

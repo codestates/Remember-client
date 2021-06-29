@@ -1,0 +1,76 @@
+#party {
+  width: 100%;
+  margin-top: 150px;
+  padding: 50px 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.1), white);
+}
+
+.party__title__text {
+  text-align: center;
+  padding-bottom: 70px;
+}
+
+.party__text p {
+  margin: auto;
+  font-size: 15px;
+  color: black;
+  font-weight: 900;
+  position: relative;
+  display: inline-block;
+}
+
+.party__title__text h1 {
+  color: #403e8d;
+  font-size: 50px;
+}
+
+.party__box {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  text-align: center;
+}
+
+.partys {
+  flex-basis: 50%;
+}
+
+.party__img {
+  flex-basis: 50%;
+  margin: auto;
+}
+
+.party__img img {
+  width: 70%;
+  border-radius: 10px;
+}
+
+.partys h1 {
+  text-align: left;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: rgb(226, 84, 65);
+}
+
+.party__desc {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.party__icon {
+  width: 70px;
+  height: 50px;
+  font-size: 30px;
+  line-height: 50px;
+  border-radius: 8px;
+  color: rgb(23, 15, 59);
+}
+
+.party__text p {
+  padding: 0 20px;
+  text-align: left;
+  color: rgb(46, 155, 137);
+}

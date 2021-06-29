@@ -1,0 +1,88 @@
+#join__container {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  padding-top: 100px;
+  margin-bottom: 200px;
+}
+
+.join__title__big {
+  color: rgb(207, 23, 23);
+  padding-top: 15px;
+  padding-bottom: 18px;
+}
+
+.join__text {
+  color: rgb(59, 59, 247);
+  width: 100%;
+  margin-top: 15px;
+}
+
+.join__row {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.join__col {
+  flex-basis: 31%;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.join__hover {
+  background-color: transparent;
+  width: 100%;
+  height: 130%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 0.5s;
+}
+
+.join__hover:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.join__hover .join__title {
+  width: 100%;
+  font-weight: 500;
+  color: black;
+  font-size: 20px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.join__hover:hover .join__title {
+  bottom: 49%;
+  opacity: 1;
+}
+
+.join__col img {
+  width: 100%;
+  height: 130%;
+  border-radius: 10px;
+}
+
+.join__button {
+  width: 100%;
+  border: 2px solid green;
+  background-color: transparent;
+  position: relative;
+  border-radius: 10px;
+  margin-top: 10px;
+  padding: 12px 25px;
+  color: red;
+}
+
+.join__button:hover {
+  color: white;
+  background-color: #00c3ff;
+  transition: 0.5s;
+  border-radius: 10px;
+}

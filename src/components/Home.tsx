@@ -5,6 +5,7 @@ import About from "../pages/About";
 import TodoIntro from "../pages/TodoIntro";
 import Party from "../pages/Party";
 import JoinPage from "../pages/JoinPage";
+import Footer from "../pages/Footer";
 
 const Home: React.FC = () => {
   return (
@@ -14,6 +15,7 @@ const Home: React.FC = () => {
       <TodoIntro></TodoIntro>
       <Party></Party>
       <JoinPage></JoinPage>
+      <Footer></Footer>
     </>
   );
 };

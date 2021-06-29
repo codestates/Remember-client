@@ -1,0 +1,31 @@
+#footer {
+  margin-top: 20rem;
+  padding: 25px 25px;
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgb(211, 214, 214));
+  justify-content: center;
+  align-items: center;
+}
+
+.footer__title {
+  font-style: italic;
+  padding: 20px;
+  color: rgb(32, 55, 153);
+  text-align: center;
+}
+
+.footer__links {
+  font-size: 25px;
+  text-align: center;
+}
+
+.footer__links .footer__address {
+  text-decoration: none;
+  color: green;
+}
+
+.footer__rights {
+  padding: 20px;
+  color: red;
+  text-align: center;
+  font-weight: bold;
+}

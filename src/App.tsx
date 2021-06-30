@@ -6,6 +6,7 @@ import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import Mypage from "./pages/Mypage";
 import Header from "./pages/Header";
+import Receipt from "./pages/Receipt";
 
 const App: React.FC = () => {
   
@@ -14,7 +15,8 @@ const App: React.FC = () => {
       <Navbar></Navbar>
       <Switch>
         <Route exact path="/" component={Home}></Route>
-        <Route path="/mypage" component={Mypage}></Route>
+        <Route path="/mypage" component={Mypage}/>
+        <Route path="/receipt" component={Receipt}/>
         <Route path="/" render={() => <div>404 에러</div>}></Route>
         
       </Switch>

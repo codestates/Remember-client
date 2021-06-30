@@ -52,6 +52,7 @@
   padding-right: 90px;
   position: fixed;
   background-color: white;
+  z-index: 1;
 }
 
 .header__title {
@@ -60,6 +61,11 @@
   font: bold;
   display: inline-block;
   cursor: pointer;
+}
+
+.header__title > a {
+  color: inherit;
+  text-decoration: none;
 }
 
 /* .header__btn {

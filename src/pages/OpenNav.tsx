@@ -8,6 +8,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const Ul = styled.ul<{ open: boolean }>`
+  z-index: 2;
   list-style: none;
   display: flex;
   flex-flow: row nowrap;
@@ -70,9 +71,7 @@ const OpenNav = ({ open }:Props) => {
         <li onClick={() => setSignInClick(true)}>로그인</li>
         <li onClick={() => setSignUpClick(true)}>회원가입</li>
         <li>
-          <Link to="/mypage">
-            내정보
-          </Link>
+          <Link to="/mypage">내정보</Link>
         </li>
       </Ul>
 

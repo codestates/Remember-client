@@ -84,3 +84,8 @@
   padding: 10px;
   margin: 20px;
 }
+
+.mypage__receipt > a {
+  color: inherit;
+  text-decoration: none;
+}

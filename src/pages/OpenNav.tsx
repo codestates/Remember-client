@@ -2,12 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import styled from 'styled-components';
 import GithubLogin from './GithubLogin';
+import GoogleLoginPage from './GoogleLoginPage';
+import { useSelector } from 'react-redux';
+import { Root } from "../Store";
 
-import axios from "axios";
 import dotenv from "dotenv";
 dotenv.config();
 
 const Ul = styled.ul<{ open: boolean }>`
+  z-index: 2;
   list-style: none;
   display: flex;
   flex-flow: row nowrap;
@@ -38,46 +41,45 @@ const Ul = styled.ul<{ open: boolean }>`
 `;
 type Props = {
   open: boolean;
+  auth: any;
 };
 
-const OpenNav = ({ open }:Props) => {
+const OpenNav = ({ open, auth }:Props) => {
+  const token = useSelector((state: Root) => state.login);
   const [signUpClick, setSignUpClick] = useState<boolean>(false);
   const [signInClick, setSignInClick] = useState<boolean>(false);
-  const [accessToken, setAccessToken] = useState<string>();
-
-  const getAccessToken = async (authorizationCode:string) => {
-    let resp = await axios.post(`${process.env.REACT_APP_API_URL}/`, 
-    { authorizationCode: authorizationCode })
-
-    setAccessToken(resp.data.acceccToken);
-  }
-
-  useEffect(() => {
-    return () => {
-      const url = new URL(window.location.href)
-      const authorizationCode = url.searchParams.get('code')
-      if(authorizationCode) {
-        getAccessToken(authorizationCode)
-      }
-    }
-  }, [])
+  const [modalOn, setModalOn] = useState<boolean>(false);
 
   return (
-    <div>
+    <div >
       <Ul open={open}>
         <li>게시물</li>
         <li>후원하기</li>
-        <li onClick={() => setSignInClick(true)}>로그인</li>
-        <li onClick={() => setSignUpClick(true)}>회원가입</li>
+        <li onClick={() => {
+          if(token) {
+            alert("이미 로그인 되었습니다.");
+          }
+          else if(!modalOn) {
+          setSignInClick(true);
+          setModalOn(true);
+          }
+        }}>로그인</li>
+        <li onClick={() => {
+          if(!modalOn) {
+          setSignUpClick(true);
+          setModalOn(true);
+          }
+        }}>회원가입</li>
         <li>
-          <Link to="/mypage">
-            내정보
-          </Link>
+          <Link to="/mypage">내정보</Link>
         </li>
       </Ul>
 
       <div className={signInClick? "show": "hide"}>
-        <div className="modal__overlay" onClick={() => setSignInClick(false)}></div>
+        <div className="modal__overlay" onClick={() => {
+          setSignInClick(false);
+          setModalOn(false);
+        }}></div>
         <div className="modal__content">
           <input
           placeholder="EMAIL"
@@ -86,12 +88,16 @@ const OpenNav = ({ open }:Props) => {
           placeholder="PASSWORD"
           ></input>
           <button>SignIn</button>
-          <GithubLogin/>
+          <GithubLogin auth={auth} setSignInClick={setSignInClick}/>
+          <GoogleLoginPage auth={auth} setSignInClick={setSignInClick}/>
         </div>
       </div>
 
       <div className={signUpClick? "show": "hide"}>
-        <div className="modal__overlay" onClick={() => setSignUpClick(false)}></div>
+        <div className="modal__overlay" onClick={() => {
+          setSignUpClick(false);
+          setModalOn(false);
+        }}></div>
         <div className="modal__content">
           <input
           placeholder="EMAIL"
@@ -103,7 +109,7 @@ const OpenNav = ({ open }:Props) => {
           placeholder="NAME"
           ></input>
           <input
-          placeholder="DATA OF BIRTH"
+          placeholder="DATE OF BIRTH"
           ></input>
           <button>SignUp</button>
         </div>

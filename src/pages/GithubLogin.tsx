@@ -1,16 +1,43 @@
-import React from 'react'
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as actionCreators from '../action-creators/loginCreators';
+import { Root } from "../Store";
 
-const GithubLogin = () => {
-  const GITHUB_LOGIN_URL = 'https://github.com/login/oauth/authorize?client_id=43548ce9b4cc72844865'
-  
-  const socialLoginHandler = () => {
-    window.location.assign(GITHUB_LOGIN_URL)
+type Props = {
+  auth: any;
+  setSignInClick: any;
+}
+
+const GithubLogin = ({auth, setSignInClick}:Props) => {
+  const dispatch = useDispatch();
+  const { setToken, logout } =bindActionCreators(
+    actionCreators,
+    dispatch
+  );
+
+  const token = useSelector((state: Root) => state.login);
+
+  const socialLoginHandler = (social = "Github") => {
+    auth
+    .login(social)
+    .then((data:any) => {
+      setToken(data.credential.accessToken);
+      toMainPage();
+    });
   }
+
+  const toMainPage = ():void => {
+    console.log(token);
+    setSignInClick(false);
+    //window.location.replace("/");
+  }
+
   return (
     <div className="github__box">
       <img className="github__logo" alt="logo" src="https://image.flaticon.com/icons/png/512/25/25231.png" />
       <div
-        onClick={socialLoginHandler}
+        onClick={() => socialLoginHandler()}
         className="github__login-btn"
       >Log in with Github</div>
     </div>

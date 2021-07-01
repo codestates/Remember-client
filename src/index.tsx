@@ -4,10 +4,16 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from "react-redux";
 import store from "./Store";
+import { BrowserRouter } from 'react-router-dom';
+import Auth from './service/auth';
+
+const auth = new Auth();
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <BrowserRouter>
+      <App auth={auth}/>
+    </BrowserRouter>
   </Provider>,
   document.getElementById('root')
 );

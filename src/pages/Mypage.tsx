@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import './Mypage.css';
 
 const Mypage: React.FC = () => {
@@ -23,7 +24,9 @@ const Mypage: React.FC = () => {
       </div>
       <div className="mypage__content-box">
         <div className="mypage__content">
-          <button className="mypage__receipt">영수증</button>
+          <button className="mypage__receipt">
+            <Link to='/receipt'>영수증</Link>
+          </button>
           <ul className="mypage__content-list">
             <li className="mypage__content-item"> 후원 리스트</li>
             <li className="mypage__content-item"> 후원 리스트</li>

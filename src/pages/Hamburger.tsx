@@ -50,7 +50,7 @@ function Hamburger({auth}:any) {
       <div />
       <div />
     </StyledHamburger>
-    <OpenNav auth={auth} open={open} />
+    <OpenNav auth={auth} open={open} setOpen={setOpen} />
     </div>
   )
 }

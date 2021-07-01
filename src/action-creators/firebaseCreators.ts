@@ -3,7 +3,7 @@ import { Dispatch } from "redux";
 import { FirebaseAction } from "../actions/firebaseAction";
 
 export const setAuth =
-  (auth: any) => (dispatch: Dispatch<FirebaseAction>) => {
+  (auth: object) => (dispatch: Dispatch<FirebaseAction>) => {
     dispatch({
       type: FirebaseActionType.SET_AUTH,
       payload: auth,

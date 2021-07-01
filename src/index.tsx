@@ -1,9 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import store from "./Store";
+
 import { BrowserRouter } from 'react-router-dom';
 import Auth from './service/auth';
 import { persistStore } from 'redux-persist';
@@ -14,13 +15,14 @@ const auth = new Auth();
 
 ReactDOM.render(
   <Provider store={store}>
+
     <PersistGate loading={null} persistor={persistor}>
       <BrowserRouter>
         <App auth={auth}/>
       </BrowserRouter>
     </PersistGate>
   </Provider>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

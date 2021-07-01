@@ -29,6 +29,7 @@
   border-radius: 10px;
   margin-bottom: 30px;
   position: relative;
+  z-index: -3;
 }
 
 .join__hover {

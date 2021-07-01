@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
 import { useDispatch, useSelector } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actionCreators from './action-creators/loginCreators';
@@ -31,7 +32,7 @@ const App = ({auth}:any) => {
         <Route path="/mypage" component={Mypage}></Route>
         <Route exact path="/accident" component={AccList}></Route>
         <Route exact path="/service" component={ServicePay}></Route>
-        <Route path="/receipt" component={Receipt}/>
+        <Route path="/receipt" component={Receipt} />
         <Route path="/" render={() => <div>404 에러</div>}></Route>
       </Switch>
     </Router>

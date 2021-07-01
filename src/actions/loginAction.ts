@@ -2,7 +2,7 @@ import { ActionType } from "../action-types/loginActionTypes"
 
 interface SetTokenAction {
   type: ActionType.SET_ACCESSTOKEN;
-  payload: string;
+  payload: object;
 }
 
 interface GetTokenAction {

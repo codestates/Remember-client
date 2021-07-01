@@ -7,9 +7,10 @@ import { Root } from "../Store";
 type Props = {
   auth: any;
   setSignInClick: any;
+  setModalOn:any;
 }
 
-const GithubLogin = ({auth, setSignInClick}:Props) => {
+const GithubLogin = ({auth, setSignInClick, setModalOn}:Props) => {
   const dispatch = useDispatch();
   const { setToken, logout } =bindActionCreators(
     actionCreators,
@@ -20,16 +21,17 @@ const GithubLogin = ({auth, setSignInClick}:Props) => {
 
   const socialLoginHandler = (social = "Github") => {
     auth
-    .login(social)
-    .then((data:any) => {
-      setToken(data.credential.accessToken);
-      toMainPage();
-    });
+      .login(social)
+      .then((data:any) => {
+        setToken(data.credential.accessToken);
+        toMainPage();
+      });
   }
 
   const toMainPage = ():void => {
     console.log(token);
     setSignInClick(false);
+    setModalOn(false);
     //window.location.replace("/");
   }
 

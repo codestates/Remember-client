@@ -6,14 +6,19 @@ import { Provider } from "react-redux";
 import store from "./Store";
 import { BrowserRouter } from 'react-router-dom';
 import Auth from './service/auth';
+import { persistStore } from 'redux-persist';
+import { PersistGate } from 'redux-persist/integration/react';
 
+const persistor = persistStore(store);
 const auth = new Auth();
 
 ReactDOM.render(
   <Provider store={store}>
-    <BrowserRouter>
-      <App auth={auth}/>
-    </BrowserRouter>
+    <PersistGate loading={null} persistor={persistor}>
+      <BrowserRouter>
+        <App auth={auth}/>
+      </BrowserRouter>
+    </PersistGate>
   </Provider>,
   document.getElementById('root')
 );

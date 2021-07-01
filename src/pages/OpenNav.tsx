@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import styled from 'styled-components';
 import GithubLogin from './GithubLogin';
 import GoogleLoginPage from './GoogleLoginPage';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as actionCreators from '../action-creators/loginCreators';
 import { Root } from "../Store";
 
 import dotenv from "dotenv";
@@ -41,38 +43,53 @@ const Ul = styled.ul<{ open: boolean }>`
 `;
 type Props = {
   open: boolean;
+  setOpen:any;
   auth: any;
 };
 
-const OpenNav = ({ open, auth }:Props) => {
-  const token = useSelector((state: Root) => state.login);
+const OpenNav = ({ open, setOpen , auth }:Props) => {
+  const token:any = useSelector((state: Root) => state.login);
   const [signUpClick, setSignUpClick] = useState<boolean>(false);
   const [signInClick, setSignInClick] = useState<boolean>(false);
   const [modalOn, setModalOn] = useState<boolean>(false);
+
+  const dispatch = useDispatch();
+  const { logout } =bindActionCreators(
+    actionCreators,
+    dispatch
+  );
 
   return (
     <div >
       <Ul open={open}>
         <li>게시물</li>
         <li>후원하기</li>
-        <li onClick={() => {
-          if(token) {
-            alert("이미 로그인 되었습니다.");
-          }
-          else if(!modalOn) {
+        {!token.accessToken &&
+          <li onClick={() => {
+          if(!modalOn) {
           setSignInClick(true);
           setModalOn(true);
+          setOpen(false);
           }
-        }}>로그인</li>
+        }}>로그인</li>}
+        {!token.accessToken &&
         <li onClick={() => {
           if(!modalOn) {
           setSignUpClick(true);
           setModalOn(true);
+          setOpen(false)
           }
-        }}>회원가입</li>
+        }}>회원가입</li>}
+        {token.accessToken &&
+        <li onClick={() => {
+          logout();
+          auth.logout()
+          setOpen(false)
+        }}>로그아웃</li>}
+        {token.accessToken &&
         <li>
           <Link to="/mypage">내정보</Link>
-        </li>
+        </li>}
       </Ul>
 
       <div className={signInClick? "show": "hide"}>
@@ -88,8 +105,8 @@ const OpenNav = ({ open, auth }:Props) => {
           placeholder="PASSWORD"
           ></input>
           <button>SignIn</button>
-          <GithubLogin auth={auth} setSignInClick={setSignInClick}/>
-          <GoogleLoginPage auth={auth} setSignInClick={setSignInClick}/>
+          <GithubLogin auth={auth} setSignInClick={setSignInClick} setModalOn={setModalOn}/>
+          <GoogleLoginPage auth={auth} setSignInClick={setSignInClick} setModalOn={setModalOn}/>
         </div>
       </div>
 

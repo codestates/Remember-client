@@ -1,17 +1,18 @@
 import { ActionType } from "../action-types/loginActionTypes";
 import { Action } from "../actions/loginAction";
 
-const initialState = "";
+const initialState = {accessToken: ""};
 
 const loginReducer = (
-  state: string = initialState, action: Action) => {
+  state: object = initialState, action: Action) => {
   switch(action.type) {
     case ActionType.SET_ACCESSTOKEN:
-      return state + action.payload;
+      return Object.assign({}, state, action.payload);
+      // return state + action.payload;
     case ActionType.GET_ACCESSTOKEN:
       return state;
     case ActionType.LOGOUT:
-      return "";
+      return {accessToken: ""};
     default:
       return state;
   }

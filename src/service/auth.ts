@@ -1,16 +1,15 @@
 import { firebaseApp , firebaseAuth, githubProvider, googleProvider } from './firebase';
 import firebase from 'firebase/app';
 
-
 class Auth {
   login(name:any) {
       const provider = this.getProvider(name);
       return firebaseAuth.signInWithPopup(provider);
   } 
 
-  // logout() {
-  //   firebase.auth().signOut();
-  // }
+  logout() {
+    firebaseApp.auth().signOut();
+  }
 
   getProvider(name:any){
       switch(name){

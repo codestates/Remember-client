@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { bindActionCreators } from "redux";
-import * as actionCreators from "./action-creators/loginCreators";
 
+import { useDispatch, useSelector } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as actionCreators from './action-creators/loginCreators';
+import * as firebaseCreators from './action-creators/firebaseCreators';
 import { Root } from "./Store";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
@@ -15,14 +16,16 @@ import ServicePay from "./components/ServicePay";
 import Receipt from "./pages/Receipt";
 import Login from "./pages/Login";
 
-const App = ({ auth }: any) => {
-  const dispatch = useDispatch();
-  const { setToken } = bindActionCreators(actionCreators, dispatch);
-  const token = useSelector((state: Root) => state.login);
-
+const App = ({auth}:any) => {
+  // const dispatch = useDispatch();
+  // const { setAuth } = bindActionCreators(
+  //   firebaseCreators,
+  //   dispatch
+  // );
+  // const firebase = useSelector((state: Root) => state.firebase);
+  
   return (
     <Router>
-      <h1>{token}</h1>
       <Navbar auth={auth}></Navbar>
       <Switch>
         <Route exact path="/" component={Home}></Route>

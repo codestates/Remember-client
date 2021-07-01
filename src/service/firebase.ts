@@ -13,7 +13,6 @@ const firebaseConfig = {
 };
 
 export const firebaseApp = firebase.initializeApp(firebaseConfig);
-
+export const firebaseAuth=firebaseApp.auth();
 export const googleProvider = new firebase.auth.GoogleAuthProvider();
 export const githubProvider = new firebase.auth.GithubAuthProvider();
-export const firebaseAuth=firebaseApp.auth();

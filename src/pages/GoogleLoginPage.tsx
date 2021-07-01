@@ -4,9 +4,9 @@ import { bindActionCreators } from 'redux';
 import * as actionCreators from '../action-creators/loginCreators';
 import { Root } from "../Store";
 
-const GoogleLoginPage = ({auth, setSignInClick}:any) => {
+const GoogleLoginPage = ({auth, setSignInClick, setModalOn}:any) => {
   const dispatch = useDispatch();
-  const { setToken, logout } =bindActionCreators(
+  const { setToken } =bindActionCreators(
     actionCreators,
     dispatch
   );
@@ -24,14 +24,9 @@ const GoogleLoginPage = ({auth, setSignInClick}:any) => {
   const toMainPage = ():void => {
     console.log(token);
     setSignInClick(false);
+    setModalOn(false);
     //window.location.replace("/");
   }
-
-  const logOutHandler =() => {
-    logout();
-    //auth.logout();
-  }
- 
 
   return (
     <div>
@@ -42,7 +37,6 @@ const GoogleLoginPage = ({auth, setSignInClick}:any) => {
         className="github__login-btn"
       >Log in with GooGle</div>
     </div>
-    <button onClick={logOutHandler}>로그아웃</button>
     </div>
   )
 }

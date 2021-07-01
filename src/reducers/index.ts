@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import githubReducer from './githubReducer';
+import loginReducer from './loginReducer';
+import firebaseReducer from './firebaseReducer';
 
 const rootReducer = combineReducers({
-  github: githubReducer,
+  login: loginReducer,
+  firebase: firebaseReducer,  
 })
 
 export default rootReducer;

@@ -38,7 +38,7 @@ const StyledHamburger = styled.div<{ open: boolean }>`
 
 
 
-function Hamburger() {
+function Hamburger({auth}:any) {
   const [open, setOpen] = useState<boolean>(false);
 
   return (
@@ -50,7 +50,7 @@ function Hamburger() {
       <div />
       <div />
     </StyledHamburger>
-    <OpenNav open={open}/>
+    <OpenNav auth={auth} open={open} />
     </div>
   )
 }

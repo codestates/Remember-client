@@ -16,10 +16,9 @@ const StyledMenu = styled.nav`
   }
 `;
 
-function Navbar() {
+function Navbar({auth}:any) {
   return (
     <div>
-      <div>
         <div className="header__box">
           <div className="header__title">
             <Link to='/'>Remember</Link>
@@ -29,13 +28,8 @@ function Navbar() {
         </div>
 
         <StyledMenu>
-          <Hamburger />
+          <Hamburger auth={auth}/>
         </StyledMenu>
-      </div>
-
-      <StyledMenu>
-        <Hamburger />
-      </StyledMenu>
     </div>
   );
 }

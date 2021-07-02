@@ -1,8 +1,12 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { Root } from "../Store";
+import { useSelector } from 'react-redux';
 import './Mypage.css';
 
 const Mypage: React.FC = () => {
+  const token:any = useSelector((state: Root) => state.login);
+
   return (
     <div>
       <div className="mypage__main-box">

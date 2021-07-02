@@ -12,7 +12,7 @@ type Props = {
 
 const GithubLogin = ({auth, setSignInClick, setModalOn}:Props) => {
   const dispatch = useDispatch();
-  const { setToken, logout } =bindActionCreators(
+  const { setToken } =bindActionCreators(
     actionCreators,
     dispatch
   );
@@ -37,11 +37,11 @@ const GithubLogin = ({auth, setSignInClick, setModalOn}:Props) => {
 
   return (
     <div className="github__box">
-      <img className="github__logo" alt="logo" src="https://image.flaticon.com/icons/png/512/25/25231.png" />
+      <img className="social__logo" alt="logo" src="https://image.flaticon.com/icons/png/512/25/25231.png"/>
       <div
         onClick={() => socialLoginHandler()}
         className="github__login-btn"
-      >Log in with Github</div>
+      >깃허브 아이디로 로그인</div>
     </div>
   )
 }

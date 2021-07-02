@@ -19,6 +19,7 @@ const GoogleLoginPage = ({auth, setSignInClick, setModalOn}:any) => {
       .then((data:any) => {
         setToken(data.credential.accessToken);
         toMainPage();
+        console.log(data);
       });
   }
   const toMainPage = ():void => {

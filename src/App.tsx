@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Helmet } from 'react-helmet';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -12,15 +13,21 @@ import Navbar from "./components/Navbar";
 import Mypage from "./pages/Mypage";
 import AccList from "./components/AccList";
 import ServicePay from "./components/ServicePay";
-
 import Receipt from "./pages/Receipt";
-import Login from "./pages/Login";
+import KakaoShareButton from './pages/KakaoShareButton';
+import NaverSharePage from "./pages/NaverSharePage";
 
 const App = ({auth}:any) => {
   
   return (
     <Router>
       <Navbar auth={auth}></Navbar>
+      <div className="layout">
+        <Helmet>
+          <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+        </Helmet>
+        <KakaoShareButton />
+      </div>
       <Switch>
         <Route exact path="/" component={Home}></Route>
         <Route path="/mypage" component={Mypage}></Route>

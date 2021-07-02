@@ -30,12 +30,12 @@ const GoogleLoginPage = ({auth, setSignInClick, setModalOn}:any) => {
 
   return (
     <div>
-    <div className="github__box">
-      <img className="github__logo" alt="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/320px-Google_%22G%22_Logo.svg.png" />
+    <div className="google__box">
+      <img className="social__logo" alt="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/320px-Google_%22G%22_Logo.svg.png" />
       <div
         onClick={() => socialLoginHandler()}
-        className="github__login-btn"
-      >Log in with GooGle</div>
+        className="google__login-btn"
+      >구글 아이디로 로그인</div>
     </div>
     </div>
   )

@@ -17,12 +17,6 @@ import Receipt from "./pages/Receipt";
 import Login from "./pages/Login";
 
 const App = ({auth}:any) => {
-  // const dispatch = useDispatch();
-  // const { setAuth } = bindActionCreators(
-  //   firebaseCreators,
-  //   dispatch
-  // );
-  // const firebase = useSelector((state: Root) => state.firebase);
   
   return (
     <Router>

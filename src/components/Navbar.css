@@ -37,8 +37,47 @@
   align-items: center;
   position: relative;
   border-radius: 20px;
-  width: 300px;
-  height: 300px;
+  width: 400px;
+  height: 400px;
+}
+
+.modal__content > h1 {
+  margin: 20px auto;
+}
+
+.modal__content > h3 {
+  margin: 10px auto;
+}
+
+.modal__content > div > input {
+  padding: 10px;
+  margin: 5px auto;
+  width: 80%;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #eeeeee;
+  border: none;
+}
+
+.modal__content > button {
+  padding: 10px;
+  width: 80%;
+  height: 40px;
+  background-color: #ffecb3;
+  border-radius: 10px;
+  margin: 5px auto;
+  border: none;
+}
+
+.modal__content-switch {
+  color: gray;
+  margin: 15px auto;
+}
+
+.modal__content-switch > span {
+  color: #ffd54f;
+  cursor: pointer;
+  margin-left: 3px;
 }
 
 .hide {
@@ -68,27 +107,40 @@
   text-decoration: none;
 }
 
-/* .header__btn {
-  display: inline-block;
-  float: right;
-  margin: 15px 15px 15px 0px;
-} */
-
 .github__login-btn {
   font-size: 1rem;
-  font-weight: 900;
+  font-weight: 500;
   text-align: center;
   text-decoration: none;
   line-height: 2.2;
+  margin-left: 25px;
 }
 
-.github__logo {
+.google__login-btn {
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  line-height: 2.2;
+  margin-left: 30px;
+}
+
+.social__logo {
   width: 20px;
   height: 20px;
-  margin: 5px 35px 0 20px;
+  margin: 8px 35px 0 20px;
 }
 
 .github__box {
+  display: flex;
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 80%;
+  margin: 10px auto;
+  cursor: pointer;
+}
+
+.google__box {
   display: flex;
   border: 1px solid black;
   border-radius: 10px;

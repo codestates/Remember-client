@@ -1,0 +1,119 @@
+#payment {
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), #fff),
+    url("../images/cy.jpg");
+  background-position: center;
+  background-size: cover;
+  align-items: center;
+  justify-content: center;
+}
+
+.payment__container {
+  height: 600px;
+  width: 400px;
+  background-image: linear-gradient(rgb(233, 233, 233), rgb(170, 170, 170));
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.payment__top {
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  height: 100px;
+  background-color: #271335;
+  border-bottom-left-radius: 80px;
+  border-bottom-right-radius: 80px;
+}
+
+.payment__title {
+  width: 100%;
+  font-size: 20px;
+  position: absolute;
+  top: 7%;
+  left: 50%;
+  transform: translate(-50%, -7%);
+}
+
+.payment__box {
+  margin-top: 3rem;
+}
+
+.payment__details {
+  background: #fff;
+  color: #555;
+  margin: 50px 30px;
+  padding: 35px;
+  margin-top: 40px;
+  height: 400px;
+}
+
+.payment__details .payment__text {
+  font-size: 11px;
+  line-height: 20px;
+}
+
+.payment__details input {
+  border: 1px solid #ccc;
+  height: 25px;
+  padding: 5px;
+  font-size: 12px;
+}
+
+.payment__details input::placeholder {
+  color: #ccc;
+}
+
+.payment__card__field {
+  margin-top: 0px;
+}
+
+.payment__date {
+  margin-top: 25px;
+  display: inline-block;
+}
+
+.payment__cvc__field {
+  margin-top: 25px;
+  display: inline-block;
+  float: right;
+}
+
+.payment__name__field {
+  margin-top: 25px;
+}
+
+.payment__card__num,
+.name__field {
+  width: 270px;
+}
+
+.payment__date__field,
+.cvc__field {
+  width: 80px;
+}
+
+.payment__btn1 {
+  color: #fff;
+  margin-top: 50px;
+  height: 30px;
+  width: 100%;
+  justify-content: center;
+  background-color: #ff4b04;
+  border: none;
+  cursor: pointer;
+}
+
+.payment__btn2 {
+  color: #fff;
+  margin-top: 15px;
+  height: 30px;
+  width: 100%;
+  justify-content: center;
+  background-color: rgb(31, 241, 241);
+  border: none;
+  cursor: pointer;
+}

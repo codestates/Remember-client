@@ -1,5 +1,7 @@
 import React from "react";
 import "./Footer.css";
+import KakaoShareButton from './KakaoShareButton';
+import Facebook from "./Facebook";
 
 const Footer: React.FC = () => {
   return (
@@ -17,6 +19,8 @@ const Footer: React.FC = () => {
       <p className="footer__rights">
         2021 Team: Remember - All rights reserved
       </p>
+      <KakaoShareButton />
+        <Facebook/>
     </section>
   );
 };

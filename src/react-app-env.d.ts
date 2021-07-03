@@ -3,3 +3,7 @@
 interface Window {
   Kakao: any
 }
+
+interface Document {
+  querySelector: any;
+}

@@ -16,6 +16,7 @@ import ServicePay from "./components/ServicePay";
 import Receipt from "./pages/Receipt";
 import Login from "./pages/Login";
 import Payment from "./components/Payment";
+import Quiz from "./components/Quiz";
 
 const App = ({ auth }: any) => {
   // const dispatch = useDispatch();
@@ -35,6 +36,7 @@ const App = ({ auth }: any) => {
         <Route exact path="/service" component={ServicePay}></Route>
         <Route exact path="/payment" component={Payment}></Route>
         <Route path="/receipt" component={Receipt} />
+        <Route exact path="/quiz" component={Quiz}></Route>
         <Route path="/" render={() => <div>404 에러</div>}></Route>
       </Switch>
     </Router>

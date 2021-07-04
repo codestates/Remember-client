@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import "./Navbar.css";
 import Hamburger from "../pages/Hamburger";
+import Notification from "../components/Notification";
 
 const StyledMenu = styled.nav`
   width: 100%;
@@ -19,15 +20,16 @@ const StyledMenu = styled.nav`
 function Navbar({auth}:any) {
   return (
     <div>
-        <div className="header__box">
-          <div className="header__title">
-            <Link to='/'>Remember</Link>
-          </div>
+      <Notification/>
+      <div className="header__box">
+        <div className="header__title">
+          <Link to='/'>Remember</Link>
         </div>
+      </div>
 
-        <StyledMenu>
-          <Hamburger auth={auth}/>
-        </StyledMenu>
+      <StyledMenu>
+        <Hamburger auth={auth}/>
+      </StyledMenu>
     </div>
   );
 }

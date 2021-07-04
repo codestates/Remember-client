@@ -2,6 +2,10 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import GithubLogin from './GithubLogin';
 import GoogleLoginPage from './GoogleLoginPage';
+import { useSelector, useDispatch } from 'react-redux';
+import { bindActionCreators } from "redux";
+import * as notificationCreators from "../action-creators/notificationCreators";
+import { Root } from "../Store";
 
 interface Props {
   signInClick: boolean;
@@ -25,6 +29,13 @@ const SignInModal = ({
   setOpen, 
   auth 
 }:Props) => {
+  const dispatch = useDispatch();
+  const { notify } = bindActionCreators(
+    notificationCreators,
+    dispatch
+  )
+  const state = useSelector((state:Root) => state.noti);
+
   const [values, setValues] = useState<Values>({
     email: "",
     password: ""
@@ -40,7 +51,7 @@ const SignInModal = ({
       //   console.log(res)
         
       // })
-      
+      notify('로그인 되었습니다.')
     } catch (error) {
       console.log(error)
     }
@@ -70,7 +81,10 @@ const SignInModal = ({
             onChange={(e) => setValues({...values, password:e.target.value})}
             ></input>
           </div>
-          <button onClick={() => loginHandler()}>로그인</button>
+          <button onClick={() => {
+            loginHandler();
+
+            }}>로그인</button>
           <div className="modal__content-switch modal__content-switch-login">계정이 없으신가요?
           <span onClick={() => {
             setSignInClick(false);

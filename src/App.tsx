@@ -32,6 +32,7 @@ const App = ({ auth }: any) => {
   return (
     <Router>
       <Navbar auth={auth}></Navbar>
+      
       <Switch>
         <Route exact path="/" component={Home}></Route>
         <Route path="/mypage" component={Mypage}></Route>
@@ -43,6 +44,7 @@ const App = ({ auth }: any) => {
         <Route exact path="/sponsor" component={Sponsor}></Route>
         <Route path="/" render={() => <div>404 에러</div>}></Route>
       </Switch>
+      
     </Router>
   );
 };

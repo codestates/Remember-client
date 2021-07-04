@@ -3,7 +3,7 @@ name: KPT 회고 이슈카드 양식
 about: 'KPT 회고 이슈카드 '
 title: ''
 labels: KPT회고
-assignees: dong-geon-Lee, heesmile0310, KimseungMoo, johny985
+assignees: dong-geon-Lee, heesmile0310, johny985, KimseungMoo
 
 ---
 

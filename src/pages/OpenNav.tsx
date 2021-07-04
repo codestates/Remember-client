@@ -9,7 +9,6 @@ import SignInModal from './SignInModal';
 import SignUpModal from './SignUpModal';
 
 const Ul = styled.ul<{ open: boolean }>`
-  z-index: 2;
   list-style: none;
   display: flex;
   flex-flow: row nowrap;

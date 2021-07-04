@@ -11,7 +11,7 @@ const SelectImg = ( { setImgUrl, imgUrl }:Props ) => {
   return (
     <div className="modal__content-img-div">
       <div>
-      <img className="imgimg" src={imgUrl}></img>
+      <img className="modal__content-img-img" src={imgUrl}></img>
       </div>
       <div>
       <button onClick={() => setImgClick(true)}>프로필 사진</button>

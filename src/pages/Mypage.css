@@ -22,12 +22,28 @@
 }
 
 .mypage__image {
-  background-color: slateblue;
+  border: 2px solid black;
   width: 400px;
   height: 450px;
   text-align: center;
-  line-height: 25;
   margin-top: 150px;
+  padding-top: 160px;
+}
+
+.mypage__image > div > div > img {
+  width: 100px;
+  height: 100px;
+}
+
+.mypage__image > div > div > button {
+  width: 20%;
+  background-color: #ffecb3;
+  border-radius: 10px;
+  margin: 5px auto;
+  border: none;
+  cursor: pointer;
+  line-height: 0;
+  padding: 15px 5px;
 }
 
 .mypage__content-item {
@@ -41,43 +57,36 @@
 }
 
 .mypage__side {
-  background-color: thistle;
+  border: 2px solid black;
   width: 400px;
   height: 450px;
   text-align: center;
   margin-top: 150px;
 }
 
-.mypage__side-title {
-  /* background-color: tomato; */
-  width: 60%;
-  height: 40px;
-  line-height: 3;
-  margin-top: 40px;
-  margin-left: auto;
-  margin-right: auto;
+.mypage__side > h1 {
+  margin: 20px 0 20px 0;
 }
 
-.mypage__side-bar {
-  background-color: violet;
-  width: 60%;
-  height: 40px;
-  line-height: 3;
-  margin-top: 50px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* .mypage__side-support {
-  margin: 150px 10px 0 10px;
-  cursor: pointer;
+.mypage__side-input {
   padding: 10px;
-} */
+  margin: 15px auto;
+  width: 80%;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #eeeeee;
+  border: none;
+}
 
 .mypage__side-save {
-  margin: 80px 10px 0 10px;
+  width: 20%;
+  background-color: #ffecb3;
+  border-radius: 10px;
+  margin: 20px auto;
+  border: none;
   cursor: pointer;
-  padding: 10px;
+  line-height: 0;
+  padding: 20px 5px;
 }
 
 .mypage__receipt {

@@ -1,22 +1,63 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Root } from "../Store";
+import { useSelector } from 'react-redux';
 import './Mypage.css';
+import SelectImg from './SelectImg';
 
-const Mypage: React.FC = () => {
+interface Values {
+  email: string;
+  password: string;
+  name: string;
+  mobile: string;
+}
+
+const Mypage = () => {
+  const token:any = useSelector((state: Root) => state.login);
+  const [imgUrl, setImgUrl] = useState<string>("https://image.flaticon.com/icons/png/512/64/64572.png");
+  const [values, setValues] = useState<Values>({
+    email: "",
+    password: "",
+    name: "",
+    mobile: "",
+  })
+
   return (
     <div>
       <div className="mypage__main-box">
         <div>
-          <div className="mypage__image">이미지</div>
+          <div className="mypage__image">
+            <SelectImg setImgUrl={setImgUrl} imgUrl={imgUrl}/>
+          </div>
         </div>
 
         <div className="mypage__side">
-          <input className="mypage__side-title" placeholder="EMAIL"></input>
-          <input className="mypage__side-title" placeholder="PASSWORD"></input>
-          <input className="mypage__side-title" placeholder="NAME"></input>
-          <input className="mypage__side-title" placeholder="DATE OF BIRTH"></input>
-          {/* <div className="mypage__side-bar">Image Bar</div> */}
-          {/* <button className="mypage__side-support"></button> */}
+          <h1>내정보</h1>
+          <input 
+            className="mypage__side-input" 
+            placeholder="EMAIL" 
+            value={values.email}
+            onChange={(e) => setValues({...values, email:e.target.value})}
+          />
+          <input
+            className="mypage__side-input" 
+            placeholder="PASSWORD"
+            value={values.password}
+            onChange={(e) => setValues({...values, password:e.target.value})}
+            />
+          <input 
+            className="mypage__side-input" 
+            placeholder="NAME"
+            value={values.name}
+            onChange={(e) => setValues({...values, name:e.target.value})}
+            />
+          <input 
+            className="mypage__side-input" 
+            placeholder="MOBILE"
+            value={values.mobile}
+            onChange={(e) => setValues({...values, mobile:e.target.value})}
+            />
+          {/* <input className="mypage__side-title" placeholder="DATE OF BIRTH"/> */}
           <div>
           <button className="mypage__side-save">저장</button>
           </div>

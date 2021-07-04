@@ -17,17 +17,20 @@ const GoogleLoginPage = ({auth, setSignInClick, setModalOn}:any) => {
   const socialLoginHandler = (social = "Google"):void => {
     auth
       .login(social)
-      .then((data:any) => {
+      .then(async(data:any) => {
         setToken(data.credential.accessToken);
         toMainPage();
         console.log(data);
-
         const { email } = data.user.email;
         const { name } = data.user.displayName;
+        try {
+          await axios.post(`${process.env.REACT_APP_API_URL}/oauth-info`, {
+            email: email, name: name
+          })
+        } catch (error) {
+          console.log(error)
+        }
         
-        axios.post(`${process.env.REACT_APP_API_URL}/oauth-info`, {
-          email: email, name: name
-        })
       });
   }
   const toMainPage = ():void => {

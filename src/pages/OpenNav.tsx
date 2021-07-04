@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import styled from 'styled-components';
-import GithubLogin from './GithubLogin';
-import GoogleLoginPage from './GoogleLoginPage';
 import { useDispatch, useSelector } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actionCreators from '../action-creators/loginCreators';
 import { Root } from "../Store";
-
-import dotenv from "dotenv";
-dotenv.config();
+import SignInModal from './SignInModal';
+import SignUpModal from './SignUpModal';
 
 const Ul = styled.ul<{ open: boolean }>`
   z-index: 2;
@@ -60,16 +57,17 @@ const Ul = styled.ul<{ open: boolean }>`
     transition: transform 0.3s ease-in-out;
   }
 `;
-type Props = {
+interface Props {
   open: boolean;
   setOpen:any;
   auth: any;
 };
 
-const OpenNav = ({ open, setOpen , auth }:Props) => {
+const OpenNav = ({ open, setOpen, auth }:Props) => {
   const token:any = useSelector((state: Root) => state.login);
   const [signUpClick, setSignUpClick] = useState<boolean>(false);
   const [signInClick, setSignInClick] = useState<boolean>(false);
+  const [imgUrl, setImgUrl] = useState<string>("https://image.flaticon.com/icons/png/512/64/64572.png");
   const [modalOn, setModalOn] = useState<boolean>(false);
 
   const dispatch = useDispatch();
@@ -77,6 +75,10 @@ const OpenNav = ({ open, setOpen , auth }:Props) => {
     actionCreators,
     dispatch
   );
+
+  useEffect(() => {
+    console.log(imgUrl);
+  }, [imgUrl])
 
   return (
     <div >
@@ -111,80 +113,24 @@ const OpenNav = ({ open, setOpen , auth }:Props) => {
         <li>후원하기</li>
       </Ul>
 
-      <div className={signInClick? "show": "hide"}>
-        <div className="modal__overlay" onClick={() => {
-          setSignInClick(false);
-          setModalOn(false);
-        }}></div>
-        <div className="modal__content">
-          <h1>Remember</h1>
-          <h3>로그인</h3>
-          <div>
-            <input
-            placeholder="EMAIL"
-            ></input>
-          </div>
-          <div>
-            <input
-            placeholder="PASSWORD"
-            ></input>
-          </div>
-          <button>로그인</button>
-          <div className="modal__content-switch">계정이 없으신가요?
-          <span onClick={() => {
-            setSignInClick(false);
-            setModalOn(false);
-            setSignUpClick(true);
-            setModalOn(true);
-            setOpen(false);
-          }}>회원가입</span>
-          </div>
-          <GithubLogin auth={auth} setSignInClick={setSignInClick} setModalOn={setModalOn}/>
-          <GoogleLoginPage auth={auth} setSignInClick={setSignInClick} setModalOn={setModalOn}/>
-        </div>
-      </div>
-
-      <div className={signUpClick? "show": "hide"}>
-        <div className="modal__overlay" onClick={() => {
-          setSignUpClick(false);
-          setModalOn(false);
-        }}></div>
-        <div className="modal__content">
-        <h1>Remember</h1>
-          <h3>회원가입</h3>
-          <div>
-          <input
-          placeholder="EMAIL"
-          ></input>
-          </div>
-          <div>
-          <input
-          placeholder="PASSWORD"
-          ></input>
-          </div>
-          <div>
-          <input
-          placeholder="NAME"
-          ></input>
-          </div>
-          <div>
-          <input
-          placeholder="DATE OF BIRTH"
-          ></input>
-          </div>
-          <button>회원가입</button>
-          <div className="modal__content-switch">이미 가입하셨나요?
-          <span onClick={() => {
-            setSignUpClick(false);
-            setModalOn(false);
-            setSignInClick(true);
-            setModalOn(true);
-            setOpen(false);
-          }}>로그인</span>
-          </div>
-        </div>
-      </div>
-
+      <SignInModal 
+      signInClick={signInClick} 
+      setSignInClick={setSignInClick}
+      setModalOn={setModalOn}
+      setSignUpClick={setSignUpClick}
+      setOpen={setOpen}
+      auth={auth}
+      />
+      <SignUpModal 
+      signUpClick={signUpClick}
+      setSignInClick={setSignInClick}
+      setModalOn={setModalOn}
+      setSignUpClick={setSignUpClick}
+      setOpen={setOpen}
+      setImgUrl={setImgUrl}
+      imgUrl={imgUrl}
+      />
+      
     </div>
   )
 }

@@ -7,10 +7,10 @@ const KakaoShareButton = () => {
     if (window.Kakao) {
       const kakao = window.Kakao
       // 중복 initialization 방지
-      // if (!kakao.isInitialized()) {
+      if (!kakao.isInitialized()) {
         // 두번째 step 에서 가져온 javascript key 를 이용하여 initialize
         kakao.init(`${process.env.REACT_APP_KAKAO_KEY}`)
-      // }
+      }
       kakao.Link.createDefaultButton({
         container: '#kakao-link-btn',
         objectType: 'feed',

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actionCreators from '../action-creators/loginCreators';
 import { Root } from "../Store";
+import axios from "axios";
 
 const GoogleLoginPage = ({auth, setSignInClick, setModalOn}:any) => {
   const dispatch = useDispatch();
@@ -20,13 +21,18 @@ const GoogleLoginPage = ({auth, setSignInClick, setModalOn}:any) => {
         setToken(data.credential.accessToken);
         toMainPage();
         console.log(data);
+
+        const { email } = data.user.email;
+        const { name } = data.user.displayName;
+        
+        axios.post(`${process.env.REACT_APP_API_URL}/oauth-info`, {
+          email: email, name: name
+        })
       });
   }
   const toMainPage = ():void => {
-    console.log(token);
     setSignInClick(false);
     setModalOn(false);
-    //window.location.replace("/");
   }
 
   return (

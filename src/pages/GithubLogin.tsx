@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actionCreators from '../action-creators/loginCreators';
 import { Root } from "../Store";
+import axios from "axios";
 
 type Props = {
   auth: any;
@@ -22,17 +23,22 @@ const GithubLogin = ({auth, setSignInClick, setModalOn}:Props) => {
   const socialLoginHandler = (social = "Github") => {
     auth
       .login(social)
-      .then((data:any) => {
+      .then( (data:any ) => {
+        //console.log(data);
         setToken(data.credential.accessToken);
         toMainPage();
+        const { email } = data.user.email;
+        const { name } = data.user.displayName;
+        
+        axios.post(`${process.env.REACT_APP_API_URL}/oauth-info`, {
+          email: email, name: name
+        })
       });
   }
 
   const toMainPage = ():void => {
-    console.log(token);
     setSignInClick(false);
     setModalOn(false);
-    //window.location.replace("/");
   }
 
   return (

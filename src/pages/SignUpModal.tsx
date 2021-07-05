@@ -3,6 +3,7 @@ import SelectImg from './SelectImg';
 import { useSelector, useDispatch } from 'react-redux';
 import { bindActionCreators } from "redux";
 import * as notificationCreators from "../action-creators/notificationCreators";
+import axios from 'axios';
 
 interface Props {
   signUpClick: boolean;
@@ -18,7 +19,8 @@ interface Values {
   email: string;
   password: string;
   name: string;
-  mobile: string;
+  mobile: any;
+  dateOfBirth: string;
 }
 
 const SignUpModal = ({ 
@@ -40,26 +42,40 @@ const SignUpModal = ({
     email: "",
     password: "",
     name: "",
-    mobile: "",
+    mobile: {
+      head: "",
+      body: "",
+      tail: ""
+    },
+    dateOfBirth: ""
   })
 
   const signUpHandler = () => {
     try {
-      if(!values.email || !values.password || !values.name || !values.mobile) {
+      if( !values.email || !values.password || !values.name || !values.mobile || !values.dateOfBirth ) {
         notify("모든 항목은 필수입니다.")
       } else {
         toMainPage();
-        setValues({ email: "", password: "", name: "", mobile: "" })
+        setValues({ email: "", password: "", name: "", mobile: {head: "", body: "", tail: ""}, dateOfBirth: "" })
       }
     } catch (error) {
       
     }
   }
 
-  const toMainPage = ():void => {
-    setSignUpClick(false);
-    setModalOn(false);
-    notify("회원가입 되었습니다.")
+  const toMainPage = async() => {
+    await axios.post(`${process.env.REACT_APP_API_URL}/signup`, {
+      email: values.email,
+      password: values.password,
+      name: values.name,
+      mobile: `${values.mobile.head}${values.mobile.body}${values.mobile.tail}`,
+      dateOfBirth: values.dateOfBirth
+    })
+    .then(() => {
+      setSignUpClick(false);
+      setModalOn(false);
+      notify("회원가입 되었습니다.")
+    })
   }
 
   return (
@@ -74,6 +90,7 @@ const SignUpModal = ({
           <SelectImg setImgUrl={setImgUrl} imgUrl={imgUrl}/>
           <div>
           <input
+          className="modal__signup-mobile"
           placeholder="EMAIL"
           value={values.email}
           onChange={(e) => setValues({...values, email:e.target.value})}
@@ -81,6 +98,7 @@ const SignUpModal = ({
           </div>
           <div>
           <input
+          className="modal__signup-mobile"
           placeholder="PASSWORD"
           value={values.password}
           onChange={(e) => setValues({...values, password:e.target.value})}
@@ -88,25 +106,61 @@ const SignUpModal = ({
           </div>
           <div>
           <input
+          className="modal__signup-mobile"
           placeholder="NAME"
           value={values.name}
           onChange={(e) => setValues({...values, name:e.target.value})}
           ></input>
           </div>
-          <div>
+          <div className="mobile-font">
           <input
-          placeholder="MOBILE"
-          value={values.mobile}
-          onChange={(e) => setValues({...values, mobile:e.target.value})}
+          className="modal__signup-mobile-head"
+          placeholder="010"
+          type="number"
+          value={values.mobile.head}
+          onChange={(e) => {
+            setValues({...values, mobile: {
+              head: e.target.value,
+              body: values.mobile.body,
+              tail: values.mobile.tail
+            }})
+          }}
+          ></input>-
+          <input
+          className="modal__signup-mobile-bodytail"
+          placeholder="0000"
+          type="number"
+          value={values.mobile.body}
+          onChange={(e) => {
+            setValues({...values, mobile: {
+              head: values.mobile.head,
+              body: e.target.value,
+              tail: values.mobile.tail
+            }})
+          }}
+          ></input>-
+          <input
+          className="modal__signup-mobile-bodytail"
+          placeholder="0000"
+          type="number"
+          value={values.mobile.tail}
+          onChange={(e) => {
+            setValues({...values, mobile: {
+              head: values.mobile.head,
+              body: values.mobile.body,
+              tail: e.target.value
+            }})
+          }}
           ></input>
           </div>
-          {/* <div>
+          <div>
           <input
+          className="modal__signup-mobile"
           placeholder="DATE OF BIRTH"
-          value={values.dataOfBirth}
+          type="date"
           onChange={(e) => setValues({...values, dateOfBirth:e.target.value})}
           ></input>
-          </div> */}
+          </div>
           <button onClick={signUpHandler}>회원가입</button>
           <div className="modal__content-switch">이미 가입하셨나요?
           <span onClick={() => {

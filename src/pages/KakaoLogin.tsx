@@ -1,8 +1,10 @@
-import React, { useEffect, useCallback } from 'react';
+import axios from 'axios';
+import React, { useEffect } from 'react'
+import KaKaoLogin from 'react-kakao-login';
 import { useDispatch, useSelector } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actionCreators from '../action-creators/loginCreators';
-import axios from "axios";
+
 
 interface Props {
   auth: any;
@@ -11,30 +13,21 @@ interface Props {
   notify: Function
 }
 
-const GoogleLoginPage = ({auth, setSignInClick, setModalOn, notify}:Props) => {
+const KakaoLogin = ({auth, setSignInClick, setModalOn, notify}:Props) => {
   const dispatch = useDispatch();
   const { setToken } =bindActionCreators(
     actionCreators,
     dispatch
   );
 
-  const socialLoginHandler = (social = "Google"):any => {
-    try {
-    auth
-      .login(social)
-      .then(async(data:any) => {
-        setToken(data.credential.accessToken);
-        const email = data.user.email;
-        const name = data.user.displayName;
-        toMainPage();
-        await axios.post(`${process.env.REACT_APP_API_URL}/oauth-info`, 
-        { email, name })
-      }); 
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  const socialLoginHandler = () => {
+    
 
+      toMainPage();
+    
+    
+  }
+  
   const toMainPage = ():void => {
     setSignInClick(false);
     setModalOn(false);
@@ -43,15 +36,22 @@ const GoogleLoginPage = ({auth, setSignInClick, setModalOn, notify}:Props) => {
 
   return (
     <div>
-    <div className="google__box">
+      <div className="google__box">
       <img className="social__logo" alt="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/320px-Google_%22G%22_Logo.svg.png" />
       <div
         onClick={() => socialLoginHandler()}
         className="google__login-btn"
-      >구글 아이디로 로그인</div>
+      >카카오 아이디로 로그인</div>
     </div>
+    {/* <KaKaoLogin
+      jsKey={`${process.env.REACT_APP_KAKAO_KEY}`}
+      buttonText="KaKao"
+      onSuccess={responseKaKao}
+      onFailure={responseFail}
+      getProfile={true}
+    /> */}
     </div>
   )
 }
 
-export default GoogleLoginPage;
+export default KakaoLogin;

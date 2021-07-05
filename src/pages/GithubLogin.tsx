@@ -2,10 +2,9 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actionCreators from '../action-creators/loginCreators';
-import { Root } from "../Store";
 import axios from "axios";
 
-type Props = {
+interface Props {
   auth: any;
   setSignInClick: Function;
   setModalOn: Function;
@@ -19,19 +18,17 @@ const GithubLogin = ({auth, setSignInClick, setModalOn, notify}:Props) => {
     dispatch
   );
 
-  const token = useSelector((state: Root) => state.login);
-
   const socialLoginHandler = (social = "Github") => {
     try {
       auth
       .login(social)
-      .then( (data:any ) => {
+      .then(async(data:any ) => {
         //console.log(data);
         setToken(data.credential.accessToken);
         const email = data.user.email;
         const name = data.user.displayName;
         
-        axios.post(`${process.env.REACT_APP_API_URL}/oauth-info`, { email, name })
+        await axios.post(`${process.env.REACT_APP_API_URL}/oauth-info`, { email, name })
         toMainPage();
       });
       

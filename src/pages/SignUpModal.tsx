@@ -54,7 +54,11 @@ const SignUpModal = ({
     try {
       if( !values.email || !values.password || !values.name || !values.mobile || !values.dateOfBirth ) {
         notify("모든 항목은 필수입니다.")
-      } else {
+      } 
+      else if(!values.email.includes("@") || !values.email.includes(".")) {
+        notify("이메일 형식이 잘못되었습니다.")
+      }
+      else {
         toMainPage();
         setValues({ email: "", password: "", name: "", mobile: {head: "", body: "", tail: ""}, dateOfBirth: "" })
       }
@@ -68,7 +72,7 @@ const SignUpModal = ({
       email: values.email,
       password: values.password,
       name: values.name,
-      mobile: `${values.mobile.head}${values.mobile.body}${values.mobile.tail}`,
+      mobile: `${values.mobile.head}-${values.mobile.body}-${values.mobile.tail}`,
       dateOfBirth: values.dateOfBirth
     })
     .then(() => {
@@ -90,7 +94,7 @@ const SignUpModal = ({
           <SelectImg setImgUrl={setImgUrl} imgUrl={imgUrl}/>
           <div>
           <input
-          className="modal__signup-mobile"
+          className="modal__signup"
           placeholder="EMAIL"
           value={values.email}
           onChange={(e) => setValues({...values, email:e.target.value})}
@@ -98,15 +102,16 @@ const SignUpModal = ({
           </div>
           <div>
           <input
-          className="modal__signup-mobile"
+          className="modal__signup"
           placeholder="PASSWORD"
+          type="password"
           value={values.password}
           onChange={(e) => setValues({...values, password:e.target.value})}
           ></input>
           </div>
           <div>
           <input
-          className="modal__signup-mobile"
+          className="modal__signup"
           placeholder="NAME"
           value={values.name}
           onChange={(e) => setValues({...values, name:e.target.value})}
@@ -124,11 +129,9 @@ const SignUpModal = ({
               body: values.mobile.body,
               tail: values.mobile.tail
             }})
-          }}
-          ></input>-
+          }}></input>-
           <input
           className="modal__signup-mobile-bodytail"
-          placeholder="0000"
           type="number"
           value={values.mobile.body}
           onChange={(e) => {
@@ -137,11 +140,9 @@ const SignUpModal = ({
               body: e.target.value,
               tail: values.mobile.tail
             }})
-          }}
-          ></input>-
+          }}></input>-
           <input
           className="modal__signup-mobile-bodytail"
-          placeholder="0000"
           type="number"
           value={values.mobile.tail}
           onChange={(e) => {
@@ -150,14 +151,14 @@ const SignUpModal = ({
               body: values.mobile.body,
               tail: e.target.value
             }})
-          }}
-          ></input>
+          }}></input>
           </div>
           <div>
           <input
-          className="modal__signup-mobile"
+          className="modal__signup"
           placeholder="DATE OF BIRTH"
           type="date"
+          value={values.dateOfBirth}
           onChange={(e) => setValues({...values, dateOfBirth:e.target.value})}
           ></input>
           </div>

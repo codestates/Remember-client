@@ -8,7 +8,7 @@ const AccList: React.FC = () => {
   const [data, setdata] = useState(dummyData);
 
   return (
-    <section id="accList">
+    <section className="accList__container">
       <SearchBar></SearchBar>
       <AccidentList data={data}></AccidentList>
     </section>

@@ -20,7 +20,7 @@ const Footer: React.FC = () => {
         2021 Team: Remember - All rights reserved
       </p>
       <KakaoShareButton />
-        <Facebook/>
+      <Facebook/>
     </section>
   );
 };

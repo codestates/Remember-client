@@ -1,5 +1,7 @@
 import React from 'react';
 import './PostDetail.css';
+import KakaoShareButton from './KakaoShareButton';
+import Facebook from "./Facebook";
 
 function PostDetail() {
   
@@ -15,7 +17,9 @@ function PostDetail() {
           <div className="postdetail__side-title">Text</div>
           <div className="postdetail__side-bar">Image Bar</div>
           <button className="postdetail__side-support">후원하기</button>
-          <button className="postdetail__side-share">공유하기</button>
+          <KakaoShareButton />
+          <Facebook/>
+          {/* <button className="postdetail__side-share">공유하기</button> */}
         </div>
       </div>
       <div className="postdetail__content-box">

@@ -6,7 +6,7 @@ export const setToken =
   (accessToken: string) => (dispatch: Dispatch<Action>) => {
     dispatch({
       type: ActionType.SET_ACCESSTOKEN,
-      payload: {accessToken: accessToken},
+      payload: { accessToken: accessToken },
     });
   };
 

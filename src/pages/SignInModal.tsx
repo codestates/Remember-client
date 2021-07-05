@@ -57,7 +57,6 @@ const SignInModal = ({
           email: values.email, password: values.password
         })
         .then((res) => {
-          console.log(res.data.data.accessToken);
           setToken(res.data.data.accessToken);
           toMainPage();
         })

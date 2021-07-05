@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 const Facebook = () => {
 
   const onClickFacebook = () => {
-    window.open('https://www.facebook.com/sharer/sharer.php?u=https://server.projectremember.shop')
+    window.open('https://www.facebook.com/sharer/sharer.php?u=https://www.projectremember.shop/')
   }
   
   return (

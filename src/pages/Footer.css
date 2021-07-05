@@ -41,3 +41,25 @@
   background: rgb(219, 220, 220);
   margin: 0 5px;
 }
+
+.quiz__start {
+  width: 200px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: black;
+  background-color: green;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.quiz__start:hover {
+  background-color: rgb(41, 235, 235);
+  color: black;
+  transition: 0.5s;
+}

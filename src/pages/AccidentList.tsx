@@ -9,19 +9,12 @@ interface AccidentListProps {
 
 const AccidentList: React.FC<AccidentListProps> = ({ data }) => {
   return (
-    <>
-      <section id="accidentList">
-        <div className="accidentList__cards">
-          {data.map((datas) => (
-            <AccidentListItem data={datas} key={datas.id}></AccidentListItem>
-          ))}
-        </div>
-        <br></br>
-        <div className="quiz__area">
-          <a className="quiz__start">퀴즈 시작하기</a>
-        </div>
-      </section>
-    </>
+    <div className="accident__row">
+      {data.map((datas) => (
+        <AccidentListItem data={datas} key={datas.id}></AccidentListItem>
+      ))}
+      {/* <a className="quiz__start">퀴즈 시작하기</a> */}
+    </div>
   );
 };
 

@@ -49,6 +49,62 @@ export const dummyData = [
   },
 ];
 
+export const sponsorList = [
+  {
+    id: 1,
+    number: "01",
+    avatar:
+      "http://img.etoday.co.kr/pto_db/2017/11/20171114092528_1150866_700_526.PNG",
+    name: "빌게이츠",
+    money: "3,000,000,000 원",
+    donation: "125 회",
+  },
+  {
+    id: 2,
+    number: "02",
+    avatar: "https://dimg.donga.com/wps/NEWS/IMAGE/2021/01/17/104953245.2.jpg",
+    name: "아이유",
+    money: "1,000,000,000원",
+    donation: "45 회",
+  },
+  {
+    id: 3,
+    number: "03",
+    avatar:
+      "https://blog.kakaocdn.net/dn/S4iZA/btqMaFaS1Sm/3oVebA3gtK7hFRAGJCxRK1/img.png",
+    name: "스칼렛 요한슨",
+    money: "1,800,000,000 원",
+    donation: "30 회",
+  },
+  {
+    id: 4,
+    number: "04",
+    avatar:
+      "https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BB17FGN0.img?h=0&w=600&m=6&q=60&u=t&o=f&l=f&x=286&y=318",
+    name: "키아누 리브스",
+    money: "2,500,000,000 원",
+    donation: "80 회",
+  },
+  {
+    id: 5,
+    number: "05",
+    avatar:
+      "https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F25179A4753E2211B15",
+    name: "유재석",
+    money: "7,000,000,000 원",
+    donation: "25 회",
+  },
+  {
+    id: 6,
+    number: "06",
+    avatar:
+      "https://i1.sndcdn.com/artworks-QT7gfNVs3sjs6JBi-pk9R3w-t500x500.jpg",
+    name: "에미넴",
+    money: "9,000,000,000 원",
+    donation: "10 회",
+  },
+];
+
 export const questions = [
   {
     quiz: "※ 천안함 피격 사건은 어디에서 발생했나요?",

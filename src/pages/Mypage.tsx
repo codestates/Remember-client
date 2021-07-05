@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Root } from "../Store";
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import './Mypage.css';
 import SelectImg from './SelectImg';
+import { bindActionCreators } from "redux";
+import * as notificationCreators from "../action-creators/notificationCreators";
+import axios from 'axios';
 
 interface Values {
   email: string;
@@ -13,6 +16,12 @@ interface Values {
 }
 
 const Mypage = () => {
+  const dispatch = useDispatch();
+  const { notify } = bindActionCreators(
+    notificationCreators,
+    dispatch
+  )
+
   const token:any = useSelector((state: Root) => state.login);
   const [imgUrl, setImgUrl] = useState<string>("https://image.flaticon.com/icons/png/512/64/64572.png");
   const [values, setValues] = useState<Values>({
@@ -21,6 +30,24 @@ const Mypage = () => {
     name: "",
     mobile: "",
   })
+
+  const saveCheck = async() => {
+    if( window.confirm("저장하시겠습니까?") === true ) {
+
+      notify("저장 되었습니다.")
+      setValues({email: "", password: "", name: "", mobile: ""})
+    } else {
+      return false;
+    }
+  };
+
+  const saveHandler = () => {
+    if(!values.email || !values.password || !values.name || !values.mobile) {
+      notify("모든 항목은 필수입니다.")
+    } else {
+      saveCheck()
+    }
+  }
 
   return (
     <div>
@@ -59,7 +86,7 @@ const Mypage = () => {
             />
           {/* <input className="mypage__side-title" placeholder="DATE OF BIRTH"/> */}
           <div>
-          <button className="mypage__side-save">저장</button>
+          <button className="mypage__side-save" onClick={saveHandler}>저장</button>
           </div>
         </div>
       </div>

@@ -1,0 +1,50 @@
+.sponsor__table {
+  width: 65%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 1500px;
+  background-color: #efefef33;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+.sponsor__container {
+  width: 100%;
+  font-size: 13px;
+  color: #444;
+  white-space: nowrap;
+  border-collapse: collapse;
+}
+
+.sponsor__container .sponsor__thead {
+  background-color: #00bcd4;
+  color: #fff;
+}
+
+.sponsor__container .sponsor__tbody .sponsor__tr {
+  background-color: #fff;
+}
+
+.sponsor__container .sponsor__tbody .sponsor__tr:nth-child(even) {
+  background-color: rgb(238, 238, 238);
+}
+
+.sponsor__tbody .sponsor__tr:hover {
+  color: red;
+  cursor: pointer;
+  box-shadow: 6px 6px 6px 6px #0002;
+}
+
+.sponsor__container .sponsor__thead .sponsor__top__text {
+  padding: 15px;
+}
+
+.sponsor__container .sponsor__top__text {
+  text-align: center;
+  border: 1px solid #00000017;
+  padding: 10px 15px;
+  justify-content: center;
+  align-items: center;
+}

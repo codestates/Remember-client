@@ -25,11 +25,12 @@ const GithubLogin = ({auth, setSignInClick, setModalOn, notify}:Props) => {
       .then(async(data:any ) => {
         //console.log(data);
         setToken(data.credential.accessToken);
-        const email = data.user.email;
+        console.log(data)
+        const email = data.additionalUserInfo.username + '@github.com';
         const name = data.user.displayName;
-        
-        await axios.post(`${process.env.REACT_APP_API_URL}/oauth-info`, { email, name })
         toMainPage();
+        await axios.post(`${process.env.REACT_APP_API_URL}/oauth-info`, { email, name })
+        
       });
       
     } catch (error) {

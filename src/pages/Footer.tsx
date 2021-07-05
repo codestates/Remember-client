@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
       </p>
       <a className="quiz__start">퀴즈 시작하기</a>
       <KakaoShareButton />
-      <Facebook />
+      <Facebook/>
     </section>
   );
 };

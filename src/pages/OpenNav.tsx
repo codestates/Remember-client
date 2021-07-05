@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -63,7 +63,6 @@ interface Props {
 };
 
 const OpenNav = ({ open, setOpen, auth }:Props) => {
-  const history = useHistory();
   const token:any = useSelector((state: Root) => state.login);
   const [signUpClick, setSignUpClick] = useState<boolean>(false);
   const [signInClick, setSignInClick] = useState<boolean>(false);
@@ -94,9 +93,8 @@ const OpenNav = ({ open, setOpen, auth }:Props) => {
         }}>로그인</button>
         :<button className="left" onClick={() => {
           logout();
-          // auth.logout()
           setOpen(false)
-          history.push('/')
+          window.location.replace('/')
         }}>로그아웃</button>}
         {!token.accessToken ?
         <button className="right" onClick={() => {

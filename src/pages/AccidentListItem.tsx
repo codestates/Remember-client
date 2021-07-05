@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./AccidentListItem.css";
 
 import { dummyList } from "../data/types";

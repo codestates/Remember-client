@@ -17,13 +17,13 @@ interface Values {
 }
 
 const Mypage = () => {
-  const token = useSelector((state: Root) => state.login);
+  const token:any = useSelector((state: Root) => state.login);
   const dispatch = useDispatch();
   const { notify } = bindActionCreators(
     notificationCreators,
     dispatch
   )
-
+  const [isOauth, setIsOauth] = useState<boolean>(false);
   const [imgUrl, setImgUrl] = useState<string>("https://image.flaticon.com/icons/png/512/64/64572.png");
   const [values, setValues] = useState<Values>({
     email: "",
@@ -36,7 +36,7 @@ const Mypage = () => {
     },
     dateOfBirth: ""
   })
-
+  
   const saveCheck = () => {
     if( window.confirm("저장하시겠습니까?")) {
       userInfoUpdate();
@@ -51,16 +51,14 @@ const Mypage = () => {
     const mobile = `${values.mobile.head}-${values.mobile.body}-${values.mobile.tail}`;
     const dateOfBirth = values.dateOfBirth;
     notify("저장 되었습니다.");
-    setValues({email: "", password: "", name: "", mobile: {
-    head: "",
-    body: "",
-    tail: ""
-    }, dateOfBirth: ""})
     await axios.put(`${process.env.REACT_APP_API_URL}/update-user`, {
         email:email,
         password:password,
         mobile:mobile,
         dateOfBirth:dateOfBirth
+    })
+    .then(() => {
+      userInfoHandler();
     })
       
   }
@@ -69,6 +67,13 @@ const Mypage = () => {
     if(!values.email || !values.password || !values.mobile || !values.dateOfBirth) {
       notify("모든 항목은 필수입니다.")
     } 
+    else if(
+      values.mobile.head.length !== 3 ||
+      values.mobile.body.length !== 4 ||
+      values.mobile.tail.length !== 4
+    ) {
+      notify("전화번호 길이는 11자리입니다.")
+    }
     else if(!values.email.includes("@") || !values.email.includes(".")) {
       notify("이메일 형식이 잘못되었습니다.")
     }
@@ -80,18 +85,29 @@ const Mypage = () => {
   const userInfoHandler = async() => {
     await axios.get(`${process.env.REACT_APP_API_URL}/mypage`, {
       headers: {
-        authorization: `Bearer ${token}`,
+        authorization: `Bearer ${token.accessToken}`,
         "Content-Type": "application/json"
       },
       withCredentials: true
     })
     .then((res) => {
-      console.log(res)
+      console.log(res.data.data.userInfo)
+      const { email, password, name, mobile, dateOfBirth, OAuth } = res.data.data.userInfo;
+      if(OAuth) {
+        setIsOauth(true);
+      } else {
+        setValues({...values, email:email, password: password, name: name, mobile: {
+          head:mobile.slice(0,3),
+          body:mobile.slice(4,8),
+          tail:mobile.slice(9)
+        }, dateOfBirth: dateOfBirth})
+      }
+      
     })
   }
 
   useEffect(() => {
-    // userInfoHandler()
+    userInfoHandler()
   }, [])
 
   return (
@@ -105,25 +121,31 @@ const Mypage = () => {
 
         <div className="mypage__side mobile-font">
           <h1>내정보</h1>
-          <input 
+          <input
+            readOnly
             className="mypage__side-input" 
             placeholder="EMAIL" 
             value={values.email}
-            onChange={(e) => setValues({...values, email:e.target.value})}
+            onClick={() => notify("읽기 전용입니다.")}
           />
           <input
             className="mypage__side-input" 
             placeholder="PASSWORD"
             type="password"
             value={values.password}
-            onChange={(e) => setValues({...values, password:e.target.value})}
-            />
+            onChange={(e) => {
+              if(isOauth) {
+                notify("일반회원 전용입니다.")
+              } else {
+                setValues({...values, password:e.target.value})
+              }
+            }}/>
           <input 
             readOnly
             className="mypage__side-input" 
             placeholder="NAME"
             value={values.name}
-            onChange={(e) => setValues({...values, name:e.target.value})}
+            onClick={() => notify("읽기 전용입니다.")}
             />
           <input 
             className="mypage__side-input-mobile-head" 
@@ -131,23 +153,33 @@ const Mypage = () => {
             type="number"
             value={values.mobile.head}
             onChange={(e) => {
-              setValues({...values, mobile: {
-                head: e.target.value,
-                body: values.mobile.body,
-                tail: values.mobile.tail
-              }})
+              if(e.target.value.length > 3) {
+                e.target.value = e.target.value.slice(0, 4)
+                console.log(values.mobile.head)
+              } else {
+                setValues({...values, mobile: {
+                  head: e.target.value,
+                  body: values.mobile.body,
+                  tail: values.mobile.tail
+                }})
+              }
             }}/>-
             <input 
             className="mypage__side-input-mobile-bodytail" 
             placeholder="MOBILE"
             type="number"
+
             value={values.mobile.body}
             onChange={(e) => {
-              setValues({...values, mobile: {
-                head: values.mobile.head,
-                body: e.target.value,
-                tail: values.mobile.tail
-              }})
+              if(e.target.value.length > 4) {
+                e.target.value = e.target.value.slice(0, 5)
+              } else {
+                setValues({...values, mobile: {
+                  head: values.mobile.head,
+                  body: e.target.value,
+                  tail: values.mobile.tail
+                }})
+              }
             }}/>-
             <input 
             className="mypage__side-input-mobile-bodytail" 
@@ -155,11 +187,15 @@ const Mypage = () => {
             type="number"
             value={values.mobile.tail}
             onChange={(e) => {
-              setValues({...values, mobile: {
-                head: values.mobile.head,
-                body: values.mobile.body,
-                tail: e.target.value
-              }})
+              if(e.target.value.length > 4) {
+                e.target.value = e.target.value.slice(0, 5)
+              } else {
+                setValues({...values, mobile: {
+                  head: values.mobile.head,
+                  body: values.mobile.body,
+                  tail: e.target.value
+                }})
+              }
             }}/>
           <input 
             className="mypage__side-input" 

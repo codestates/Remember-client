@@ -24,6 +24,7 @@ const GoogleLoginPage = ({auth, setSignInClick, setModalOn, notify}:Props) => {
       .login(social)
       .then(async(data:any) => {
         setToken(data.credential.accessToken);
+        console.log(data)
         const email = data.user.email;
         const name = data.user.displayName;
         toMainPage();

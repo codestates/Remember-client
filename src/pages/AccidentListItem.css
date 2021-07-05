@@ -1,83 +1,64 @@
-.accidentListItem__card {
-  cursor: pointer;
-  width: 70%;
-  margin: auto;
-  margin-top: 6rem;
+.accident__detail {
+  box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.2);
+
+  margin-top: 30px;
+  background-color: #fff;
 }
 
-.accidentListItem__card .acc__title {
-  font-size: 22px;
-  border-bottom: 1px #fff solid;
-  padding-bottom: 10px;
-  margin-bottom: 10px;
-}
-
-.accidentListItem__card .img__acc__data {
+.accident__detail .accident__img {
   width: 100%;
-  height: 300px;
+  height: 210px;
 }
 
-.accidentListItem__card__inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-}
-
-.accidentListItem__card__inner:hover {
-  transform: rotateY(180deg);
-}
-
-.accidentListItem__card__front,
-.accidentListItem__card__back {
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-.accidentListItem__card__back {
-  position: absolute;
-  top: 0%;
-  justify-content: center;
-  align-items: center;
-  background-color: #333;
-  color: white;
-  padding: 15px;
-  transform: rotateY(180deg);
-}
-
-.accidentListItem__card__text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.accident__detail .accident__title {
+  padding: 5px;
+  margin-top: 10px;
   text-align: center;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 0;
-  width: 200px;
+  font-size: 20px;
+  color: black;
 }
 
-.accidentListItem__card .list__size {
-  list-style: none;
-  padding-bottom: 10px;
-}
-
-.detail__button {
-  flex-basis: 50%;
-  margin-top: 0.5rem;
-  width: 50%;
-  justify-content: center;
+.text__group {
   text-align: center;
+}
+
+.people__text {
+  padding: 5px 0;
+  font-size: 15px;
+  font-weight: bold;
+  color: red;
+}
+
+.day__text {
+  padding: 5px 0;
+  font-size: 15px;
+  font-weight: bold;
+  color: green;
+}
+
+.acc__btn__group {
+  text-align: center;
+  padding: 15px 0px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.detail__btn {
+  justify-content: space-between;
+  background-image: linear-gradient(to right, #1c03b5, #5c8bef);
+  padding: 5px 12px 8px;
+  border-radius: 20px;
+  line-height: 20px;
+  font-size: 14px;
   align-items: center;
-  padding: 15px 40px;
-  border: 0;
-  outline: none;
-  border-radius: 25px;
-  background-color: #333;
   color: #fff;
-  cursor: pointer;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+  border: none;
+  text-decoration: none;
+  width: 45%;
+  margin: auto;
+}
+
+.detail__btn:hover {
+  background-image: linear-gradient(to right, #006417, #00b128);
+  color: #fff;
 }

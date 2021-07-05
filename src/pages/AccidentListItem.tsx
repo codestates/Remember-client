@@ -9,30 +9,21 @@ interface AccidentListItemProps {
 
 const AccidentListItem: React.FC<AccidentListItemProps> = ({ data }) => {
   return (
-    <div className="accidentListItem__card">
-      <div className="accidentListItem__card__inner">
-        <div className="accidentListItem__card__front">
-          <img src={data.img} alt="" className="img__acc__data" />
-        </div>
-        <div className="accidentListItem__card__back">
-          <div className="accidentListItem__card__text">
-            <h1 className="acc__title">사건 & 사고</h1>
-            <ul className="list">
-              <li className="list__size">
-                <strong>제목: {data.title}</strong>
-              </li>
-              <li className="list__size">
-                <strong>인명 피해: {data.die}</strong>
-              </li>
-              <li className="list__size">
-                <strong>사건 발생일: {data.date}</strong>
-              </li>
-            </ul>
-          </div>
-        </div>
+    <div className="accident__detail">
+      <img src={data.img} alt="" className="accident__img"></img>
+      <h2 className="accident__title">{data.title}</h2>
+      <div className="text__group">
+        <p className="people__text">인명 피해 : {data.die}</p>
+        <p className="day__text">사건 발생일 : {data.date}</p>
       </div>
-      <button className="detail__button">자세히 보기</button>
-      <button className="detail__button">후원하기</button>
+      <p className="acc__btn__group">
+        <a href="" className="detail__btn">
+          자세히보기
+        </a>
+        <a href="" className="detail__btn">
+          후원하기
+        </a>
+      </p>
     </div>
   );
 };

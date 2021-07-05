@@ -1,6 +1,6 @@
 import React from "react";
 import "./Footer.css";
-import KakaoShareButton from './KakaoShareButton';
+import KakaoShareButton from "./KakaoShareButton";
 import Facebook from "./Facebook";
 
 const Footer: React.FC = () => {
@@ -19,8 +19,9 @@ const Footer: React.FC = () => {
       <p className="footer__rights">
         2021 Team: Remember - All rights reserved
       </p>
+      <a className="quiz__start">퀴즈 시작하기</a>
       <KakaoShareButton />
-        <Facebook/>
+      <Facebook />
     </section>
   );
 };

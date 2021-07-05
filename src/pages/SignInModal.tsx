@@ -5,7 +5,7 @@ import GoogleLoginPage from './GoogleLoginPage';
 import { useSelector, useDispatch } from 'react-redux';
 import { bindActionCreators } from "redux";
 import * as notificationCreators from "../action-creators/notificationCreators";
-import { Root } from "../Store";
+import * as actionCreators from '../action-creators/loginCreators';
 
 interface Props {
   signInClick: boolean;
@@ -34,7 +34,10 @@ const SignInModal = ({
     notificationCreators,
     dispatch
   )
-  const state = useSelector((state:Root) => state.noti);
+  const { setToken } =bindActionCreators(
+    actionCreators,
+    dispatch
+  );
 
   const [values, setValues] = useState<Values>({
     email: "",
@@ -43,19 +46,32 @@ const SignInModal = ({
 
   const loginHandler = async () => {
     try {
-      setValues({email: "", password: ""})
-      // await axios.post(`${process.env.REACT_APP_API_URL}/login`, {
-      //   email: values.email, password: values.password
-      // })
-      // .then((res) => {
-      //   console.log(res)
+      
+      if(!values.email || !values.password) {
+        notify("모든 항목은 필수입니다.")
+      } else {
+        await axios.post(`${process.env.REACT_APP_API_URL}/login`, {
+          email: values.email, password: values.password
+        })
+        .then((res) => {
+          console.log(res.data.data.accessToken);
+          setToken(res.data.data.accessToken);
+          toMainPage();
+          setValues({email: "", password: ""})
+        })
         
-      // })
-      notify('로그인 되었습니다.')
+        
+      }
+      
     } catch (error) {
       console.log(error)
     }
-    
+  }
+
+  const toMainPage = ():void => {
+    setSignInClick(false);
+    setModalOn(false);
+    notify("로그인 되었습니다.")
   }
 
   return (
@@ -94,8 +110,8 @@ const SignInModal = ({
             setOpen(false);
           }}>회원가입</span>
           </div>
-          <GithubLogin auth={auth} setSignInClick={setSignInClick} setModalOn={setModalOn}/>
-          <GoogleLoginPage auth={auth} setSignInClick={setSignInClick} setModalOn={setModalOn}/>
+          <GithubLogin auth={auth} setSignInClick={setSignInClick} setModalOn={setModalOn} notify={notify}/>
+          <GoogleLoginPage auth={auth} setSignInClick={setSignInClick} setModalOn={setModalOn} notify={notify}/>
         </div>
       </div>
   )

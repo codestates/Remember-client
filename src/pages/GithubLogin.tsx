@@ -7,11 +7,12 @@ import axios from "axios";
 
 type Props = {
   auth: any;
-  setSignInClick: any;
-  setModalOn:any;
+  setSignInClick: Function;
+  setModalOn: Function;
+  notify: Function
 }
 
-const GithubLogin = ({auth, setSignInClick, setModalOn}:Props) => {
+const GithubLogin = ({auth, setSignInClick, setModalOn, notify}:Props) => {
   const dispatch = useDispatch();
   const { setToken } =bindActionCreators(
     actionCreators,
@@ -21,24 +22,29 @@ const GithubLogin = ({auth, setSignInClick, setModalOn}:Props) => {
   const token = useSelector((state: Root) => state.login);
 
   const socialLoginHandler = (social = "Github") => {
-    auth
+    try {
+      auth
       .login(social)
       .then( (data:any ) => {
         //console.log(data);
         setToken(data.credential.accessToken);
-        toMainPage();
-        const { email } = data.user.email;
-        const { name } = data.user.displayName;
+        const email = data.user.email;
+        const name = data.user.displayName;
         
-        axios.post(`${process.env.REACT_APP_API_URL}/oauth-info`, {
-          email: email, name: name
-        })
+        axios.post(`${process.env.REACT_APP_API_URL}/oauth-info`, { email, name })
+        toMainPage();
       });
+      
+    } catch (error) {
+      console.log(error)
+    }
+    
   }
 
   const toMainPage = ():void => {
     setSignInClick(false);
     setModalOn(false);
+    notify("로그인 되었습니다.")
   }
 
   return (

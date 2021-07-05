@@ -38,7 +38,7 @@
   position: relative;
   border-radius: 20px;
   width: 400px;
-  height: 500px;
+  height: 550px;
 }
 
 .modal__content-img-img {
@@ -62,7 +62,7 @@
   margin-top: 10px;
 }
 
-.modal__content > div > input {
+.modal__signup-mobile {
   padding: 10px;
   margin: 5px auto;
   width: 80%;
@@ -70,6 +70,30 @@
   border-radius: 10px;
   background-color: #eeeeee;
   border: none;
+}
+
+.modal__signup-mobile-head {
+  padding: 10px;
+  margin: 5px 5px;
+  width: 20%;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #eeeeee;
+  border: none;
+}
+
+.modal__signup-mobile-bodytail {
+  padding: 10px;
+  margin: 5px 5px;
+  width: 26%;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #eeeeee;
+  border: none;
+}
+
+.mobile-font {
+  font-weight: bold;
 }
 
 .modal__content > button {

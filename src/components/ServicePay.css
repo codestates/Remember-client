@@ -107,32 +107,27 @@
   color: #fff;
 }
 
-#name:focus ~ .service__label,
-#name:valid ~ .service__label {
-  opacity: 0;
+#name:focus ~ .service__label {
+  top: -30px;
   font-size: 14px;
 }
 
-#number:focus ~ .service__label,
-#number:valid ~ .service__label {
-  opacity: 0;
+#number:focus ~ .service__label {
+  top: -30px;
   font-size: 14px;
 }
 
-#email:focus ~ .service__label,
-#email:valid ~ .service__label {
-  opacity: 0;
+#email:focus ~ .service__label {
+  top: -30px;
   font-size: 14px;
 }
 
-#message:focus ~ #service__label__textarea,
-#message:valid ~ #service__label__textarea {
-  opacity: 0;
+#message:focus ~ #service__label__textarea {
+  top: -10px;
   font-size: 14px;
 }
 
-#date:focus ~ .service__date,
-#date:valid ~ .service__date {
+#date:focus ~ .service__date {
   opacity: 0;
   font-size: 14px;
 }

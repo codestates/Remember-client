@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./AccidentListItem.css";
 
 import { dummyList } from "../data/types";
@@ -20,7 +20,7 @@ const AccidentListItem: React.FC<AccidentListItemProps> = ({ data }) => {
         <a href="" className="detail__btn">
           자세히보기
         </a>
-        <a href="" className="detail__btn">
+        <a href="/service" className="detail__btn">
           후원하기
         </a>
       </p>

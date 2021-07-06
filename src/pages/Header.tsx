@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Header.css";
 
 const Header: React.FC = () => {
@@ -15,7 +16,9 @@ const Header: React.FC = () => {
             corrupti quo nulla sequi fugit impedit molestias aperiam eveniet
             ipsa nisi iure quae.
           </p>
-          <button className="header__btn__top">자세히 보기</button>
+          <Link to="/accident">
+            <button className="header__btn__top">자세히 보기</button>
+          </Link>
         </div>
       </div>
     </section>

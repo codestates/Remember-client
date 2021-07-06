@@ -11,24 +11,27 @@ const StyledMenu = styled.nav`
   padding: 0 20px;
   display: flex;
   justify-content: space-between;
+  /* 변경 사항 */
+  position: relative;
+  z-index: 3;
 
   .icon {
     padding: 15px 0;
   }
 `;
 
-function Navbar({auth}:any) {
+function Navbar({ auth }: any) {
   return (
     <div>
-      <Notification/>
+      <Notification />
       <div className="header__box">
         <div className="header__title">
-          <Link to='/'>Remember</Link>
+          <Link to="/">Remember</Link>
         </div>
       </div>
 
       <StyledMenu>
-        <Hamburger auth={auth}/>
+        <Hamburger auth={auth} />
       </StyledMenu>
     </div>
   );

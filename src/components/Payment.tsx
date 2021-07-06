@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Payment.css";
 
 const Payment: React.FC = () => {
@@ -48,9 +49,15 @@ const Payment: React.FC = () => {
               <button type="button" className="payment__btn1">
                 결제하기
               </button>
-              <button type="button" className="payment__btn2">
-                PayPal 체크아웃
-              </button>
+              <Link to="/service">
+                <button
+                  type="button"
+                  className="payment__btn2"
+                  onClick={() => alert("결제가 취소되었습니다!")}
+                >
+                  취소하기
+                </button>
+              </Link>
             </div>
           </div>
         </div>

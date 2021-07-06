@@ -29,7 +29,10 @@ const GithubLogin = ({auth, setSignInClick, setModalOn, notify}:Props) => {
         const email = data.additionalUserInfo.username + '@github.com';
         const name = data.user.displayName;
         toMainPage();
-        await axios.post(`${process.env.REACT_APP_API_URL}/oauth-info`, { email, name })
+        await axios.post(`${process.env.REACT_APP_API_URL}/oauth-info`, { 
+          email, name,
+          url: "https://image.flaticon.com/icons/png/512/25/25231.png"
+         })
         
       });
       

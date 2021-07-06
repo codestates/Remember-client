@@ -24,7 +24,7 @@ const Mypage = () => {
     dispatch
   )
   const [isOauth, setIsOauth] = useState<boolean>(false);
-  const [imgUrl, setImgUrl] = useState<string>("https://image.flaticon.com/icons/png/512/64/64572.png");
+  const [imgUrl, setImgUrl] = useState<string>("");
   const [values, setValues] = useState<Values>({
     email: "",
     password: "",
@@ -92,7 +92,7 @@ const Mypage = () => {
     })
     .then((res) => {
       console.log(res.data.data.userInfo)
-      const { email, password, name, mobile, dateOfBirth, OAuth } = res.data.data.userInfo;
+      const { email, password, name, mobile, dateOfBirth, OAuth, url } = res.data.data.userInfo;
       if(OAuth) {
         setIsOauth(true);
       } else {
@@ -101,6 +101,7 @@ const Mypage = () => {
           body:mobile.slice(4,8),
           tail:mobile.slice(9)
         }, dateOfBirth: dateOfBirth})
+        setImgUrl(url);
       }
       
     })

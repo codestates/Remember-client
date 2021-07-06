@@ -11,8 +11,6 @@ interface Props {
   setModalOn: Function;
   setSignUpClick: Function;
   setOpen: Function;
-  setImgUrl: Function;
-  imgUrl: string;
 }
 
 interface Values {
@@ -28,16 +26,14 @@ const SignUpModal = ({
   setSignInClick, 
   setModalOn, 
   setSignUpClick, 
-  setOpen, 
-  setImgUrl, 
-  imgUrl 
+  setOpen,
 }:Props) => {
   const dispatch = useDispatch();
   const { notify } = bindActionCreators(
     notificationCreators,
     dispatch
   )
-
+  const [imgUrl, setImgUrl] = useState<string>("https://image.flaticon.com/icons/png/512/64/64572.png");
   const [values, setValues] = useState<Values>({
     email: "",
     password: "",
@@ -55,6 +51,13 @@ const SignUpModal = ({
       if( !values.email || !values.password || !values.name || !values.mobile || !values.dateOfBirth ) {
         notify("모든 항목은 필수입니다.")
       } 
+      else if(
+        values.mobile.head.length !== 3 ||
+        values.mobile.body.length !== 4 ||
+        values.mobile.tail.length !== 4
+      ) {
+        notify("전화번호 길이는 11자리입니다.")
+      }
       else if(!values.email.includes("@") || !values.email.includes(".")) {
         notify("이메일 형식이 잘못되었습니다.")
       }
@@ -73,7 +76,8 @@ const SignUpModal = ({
       password: values.password,
       name: values.name,
       mobile: `${values.mobile.head}-${values.mobile.body}-${values.mobile.tail}`,
-      dateOfBirth: values.dateOfBirth
+      dateOfBirth: values.dateOfBirth,
+      url: imgUrl
     })
     .then(() => {
       setSignUpClick(false);
@@ -124,33 +128,46 @@ const SignUpModal = ({
           type="number"
           value={values.mobile.head}
           onChange={(e) => {
-            setValues({...values, mobile: {
-              head: e.target.value,
-              body: values.mobile.body,
-              tail: values.mobile.tail
-            }})
+            if(e.target.value.length > 3) {
+              e.target.value = e.target.value.slice(0, 4)
+              console.log(values.mobile.head)
+            } else {
+              setValues({...values, mobile: {
+                head: e.target.value,
+                body: values.mobile.body,
+                tail: values.mobile.tail
+              }})
+            }
           }}></input>-
           <input
           className="modal__signup-mobile-bodytail"
           type="number"
           value={values.mobile.body}
           onChange={(e) => {
-            setValues({...values, mobile: {
-              head: values.mobile.head,
-              body: e.target.value,
-              tail: values.mobile.tail
-            }})
+            if(e.target.value.length > 4) {
+              e.target.value = e.target.value.slice(0, 5)
+            } else { 
+              setValues({...values, mobile: {
+                head: values.mobile.head,
+                body: e.target.value,
+                tail: values.mobile.tail
+              }})
+            }
           }}></input>-
           <input
           className="modal__signup-mobile-bodytail"
           type="number"
           value={values.mobile.tail}
           onChange={(e) => {
-            setValues({...values, mobile: {
-              head: values.mobile.head,
-              body: values.mobile.body,
-              tail: e.target.value
-            }})
+            if(e.target.value.length > 4) {
+              e.target.value = e.target.value.slice(0, 5)
+            } else {
+              setValues({...values, mobile: {
+                head: values.mobile.head,
+                body: values.mobile.body,
+                tail: e.target.value
+              }})
+            }
           }}></input>
           </div>
           <div>

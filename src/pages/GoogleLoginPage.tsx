@@ -29,7 +29,9 @@ const GoogleLoginPage = ({auth, setSignInClick, setModalOn, notify}:Props) => {
         const name = data.user.displayName;
         toMainPage();
         await axios.post(`${process.env.REACT_APP_API_URL}/oauth-info`, 
-        { email, name })
+        { email, name,
+          url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/320px-Google_%22G%22_Logo.svg.png"
+        })
       }); 
     } catch (error) {
       console.log(error)

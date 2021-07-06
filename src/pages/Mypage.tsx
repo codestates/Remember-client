@@ -74,7 +74,7 @@ const Mypage = () => {
     ) {
       notify("전화번호 길이는 11자리입니다.")
     }
-    else if(!values.email.includes("@") || !values.email.includes(".")) {
+    else if(!values.email.includes("@") || !values.email.includes(".") || values.email[values.email.length -1] === ".") {
       notify("이메일 형식이 잘못되었습니다.")
     }
     else {
@@ -83,28 +83,54 @@ const Mypage = () => {
   }
 
   const userInfoHandler = async() => {
-    await axios.get(`${process.env.REACT_APP_API_URL}/mypage`, {
-      headers: {
+    if(token.OAuth.OAuth) {
+      await axios.post(`${process.env.REACT_APP_API_URL}/mypage`, {
+        email: token.OAuth.email, name:token.OAuth.name, OAuth:token.OAuth.OAuth
+      },
+      {
+        headers: {
         authorization: `Bearer ${token.accessToken}`,
         "Content-Type": "application/json"
-      },
-      withCredentials: true
-    })
-    .then((res) => {
-      console.log(res.data.data.userInfo)
-      const { email, password, name, mobile, dateOfBirth, OAuth, url } = res.data.data.userInfo;
-      if(OAuth) {
-        setIsOauth(true);
-      } else {
-        setValues({...values, email:email, password: password, name: name, mobile: {
-          head:mobile.slice(0,3),
-          body:mobile.slice(4,8),
-          tail:mobile.slice(9)
-        }, dateOfBirth: dateOfBirth})
-        setImgUrl(url);
-      }
-      
-    })
+        },
+        withCredentials: true
+      })
+      .then((res) => {
+        console.log(res.data.data.userInfo)
+        const { email, password, name, mobile, dateOfBirth, OAuth, url } = res.data.data.userInfo;
+        if(OAuth) {
+          setIsOauth(true);
+        } else {
+          setValues({...values, email:email, password: password, name: name, mobile: {
+            head:mobile.slice(0,3),
+            body:mobile.slice(4,8),
+            tail:mobile.slice(9)
+          }, dateOfBirth: dateOfBirth})
+          setImgUrl(url);
+        }
+      })
+    } else {
+      await axios.get(`${process.env.REACT_APP_API_URL}/mypage`, {
+        headers: {
+        authorization: `Bearer ${token.accessToken}`,
+        "Content-Type": "application/json"
+        },
+        withCredentials: true
+      })
+      .then((res) => {
+        console.log(res.data.data.userInfo)
+        const { email, password, name, mobile, dateOfBirth, OAuth, url } = res.data.data.userInfo;
+        if(OAuth) {
+          setIsOauth(true);
+        } else {
+          setValues({...values, email:email, password: password, name: name, mobile: {
+            head:mobile.slice(0,3),
+            body:mobile.slice(4,8),
+            tail:mobile.slice(9)
+          }, dateOfBirth: dateOfBirth})
+          setImgUrl(url);
+        }
+      })
+    }
   }
 
   useEffect(() => {

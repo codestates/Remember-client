@@ -13,7 +13,7 @@ interface Props {
 
 const GoogleLoginPage = ({auth, setSignInClick, setModalOn, notify}:Props) => {
   const dispatch = useDispatch();
-  const { setToken } =bindActionCreators(
+  const { setToken, setOauth } =bindActionCreators(
     actionCreators,
     dispatch
   );
@@ -24,9 +24,9 @@ const GoogleLoginPage = ({auth, setSignInClick, setModalOn, notify}:Props) => {
       .login(social)
       .then(async(data:any) => {
         setToken(data.credential.accessToken);
-        console.log(data)
         const email = data.user.email;
         const name = data.user.displayName;
+        setOauth({email, name, OAuth:true});
         toMainPage();
         await axios.post(`${process.env.REACT_APP_API_URL}/oauth-info`, 
         { email, name,

@@ -66,7 +66,6 @@ const OpenNav = ({ open, setOpen, auth }:Props) => {
   const token:any = useSelector((state: Root) => state.login);
   const [signUpClick, setSignUpClick] = useState<boolean>(false);
   const [signInClick, setSignInClick] = useState<boolean>(false);
-  const [imgUrl, setImgUrl] = useState<string>("https://image.flaticon.com/icons/png/512/64/64572.png");
   const [modalOn, setModalOn] = useState<boolean>(false);
 
   const dispatch = useDispatch();
@@ -74,10 +73,6 @@ const OpenNav = ({ open, setOpen, auth }:Props) => {
     actionCreators,
     dispatch
   );
-
-  useEffect(() => {
-    console.log(imgUrl);
-  }, [imgUrl])
 
   return (
     <div >
@@ -126,8 +121,6 @@ const OpenNav = ({ open, setOpen, auth }:Props) => {
       setModalOn={setModalOn}
       setSignUpClick={setSignUpClick}
       setOpen={setOpen}
-      setImgUrl={setImgUrl}
-      imgUrl={imgUrl}
       />
       
     </div>

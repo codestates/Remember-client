@@ -1,5 +1,5 @@
 import { firebaseApp , firebaseAuth, githubProvider, googleProvider } from './firebase';
-import firebase from 'firebase/app';
+//import firebase from 'firebase/app';
 
 class Auth {
   login(name:any) {
@@ -11,7 +11,7 @@ class Auth {
     firebaseApp.auth().signOut();
   }
 
-  getProvider(name:any){
+  getProvider(name:any) {
       switch(name){
         case 'Github':
           return githubProvider;
@@ -21,5 +21,6 @@ class Auth {
           throw new Error(`${name} is unknown provider.`);
       }
   }
+
 };
 export default Auth;

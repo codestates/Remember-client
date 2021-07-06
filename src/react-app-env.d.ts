@@ -2,6 +2,7 @@
 
 interface Window {
   Kakao: any
+  IMP: any
 }
 
 interface Document {

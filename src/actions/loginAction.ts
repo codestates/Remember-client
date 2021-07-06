@@ -13,4 +13,9 @@ interface Logout {
   type: ActionType.LOGOUT;
 }
 
-export type Action = SetTokenAction | GetTokenAction | Logout;
+interface SetOauth {
+  type: ActionType.SET_OAUTH;
+  payload: object;
+}
+
+export type Action = SetTokenAction | GetTokenAction | Logout | SetOauth;

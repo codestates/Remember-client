@@ -13,7 +13,7 @@ interface Props {
 
 const GithubLogin = ({auth, setSignInClick, setModalOn, notify}:Props) => {
   const dispatch = useDispatch();
-  const { setToken } =bindActionCreators(
+  const { setToken, setOauth } =bindActionCreators(
     actionCreators,
     dispatch
   );
@@ -23,11 +23,10 @@ const GithubLogin = ({auth, setSignInClick, setModalOn, notify}:Props) => {
       auth
       .login(social)
       .then(async(data:any ) => {
-        //console.log(data);
         setToken(data.credential.accessToken);
-        console.log(data)
         const email = data.additionalUserInfo.username + '@github.com';
         const name = data.user.displayName;
+        setOauth({email, name, OAuth:true});
         toMainPage();
         await axios.post(`${process.env.REACT_APP_API_URL}/oauth-info`, { 
           email, name,

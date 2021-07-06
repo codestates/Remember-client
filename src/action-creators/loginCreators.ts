@@ -22,3 +22,11 @@ export const logout =
       type: ActionType.LOGOUT,
     });
   };
+
+export const setOauth =
+  (OAuth: object) => (dispatch: Dispatch<Action>) => {
+    dispatch({
+      type: ActionType.SET_OAUTH,
+      payload: { OAuth: OAuth},
+    });
+  };

@@ -58,7 +58,7 @@ const SignUpModal = ({
       ) {
         notify("전화번호 길이는 11자리입니다.")
       }
-      else if(!values.email.includes("@") || !values.email.includes(".")) {
+      else if(!values.email.includes("@") || !values.email.includes(".") || values.email[values.email.length -1] === ".") {
         notify("이메일 형식이 잘못되었습니다.")
       }
       else {

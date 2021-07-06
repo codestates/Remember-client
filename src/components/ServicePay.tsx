@@ -1,5 +1,6 @@
 import React from "react";
 import "./ServicePay.css";
+import { Link } from "react-router-dom";
 
 const ServicePay: React.FC = () => {
   return (
@@ -22,13 +23,13 @@ const ServicePay: React.FC = () => {
         </div>
         <div className="service__pay__row">
           <div className="input__group">
-            <input type="text" id="name" className="inp" required />
+            <input type="text" id="name" className="inp" />
             <label htmlFor="name" className="service__label">
               <i className="fas fa-user"></i> 성명
             </label>
           </div>
           <div className="input__group">
-            <input type="text" id="number" className="inp" required />
+            <input type="text" id="number" className="inp" />
             <label htmlFor="number" className="service__label">
               <i className="fas fa-phone-alt"></i> 전화번호
             </label>
@@ -36,34 +37,38 @@ const ServicePay: React.FC = () => {
         </div>
         <div className="service__pay__row">
           <div className="input__group">
-            <input type="email" id="email" className="inp" required />
+            <input type="email" id="email" className="inp" />
             <label htmlFor="email" className="service__label">
               <i className="fas fa-envelope"></i> 이메일
             </label>
           </div>
           <div className="input__group">
-            <input type="date" id="date" className="inp" required />
+            <input type="date" id="date" className="inp" />
             <label htmlFor="date" className="service__date">
               생년월일
             </label>
           </div>
         </div>
         <div className="input__group">
-          <textarea id="message" className="inp" required />
+          <textarea id="message" className="inp" />
           <label htmlFor="message" id="service__label__textarea">
             <i className="fas fa-comments"></i> 후원동기
           </label>
         </div>
         <div className="button__area">
           <div className="button__group">
-            <button className="btn__first" type="submit">
-              제출하기 <i className="fas fa-paper-plane"></i>
-            </button>
+            <Link to="/payment">
+              <button className="btn__first" type="submit">
+                제출하기 <i className="fas fa-paper-plane"></i>
+              </button>
+            </Link>
           </div>
           <div className="button__group">
-            <button type="submit" className="btn__first">
-              취소하기 <i className="fas fa-window-close"></i>
-            </button>
+            <Link to="/">
+              <button type="submit" className="btn__first">
+                취소하기 <i className="fas fa-window-close"></i>
+              </button>
+            </Link>
           </div>
         </div>
       </form>

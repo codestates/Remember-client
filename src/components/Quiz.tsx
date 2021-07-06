@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Quiz.css";
 import { questions } from "../data/dummyData";
+import { Link } from "react-router-dom";
 
 export type isCorrectQuiz = {
   answerOptions: { [key: string]: string | boolean };
@@ -39,8 +40,12 @@ const QuizArea: React.FC = () => {
               {score * 25} / 100점
             </p>
             <div className="quiz__btn__area">
-              <button className="quiz__btn">뒤로 가기</button>
-              <button className="quiz__btn">퀴즈 다시 풀기</button>
+              <Link to="/">
+                <button className="quiz__btn">Home으로 이동</button>
+              </Link>
+              <a href="/quiz">
+                <button className="quiz__btn">다시 풀기</button>
+              </a>
             </div>
           </div>
         ) : (
@@ -62,6 +67,11 @@ const QuizArea: React.FC = () => {
                     {select.selectText}
                   </button>
                 ))}
+              </div>
+              <div className="quiz__btn__area__back">
+                <Link to="/">
+                  <button className="quiz__btn__back">나가기</button>
+                </Link>
               </div>
             </div>
           </>

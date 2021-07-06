@@ -1,14 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./SponsorList.css";
 import { sponsor } from "../data/types";
 import SponsorListItem from "./SponsorListItem";
+import Spinner from "./Spinner";
 
 interface SponsorListProps {
   data: sponsor[];
 }
 
 const SponsorList: React.FC<SponsorListProps> = ({ data }) => {
-  return (
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1500);
+  }, []);
+
+  return isLoading ? (
+    <Spinner></Spinner>
+  ) : (
     <div className="sponsor__table">
       <table className="sponsor__container">
         <thead className="sponsor__thead">

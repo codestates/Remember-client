@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./JoinPage.css";
 
 const JoinPage: React.FC = () => {
@@ -15,14 +16,18 @@ const JoinPage: React.FC = () => {
           <div className="join__hover">
             <h3 className="join__title">사건 & 사고</h3>
           </div>
-          <button className="join__button">자세히 보기</button>
+          <Link to="/accident">
+            <button className="join__button">자세히 보기</button>
+          </Link>
         </div>
         <div className="join__col">
           <img src="images/ch.jpg" alt="" />
           <div className="join__hover">
             <h3 className="join__title">후원</h3>
           </div>
-          <button className="join__button">자세히 보기</button>
+          <Link to="/service">
+            <button className="join__button">자세히 보기</button>
+          </Link>
         </div>
         <div className="join__col">
           <img src="images/joel.jpg" alt="" />

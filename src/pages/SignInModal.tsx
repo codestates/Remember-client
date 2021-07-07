@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { bindActionCreators } from "redux";
 import * as notificationCreators from "../action-creators/notificationCreators";
 import * as actionCreators from '../action-creators/loginCreators';
+import './Modal.css';
 
 interface Props {
   signInClick: boolean;

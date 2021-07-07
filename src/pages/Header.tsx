@@ -1,8 +1,27 @@
-import React from "react";
+import React, { useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
+import axios from "axios";
 
 const Header: React.FC = () => {
+  const [visit, setVisit] = useState<number>(0);
+
+  const visitCounter = async() => {
+    const today = new Date();
+    const year = today.getFullYear(); // 년도
+    const month = today.getMonth() + 1;  // 월
+    const date = today.getDate();  // 날짜
+    
+    const check = `${year}-${month}-${date}`;
+    await axios.post(`${process.env.REACT_APP_API_URL}/today`, { check })
+    .then((res) => {
+      setVisit(res.data.data);
+    })
+  }
+
+  useEffect(() => {
+    visitCounter();
+  }, [])
   return (
     <section id="header">
       <div className="header__container">
@@ -10,12 +29,18 @@ const Header: React.FC = () => {
           <h1>
             기억해주세요! <br></br>사건 & 사고들을!
           </h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
-            incidunt commodi sint repudiandae, nostrum esse numquam ullam
-            corrupti quo nulla sequi fugit impedit molestias aperiam eveniet
-            ipsa nisi iure quae.
-          </p>
+          <h3>
+            <div>
+            지금까지
+            <span>{visit}</span>
+            분께서 기억하러 오셨습니다.
+            </div>
+            <div>
+            오늘도
+            <span>{visit}</span>
+            분께서 기억하러 오셨습니다.
+            </div>
+          </h3>
           <Link to="/accident">
             <button className="header__btn__top">자세히 보기</button>
           </Link>

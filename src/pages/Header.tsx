@@ -4,7 +4,8 @@ import "./Header.css";
 import axios from "axios";
 
 const Header: React.FC = () => {
-  const [visit, setVisit] = useState<number>(0);
+  const [visit, setVisit] = useState<number>(20);
+  const [count, setCount] = useState<number>(0);
 
   const visitCounter = async() => {
     const today = new Date();
@@ -19,8 +20,16 @@ const Header: React.FC = () => {
     })
   }
 
+  const plusCounter = () => {
+    // while(count < visit) {
+    //   console.log(count)
+    //   setCount(count + 1);
+    // }
+  }
+
   useEffect(() => {
-    visitCounter();
+    //visitCounter();
+    plusCounter()
   }, [])
   return (
     <section id="header">
@@ -32,7 +41,7 @@ const Header: React.FC = () => {
           <h3>
             <div>
             지금까지
-            <span>{visit}</span>
+            <span>{count}</span>
             분께서 기억하러 오셨습니다.
             </div>
             <div>

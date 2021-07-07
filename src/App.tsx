@@ -18,7 +18,7 @@ import axios from "axios";
 const App = ({ auth }: any) => {
   return (
     <Router>
-      <Navbar auth={auth}></Navbar>
+      <Navbar auth={auth} ></Navbar>
       <Switch>
         <Route exact path="/" component={Home}></Route>
         <Route path="/mypage" component={Mypage}></Route>

@@ -121,7 +121,6 @@ const SignUpModal = ({
           >전송</button>
           <button 
           className={certClick ? "modal__signup-cert-btn" : "modal__signup-cert-btn hide"}
-          onClick={() => setCertClick(!certClick)}
           >확인</button>
           </div>
           <div>

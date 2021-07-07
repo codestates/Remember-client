@@ -1,8 +1,49 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./ServicePay.css";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const ServicePay: React.FC = () => {
+  const [values, setValues] = useState<any>({
+    next_redirect_pc_url: "",
+    tid: "",
+    params: {
+      
+    }
+  });
+
+  const getUrl = async () => {
+    await axios.post(`/v1/payment/ready`, {
+      cid: "TC0ONETIME",
+      partner_order_id: "1001",
+      partner_user_id: "test@test.com",
+      item_name: "초코파이",
+      quantity: 1,
+      total_amount: 2200,
+      vat_amount: 200,
+      tax_free_amount: 0,
+      approval_url: "http://localhost:3000",
+      fail_url: "http://localhost:3000",
+      cancel_url: "http://localhost:3000",
+    },{
+      headers: {
+        Authorization: "KakaoAK 6cb58d0fb1af8bd7b2188f39953d5a68",
+        "Content-type": "application/x-www-form-urlencoded;charset=utf-8",
+      }
+    })
+    .then((res) => {
+      const { data: { next_redirect_pc_url, tid } } = res;
+      console.log(next_redirect_pc_url);
+      console.log(tid);
+      setValues({...values, next_redirect_pc_url: next_redirect_pc_url, tid: tid });
+    })
+  }
+
+  useEffect(() => {
+    getUrl();
+  }, [])
+
+
   return (
     <section id="service__pay">
       <form className="service__pay__box">
@@ -57,11 +98,10 @@ const ServicePay: React.FC = () => {
         </div>
         <div className="button__area">
           <div className="button__group">
-            <Link to="/payment">
-              <button className="btn__first" type="submit">
-                제출하기 <i className="fas fa-paper-plane"></i>
-              </button>
-            </Link>
+            <a href={values.next_redirect_pc_url}>{values.next_redirect_pc_url}</a>
+            <button className="btn__first" type="submit">
+              결제하기 <i className="fas fa-paper-plane"></i>
+            </button>
           </div>
           <div className="button__group">
             <Link to="/">

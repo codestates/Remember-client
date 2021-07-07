@@ -20,6 +20,7 @@ interface Values {
   name: string;
   mobile: any;
   dateOfBirth: string;
+  cert: string;
 }
 
 const SignUpModal = ({ 
@@ -34,6 +35,7 @@ const SignUpModal = ({
     notificationCreators,
     dispatch
   )
+  const [certClick, setCertClick] = useState<boolean>(false);
   const [imgUrl, setImgUrl] = useState<string>("https://image.flaticon.com/icons/png/512/64/64572.png");
   const [values, setValues] = useState<Values>({
     email: "",
@@ -44,7 +46,8 @@ const SignUpModal = ({
       body: "",
       tail: ""
     },
-    dateOfBirth: ""
+    dateOfBirth: "",
+    cert: ""
   })
 
   const signUpHandler = () => {
@@ -64,7 +67,7 @@ const SignUpModal = ({
       }
       else {
         toMainPage();
-        setValues({ email: "", password: "", name: "", mobile: {head: "", body: "", tail: ""}, dateOfBirth: "" })
+        setValues({ email: "", password: "", name: "", mobile: {head: "", body: "", tail: ""}, dateOfBirth: "", cert: "" })
       }
     } catch (error) {
       
@@ -104,6 +107,22 @@ const SignUpModal = ({
           value={values.email}
           onChange={(e) => setValues({...values, email:e.target.value})}
           ></input>
+          </div>
+          <div>
+          <input
+          className="modal__signup-cert"
+          placeholder="인증번호"
+          value={values.cert}
+          onChange={(e) => setValues({...values, cert:e.target.value})}
+          ></input>
+          <button 
+          className={certClick ? "modal__signup-cert-btn hide" : "modal__signup-cert-btn"}
+          onClick={() => setCertClick(!certClick)}
+          >전송</button>
+          <button 
+          className={certClick ? "modal__signup-cert-btn" : "modal__signup-cert-btn hide"}
+          onClick={() => setCertClick(!certClick)}
+          >확인</button>
           </div>
           <div>
           <input

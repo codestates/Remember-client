@@ -16,7 +16,7 @@
   transform: translate(-50%, -50%);
   background-image: linear-gradient(rgb(233, 233, 233), rgb(170, 170, 170));
   width: 700px;
-  height: 500px;
+  height: 550px;
   border-radius: 15px;
   padding: 40px;
   box-shadow: 10px 10px 42px 0px rgba(0, 0, 0, 0.75);
@@ -108,9 +108,9 @@
   justify-content: center;
 }
 
-.quiz__btn:hover {
+/* .quiz__btn:hover {
   background-color: #fcffcb;
-}
+} */
 
 .quiz__btn__back {
   width: 40%;
@@ -126,7 +126,7 @@
   align-items: center;
   border: 1px solid #0a1825;
   cursor: pointer;
-  margin-top: 35px;
+  margin-top: 25px;
   justify-content: center;
   margin-left: 8rem;
   text-align: center;
@@ -140,4 +140,12 @@
   margin-left: 5rem;
   text-decoration: none;
   list-style: none;
+}
+
+.correct {
+  background-color: green;
+}
+
+.false {
+  background-color: blue;
 }

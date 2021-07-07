@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -13,16 +13,12 @@ import PostDetail from "./pages/PostDetail";
 
 import Quiz from "./components/Quiz";
 import Sponsor from "./components/Sponsor";
-
-import KakaoShareButton from './pages/KakaoShareButton';
-import Facebook from "./pages/Facebook";
+import axios from "axios";
 
 const App = ({ auth }: any) => {
-
   return (
     <Router>
       <Navbar auth={auth}></Navbar>
-      
       <Switch>
         <Route exact path="/" component={Home}></Route>
         <Route path="/mypage" component={Mypage}></Route>

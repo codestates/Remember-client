@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -67,7 +67,7 @@ const OpenNav = ({ open, setOpen, auth }:Props) => {
   const [signUpClick, setSignUpClick] = useState<boolean>(false);
   const [signInClick, setSignInClick] = useState<boolean>(false);
   const [modalOn, setModalOn] = useState<boolean>(false);
-
+  const history = useHistory();
   const dispatch = useDispatch();
   const { logout } =bindActionCreators(
     actionCreators,
@@ -89,7 +89,7 @@ const OpenNav = ({ open, setOpen, auth }:Props) => {
         :<button className="left" onClick={() => {
           logout();
           setOpen(false)
-          window.location.replace('/')
+          history.push('/')
         }}>로그아웃</button>}
         {!token.accessToken ?
         <button className="right" onClick={() => {

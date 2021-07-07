@@ -7,7 +7,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 
 const persistConfig = {
   key: 'root',
-  storage
+  storage,
 }
 const enhancedReducer = persistReducer(persistConfig, rootReducer);
 const store = createStore(enhancedReducer, composeWithDevTools(applyMiddleware(thunk)));

@@ -15,7 +15,6 @@ const auth = new Auth();
 
 ReactDOM.render(
   <Provider store={store}>
-
     <PersistGate loading={null} persistor={persistor}>
       <BrowserRouter>
         <App auth={auth}/>

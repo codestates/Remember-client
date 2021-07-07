@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { bindActionCreators } from "redux";
 import * as notificationCreators from "../action-creators/notificationCreators";
 import axios from 'axios';
+import './Modal.css';
 
 interface Props {
   signUpClick: boolean;

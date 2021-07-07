@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import './Mypage.css';
 import SelectImg from './SelectImg';
+import WithdrawModal from './WithdrawModal';
 import { bindActionCreators } from "redux";
 import * as notificationCreators from "../action-creators/notificationCreators";
 import { Root } from "../Store";
@@ -36,6 +37,7 @@ const Mypage = () => {
     },
     dateOfBirth: ""
   })
+  const [withdrawClick, setWithdrawClick] = useState<boolean>(false);
   
   const saveCheck = () => {
     if( window.confirm("저장하시겠습니까?")) {
@@ -84,27 +86,22 @@ const Mypage = () => {
 
   const userInfoHandler = async() => {
     if(token.OAuth.OAuth) {
+      
       await axios.post(`${process.env.REACT_APP_API_URL}/mypage`, {
-        email: token.OAuth.email, name:token.OAuth.name, OAuth:token.OAuth.OAuth
-      },
-      {
-        headers: {
-        authorization: `Bearer ${token.accessToken}`,
-        "Content-Type": "application/json"
-        },
-        withCredentials: true
+        email: token.OAuth.email, name:token.OAuth.name
       })
       .then((res) => {
-        console.log(res.data.data.userInfo)
-        const { email, password, name, mobile, dateOfBirth, OAuth, url } = res.data.data.userInfo;
-        if(OAuth) {
-          setIsOauth(true);
-        } else {
-          setValues({...values, email:email, password: password, name: name, mobile: {
+        setIsOauth(true);
+        const { email, password, name, mobile, dateOfBirth, url } = res.data.data.userInfo;
+        if(mobile) {
+          setValues({...values, email: email, password: password, name: name, mobile: {
             head:mobile.slice(0,3),
             body:mobile.slice(4,8),
             tail:mobile.slice(9)
           }, dateOfBirth: dateOfBirth})
+          setImgUrl(url);
+        } else {
+          setValues({...values, email: email, password: password, name: name, dateOfBirth: dateOfBirth});
           setImgUrl(url);
         }
       })
@@ -117,24 +114,25 @@ const Mypage = () => {
         withCredentials: true
       })
       .then((res) => {
-        console.log(res.data.data.userInfo)
-        const { email, password, name, mobile, dateOfBirth, OAuth, url } = res.data.data.userInfo;
-        if(OAuth) {
-          setIsOauth(true);
-        } else {
-          setValues({...values, email:email, password: password, name: name, mobile: {
-            head:mobile.slice(0,3),
-            body:mobile.slice(4,8),
-            tail:mobile.slice(9)
-          }, dateOfBirth: dateOfBirth})
-          setImgUrl(url);
-        }
+        const { email, password, name, mobile, dateOfBirth, url } = res.data.data.userInfo;
+        setValues({...values, email: email, password: password, name: name, mobile: {
+          head:mobile.slice(0,3),
+          body:mobile.slice(4,8),
+          tail:mobile.slice(9)
+        }, dateOfBirth: dateOfBirth})
+        setImgUrl(url);
       })
     }
   }
 
+  const withdrawHandler = async() => {
+    
+  }
+
   useEffect(() => {
-    userInfoHandler()
+    if(token.accessToken) {
+      userInfoHandler()
+    }
   }, [])
 
   return (
@@ -159,10 +157,13 @@ const Mypage = () => {
             className="mypage__side-input" 
             placeholder="PASSWORD"
             type="password"
-            value={values.password}
+            value={values.password ? values.password : ""}
+            onClick={() => {
+              if(isOauth) notify("일반회원 전용입니다.")
+            }}
             onChange={(e) => {
               if(isOauth) {
-                notify("일반회원 전용입니다.")
+                setValues({...values, password: ""})
               } else {
                 setValues({...values, password:e.target.value})
               }
@@ -178,7 +179,7 @@ const Mypage = () => {
             className="mypage__side-input-mobile-head" 
             placeholder="MOBILE"
             type="number"
-            value={values.mobile.head}
+            value={values.mobile.head ? values.mobile.head : ""}
             onChange={(e) => {
               if(e.target.value.length > 3) {
                 e.target.value = e.target.value.slice(0, 4)
@@ -196,7 +197,7 @@ const Mypage = () => {
             placeholder="MOBILE"
             type="number"
 
-            value={values.mobile.body}
+            value={values.mobile.body ? values.mobile.body : ""}
             onChange={(e) => {
               if(e.target.value.length > 4) {
                 e.target.value = e.target.value.slice(0, 5)
@@ -212,7 +213,7 @@ const Mypage = () => {
             className="mypage__side-input-mobile-bodytail" 
             placeholder="MOBILE"
             type="number"
-            value={values.mobile.tail}
+            value={values.mobile.tail ? values.mobile.tail : ""}
             onChange={(e) => {
               if(e.target.value.length > 4) {
                 e.target.value = e.target.value.slice(0, 5)
@@ -228,10 +229,14 @@ const Mypage = () => {
             className="mypage__side-input" 
             placeholder="DATE OF BIRTH"
             type="date"
-            value={values.dateOfBirth}
+            value={values.dateOfBirth ? values.dateOfBirth : ""}
             onChange={(e) => setValues({...values, dateOfBirth:e.target.value})}
           />
           <div>
+          <button className="mypage__side-save" onClick={() => {
+            withdrawHandler();
+            setWithdrawClick(true);
+          }}>회원탈퇴</button>
           <button className="mypage__side-save" onClick={saveHandler}>저장</button>
           </div>
         </div>
@@ -249,6 +254,7 @@ const Mypage = () => {
           </ul>
         </div>
       </div>
+      <WithdrawModal email={values.email} withdrawClick={withdrawClick} setWithdrawClick={setWithdrawClick}/>
     </div>
   )
 }

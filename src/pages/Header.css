@@ -22,13 +22,12 @@
   margin-bottom: 25px;
 }
 
-.header__text p {
+.header__text h3 div span {
   font-size: 18px;
   font-weight: bold;
-  line-height: 20px;
-  color: blue;
+  color: #e040fb;
   font-style: italic;
-  margin-bottom: 1rem;
+  margin: 0 5px;
 }
 
 .header__btn__top {

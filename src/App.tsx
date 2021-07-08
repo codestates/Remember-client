@@ -18,11 +18,11 @@ import axios from "axios";
 const App = ({ auth }: any) => {
   return (
     <Router>
-      <Navbar auth={auth} ></Navbar>
+      <Navbar auth={auth}></Navbar>
       <Switch>
         <Route exact path="/" component={Home}></Route>
         <Route path="/mypage" component={Mypage}></Route>
-        <Route path="/postdetail" component={PostDetail}></Route>
+        <Route exact path="/postdetail/:id" component={PostDetail}></Route>
         <Route exact path="/accident" component={AccList}></Route>
         <Route exact path="/service" component={ServicePay}></Route>
         <Route exact path="/payment" component={Payment}></Route>
@@ -31,7 +31,6 @@ const App = ({ auth }: any) => {
         <Route exact path="/sponsor" component={Sponsor}></Route>
         <Route path="/" render={() => <div>404 에러</div>}></Route>
       </Switch>
-      
     </Router>
   );
 };

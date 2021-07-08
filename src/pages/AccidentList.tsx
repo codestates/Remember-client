@@ -14,13 +14,17 @@ const AccidentList: React.FC = () => {
   useEffect(() => {
     fetchAccident();
   }, []);
-  // onClick={(accident) => history.push(`/postdetail/${accident.id}`)}
+
   return accidentState.loading ? (
     <Spinner></Spinner>
   ) : (
     <div className="accident__row">
       {accidentState.accident?.data.map((accident) => (
-        <AccidentListItem data={accident} key={accident.id}></AccidentListItem>
+        <AccidentListItem
+          onClick={(accident) => history.push(`/postdetail/${accident.id}`)}
+          data={accident}
+          key={accident.id}
+        ></AccidentListItem>
       ))}
     </div>
   );

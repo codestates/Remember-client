@@ -2,12 +2,14 @@ import {
   AccidentState,
   AccidentAction,
   AccidentActionTypes,
+  AccidentSingleData,
 } from "../types/accident";
 
 interface initialStateI {
   loading: boolean;
   error: null | string;
   accident?: AccidentState;
+  accidentSingle?: AccidentSingleData;
 }
 
 const initialState: initialStateI = {
@@ -30,6 +32,12 @@ export const accidentReducer = (
         loading: false,
         error: null,
         accident: action.payload,
+      };
+    case AccidentActionTypes.FETCH_SINGLE_DATA:
+      return {
+        loading: false,
+        error: null,
+        accidentSingle: action.payload,
       };
     case AccidentActionTypes.FETCH_ACCIDENT_ERROR:
       return {

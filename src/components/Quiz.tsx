@@ -1,17 +1,24 @@
 import React, { useState } from "react";
 import "./Quiz.css";
 import { questions } from "../data/dummyData";
-import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import axios from "axios";
 import { useTypedSelector } from "../hook/useTypedSelector";
 import { useActionDispatch } from "../hook/useActionDispatch";
+import { useSelector, useDispatch } from 'react-redux';
+import { bindActionCreators } from "redux";
+import * as notificationCreators from "../action-creators/notificationCreators";
 
 export type isCorrectQuiz = {
   answerOptions: { [key: string]: string | boolean };
 };
 
-const QuizArea: React.FC = () => {
+interface Props {
+  setQuizClick: Function;
+  quizClick: boolean;
+}
+
+const QuizArea = ({ setQuizClick, quizClick}: Props) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [clicked, setClicked] = useState(false);
@@ -19,6 +26,12 @@ const QuizArea: React.FC = () => {
 
   const quizState = useTypedSelector((state) => state.quiz);
   const { fetchQuiz } = useActionDispatch();
+  const dispatch = useDispatch();
+  const { notify } = bindActionCreators(
+    notificationCreators,
+    dispatch
+  )
+
 
   useEffect(() => {
     fetchQuiz();
@@ -60,27 +73,27 @@ const QuizArea: React.FC = () => {
   };
 
   return (
-    <section id="quiz">
-      <div className="quiz__container">
+    <section className={quizClick? "show__quiz": "hide"}>
+      <div className="modal__overlay" onClick={() => setQuizClick(false)}></div>
+      <div>
         {showScore ? (
-          <div className="quiz__score__area">
+          <div className="quizmodal__content">
             <h1 className="quiz__end">참여해주셔서 감사합니다!</h1>
             <p className="quiz__score__result">
-              정답 개수: {score} / {questions.length}개 <br></br>점수 :{" "}
+              <span className="quiz__black">정답 개수: </span>{score} / {questions.length}개
+            </p>
+            <p className="quiz__score__result">
+            <span className="quiz__black">점수 : </span>
               {score * 25} / 100점
             </p>
-            <div className="quiz__btn__area">
-              <Link to="/">
-                <button className="quiz__btn">Home으로 이동</button>
-              </Link>
-              <a href="/quiz">
-                <button className="quiz__btn">다시 풀기</button>
-              </a>
+            <div>
+              {/* <button className="quiz__btn__back">Home으로 이동</button>
+              <button className="quiz__btn__back">다시 풀기</button> */}
             </div>
           </div>
         ) : (
           <>
-            <div className="quiz__section">
+            <div className="quizmodal__content">
               <div className="quiz__count">
                 <span>문제 {currentQuestion + 1} / 4</span>
               </div>
@@ -95,8 +108,6 @@ const QuizArea: React.FC = () => {
                     className={`quiz__btn ${
                       clicked && select.answer
                         ? "correct"
-                        : clicked && !select.answer
-                        ? "false"
                         : ""
                     }`}
                     onClick={() => selectClick(select.answer)}
@@ -105,7 +116,7 @@ const QuizArea: React.FC = () => {
                   </button>
                 ))}
               </div>
-              <div className="quiz__btn__area__back">
+              <div>
                 <button
                   className="quiz__btn__back"
                   onClick={handleNextQuestion}
@@ -113,13 +124,10 @@ const QuizArea: React.FC = () => {
                 >
                   Next
                 </button>
-                <Link to="/">
-                  <button className="quiz__btn__back">나가기</button>
-                </Link>
               </div>
             </div>
           </>
-        )}
+         )}
       </div>
     </section>
   );

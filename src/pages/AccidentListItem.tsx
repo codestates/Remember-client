@@ -15,14 +15,23 @@ interface AccidentListItemProps {
   onClick: (data: AccidentData) => void;
 }
 
-const AccidentListItem: React.FC<AccidentListItemProps> = ({
-  data,
-  onClick,
-}) => {
+interface Values {
+  name: string,
+  url: string
+}
+
+const AccidentListItem:React.FC<AccidentListItemProps> = ({ data }) => {
   const dispatch = useDispatch();
-  const { notify } = bindActionCreators(notificationCreators, dispatch);
-  const token: any = useSelector((state: Root) => state.login);
-  const [name, setName] = useState<string>("");
+  const { notify } = bindActionCreators(
+    notificationCreators,
+    dispatch
+  )
+  const token:any = useSelector((state: Root) => state.login);
+  const [values, setValues] = useState<Values>({
+    name: "",
+    url: "",
+  });
+
   const [title, setTitle] = useState<string>("제목");
   const [thumb, setThumb] = useState<number>(0);
   const [isClicked, setIsClicked] = useState<boolean>(false);
@@ -34,48 +43,41 @@ const AccidentListItem: React.FC<AccidentListItemProps> = ({
     } else if (isClicked) {
       setThumb(thumb - 1);
     }
-    console.log(name, title);
-    await axios.put(`${process.env.REACT_APP_API_URL}/put-like`, {
-      name,
-      title,
-    });
-  };
 
-  const userInfoHandler = async () => {
-    if (token.OAuth.OAuth) {
-      await axios
-        .post(
-          `${process.env.REACT_APP_API_URL}/mypage`,
-          {
-            email: token.OAuth.email,
-            name: token.OAuth.name,
-            OAuth: token.OAuth.OAuth,
-          },
-          {
-            headers: {
-              authorization: `Bearer ${token.accessToken}`,
-              "Content-Type": "application/json",
-            },
-            withCredentials: true,
-          }
-        )
-        .then((res) => {
-          const { name } = res.data.data.userInfo;
-          setName(name);
-        });
+    await axios.put(`${process.env.REACT_APP_API_URL}/put-like`, {
+      name: values.name, title
+    })
+  }
+
+  const userInfoHandler = async() => {
+    if(token.OAuth.OAuth) {
+      await axios.post(`${process.env.REACT_APP_API_URL}/mypage`, {
+        email: token.OAuth.email, name:token.OAuth.name, OAuth:token.OAuth.OAuth
+      },
+      {
+        headers: {
+        authorization: `Bearer ${token.accessToken}`,
+        "Content-Type": "application/json"
+        },
+        withCredentials: true
+      })
+      .then((res) => {
+        const { name, url } = res.data.data.userInfo;
+        setValues({...values, name: name, url: url});
+      })
     } else {
-      await axios
-        .get(`${process.env.REACT_APP_API_URL}/mypage`, {
-          headers: {
-            authorization: `Bearer ${token.accessToken}`,
-            "Content-Type": "application/json",
-          },
-          withCredentials: true,
-        })
-        .then((res) => {
-          const { name } = res.data.data.userInfo;
-          setName(name);
-        });
+      await axios.get(`${process.env.REACT_APP_API_URL}/mypage`, {
+        headers: {
+        authorization: `Bearer ${token.accessToken}`,
+        "Content-Type": "application/json"
+        },
+        withCredentials: true
+      })
+      .then((res) => {
+        const { name, url } = res.data.data.userInfo;
+        setValues({...values, name: name, url: url});
+      })
+>>>>>>> dev
     }
   };
 

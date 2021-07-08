@@ -31,14 +31,14 @@
 }
 
 .sns-img {
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
   cursor: pointer;
 }
 
 .sns-btn {
   border: none;
-  background: rgb(219, 220, 220);
+  /* background: rgb(219, 220, 220); */
   margin: 0 5px;
 }
 

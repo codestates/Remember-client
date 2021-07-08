@@ -36,6 +36,8 @@ const SignUpModal = ({
     dispatch
   )
   const [certClick, setCertClick] = useState<boolean>(false);
+  const [certNum, setCertNum] = useState<string>("&#$@%@FSdsf");
+  const [isValid, setIsValid] = useState<boolean>(false);
   const [imgUrl, setImgUrl] = useState<string>("https://image.flaticon.com/icons/png/512/64/64572.png");
   const [values, setValues] = useState<Values>({
     email: "",
@@ -65,6 +67,7 @@ const SignUpModal = ({
       else if(!values.email.includes("@") || !values.email.includes(".") || values.email[values.email.length -1] === ".") {
         notify("이메일 형식이 잘못되었습니다.")
       }
+      
       else {
         toMainPage();
         setValues({ email: "", password: "", name: "", mobile: {head: "", body: "", tail: ""}, dateOfBirth: "", cert: "" })
@@ -90,6 +93,35 @@ const SignUpModal = ({
     })
   }
 
+  const sendMailHandler = async () => {
+    if( !values.email ) {
+      notify("이메일을 입력해주세요.")
+    } 
+    else if(!values.email.includes("@") || !values.email.includes(".") || values.email[values.email.length -1] === ".") {
+      notify("이메일 형식이 잘못되었습니다.")
+    } else {
+      notify("인증 메일이 전송되었습니다.")
+      setCertClick(!certClick);
+      await axios.post(`${process.env.REACT_APP_API_URL}/mail`, {
+        mail: values.email
+      })
+      .then((res) => {
+        const num = res.data.data
+        console.log(num)
+        setCertNum(`${num}`);
+      })
+    }
+  }
+
+  const checkNumHandler = () => {
+    if(values.cert === certNum) {
+      setIsValid(true);
+      notify("인증되었습니다.")
+    } else {
+      notify("올바르지 않은 인증번호입니다.")
+    }
+  }
+
   return (
     <div className={signUpClick? "show": "hide"}>
         <div className="modal__overlay" onClick={() => {
@@ -105,7 +137,13 @@ const SignUpModal = ({
           className="modal__signup"
           placeholder="EMAIL"
           value={values.email}
-          onChange={(e) => setValues({...values, email:e.target.value})}
+          onChange={(e) => {
+            if(!certClick) {
+              setValues({...values, email:e.target.value});
+            } else {
+              return;
+            }
+          }}
           ></input>
           </div>
           <div>
@@ -113,33 +151,59 @@ const SignUpModal = ({
           className="modal__signup-cert"
           placeholder="인증번호"
           value={values.cert}
-          onChange={(e) => setValues({...values, cert:e.target.value})}
+          onChange={(e) => {
+            if(isValid) {
+              return;
+            } else {
+              setValues({...values, cert:e.target.value})
+            }
+          }}
           ></input>
           <button 
           className={certClick ? "modal__signup-cert-btn hide" : "modal__signup-cert-btn"}
-          onClick={() => setCertClick(!certClick)}
+          onClick={() => {
+            sendMailHandler();
+          }}
           >전송</button>
           <button 
           className={certClick ? "modal__signup-cert-btn" : "modal__signup-cert-btn hide"}
+          onClick={() => {
+            checkNumHandler();
+          }}
           >확인</button>
           </div>
+          
           <div>
           <input
           className="modal__signup"
           placeholder="PASSWORD"
           type="password"
           value={values.password}
-          onChange={(e) => setValues({...values, password:e.target.value})}
+          onChange={(e) => {
+            if(isValid) {
+              setValues({...values, password:e.target.value})
+            } else {
+              setValues({...values, password: ""})
+            }
+          }}
           ></input>
           </div>
+          
           <div>
           <input
           className="modal__signup"
           placeholder="NAME"
           value={values.name}
-          onChange={(e) => setValues({...values, name:e.target.value})}
+          onChange={(e) => {
+            if(isValid) {
+              setValues({...values, name:e.target.value})
+            } else {
+              return;
+            }
+          }}
           ></input>
           </div>
+           
           <div className="mobile-font">
           <input
           className="modal__signup-mobile-head"
@@ -147,15 +211,19 @@ const SignUpModal = ({
           type="number"
           value={values.mobile.head}
           onChange={(e) => {
-            if(e.target.value.length > 3) {
-              e.target.value = e.target.value.slice(0, 4)
-              console.log(values.mobile.head)
+            if(isValid) {
+              if(e.target.value.length > 3) {
+                e.target.value = e.target.value.slice(0, 4)
+                console.log(values.mobile.head)
+              } else {
+                setValues({...values, mobile: {
+                  head: e.target.value,
+                  body: values.mobile.body,
+                  tail: values.mobile.tail
+                }})
+              }
             } else {
-              setValues({...values, mobile: {
-                head: e.target.value,
-                body: values.mobile.body,
-                tail: values.mobile.tail
-              }})
+              return;
             }
           }}></input>-
           <input
@@ -163,14 +231,18 @@ const SignUpModal = ({
           type="number"
           value={values.mobile.body}
           onChange={(e) => {
-            if(e.target.value.length > 4) {
-              e.target.value = e.target.value.slice(0, 5)
-            } else { 
-              setValues({...values, mobile: {
-                head: values.mobile.head,
-                body: e.target.value,
-                tail: values.mobile.tail
-              }})
+            if(isValid) {
+              if(e.target.value.length > 4) {
+                e.target.value = e.target.value.slice(0, 5)
+              } else { 
+                setValues({...values, mobile: {
+                  head: values.mobile.head,
+                  body: e.target.value,
+                  tail: values.mobile.tail
+                }})
+              }
+            } else {
+              return;
             }
           }}></input>-
           <input
@@ -178,27 +250,39 @@ const SignUpModal = ({
           type="number"
           value={values.mobile.tail}
           onChange={(e) => {
-            if(e.target.value.length > 4) {
-              e.target.value = e.target.value.slice(0, 5)
+            if(isValid) {
+              if(e.target.value.length > 4) {
+                e.target.value = e.target.value.slice(0, 5)
+              } else {
+                setValues({...values, mobile: {
+                  head: values.mobile.head,
+                  body: values.mobile.body,
+                  tail: e.target.value
+                }})
+              }
             } else {
-              setValues({...values, mobile: {
-                head: values.mobile.head,
-                body: values.mobile.body,
-                tail: e.target.value
-              }})
+              return;
             }
           }}></input>
           </div>
+          
           <div>
           <input
           className="modal__signup"
           placeholder="DATE OF BIRTH"
           type="date"
           value={values.dateOfBirth}
-          onChange={(e) => setValues({...values, dateOfBirth:e.target.value})}
+          onChange={(e) => {
+            if(isValid) {
+              setValues({...values, dateOfBirth:e.target.value})
+            } else {
+              return;
+            }
+          }}
           ></input>
-          </div>
-          <button onClick={signUpHandler}>회원가입</button>
+          </div> 
+          
+          <button onClick={signUpHandler}>회원가입</button> 
           <div className="modal__content-switch">이미 가입하셨나요?
           <span onClick={() => {
             setSignUpClick(false);

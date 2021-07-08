@@ -6,7 +6,6 @@ import { CountUp } from 'countup.js';
 
 const Header: React.FC = () => {
   const [visit, setVisit] = useState<number>(0);
-  const [count, setCount] = useState<number>(0);
 
   const visitCounter = async() => {
     const today = new Date();
@@ -22,12 +21,12 @@ const Header: React.FC = () => {
   }
 
   const plusCounter = () => {
-    // let demo = new CountUp('.counter', 100)
-    // demo.start();
+    let counter = new CountUp(document.querySelector('.counter'), 1000)
+    counter.start();
   }
 
   useEffect(() => {
-    //visitCounter();
+    visitCounter();
     plusCounter()
   }, [])
   return (
@@ -38,14 +37,14 @@ const Header: React.FC = () => {
             기억해주세요! <br></br>사건 & 사고들을!
           </h1>
           <h3>
-            <div>
+            {/* <div>
             지금까지
-            <span className="counter">{count}</span>
+            <span className="counter">0</span>
             분께서 기억하러 오셨습니다.
-            </div>
+            </div> */}
             <div>
             오늘도
-            <span >{visit}</span>
+            <span className="counter">0</span>
             분께서 기억하러 오셨습니다.
             </div>
           </h3>

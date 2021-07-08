@@ -14,6 +14,11 @@ interface AccidentListItemProps {
   data: AccidentData;
 }
 
+interface Values {
+  name: string,
+  url: string
+}
+
 const AccidentListItem:React.FC<AccidentListItemProps> = ({ data }) => {
   const dispatch = useDispatch();
   const { notify } = bindActionCreators(
@@ -21,7 +26,10 @@ const AccidentListItem:React.FC<AccidentListItemProps> = ({ data }) => {
     dispatch
   )
   const token:any = useSelector((state: Root) => state.login);
-  const [name, setName] = useState<string>("");
+  const [values, setValues] = useState<Values>({
+    name: "",
+    url: "",
+  });
   const [title, setTitle] = useState<string>("제목");
   const [thumb, setThumb] = useState<number>(0);
   const [isClicked, setIsClicked] = useState<boolean>(false);
@@ -34,9 +42,8 @@ const AccidentListItem:React.FC<AccidentListItemProps> = ({ data }) => {
     else if(isClicked) {
       setThumb(thumb - 1);
     }
-    console.log(name, title)
     await axios.put(`${process.env.REACT_APP_API_URL}/put-like`, {
-      name, title
+      name: values.name, title
     })
   }
 
@@ -53,8 +60,8 @@ const AccidentListItem:React.FC<AccidentListItemProps> = ({ data }) => {
         withCredentials: true
       })
       .then((res) => {
-        const { name } = res.data.data.userInfo;
-        setName(name);
+        const { name, url } = res.data.data.userInfo;
+        setValues({...values, name: name, url: url});
       })
     } else {
       await axios.get(`${process.env.REACT_APP_API_URL}/mypage`, {
@@ -65,8 +72,8 @@ const AccidentListItem:React.FC<AccidentListItemProps> = ({ data }) => {
         withCredentials: true
       })
       .then((res) => {
-        const { name } = res.data.data.userInfo;
-        setName(name);
+        const { name, url } = res.data.data.userInfo;
+        setValues({...values, name: name, url: url});
       })
     }
   }

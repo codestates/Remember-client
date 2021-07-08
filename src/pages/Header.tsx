@@ -27,8 +27,8 @@ const Header: React.FC = () => {
   }
 
   useEffect(() => {
-    //visitCounter();
-    plusCounter()
+    visitCounter();
+    //plusCounter()
   }, [])
   return (
     <section id="header">

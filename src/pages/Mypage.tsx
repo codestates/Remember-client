@@ -163,7 +163,7 @@ const Mypage = () => {
             }}
             onChange={(e) => {
               if(isOauth) {
-                setValues({...values, password: ""})
+                return;
               } else {
                 setValues({...values, password:e.target.value})
               }
@@ -183,7 +183,6 @@ const Mypage = () => {
             onChange={(e) => {
               if(e.target.value.length > 3) {
                 e.target.value = e.target.value.slice(0, 4)
-                console.log(values.mobile.head)
               } else {
                 setValues({...values, mobile: {
                   head: e.target.value,

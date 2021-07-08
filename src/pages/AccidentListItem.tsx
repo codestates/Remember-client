@@ -3,15 +3,16 @@ import "./AccidentListItem.css";
 
 import { AccidentData } from "../types/accident";
 import { dummyList } from "../data/types";
-import { useDispatch, useSelector } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as actionCreators from '../action-creators/loginCreators';
+import { useDispatch, useSelector } from "react-redux";
+import { bindActionCreators } from "redux";
+import * as actionCreators from "../action-creators/loginCreators";
 import * as notificationCreators from "../action-creators/notificationCreators";
 import axios from "axios";
 import { Root } from "../Store";
 
 interface AccidentListItemProps {
   data: AccidentData;
+  onClick: (data: AccidentData) => void;
 }
 
 interface Values {
@@ -30,18 +31,19 @@ const AccidentListItem:React.FC<AccidentListItemProps> = ({ data }) => {
     name: "",
     url: "",
   });
+
   const [title, setTitle] = useState<string>("제목");
   const [thumb, setThumb] = useState<number>(0);
   const [isClicked, setIsClicked] = useState<boolean>(false);
 
   const setLikeHandler = async () => {
     setIsClicked(!isClicked);
-    if(!isClicked) {
+    if (!isClicked) {
       setThumb(thumb + 1);
-    }
-    else if(isClicked) {
+    } else if (isClicked) {
       setThumb(thumb - 1);
     }
+
     await axios.put(`${process.env.REACT_APP_API_URL}/put-like`, {
       name: values.name, title
     })
@@ -75,32 +77,34 @@ const AccidentListItem:React.FC<AccidentListItemProps> = ({ data }) => {
         const { name, url } = res.data.data.userInfo;
         setValues({...values, name: name, url: url});
       })
+>>>>>>> dev
     }
-  }
+  };
 
-  const getLikeHandler = async() => {
-    await axios.post(`${process.env.REACT_APP_API_URL}/post-like`, {
-      title
-    })
-    .then((res) => {
-      const likeNum = res.data.data.likeTable.length
-      setThumb(likeNum)
-    })
-  }
+  const getLikeHandler = async () => {
+    await axios
+      .post(`${process.env.REACT_APP_API_URL}/post-like`, {
+        title,
+      })
+      .then((res) => {
+        const likeNum = res.data.data.likeTable.length;
+        setThumb(likeNum);
+      });
+  };
 
   const isLoginHandler = () => {
-    if(!token.accessToken) {
-      notify("로그인이 필요합니다.")
+    if (!token.accessToken) {
+      notify("로그인이 필요합니다.");
     }
-  }
+  };
 
   useEffect(() => {
-    if(token.accessToken) {
+    if (token.accessToken) {
       userInfoHandler();
     }
     getLikeHandler();
-  }, [])
-  
+  }, []);
+
   return (
     <div className="accident__detail">
       <img src={data.url} alt="" className="accident__img"></img>
@@ -108,12 +112,13 @@ const AccidentListItem:React.FC<AccidentListItemProps> = ({ data }) => {
       <div className="text__group">
         <p className="people__text">인명 피해 : {data.casualty}</p>
         <p className="day__text">사건 발생일 : {data.date}</p>
-        <button onClick={setLikeHandler}>좋아요</button><span> {thumb}</span>
+        <button onClick={setLikeHandler}>좋아요</button>
+        <span> {thumb}</span>
       </div>
       <p className="acc__btn__group">
-        <a href="" className="detail__btn">
+        <button className="detail__btn" onClick={() => onClick(data)}>
           자세히보기
-        </a>
+        </button>
         <a href="" className="detail__btn" onClick={isLoginHandler}>
           후원하기
         </a>

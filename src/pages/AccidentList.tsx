@@ -4,11 +4,12 @@ import AccidentListItem from "./AccidentListItem";
 import Spinner from "./Spinner";
 import { useTypedSelector } from "../hook/useTypedSelector";
 import { useActionDispatch } from "../hook/useActionDispatch";
+import { useHistory } from "react-router-dom";
 
 const AccidentList: React.FC = () => {
   const accidentState = useTypedSelector((state) => state.accident);
-
   const { fetchAccident } = useActionDispatch();
+  const history = useHistory();
 
   useEffect(() => {
     fetchAccident();
@@ -19,7 +20,11 @@ const AccidentList: React.FC = () => {
   ) : (
     <div className="accident__row">
       {accidentState.accident?.data.map((accident) => (
-        <AccidentListItem data={accident} key={accident.id}></AccidentListItem>
+        <AccidentListItem
+          onClick={(accident) => history.push(`/postdetail/${accident.id}`)}
+          data={accident}
+          key={accident.id}
+        ></AccidentListItem>
       ))}
     </div>
   );

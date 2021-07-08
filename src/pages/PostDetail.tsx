@@ -14,6 +14,11 @@ interface Values {
 }
 
 function PostDetail() {
+  const params = useParams<PostDetailParams>();
+  const history = useHistory();
+
+  const accidentState = useTypedSelector((state) => state.accident);
+  const { fetchSingleData } = useActionDispatch();
   const dispatch = useDispatch();
   const { notify } = bindActionCreators(
     notificationCreators,
@@ -89,19 +94,34 @@ function PostDetail() {
   useEffect(() => {
     getUserInfo();
     getComment();
+    fetchSingleData(params.id);
   }, [])
-
-  return (
+  
+return accidentState.loading ? (
+    <img src="../images/spinner.gif" alt="" className="postdetail__img " />
+  ) : (
     <div>
       <div className="postdetail__main-box">
         <div>
-          <div className="postdetail__image">이미지</div>
-          <div className="postdetail__image-title">제목</div>
+          <div className="postdetail__image">
+            <img src={accidentState.accidentSingle?.data.url} alt="" />
+          </div>
+          <div className="postdetail__image-title">
+            {accidentState.accidentSingle?.data.title}
+          </div>
         </div>
 
         <div className="postdetail__side">
-          <div className="postdetail__side-title">Text</div>
+          <div className="postdetail__side-title">
+            {accidentState.accidentSingle?.data.location}
+          </div>
           <div className="postdetail__side-bar">Image Bar</div>
+          <button
+            className="postdetail__side-support"
+            onClick={() => history.push("/accident")}
+          >
+            뒤로가기
+          </button>
           <button className="postdetail__side-support">후원하기</button>
           <KakaoShareButton />
           <Facebook/>
@@ -109,6 +129,8 @@ function PostDetail() {
       </div>
       <div className="postdetail__content-box">
         <div className="postdetail__content">
+          {accidentState.accidentSingle?.data.body}
+        </div>
         <div className="postdetail__comment">
             <div className="postdetail__content-box">
               <img className="postdetail__content-profile" src={values.url ? values.url : "https://image.flaticon.com/icons/png/512/64/64572.png"}></img>
@@ -139,10 +161,10 @@ function PostDetail() {
               <div className="postdetail__content-body">{el.comment}</div>
             </div>
           ))}
-        </div>
+        
       </div>
     </div>
-  )
+  );
 }
 
 export default PostDetail;

@@ -36,6 +36,8 @@ const SignUpModal = ({
     dispatch
   )
   const [certClick, setCertClick] = useState<boolean>(false);
+  const [confirmClick, setConfirmClick] = useState<boolean>(false);
+  const [certNum, setCertNum] = useState<string>("");
   const [imgUrl, setImgUrl] = useState<string>("https://image.flaticon.com/icons/png/512/64/64572.png");
   const [values, setValues] = useState<Values>({
     email: "",
@@ -90,6 +92,27 @@ const SignUpModal = ({
     })
   }
 
+  const sendMailHandler = async () => {
+    notify("인증 메일이 전송되었습니다.")
+    await axios.post(`${process.env.REACT_APP_API_URL}/mail`, {
+      mail: values.email
+    })
+    .then((res) => {
+      const num = res.data.data
+      console.log(num)
+      setCertNum(`${num}`);
+      
+    })
+  }
+
+  const checkNumHandler = () => {
+    if(values.cert === certNum) {
+      notify("인증되었습니다.")
+    } else {
+      notify("올바르지 않은 인증번호입니다.")
+    }
+  }
+
   return (
     <div className={signUpClick? "show": "hide"}>
         <div className="modal__overlay" onClick={() => {
@@ -102,10 +125,17 @@ const SignUpModal = ({
           <SelectImg setImgUrl={setImgUrl} imgUrl={imgUrl}/>
           <div>
           <input
-          className="modal__signup"
+          className={certNum ? "modal__signup": "modal__signup modal__signup-before"}
           placeholder="EMAIL"
           value={values.email}
-          onChange={(e) => setValues({...values, email:e.target.value})}
+          
+          onChange={(e) => {
+            if(!certClick) {
+              setValues({...values, email:e.target.value});
+            } else {
+              return;
+            }
+          }}
           ></input>
           </div>
           <div>
@@ -113,25 +143,46 @@ const SignUpModal = ({
           className="modal__signup-cert"
           placeholder="인증번호"
           value={values.cert}
-          onChange={(e) => setValues({...values, cert:e.target.value})}
+          onChange={(e) => {
+            if(confirmClick && certNum === values.cert) {
+              return;
+            } else {
+              setValues({...values, cert:e.target.value})
+            }
+          }}
           ></input>
           <button 
           className={certClick ? "modal__signup-cert-btn hide" : "modal__signup-cert-btn"}
-          onClick={() => setCertClick(!certClick)}
+          onClick={() => {
+            setCertClick(!certClick);
+            sendMailHandler();
+          }}
           >전송</button>
           <button 
           className={certClick ? "modal__signup-cert-btn" : "modal__signup-cert-btn hide"}
+          onClick={() => {
+            setConfirmClick(true);
+            checkNumHandler();
+          }}
           >확인</button>
           </div>
+          {certNum ? 
           <div>
           <input
           className="modal__signup"
           placeholder="PASSWORD"
           type="password"
           value={values.password}
-          onChange={(e) => setValues({...values, password:e.target.value})}
+          onChange={(e) => {
+            if(certNum) {
+              setValues({...values, password:e.target.value})
+            } else {
+              setValues({...values, password: ""})
+            }
+          }}
           ></input>
-          </div>
+          </div>: ""}
+          {certNum ? 
           <div>
           <input
           className="modal__signup"
@@ -139,7 +190,8 @@ const SignUpModal = ({
           value={values.name}
           onChange={(e) => setValues({...values, name:e.target.value})}
           ></input>
-          </div>
+          </div>: ""}
+          {certNum ? 
           <div className="mobile-font">
           <input
           className="modal__signup-mobile-head"
@@ -188,7 +240,8 @@ const SignUpModal = ({
               }})
             }
           }}></input>
-          </div>
+          </div> : "" }
+          {certNum ? 
           <div>
           <input
           className="modal__signup"
@@ -197,8 +250,9 @@ const SignUpModal = ({
           value={values.dateOfBirth}
           onChange={(e) => setValues({...values, dateOfBirth:e.target.value})}
           ></input>
-          </div>
-          <button onClick={signUpHandler}>회원가입</button>
+          </div> : "" }
+          {certNum ? 
+          <button onClick={signUpHandler}>회원가입</button> : "" }
           <div className="modal__content-switch">이미 가입하셨나요?
           <span onClick={() => {
             setSignUpClick(false);

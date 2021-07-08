@@ -17,7 +17,6 @@
 }
 
 .postdetail__image {
-  background-color: slateblue;
   width: 400px;
   height: 400px;
   text-align: center;
@@ -98,13 +97,13 @@
 
 .postdetail__content-container {
   border-bottom: 1px solid gray;
-  margin-top: 10px;
+  margin: 10px auto 0 auto;
+  width: 80%;
 }
 
 .postdetail__content-box {
   display: flex;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin: 10px auto;
 }
 
 .postdetail__content-box input {
@@ -132,4 +131,6 @@
 .postdetail__comment {
   margin-top: 30px;
   border-bottom: 1px solid gray;
+  width: 80%;
+  margin: 30px auto 0 auto;
 }

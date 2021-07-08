@@ -65,7 +65,7 @@ const SignUpModal = ({
         notify("전화번호 길이는 11자리입니다.")
       }
       else if(!values.email.includes("@") || !values.email.includes(".") || values.email[values.email.length -1] === ".") {
-        notify("이메일 형식이 잘못되었습니다.")
+        notify("올바르지 않은 이메일 형식입니다.")
       }
       
       else {
@@ -98,7 +98,7 @@ const SignUpModal = ({
       notify("이메일을 입력해주세요.")
     } 
     else if(!values.email.includes("@") || !values.email.includes(".") || values.email[values.email.length -1] === ".") {
-      notify("이메일 형식이 잘못되었습니다.")
+      notify("올바르지 않은 이메일 형식입니다.")
     } else {
       notify("인증 메일이 전송되었습니다.")
       setCertClick(!certClick);

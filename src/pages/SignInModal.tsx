@@ -51,7 +51,7 @@ const SignInModal = ({
       if(!values.email || !values.password) {
         notify("모든 항목은 필수입니다.")
       } else if(!values.email.includes("@") || !values.email.includes(".")) {
-        notify("이메일 형식이 잘못되었습니다.")
+        notify("올바르지 않은 이메일 형식입니다.")
       }
       else {
         await axios.post(`${process.env.REACT_APP_API_URL}/login`, {
@@ -64,7 +64,7 @@ const SignInModal = ({
       }
       
     } catch (error) {
-      notify("잘못된 정보입니다.")
+      notify("올바르지 않은 정보입니다.")
     }
   }
 

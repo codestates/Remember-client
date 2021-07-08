@@ -73,9 +73,8 @@ const QuizArea = ({ setQuizClick, quizClick}: Props) => {
   };
 
   return (
-    <section className={quizClick? "show__quiz": "hide"}>
+    <div className={quizClick? "show__quiz": "hide"}>
       <div className="modal__overlay" onClick={() => setQuizClick(false)}></div>
-      <div>
         {showScore ? (
           <div className="quizmodal__content">
             <h1 className="quiz__end">참여해주셔서 감사합니다!</h1>
@@ -128,8 +127,7 @@ const QuizArea = ({ setQuizClick, quizClick}: Props) => {
             </div>
           </>
          )}
-      </div>
-    </section>
+    </div>
   );
 };
 

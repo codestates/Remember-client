@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Footer.css";
 import KakaoShareButton from "./KakaoShareButton";
 import Facebook from "./Facebook";
-import { Link } from "react-router-dom";
+import Quiz from "../components/Quiz";
 
 const Footer: React.FC = () => {
+  const [quizClick, setQuizClick] = useState<boolean>(false);
   return (
     <section id="footer">
       <h2 className="footer__title">Team: Remember</h2>
@@ -20,12 +21,15 @@ const Footer: React.FC = () => {
       <p className="footer__rights">
         2021 Team: Remember - All rights reserved
       </p>
-
-      <Link to="/quiz">
-        <button className="quiz__start">퀴즈 시작하기</button>
-      </Link>
+      <button 
+      className="quiz__start"
+      onClick={() => {
+        setQuizClick(true);
+      }}
+      >퀴즈 시작하기</button>
       <KakaoShareButton />
       <Facebook />
+      <Quiz setQuizClick={setQuizClick} quizClick={quizClick}></Quiz>
     </section>
   );
 };

@@ -5,7 +5,6 @@ import { AccidentData } from "../types/accident";
 import { dummyList } from "../data/types";
 import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
-import * as actionCreators from "../action-creators/loginCreators";
 import * as notificationCreators from "../action-creators/notificationCreators";
 import axios from "axios";
 import { Root } from "../Store";
@@ -20,7 +19,7 @@ interface Values {
   url: string
 }
 
-const AccidentListItem:React.FC<AccidentListItemProps> = ({ data }) => {
+const AccidentListItem:React.FC<AccidentListItemProps> = ({ data, onClick }) => {
   const dispatch = useDispatch();
   const { notify } = bindActionCreators(
     notificationCreators,
@@ -77,7 +76,7 @@ const AccidentListItem:React.FC<AccidentListItemProps> = ({ data }) => {
         const { name, url } = res.data.data.userInfo;
         setValues({...values, name: name, url: url});
       })
->>>>>>> dev
+
     }
   };
 

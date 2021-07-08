@@ -5,12 +5,19 @@ import Facebook from "./Facebook";
 import axios from 'axios';
 import { Root } from "../Store";
 import { useSelector, useDispatch } from 'react-redux';
+import { useParams, useHistory } from 'react-router';
 import { bindActionCreators } from "redux";
 import * as notificationCreators from "../action-creators/notificationCreators";
+import { useTypedSelector } from "../hook/useTypedSelector";
+import { useActionDispatch } from "../hook/useActionDispatch";
 
 interface Values {
   name: string,
   url: string
+}
+
+interface PostDetailParams {
+  id: string;
 }
 
 function PostDetail() {
@@ -128,9 +135,9 @@ return accidentState.loading ? (
         </div>
       </div>
       <div className="postdetail__content-box">
-        <div className="postdetail__content">
+        {/* <div className="postdetail__content">
           {accidentState.accidentSingle?.data.body}
-        </div>
+        </div> */}
         <div className="postdetail__comment">
             <div className="postdetail__content-box">
               <img className="postdetail__content-profile" src={values.url ? values.url : "https://image.flaticon.com/icons/png/512/64/64572.png"}></img>

@@ -24,7 +24,6 @@
   justify-content: space-between;
   /* 변경사항 */
   position: relative;
-  z-index: 1;
 }
 
 .join__col {
@@ -33,7 +32,6 @@
   margin-bottom: 30px;
   position: relative;
   /* 변경사항 */
-  /* z-index: -3; */
 }
 
 .join__hover {

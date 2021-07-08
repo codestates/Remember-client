@@ -21,7 +21,7 @@ const Header: React.FC = () => {
   }
 
   const plusCounter = () => {
-    let counter = new CountUp(document.querySelector('.counter'), 1000)
+    let counter = new CountUp(document.querySelector('.counter'), 10000)
     counter.start();
   }
 

@@ -42,6 +42,7 @@ function PostDetail() {
     await axios.post(`${process.env.REACT_APP_API_URL}/comment`, {
       name: values.name, comment:comment, title:"제목", url: values.url
     })
+    
   }
 
   const getUserInfo = async () => {
@@ -123,7 +124,10 @@ function PostDetail() {
                 }
               }}
               ></input>
-             <div className="postdetail__content-btn" onClick={writeHandler}>댓글쓰기</div>
+             <div className="postdetail__content-btn" onClick={() => {
+                writeHandler()
+                //window.location.replace('/postdetail')
+              }}>댓글쓰기</div>
             </div>
           </div>
           {comments.map((el:any) => (

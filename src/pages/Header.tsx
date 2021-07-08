@@ -2,9 +2,10 @@ import React, { useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
 import axios from "axios";
+import { CountUp } from 'countup.js';
 
 const Header: React.FC = () => {
-  const [visit, setVisit] = useState<number>(20);
+  const [visit, setVisit] = useState<number>(0);
   const [count, setCount] = useState<number>(0);
 
   const visitCounter = async() => {
@@ -21,10 +22,8 @@ const Header: React.FC = () => {
   }
 
   const plusCounter = () => {
-    // while(count < visit) {
-    //   console.log(count)
-    //   setCount(count + 1);
-    // }
+    // let demo = new CountUp('.counter', 100)
+    // demo.start();
   }
 
   useEffect(() => {
@@ -41,12 +40,12 @@ const Header: React.FC = () => {
           <h3>
             <div>
             지금까지
-            <span>{count}</span>
+            <span className="counter">{count}</span>
             분께서 기억하러 오셨습니다.
             </div>
             <div>
             오늘도
-            <span>{visit}</span>
+            <span >{visit}</span>
             분께서 기억하러 오셨습니다.
             </div>
           </h3>

@@ -21,7 +21,7 @@ export const dummyData = [
     casualty: "12",
     location: "서울특별시 마포구 아현동",
     date: "1994-12-07",
-    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/1994%EB%85%84_12%EC%9B%94_7%EC%9D%BC_%EC%95%84%ED%98%84%EB%8F%99_%EB%8F%84%EC%8B%9C%EA%B0%80%EC%8A%A4_%ED%8F%AD%EB%B0%9C_%EC%82%AC%EA%B3%A02.JPG/800px-1994%EB%85%84_12%EC%9B%94_7%EC%9D%BC_%EC%95%84%ED%98%84%EB%8F%99_%EB%8F%84%EC%8B%9C%EA%B0%80%EC%8A%A4_%ED%8F%AD%EB%B0%9C_%EC%82%AC%EA%B3%A02.JPG",
+    url: "https://upload.wikimedia.org/wikipedia/commons/f/f0/1996%EB%85%84_12%EC%9B%94_7%EC%9D%BC_%EC%95%84%ED%98%84%EB%8F%99_%EB%8F%84%EC%8B%9C%EA%B0%80%EC%8A%A4_%ED%8F%AD%EB%B0%9C_%EC%82%AC%EA%B3%A0_33124-2-8011.jpg",
   },
   {
     id: 4,

@@ -4,16 +4,17 @@ import AccidentListItem from "./AccidentListItem";
 import Spinner from "./Spinner";
 import { useTypedSelector } from "../hook/useTypedSelector";
 import { useActionDispatch } from "../hook/useActionDispatch";
+import { useHistory } from "react-router-dom";
 
 const AccidentList: React.FC = () => {
   const accidentState = useTypedSelector((state) => state.accident);
-
   const { fetchAccident } = useActionDispatch();
+  const history = useHistory();
 
   useEffect(() => {
     fetchAccident();
   }, []);
-
+  // onClick={(accident) => history.push(`/postdetail/${accident.id}`)}
   return accidentState.loading ? (
     <Spinner></Spinner>
   ) : (

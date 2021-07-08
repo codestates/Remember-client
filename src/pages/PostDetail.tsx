@@ -134,10 +134,9 @@ return accidentState.loading ? (
           <Facebook/>
         </div>
       </div>
-      <div className="postdetail__content-box">
-        {/* <div className="postdetail__content">
+        <div >
           {accidentState.accidentSingle?.data.body}
-        </div> */}
+        </div>
         <div className="postdetail__comment">
             <div className="postdetail__content-box">
               <img className="postdetail__content-profile" src={values.url ? values.url : "https://image.flaticon.com/icons/png/512/64/64572.png"}></img>
@@ -169,7 +168,6 @@ return accidentState.loading ? (
             </div>
           ))}
         
-      </div>
     </div>
   );
 }

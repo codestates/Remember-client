@@ -20,9 +20,10 @@ const Footer: React.FC = () => {
       <p className="footer__rights">
         2021 Team: Remember - All rights reserved
       </p>
-      {/* <Link to="/quiz">
-        <a className="quiz__start">퀴즈 시작하기</a>
-      </Link> */}
+
+      <Link to="/quiz">
+        <button className="quiz__start">퀴즈 시작하기</button>
+      </Link>
       <KakaoShareButton />
       <Facebook />
     </section>

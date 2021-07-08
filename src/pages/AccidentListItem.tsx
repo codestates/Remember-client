@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./AccidentListItem.css";
 
+import { AccidentData } from "../types/accident";
 import { dummyList } from "../data/types";
 import { useDispatch, useSelector } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -10,7 +11,7 @@ import axios from "axios";
 import { Root } from "../Store";
 
 interface AccidentListItemProps {
-  data: dummyList;
+  data: AccidentData;
 }
 
 const AccidentListItem:React.FC<AccidentListItemProps> = ({ data }) => {
@@ -95,10 +96,10 @@ const AccidentListItem:React.FC<AccidentListItemProps> = ({ data }) => {
   
   return (
     <div className="accident__detail">
-      <img src={data.img} alt="" className="accident__img"></img>
+      <img src={data.url} alt="" className="accident__img"></img>
       <h2 className="accident__title">{data.title}</h2>
       <div className="text__group">
-        <p className="people__text">인명 피해 : {data.die}</p>
+        <p className="people__text">인명 피해 : {data.casualty}</p>
         <p className="day__text">사건 발생일 : {data.date}</p>
         <button onClick={setLikeHandler}>좋아요</button><span> {thumb}</span>
       </div>

@@ -1,9 +1,9 @@
 export type dummyList = {
   id: number;
   title: string;
-  die: string;
+  casualty: string;
   date: string;
-  img: string;
+  url: string;
 };
 
 export type sponsor = {

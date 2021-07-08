@@ -1,27 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./AccidentList.css";
-import { dummyList } from "../data/types";
 import AccidentListItem from "./AccidentListItem";
 import Spinner from "./Spinner";
+import { useTypedSelector } from "../hook/useTypedSelector";
+import { useActionDispatch } from "../hook/useActionDispatch";
 
-interface AccidentListProps {
-  data: dummyList[];
-}
-const AccidentList: React.FC<AccidentListProps> = ({ data }) => {
-  const [isLoading, setIsLoading] = useState(true);
+const AccidentList: React.FC = () => {
+  const accidentState = useTypedSelector((state) => state.accident);
+
+  const { fetchAccident } = useActionDispatch();
 
   useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1500);
+    fetchAccident();
   }, []);
 
-  return isLoading ? (
+  return accidentState.loading ? (
     <Spinner></Spinner>
   ) : (
     <div className="accident__row">
-      {data.map((datas) => (
-        <AccidentListItem data={datas} key={datas.id}></AccidentListItem>
+      {accidentState.accident?.data.map((accident) => (
+        <AccidentListItem data={accident} key={accident.id}></AccidentListItem>
       ))}
     </div>
   );

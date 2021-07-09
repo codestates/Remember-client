@@ -1,3 +1,5 @@
+![로고+텍스트수정본 300](https://user-images.githubusercontent.com/76901060/125083640-996ad900-e103-11eb-85f8-edeac26618fd.jpeg)
+
 # **Service Intro**
 
 ## 잊지 말아야할 것들을 너무 쉽게 잊어버리는 요즘. 
@@ -11,10 +13,10 @@
 
 ---
 
-- **Common** : TypeScript / Axios 
-- **Front-end** : React (React-Hooks) / Redux (Redux-Hooks) / Css
-- **Back-end** : Node.js / Express / sequelize / Mysql / JWT
-- **Deploy** : AWS S3 / AWS EC2 / AWS RDS / AWS CloudFront
+- **Common** : TypeScript / Axios / Iamport
+- **Front-end** : React (React-Hooks) / Redux (Redux-Hooks) / Firebase / Css
+- **Back-end** : Node.js / Express / sequelize / Mysql / Nodemailer / JWT
+- **Deploy** : AWS S3 / AWS EC2 / AWS RDS / AWS Route53 / AWS CloudFront
 - **Tools** : Notion / Postman (API) / Figma (Flowchart, Wireframe, Mockup) / Discord
 
 # **Flow Chart**
@@ -54,10 +56,10 @@
 
 Crew | Role | GitHub
 ----- | ----- | -----
-김승무	| Front-end	| https://github.com/KimseungMoo
-이동건 | Front-end	| https://github.com/dong-geon-Lee
-김성희	| Back-end |	https://github.com/heesmile0310
-이주형	| Back-end | https://github.com/johny985
+💻김승무	| Front-end	| https://github.com/KimseungMoo
+💻이동건 | Front-end	| https://github.com/dong-geon-Lee
+🖥️김성희	| Back-end |	https://github.com/heesmile0310
+🖥️이주형	| Back-end | https://github.com/johny985
 
 
 - [Check Client side dev-logs!](https://github.com/codestates/Remember-client/projects/1)

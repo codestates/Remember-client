@@ -44,7 +44,7 @@
 
 ### **Link**
 
-- [http://www.Remember.com](링크)
+- [http://www.Remember.com](https://www.projectremember.shop/)
 
 
 ### **Repository**

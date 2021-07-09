@@ -1,16 +1,38 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import "./SearchBar.css";
 
-const SearchBar: React.FC = () => {
+interface SearchBarProps {
+  searchTerm: any;
+}
+
+const SearchBar: React.FC<SearchBarProps> = ({ searchTerm }) => {
+  const [text, setText] = useState("");
+  const history = useHistory();
+
+  const onSubmit = (e: any) => {
+    e.preventDefault();
+    searchTerm(text);
+  };
+
   return (
     <section id="search">
-      <div className="search__container">
-        <input
-          type="text"
-          className="search__input"
-          placeholder="&#x270e; 사건 사고들을 작성해주세요!"
-        ></input>
-      </div>
+      <form onSubmit={onSubmit}>
+        <div className="search__container">
+          <input
+            // onChange={(e) => searchTerm(e.target.value)}
+            onChange={(e) => setText(e.target.value)}
+            type="text"
+            className="search__input"
+            placeholder="&#x270e; 검색어를 입력하고 Enter를 누르세요!"
+          ></input>
+          <button
+            className="search__btn"
+            type="submit"
+            onClick={() => history.push("/accident")}
+          ></button>
+        </div>
+      </form>
     </section>
   );
 };

@@ -16,17 +16,16 @@ interface AccidentListItemProps {
 }
 
 interface Values {
-  name: string,
-  url: string
+  name: string;
+  url: string;
 }
 
+
 const AccidentListItem:React.FC<AccidentListItemProps> = ({ data, onClick, payClick }) => {
+
   const dispatch = useDispatch();
-  const { notify } = bindActionCreators(
-    notificationCreators,
-    dispatch
-  )
-  const token:any = useSelector((state: Root) => state.login);
+  const { notify } = bindActionCreators(notificationCreators, dispatch);
+  const token: any = useSelector((state: Root) => state.login);
   const [values, setValues] = useState<Values>({
     name: "",
     url: "",
@@ -45,39 +44,46 @@ const AccidentListItem:React.FC<AccidentListItemProps> = ({ data, onClick, payCl
     }
 
     await axios.put(`${process.env.REACT_APP_API_URL}/put-like`, {
-      name: values.name, title
-    })
-  }
+      name: values.name,
+      title,
+    });
+  };
 
-  const userInfoHandler = async() => {
-    if(token.OAuth.OAuth) {
-      await axios.post(`${process.env.REACT_APP_API_URL}/mypage`, {
-        email: token.OAuth.email, name:token.OAuth.name, OAuth:token.OAuth.OAuth
-      },
-      {
-        headers: {
-        authorization: `Bearer ${token.accessToken}`,
-        "Content-Type": "application/json"
-        },
-        withCredentials: true
-      })
-      .then((res) => {
-        const { name, url } = res.data.data.userInfo;
-        setValues({...values, name: name, url: url});
-      })
+  const userInfoHandler = async () => {
+    if (token.OAuth.OAuth) {
+      await axios
+        .post(
+          `${process.env.REACT_APP_API_URL}/mypage`,
+          {
+            email: token.OAuth.email,
+            name: token.OAuth.name,
+            OAuth: token.OAuth.OAuth,
+          },
+          {
+            headers: {
+              authorization: `Bearer ${token.accessToken}`,
+              "Content-Type": "application/json",
+            },
+            withCredentials: true,
+          }
+        )
+        .then((res) => {
+          const { name, url } = res.data.data.userInfo;
+          setValues({ ...values, name: name, url: url });
+        });
     } else {
-      await axios.get(`${process.env.REACT_APP_API_URL}/mypage`, {
-        headers: {
-        authorization: `Bearer ${token.accessToken}`,
-        "Content-Type": "application/json"
-        },
-        withCredentials: true
-      })
-      .then((res) => {
-        const { name, url } = res.data.data.userInfo;
-        setValues({...values, name: name, url: url});
-      })
-
+      await axios
+        .get(`${process.env.REACT_APP_API_URL}/mypage`, {
+          headers: {
+            authorization: `Bearer ${token.accessToken}`,
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        })
+        .then((res) => {
+          const { name, url } = res.data.data.userInfo;
+          setValues({ ...values, name: name, url: url });
+        });
     }
   };
 

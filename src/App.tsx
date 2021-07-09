@@ -22,7 +22,7 @@ const App = ({ auth }: any) => {
         <Route path="/mypage" component={Mypage}></Route>
         <Route exact path="/postdetail/:id" component={PostDetail}></Route>
         <Route exact path="/accident" component={AccList}></Route>
-        <Route exact path="/service" component={ServicePay}></Route>
+        <Route exact path="/service/:id" component={ServicePay}></Route>
         <Route exact path="/payment" component={Payment}></Route>
         <Route path="/receipt" component={Receipt} />
         <Route exact path="/sponsor" component={Sponsor}></Route>

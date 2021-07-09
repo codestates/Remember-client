@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./AccidentListItem.css";
-
+import { Link } from "react-router-dom";
 import { AccidentData } from "../types/accident";
 import { dummyList } from "../data/types";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,6 +12,7 @@ import { Root } from "../Store";
 interface AccidentListItemProps {
   data: AccidentData;
   onClick: (data: AccidentData) => void;
+  payClick: (data: AccidentData) => void;
 }
 
 interface Values {
@@ -19,7 +20,7 @@ interface Values {
   url: string
 }
 
-const AccidentListItem:React.FC<AccidentListItemProps> = ({ data, onClick }) => {
+const AccidentListItem:React.FC<AccidentListItemProps> = ({ data, onClick, payClick }) => {
   const dispatch = useDispatch();
   const { notify } = bindActionCreators(
     notificationCreators,
@@ -94,6 +95,8 @@ const AccidentListItem:React.FC<AccidentListItemProps> = ({ data, onClick }) => 
   const isLoginHandler = () => {
     if (!token.accessToken) {
       notify("로그인이 필요합니다.");
+    } else {
+      return true;
     }
   };
 
@@ -118,9 +121,14 @@ const AccidentListItem:React.FC<AccidentListItemProps> = ({ data, onClick }) => 
         <button className="detail__btn" onClick={() => onClick(data)}>
           자세히보기
         </button>
-        <a href="" className="detail__btn" onClick={isLoginHandler}>
-          후원하기
-        </a>
+          <button className="detail__btn" onClick={() => {
+            let result = isLoginHandler();
+            if(result) {
+              payClick(data);
+            }
+            }}>
+            후원하기
+          </button>
       </p>
     </div>
   );

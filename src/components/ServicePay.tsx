@@ -78,7 +78,7 @@ const ServicePay: React.FC = () => {
 
   const setPaymentInfo = async () => {
     await axios.post(`${process.env.REACT_APP_API_URL}/payment`, {
-      name: name, email: email, amount: values.amount, title: values.title, receipt: values.url
+      name: name, email: email, amount: values.amount, title: values.title, 
     })
   }
 
@@ -188,8 +188,7 @@ const ServicePay: React.FC = () => {
             }}
             onFailed={err => console.log(err)}
             onSuccess={res => {
-              console.log(res)
-              setValues({...values, url: res.receipt_url})
+              //console.log(res)
               setSuccess(true);
             }}
             jqueryLoaded={false}

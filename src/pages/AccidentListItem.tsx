@@ -20,7 +20,6 @@ interface Values {
   url: string;
 }
 
-
 const AccidentListItem:React.FC<AccidentListItemProps> = ({ data, onClick, payClick }) => {
 
   const dispatch = useDispatch();
@@ -30,7 +29,6 @@ const AccidentListItem:React.FC<AccidentListItemProps> = ({ data, onClick, payCl
     name: "",
     url: "",
   });
-
 
   const [thumb, setThumb] = useState<number>(0);
   const [isClicked, setIsClicked] = useState<boolean>(false);

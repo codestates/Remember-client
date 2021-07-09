@@ -8,6 +8,7 @@ import { bindActionCreators } from "redux";
 import * as notificationCreators from "../action-creators/notificationCreators";
 import { Root } from "../Store";
 import axios from 'axios';
+import SaveModal from './SaveModal';
 
 interface Values {
   email: string;
@@ -38,6 +39,7 @@ const Mypage = () => {
     dateOfBirth: ""
   })
   const [withdrawClick, setWithdrawClick] = useState<boolean>(false);
+  const [saveClick, setSaveClick] = useState<boolean>(false);
   
   const saveCheck = () => {
     if( window.confirm("저장하시겠습니까?")) {
@@ -66,22 +68,42 @@ const Mypage = () => {
   }
 
   const saveHandler = () => {
-    if(!values.email || !values.password || !values.mobile || !values.dateOfBirth) {
-      notify("모든 항목은 필수입니다.")
-    } 
-    else if(
-      values.mobile.head.length !== 3 ||
-      values.mobile.body.length !== 4 ||
-      values.mobile.tail.length !== 4
-    ) {
-      notify("전화번호 길이는 11자리입니다.")
+    if(token.OAuth.OAuth) {
+      if(!values.email || !values.mobile || !values.dateOfBirth) {
+        notify("모든 항목은 필수입니다.")
+      } 
+      else if(
+        values.mobile.head.length !== 3 ||
+        values.mobile.body.length !== 4 ||
+        values.mobile.tail.length !== 4
+      ) {
+        notify("전화번호 길이는 11자리입니다.")
+      }
+      else if(!values.email.includes("@") || !values.email.includes(".") || values.email[values.email.length -1] === ".") {
+        notify("올바르지 않은 이메일 형식입니다.")
+      }
+      else {
+        setSaveClick(true);
+      }
+    } else {
+      if(!values.email || !values.password || !values.mobile || !values.dateOfBirth) {
+        notify("모든 항목은 필수입니다.")
+      } 
+      else if(
+        values.mobile.head.length !== 3 ||
+        values.mobile.body.length !== 4 ||
+        values.mobile.tail.length !== 4
+      ) {
+        notify("전화번호 길이는 11자리입니다.")
+      }
+      else if(!values.email.includes("@") || !values.email.includes(".") || values.email[values.email.length -1] === ".") {
+        notify("올바르지 않은 이메일 형식입니다.")
+      }
+      else {
+        setSaveClick(true);
+      }
     }
-    else if(!values.email.includes("@") || !values.email.includes(".") || values.email[values.email.length -1] === ".") {
-      notify("올바르지 않은 이메일 형식입니다.")
-    }
-    else {
-      saveCheck();
-    }
+    
   }
 
   const userInfoHandler = async() => {
@@ -236,7 +258,9 @@ const Mypage = () => {
             withdrawHandler();
             setWithdrawClick(true);
           }}>회원탈퇴</button>
-          <button className="mypage__side-save" onClick={saveHandler}>저장</button>
+          <button className="mypage__side-save" onClick={() => {
+            saveHandler();
+            }}>저장</button>
           </div>
         </div>
       </div>
@@ -254,6 +278,7 @@ const Mypage = () => {
         </div>
       </div>
       <WithdrawModal email={values.email} withdrawClick={withdrawClick} setWithdrawClick={setWithdrawClick}/>
+      <SaveModal userInfoUpdate={userInfoUpdate} saveClick={saveClick} setSaveClick={setSaveClick}></SaveModal>
     </div>
   )
 }

@@ -16,10 +16,15 @@
   margin-top: 5rem;
 }
 
+.service__pay__title {
+  margin-left: 10px;
+}
+
 .radio__row {
   display: flex;
   align-items: center;
   justify-content: left;
+  margin-left: 10px;
 }
 
 .radio__row .radio__group {
@@ -40,33 +45,33 @@
 .input__group {
   margin-bottom: 30px;
   position: relative;
+  margin-left: 10px;
 }
 
-.inp {
-  width: 100%;
-  padding: 10px;
-  outline: 0;
-  border: 1px solid black;
+.input__group-input {
+  width: 96%;
+  padding: 10px 0 10px 10px;
   background-color: transparent;
+  font-weight: 550;
   font-size: 15px;
 }
 
-.service__label {
-  height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
-  padding: 10px;
-  color: black;
-  cursor: text;
-  transition: 0.2s;
+.input__group-mobile-head {
+  width: 23%;
+  padding: 10px 0 10px 10px;
+  background-color: transparent;
+  font-weight: 550;
+  font-size: 15px;
+  margin: 0 5px 0 0;
 }
 
-.service__date {
-  position: absolute;
-  left: 75%;
-  top: 52%;
-  transform: translateY(-50%);
+.input__group-mobile-bodytail {
+  width: 31%;
+  padding: 10px 0 10px 10px;
+  background-color: transparent;
+  font-weight: 550;
+  font-size: 15px;
+  margin: 0 5px;
 }
 
 #service__label__textarea {
@@ -96,18 +101,42 @@
   outline: none;
   background-color: transparent;
   border: 1px solid black;
-  width: 100%;
+  width: 96%;
   cursor: pointer;
   transition: 0.5s;
+  margin-left: 10px;
+  margin-top: 20px;
+}
+
+.btn__second {
+  padding: 10px 0;
+  color: black;
+  outline: none;
+  background-color: transparent;
+  border: 1px solid black;
+  width: 96%;
+  cursor: pointer;
+  transition: 0.5s;
+  margin-top: 20px;
 }
 
 .btn__first:hover {
-  width: 100%;
+  width: 96%;
   background-color: blue;
   color: #fff;
 }
 
-#name:focus ~ .service__label {
+.btn__second:hover {
+  width: 96%;
+  background-color: blue;
+  color: #fff;
+}
+
+.fas {
+  margin: 0 0 5px 5px;
+}
+
+/* #name:focus ~ .service__label {
   top: -30px;
   font-size: 14px;
 }
@@ -130,4 +159,4 @@
 #date:focus ~ .service__date {
   opacity: 0;
   font-size: 14px;
-}
+} */

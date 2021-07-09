@@ -35,12 +35,14 @@ const AccidentList: React.FC = () => {
           .map((accident) => (
             <AccidentListItem
               onClick={(accident) => history.push(`/postdetail/${accident.id}`)}
+              payClick={(accident) => history.push(`/service/${accident.id}`)}
               data={accident}
               key={accident.id}
             ></AccidentListItem>
           ))}
       </div>
     </>
+
   );
 };
 

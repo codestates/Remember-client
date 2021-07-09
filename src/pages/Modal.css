@@ -22,9 +22,9 @@
   text-align: center;
   align-items: center;
   position: relative;
-  border-radius: 20px;
   width: 400px;
   height: 600px;
+  overflow-y: scroll;
 }
 
 .modal__content-img-img {
@@ -101,6 +101,17 @@
   margin: 5px auto;
   border: none;
   cursor: pointer;
+}
+
+.modal__mypage-btn {
+  width: 20%;
+  background-color: #ffecb3;
+  border-radius: 10px;
+  margin: 10px 10px;
+  border: none;
+  cursor: pointer;
+  line-height: 0;
+  padding: 20px 5px;
 }
 
 .modal__content > div > div > button {
@@ -273,4 +284,88 @@
   cursor: pointer;
   line-height: 0;
   padding: 15px 5px;
+}
+
+.modal__content-table {
+  display: flex;
+}
+
+.modal__content-table-title {
+  margin-bottom: 40px;
+}
+
+.table-btn {
+  width: 15%;
+  background-color: #ffecb3;
+  border-radius: 10px;
+  margin: 0 5px;
+  border: none;
+  cursor: pointer;
+  line-height: 0;
+  padding: 20px 5px;
+}
+
+.modal__content-table-list {
+  margin-top: 10px;
+}
+
+.table-title {
+  padding: 10px;
+  margin: 0 5px;
+  width: 40%;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #eeeeee;
+  border: none;
+}
+
+.table-amount {
+  padding: 10px;
+  margin: 0 5px;
+  width: 30%;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #eeeeee;
+  border: none;
+}
+
+.modal__content-table div {
+  margin: 10px 10px 10px 0;
+}
+
+.modal__content > ul {
+  list-style: none;
+  margin-top: 60px;
+  float: left;
+  text-align: left;
+  margin-left: 40px;
+  margin-bottom: 50px;
+}
+
+@-webkit-keyframes blinker {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes blinker {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.blink {
+  color: #64b5f6;
+  text-decoration: blink;
+  -webkit-animation-name: blinker;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-direction: alternate;
 }

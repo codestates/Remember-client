@@ -52,7 +52,7 @@ function PostDetail() {
 
   const sendComment = async () => {
     await axios.post(`${process.env.REACT_APP_API_URL}/comment`, {
-      name: values.name, comment:comment, title:"제목", url: values.url
+      name: values.name, comment: comment, title: accidentState.accidentSingle?.data.title, url: values.url
     })
     
   }
@@ -90,7 +90,7 @@ function PostDetail() {
 
   const getComment = async () => {
     await axios.post(`${process.env.REACT_APP_API_URL}/comment-list`, {
-      title: "제목"
+      title: accidentState.accidentSingle?.data.title
     })
     .then((res) => {
       const arr = res.data.data.commentInfo.reverse()

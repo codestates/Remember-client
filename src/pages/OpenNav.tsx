@@ -7,6 +7,7 @@ import * as actionCreators from '../action-creators/loginCreators';
 import { Root } from "../Store";
 import SignInModal from './SignInModal';
 import SignUpModal from './SignUpModal';
+import Mypage from "../pages/Mypage";
 
 const Ul = styled.ul<{ open: boolean }>`
   list-style: none;
@@ -66,6 +67,7 @@ const OpenNav = ({ open, setOpen, auth }:Props) => {
   const token:any = useSelector((state: Root) => state.login);
   const [signUpClick, setSignUpClick] = useState<boolean>(false);
   const [signInClick, setSignInClick] = useState<boolean>(false);
+  const [mypageClick , setMypageClick] = useState<boolean>(false);
   const [modalOn, setModalOn] = useState<boolean>(false);
   const history = useHistory();
   const dispatch = useDispatch();
@@ -99,8 +101,11 @@ const OpenNav = ({ open, setOpen, auth }:Props) => {
           setOpen(false)
           }
         }}>회원가입</button>
-        :<button className="right">
-        <Link to="/mypage" onClick={() => setOpen(false)}>내정보</Link>
+        :<button className="right"
+        onClick={() => {
+          setOpen(false)
+          setMypageClick(true);
+        }}>내정보
       </button>}
         </div>
         <li>게시물</li>
@@ -121,6 +126,10 @@ const OpenNav = ({ open, setOpen, auth }:Props) => {
       setModalOn={setModalOn}
       setSignUpClick={setSignUpClick}
       setOpen={setOpen}
+      />
+      <Mypage
+      mypageClick={mypageClick}
+      setMypageClick={setMypageClick}
       />
       
     </div>

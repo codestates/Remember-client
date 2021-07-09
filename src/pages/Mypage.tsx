@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import './Mypage.css';
 import SelectImg from './SelectImg';
 import WithdrawModal from './WithdrawModal';
 import { bindActionCreators } from "redux";
@@ -18,7 +16,12 @@ interface Values {
   dateOfBirth: string;
 }
 
-const Mypage = () => {
+interface Props {
+  setMypageClick: Function;
+  mypageClick: boolean
+}
+
+const Mypage = ({ setMypageClick, mypageClick }: Props) => {
   const token:any = useSelector((state: Root) => state.login);
   const dispatch = useDispatch();
   const { notify } = bindActionCreators(
@@ -38,16 +41,9 @@ const Mypage = () => {
     },
     dateOfBirth: ""
   })
+  const [donorInfo, setDonorInfo] = useState<any>([]);
   const [withdrawClick, setWithdrawClick] = useState<boolean>(false);
   const [saveClick, setSaveClick] = useState<boolean>(false);
-  
-  const saveCheck = () => {
-    if( window.confirm("저장하시겠습니까?")) {
-      userInfoUpdate();
-    } else {
-      return false;
-    }
-  };
 
   const userInfoUpdate = async() => {
     const email = values.email;
@@ -113,8 +109,10 @@ const Mypage = () => {
         email: token.OAuth.email, name:token.OAuth.name
       })
       .then((res) => {
+        console.log(res.data.data.donorInfo);
         setIsOauth(true);
         const { email, password, name, mobile, dateOfBirth, url } = res.data.data.userInfo;
+        setDonorInfo(res.data.data.donorInfo);
         if(mobile) {
           setValues({...values, email: email, password: password, name: name, mobile: {
             head:mobile.slice(0,3),
@@ -137,6 +135,8 @@ const Mypage = () => {
       })
       .then((res) => {
         const { email, password, name, mobile, dateOfBirth, url } = res.data.data.userInfo;
+        
+        setDonorInfo(res.data.data.donorInfo);
         setValues({...values, email: email, password: password, name: name, mobile: {
           head:mobile.slice(0,3),
           body:mobile.slice(4,8),
@@ -147,10 +147,6 @@ const Mypage = () => {
     }
   }
 
-  const withdrawHandler = async() => {
-    
-  }
-
   useEffect(() => {
     if(token.accessToken) {
       userInfoHandler()
@@ -158,25 +154,24 @@ const Mypage = () => {
   }, [])
 
   return (
-    <div>
-      <div className="mypage__main-box">
-        <div>
-          <div className="mypage__image">
-            <SelectImg setImgUrl={setImgUrl} imgUrl={imgUrl}/>
-          </div>
-        </div>
+    <div className={mypageClick? "show": "hide"}>
+      <div className="modal__overlay" onClick={() => {
+        setMypageClick(false);
+      }}/>
 
-        <div className="mypage__side mobile-font">
-          <h1>내정보</h1>
+          <div className="modal__content">
+            <h1>Remember</h1>
+            <h3>마이페이지</h3>
+            <SelectImg setImgUrl={setImgUrl} imgUrl={imgUrl}/>
           <input
             readOnly
-            className="mypage__side-input" 
+            className="modal__signup" 
             placeholder="EMAIL" 
             value={values.email}
             onClick={() => notify("읽기 전용입니다.")}
           />
           <input
-            className="mypage__side-input" 
+            className="modal__signup" 
             placeholder="PASSWORD"
             type="password"
             value={values.password ? values.password : ""}
@@ -192,13 +187,13 @@ const Mypage = () => {
             }}/>
           <input 
             readOnly
-            className="mypage__side-input" 
+            className="modal__signup" 
             placeholder="NAME"
             value={values.name}
             onClick={() => notify("읽기 전용입니다.")}
             />
           <input 
-            className="mypage__side-input-mobile-head" 
+            className="modal__signup-mobile-head" 
             placeholder="MOBILE"
             type="number"
             value={values.mobile.head ? values.mobile.head : ""}
@@ -214,7 +209,7 @@ const Mypage = () => {
               }
             }}/>-
             <input 
-            className="mypage__side-input-mobile-bodytail" 
+            className="modal__signup-mobile-bodytail" 
             placeholder="MOBILE"
             type="number"
 
@@ -231,7 +226,7 @@ const Mypage = () => {
               }
             }}/>-
             <input 
-            className="mypage__side-input-mobile-bodytail" 
+            className="modal__signup-mobile-bodytail" 
             placeholder="MOBILE"
             type="number"
             value={values.mobile.tail ? values.mobile.tail : ""}
@@ -247,38 +242,41 @@ const Mypage = () => {
               }
             }}/>
           <input 
-            className="mypage__side-input" 
+            className="modal__signup" 
             placeholder="DATE OF BIRTH"
             type="date"
             value={values.dateOfBirth ? values.dateOfBirth : ""}
             onChange={(e) => setValues({...values, dateOfBirth:e.target.value})}
           />
           <div>
-          <button className="mypage__side-save" onClick={() => {
-            withdrawHandler();
+          <button className="modal__mypage-btn" onClick={() => {
             setWithdrawClick(true);
           }}>회원탈퇴</button>
-          <button className="mypage__side-save" onClick={() => {
+          <button className="modal__mypage-btn" onClick={() => {
             saveHandler();
             }}>저장</button>
           </div>
-        </div>
-      </div>
-      <div className="mypage__content-box">
-        <div className="mypage__content">
-          <button className="mypage__receipt">
-            <Link to='/receipt'>영수증</Link>
-          </button>
-          <ul className="mypage__content-list">
-            <li className="mypage__content-item"> 후원 리스트</li>
-            <li className="mypage__content-item"> 후원 리스트</li>
-            <li className="mypage__content-item"> 후원 리스트</li>
-            <li className="mypage__content-item"> 후원 리스트</li>
+          
+          
+          <ul>
+            <div className="modal__content-table-title">
+            
+              <h2>
+                후원내역 <i className="fas fa-angle-double-down blink"></i>
+              </h2>
+            </div>
+            {donorInfo ? donorInfo.map((info:any) => (
+              <li key={info.id} className="modal__content-table-list">
+                <input readOnly className="table-title" value={info.mainPost_title}></input>
+                <input readOnly className="table-amount" value={`${info.donationAmount} 원` }></input>
+                <button className="table-btn" onClick={() => window.open("https://npg.nicepay.co.kr/issue/CheckCardInfo.do?TID=nictest00m01012107091552004444&svcCd=01&sendMail=1&pass2ndConf=N&cart_type=0")}>영수증</button>
+              </li>
+            ))
+          : ""}
           </ul>
-        </div>
-      </div>
       <WithdrawModal email={values.email} withdrawClick={withdrawClick} setWithdrawClick={setWithdrawClick}/>
       <SaveModal userInfoUpdate={userInfoUpdate} saveClick={saveClick} setSaveClick={setSaveClick}></SaveModal>
+      </div>
     </div>
   )
 }

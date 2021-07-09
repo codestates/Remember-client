@@ -1,9 +1,15 @@
-import { QuizState, QuizAction, QuizActionTypes } from "../types/Quiz";
+import {
+  QuizState,
+  QuizAction,
+  QuizActionTypes,
+  QuizListState,
+} from "../types/Quiz";
 
 interface initialStateI {
   loading: boolean;
   error: null | string;
   quiz?: QuizState;
+  quizList?: QuizListState;
 }
 
 const initialState: initialStateI = {
@@ -26,6 +32,12 @@ export const quizReducer = (
         loading: false,
         error: null,
         quiz: action.payload,
+      };
+    case QuizActionTypes.FETCH_QUIZ_LIST:
+      return {
+        loading: false,
+        error: null,
+        quizList: action.payload,
       };
     case QuizActionTypes.FETCH_QUIZ_ERROR:
       return {

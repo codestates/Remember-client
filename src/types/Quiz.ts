@@ -11,9 +11,22 @@ export type QuizData = {
   }[];
 };
 
+export type QuizListState = {
+  data: QuizList[];
+};
+
+export type QuizList = {
+  id: number;
+  quiz: string;
+  correct: string;
+  wrong: string;
+  boolean: boolean;
+};
+
 export enum QuizActionTypes {
   FETCH_QUIZ = "FETCH_QUIZ",
   FETCH_QUIZ_SUCCESS = "FETCH_QUIZ_SUCCESS",
+  FETCH_QUIZ_LIST = "FETCH_QUIZ_LIST",
   FETCH_QUIZ_ERROR = "FETCH_QUIZ_ERROR",
 }
 
@@ -31,7 +44,13 @@ interface FetchQuizErrorAction {
   payload: string;
 }
 
+interface FetchQuizListAction {
+  type: QuizActionTypes.FETCH_QUIZ_LIST;
+  payload: QuizListState;
+}
+
 export type QuizAction =
   | FetchQuizAction
   | FetchQuizSuccessAction
-  | FetchQuizErrorAction;
+  | FetchQuizErrorAction
+  | FetchQuizListAction;

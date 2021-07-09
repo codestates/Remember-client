@@ -3,6 +3,7 @@ import { bindActionCreators } from "redux";
 import * as notificationCreators from "../action-creators/notificationCreators";
 import { useSelector, useDispatch } from 'react-redux';
 import { Root } from "../Store";
+import './Modal.css';
 
 interface Props {
   saveClick: boolean;

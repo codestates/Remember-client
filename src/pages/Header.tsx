@@ -16,19 +16,22 @@ const Header: React.FC = () => {
     const check = `${year}-${month}-${date}`;
     await axios.post(`${process.env.REACT_APP_API_URL}/today`, { check })
     .then((res) => {
-      setVisit(res.data.data);
+      setVisit(res.data.data);    
     })
   }
 
   const plusCounter = () => {
-    let counter = new CountUp(document.querySelector('.counter'), 10000)
+    let counter = new CountUp(document.querySelector('.counter'), visit)
     counter.start();
   }
 
   useEffect(() => {
     visitCounter();
-    plusCounter()
   }, [])
+
+  useEffect(() => {
+    plusCounter();
+  }, [visit])
   return (
     <section id="header">
       <div className="header__container">

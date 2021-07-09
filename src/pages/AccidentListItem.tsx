@@ -31,7 +31,7 @@ const AccidentListItem:React.FC<AccidentListItemProps> = ({ data, onClick, payCl
     url: "",
   });
 
-  const [title, setTitle] = useState<string>("제목");
+
   const [thumb, setThumb] = useState<number>(0);
   const [isClicked, setIsClicked] = useState<boolean>(false);
 
@@ -45,7 +45,7 @@ const AccidentListItem:React.FC<AccidentListItemProps> = ({ data, onClick, payCl
 
     await axios.put(`${process.env.REACT_APP_API_URL}/put-like`, {
       name: values.name,
-      title,
+      title: data.title,
     });
   };
 
@@ -90,7 +90,7 @@ const AccidentListItem:React.FC<AccidentListItemProps> = ({ data, onClick, payCl
   const getLikeHandler = async () => {
     await axios
       .post(`${process.env.REACT_APP_API_URL}/post-like`, {
-        title,
+        title: data.title,
       })
       .then((res) => {
         const likeNum = res.data.data.likeTable.length;

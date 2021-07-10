@@ -1,12 +1,8 @@
 import { ActionType } from "../action-types/postActionTypes";
 
-interface SetDataAction {
-  type: ActionType.SET_DATA;
+interface setLikeAction {
+  type: ActionType.SET_LIKE;
   payload: object;
 }
 
-interface GetDataAction {
-  type: ActionType.GET_DATA;
-}
-
-export type Action = SetDataAction | GetDataAction;
+export type Action = setLikeAction;

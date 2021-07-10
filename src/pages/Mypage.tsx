@@ -52,10 +52,11 @@ const Mypage = ({ setMypageClick, mypageClick }: Props) => {
     const dateOfBirth = values.dateOfBirth;
     notify("저장 되었습니다.");
     await axios.put(`${process.env.REACT_APP_API_URL}/update-user`, {
-        email:email,
-        password:password,
-        mobile:mobile,
-        dateOfBirth:dateOfBirth
+        email: email,
+        password: password,
+        mobile: mobile,
+        dateOfBirth: dateOfBirth,
+        url: imgUrl
     })
     .then(() => {
       userInfoHandler();
@@ -151,7 +152,7 @@ const Mypage = ({ setMypageClick, mypageClick }: Props) => {
     if(token.accessToken) {
       userInfoHandler()
     }
-  }, [])
+  }, [token])
 
   return (
     <div className={mypageClick? "show": "hide"}>

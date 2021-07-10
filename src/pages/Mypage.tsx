@@ -160,7 +160,7 @@ const Mypage = ({ setMypageClick, mypageClick }: Props) => {
         setMypageClick(false);
       }}/>
 
-          <div className="modal__content  modal__scroll">
+          <div className="modal__content modal__scroll">
             <h1>Remember</h1>
             <h3>마이페이지</h3>
             <SelectImg setImgUrl={setImgUrl} imgUrl={imgUrl}/>

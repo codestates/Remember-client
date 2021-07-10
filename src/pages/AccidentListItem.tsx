@@ -9,6 +9,7 @@ import * as notificationCreators from "../action-creators/notificationCreators";
 import * as postCreators from "../action-creators/postCreators";
 import axios from "axios";
 import { Root } from "../Store";
+import styled from "styled-components";
 
 interface AccidentListItemProps {
   data: AccidentData;
@@ -122,8 +123,15 @@ const AccidentListItem:React.FC<AccidentListItemProps> = ({ data, onClick, payCl
         <div className="people__text">인명 피해 : {data.casualty}</div>
         <div className="day__text">사건 발생일 : {data.date}</div>
         
-        <div className= {likeClick ? "heart-after is_animating" : "heart" } onClick={setLikeHandler}></div>
+        
         {/* <span>{thumb}</span> */}
+        <Like>
+          <span>
+            <p className= {likeClick ? "heart-after is_animating" : "heart" } onClick={setLikeHandler}></p>
+            <div className={likeClick ? "press" : ""} onClick={() => setLikeClick(!likeClick)}>Remember!</div>
+            <i className={likeClick ? "press" : ""} onClick={() => setLikeClick(!likeClick)}></i>
+          </span>
+        </Like>
       </div>
       <div className="acc__btn__group">
         <button className="detail__btn" onClick={() => onClick(data)}>
@@ -143,3 +151,77 @@ const AccidentListItem:React.FC<AccidentListItemProps> = ({ data, onClick, payCl
 };
 
 export default AccidentListItem;
+
+const Like = styled.div`
+  margin:0;
+  font-family:'open sans',sans-serif;
+  height:100%;
+  
+
+  span {
+    height:100px;
+    // position: relative;
+    
+  }
+
+  i {
+    cursor:pointer;
+    padding:10px 12px 8px;
+    background:#fff;
+    border-radius:50%;
+    display:inline-block;
+    color:#aaa;
+    transition:.2s;
+  }
+
+  i:hover {
+    color:#666;
+  }
+
+  i:before {
+    font-family:fontawesome;
+    content:'\f4d6';
+    font-style:normal;
+  }
+
+  div {
+    left:0;
+    right:0;
+    visibility: hidden;
+    transition:.6s;
+    z-index:-2;
+    font-size:14px;
+    color:transparent;
+    font-weight:400;
+
+  }
+
+  i.press {
+    animation: size .4s;
+    color:#e23b3b;
+  }
+
+  div.press {
+    font-size:14px;
+    visibility:visible;
+    animation: fade 1s;
+
+  }
+
+  @keyframes fade {
+    0% {color:#transparent;}
+    50% {color:#e23b3b;}
+    100% {color:#transparent;}
+  }
+
+  @keyframes size {
+    0% {padding:10px 12px 8px;}
+    50% {padding:14px 16px 12px;  
+      margin-top:-4px;}
+    100% {padding:10px 12px 8px;}
+  }
+`
+
+const LikeIcon = styled.i`
+
+`

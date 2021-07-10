@@ -11,8 +11,8 @@
 
 # **Used Tech Stack**
 
----
 
+![기술 스택](https://user-images.githubusercontent.com/76901060/125166276-d3a4ab00-e1d5-11eb-93b6-23dc8fc3a89f.jpg)
 - **Common** : TypeScript / Axios / Iamport
 - **Front-end** : React (React-Hooks) / Redux (Redux-Hooks) / Firebase / Css
 - **Back-end** : Node.js / Express / sequelize / Mysql / Nodemailer / JWT
@@ -20,15 +20,13 @@
 - **Tools** : Notion / Postman (API) / Figma (Flowchart, Wireframe, Mockup) / Discord
 
 # **Flow Chart**
+---
 
 ## **Client Side**
 
----
 ![121147769-222ff400-c87c-11eb-9b3a-012faca5f003](https://user-images.githubusercontent.com/76901060/122878803-1ca1d600-d373-11eb-955e-d7f2c6153035.png)
 
 ## **Server Side**
-
----
 
 
 🗨️ [For more details about Remember project, please check our Wiki!](https://github.com/codestates/Remember-client/wiki)

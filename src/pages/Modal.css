@@ -24,6 +24,10 @@
   position: relative;
   width: 400px;
   height: 600px;
+  border-radius: 20px;
+}
+
+.modal__scroll {
   overflow-y: scroll;
 }
 

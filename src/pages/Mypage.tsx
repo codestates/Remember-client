@@ -159,7 +159,7 @@ const Mypage = ({ setMypageClick, mypageClick }: Props) => {
         setMypageClick(false);
       }}/>
 
-          <div className="modal__content">
+          <div className="modal__content  modal__scroll">
             <h1>Remember</h1>
             <h3>마이페이지</h3>
             <SelectImg setImgUrl={setImgUrl} imgUrl={imgUrl}/>
@@ -264,7 +264,9 @@ const Mypage = ({ setMypageClick, mypageClick }: Props) => {
               <h2>
                 후원내역 <i className="fas fa-angle-double-down blink"></i>
               </h2>
+              {donorInfo.length !== 0 ?
               <button className="table-btn" onClick={() => window.open("https://npg.nicepay.co.kr/issue/CheckCardInfo.do?TID=nictest00m01012107091552004444&svcCd=01&sendMail=1&pass2ndConf=N&cart_type=0")}>영수증</button>
+              : ""}
             </div>
             {donorInfo ? donorInfo.map((info:any) => (
               <li key={info.id} className="modal__content-table-list">

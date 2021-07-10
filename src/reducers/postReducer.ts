@@ -1,15 +1,13 @@
 import { ActionType } from "../action-types/postActionTypes";
 import { Action } from "../actions/postAction";
 
-const initialState = {data: []};
+const initialState = { like: true};
 
 const postReducer = (
   state: object = initialState, action: Action) => {
     switch(action.type) {
-      case ActionType.SET_DATA:
+      case ActionType.SET_LIKE:
         return Object.assign({}, state, action.payload);
-      case ActionType.GET_DATA:
-        return state;
       default:
         return state;
     }

@@ -42,7 +42,7 @@ const GoogleLoginPage = ({auth, setSignInClick, setModalOn, notify}:Props) => {
     setSignInClick(false);
     setModalOn(false);
     notify("로그인 되었습니다.")
-    window.location.replace(window.location.pathname)
+    //window.location.replace(window.location.pathname)
   }
 
   return (

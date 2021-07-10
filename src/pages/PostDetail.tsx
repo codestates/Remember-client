@@ -10,6 +10,7 @@ import { bindActionCreators } from "redux";
 import * as notificationCreators from "../action-creators/notificationCreators";
 import { useTypedSelector } from "../hook/useTypedSelector";
 import { useActionDispatch } from "../hook/useActionDispatch";
+import Spinner from "./Spinner";
 
 interface Values {
   name: string,
@@ -105,7 +106,7 @@ function PostDetail() {
   }, [])
   
 return accidentState.loading ? (
-    <img src="../images/spinner.gif" alt="" className="postdetail__img " />
+    <Spinner></Spinner>
   ) : (
     <div>
       <div className="postdetail__main-box">
@@ -129,7 +130,7 @@ return accidentState.loading ? (
           >
             뒤로가기
           </button>
-          <button className="postdetail__side-support">후원하기</button>
+          {/* <button className="postdetail__side-support" >후원하기</button> */}
           <KakaoShareButton />
           <Facebook/>
         </div>

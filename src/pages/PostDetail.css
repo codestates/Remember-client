@@ -1,12 +1,6 @@
-.postdetail__main-box {
+/* .postdetail__main-box {
   display: flex;
   justify-content: center;
-  align-items: center;
-}
-
-.postdetail__content-box {
-  display: flex;
-  justify-content: left;
   align-items: center;
 }
 
@@ -78,8 +72,111 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 250px;
+} */
+
+/* .card-wrapper {
+  width: 80%;
+  margin: 0 auto;
+} */
+
+#postdetail {
+  line-height: 1.5;
+  margin-top: 10rem;
+  height: 70vh;
 }
 
+.postdetail__container {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+.postdetail__card {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1.5rem;
+}
+
+.postdetail__imgs {
+  margin-left: 5rem;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  display: block;
+}
+
+.postdetail__img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 250px;
+}
+
+.postdetail__accidentCase {
+  width: 100%;
+  display: block;
+}
+
+.postdetail__accidentCase .single__img {
+  width: 100%;
+  height: 45vh;
+  margin-top: 3rem;
+}
+
+.postdetail__content {
+  padding: 3rem 2rem;
+}
+
+.postdetail__title {
+  align-items: center;
+  text-align: left;
+  font-size: 3rem;
+  font-style: italic;
+  font-weight: 700;
+  color: #12263a;
+}
+
+.postdetail__detail .post__text {
+  margin-top: 1rem;
+  width: 65%;
+  font-size: 0.9rem;
+  padding: 0.3rem;
+  opacity: 0.8;
+}
+
+.postdetail__btn__group {
+  display: flex;
+  margin: 3rem 0;
+  font-weight: 700;
+}
+
+.btn__post {
+  border: 1.5px solid #ddd;
+  border-radius: 25px;
+  text-align: center;
+  padding: 0.45rem 0.8rem;
+  outline: 0;
+  margin-right: 0.2rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  color: #fff;
+  background-color: #256eff;
+}
+
+.btn__group__area .btn__post:nth-child(2) {
+  background-color: red;
+}
+
+.btn__group__area .btn__post:hover {
+  opacity: 0.8;
+}
+
+/* 이 위로 작업 */
 .postdetail__content-profile {
   width: 25px;
   height: 25px;
@@ -95,25 +192,15 @@
   margin: 10px 0 5px 10px;
 }
 
-.postdetail__content-container {
-  border-bottom: 1px solid gray;
-  margin: 10px auto 0 auto;
-  width: 80%;
+.postdetail__content-box {
+  display: flex;
+  justify-content: left;
+  align-items: center;
 }
 
 .postdetail__content-box {
   display: flex;
   margin: 10px auto;
-}
-
-.postdetail__content-box input {
-  padding: 10px;
-  margin: 5px 10px;
-  width: 75%;
-  height: 40px;
-  border-radius: 10px;
-  background-color: #eeeeee;
-  border: none;
 }
 
 .postdetail__content-btn {
@@ -133,4 +220,20 @@
   border-bottom: 1px solid gray;
   width: 80%;
   margin: 30px auto 0 auto;
+}
+
+.postdetail__content-container {
+  border-bottom: 1px solid gray;
+  margin: 10px auto 0 auto;
+  width: 80%;
+}
+
+.postdetail__content-box input {
+  padding: 10px;
+  margin: 5px 10px;
+  width: 75%;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #eeeeee;
+  border: none;
 }

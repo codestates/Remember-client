@@ -4,6 +4,8 @@ import styled from "styled-components";
 import "./Navbar.css";
 import Hamburger from "../pages/Hamburger";
 import Notification from "../components/Notification";
+//import logo from '../images/remember.jpeg';
+import logo from '../images/Vanilla-1s-286px.gif';
 
 const StyledMenu = styled.nav`
   width: 100%;
@@ -26,7 +28,7 @@ function Navbar({ auth }: any) {
       <Notification />
       <div className="header__box">
         <div className="header__title">
-          <Link to="/">Remember</Link>
+          <Link to="/"><img className="header__title-img" src={logo}></img></Link>
         </div>
       </div>
 

@@ -10,6 +10,7 @@ import { bindActionCreators } from "redux";
 import * as notificationCreators from "../action-creators/notificationCreators";
 import { useTypedSelector } from "../hook/useTypedSelector";
 import { useActionDispatch } from "../hook/useActionDispatch";
+import Spinner from "./Spinner";
 
 interface Values {
   name: string;
@@ -48,12 +49,12 @@ function PostDetail() {
 
   const sendComment = async () => {
     await axios.post(`${process.env.REACT_APP_API_URL}/comment`, {
-      name: values.name,
-      comment: comment,
-      title: "제목",
-      url: values.url,
-    });
-  };
+
+      name: values.name, comment: comment, title: accidentState.accidentSingle?.data.title, url: values.url
+    })
+    
+  }
+
 
   const getUserInfo = async () => {
     if (token.OAuth.OAuth) {
@@ -94,24 +95,25 @@ function PostDetail() {
   };
 
   const getComment = async () => {
-    await axios
-      .post(`${process.env.REACT_APP_API_URL}/comment-list`, {
-        title: "제목",
-      })
-      .then((res) => {
-        const arr = res.data.data.commentInfo.reverse();
-        setComments(arr);
-      });
-  };
+
+    await axios.post(`${process.env.REACT_APP_API_URL}/comment-list`, {
+      title: accidentState.accidentSingle?.data.title
+    })
+    .then((res) => {
+      const arr = res.data.data.commentInfo.reverse()
+      setComments(arr);
+    })
+  }
 
   useEffect(() => {
     getUserInfo();
     getComment();
     fetchSingleData(params.id);
-  }, []);
 
-  return accidentState.loading ? (
-    <img src="../images/spinner.gif" alt="" className="postdetail__img " />
+  }, [])
+  
+return accidentState.loading ? (
+    <Spinner></Spinner>
   ) : (
     <section id="postdetail">
       <div className="postdetail__container">

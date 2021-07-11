@@ -103,7 +103,7 @@ const SignUpModal = ({
       notify("인증 메일이 전송되었습니다.")
       setCertClick(!certClick);
       await axios.post(`${process.env.REACT_APP_API_URL}/mail`, {
-        mail: values.email
+        email: values.email
       })
       .then((res) => {
         const num = res.data.data

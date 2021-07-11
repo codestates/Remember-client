@@ -1,12 +1,15 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import GithubLogin from './GithubLogin';
 import GoogleLoginPage from './GoogleLoginPage';
 import { useSelector, useDispatch } from 'react-redux';
 import { bindActionCreators } from "redux";
 import * as notificationCreators from "../action-creators/notificationCreators";
 import * as actionCreators from '../action-creators/loginCreators';
+import * as spinnerCreators from '../action-creators/spinnerCreators';
 import './Modal.css';
+import Spinner from "./Spinner";
+import { Root } from "../Store";
 
 interface Props {
   signInClick: boolean;
@@ -31,14 +34,21 @@ const SignInModal = ({
   auth 
 }:Props) => {
   const dispatch = useDispatch();
+  const token:any = useSelector((state: Root) => state.login);
+  const loading:any = useSelector((state: Root) => state.spinner);
   const { notify } = bindActionCreators(
     notificationCreators,
     dispatch
   )
-  const { setToken } =bindActionCreators(
+  const { setToken } = bindActionCreators(
     actionCreators,
     dispatch
   );
+
+  const { loadingStart, loadingEnd } = bindActionCreators(
+    spinnerCreators,
+    dispatch
+  )
 
   const [values, setValues] = useState<Values>({
     email: "",
@@ -73,9 +83,16 @@ const SignInModal = ({
     setSignInClick(false);
     setModalOn(false);
     notify("로그인 되었습니다.")
+    //window.location.replace(window.location.pathname)
   }
 
-  return (
+  useEffect(() => {
+    loadingStart(false);
+  }, [])
+
+  return loading.loading ? (
+    <Spinner></Spinner>
+  ) : (
     <div className={signInClick? "show": "hide"}>
         <div className="modal__overlay" onClick={() => {
           setSignInClick(false);
@@ -103,7 +120,6 @@ const SignInModal = ({
           </div>
           <button onClick={() => {
             loginHandler();
-
             }}>로그인</button>
           <div className="modal__content-switch modal__content-switch-login">계정이 없으신가요?
           <span onClick={() => {

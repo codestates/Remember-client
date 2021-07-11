@@ -13,7 +13,7 @@
 }
 
 .header__box {
-  border-bottom: 5px solid black;
+  border-bottom: 5px solid gray;
   width: 100%;
   height: 100px;
   padding-right: 90px;
@@ -23,16 +23,18 @@
 }
 
 .header__title {
-  margin: 30px 15px 15px 30px;
+  margin: 15 15px 15px 30px;
   font-size: 30px;
   font: bold;
   display: inline-block;
   cursor: pointer;
 }
 
-.header__title > a {
-  color: inherit;
-  text-decoration: none;
+.header__title-img {
+  width: 16rem;
+  height: 6rem;
+  background-color: transparent;
+  /* padding: 15px 0; */
 }
 
 .github__login-btn {

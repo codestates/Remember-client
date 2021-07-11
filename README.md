@@ -1,3 +1,5 @@
+![로고+텍스트수정본 300](https://user-images.githubusercontent.com/76901060/125083640-996ad900-e103-11eb-85f8-edeac26618fd.jpeg)
+
 # **Service Intro**
 
 ## 잊지 말아야할 것들을 너무 쉽게 잊어버리는 요즘. 
@@ -9,24 +11,22 @@
 
 # **Used Tech Stack**
 
----
 
-- **Common** : TypeScript / Axios 
-- **Front-end** : React (React-Hooks) / Redux (Redux-Hooks) / Css
-- **Back-end** : Node.js / Express / sequelize / Mysql / JWT
-- **Deploy** : AWS S3 / AWS EC2 / AWS RDS / AWS CloudFront
+![기술 스택](https://user-images.githubusercontent.com/76901060/125166276-d3a4ab00-e1d5-11eb-93b6-23dc8fc3a89f.jpg)
+- **Common** : TypeScript / Axios / Iamport
+- **Front-end** : React (React-Hooks) / Redux (Redux-Hooks) / Firebase / Css
+- **Back-end** : Node.js / Express / sequelize / Mysql / Nodemailer / JWT
+- **Deploy** : AWS S3 / AWS EC2 / AWS RDS / AWS Route53 / AWS CloudFront
 - **Tools** : Notion / Postman (API) / Figma (Flowchart, Wireframe, Mockup) / Discord
 
 # **Flow Chart**
+---
 
 ## **Client Side**
 
----
 ![121147769-222ff400-c87c-11eb-9b3a-012faca5f003](https://user-images.githubusercontent.com/76901060/122878803-1ca1d600-d373-11eb-955e-d7f2c6153035.png)
 
 ## **Server Side**
-
----
 
 
 🗨️ [For more details about Remember project, please check our Wiki!](https://github.com/codestates/Remember-client/wiki)
@@ -42,7 +42,7 @@
 
 ### **Link**
 
-- [http://www.Remember.com](링크)
+- [http://www.Remember.com](https://www.projectremember.shop/)
 
 
 ### **Repository**
@@ -54,10 +54,10 @@
 
 Crew | Role | GitHub
 ----- | ----- | -----
-김승무	| Front-end	| https://github.com/KimseungMoo
-이동건 | Front-end	| https://github.com/dong-geon-Lee
-김성희	| Back-end |	https://github.com/heesmile0310
-이주형	| Back-end | https://github.com/johny985
+💻김승무	| Front-end	| https://github.com/KimseungMoo
+💻이동건 | Front-end	| https://github.com/dong-geon-Lee
+🖥️김성희	| Back-end |	https://github.com/heesmile0310
+🖥️이주형	| Back-end | https://github.com/johny985
 
 
 - [Check Client side dev-logs!](https://github.com/codestates/Remember-client/projects/1)

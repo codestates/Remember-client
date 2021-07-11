@@ -26,7 +26,6 @@ interface PostDetailParams {
 
 const ServicePay: React.FC = () => {
   const params = useParams<PostDetailParams>();
-
   const accidentState = useTypedSelector((state) => state.accident);
   const { fetchSingleData } = useActionDispatch();
   const token:any = useSelector((state: Root) => state.login);
@@ -82,18 +81,28 @@ const ServicePay: React.FC = () => {
     })
   }
 
+  const sendReceipt = async () => {
+    await axios.post(`${process.env.REACT_APP_API_URL}/mail`, {
+      name: name, email: email, amount: values.amount, title: values.title
+    })
+  }
+
   useEffect(() => {
     getUserInfo();
     getTitle();
-    
+    console.log(accidentState.accidentSingle?.data.title)
+    setValues({...values, title: accidentState.accidentSingle?.data.title})
   }, [])
 
-  useEffect(() => {
-    setPaymentInfo();
-  }, [success])
+  // useEffect(() => {
+  //   setPaymentInfo();
+  //   sendReceipt();
+  //   notify("후원이 완료되었습니다.")
+  // }, [success])
 
   return (
     <section id="service__pay">
+      <button onClick={() => console.log(values.title)}>버튼</button>
       <form className="service__pay__box">
         <h3 className="service__pay__title">후원인 정보를 입력해주세요</h3>
         <div className="radio__row">
@@ -188,8 +197,11 @@ const ServicePay: React.FC = () => {
             }}
             onFailed={err => console.log(err)}
             onSuccess={res => {
-              //console.log(res)
-              setSuccess(true);
+              console.log(res)
+              //setSuccess(true);
+              setPaymentInfo();
+              sendReceipt();
+              notify("후원이 완료되었습니다.")
             }}
             jqueryLoaded={false}
             render={(renderProps) => (

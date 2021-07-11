@@ -123,15 +123,6 @@ const AccidentListItem:React.FC<AccidentListItemProps> = ({ data, onClick, payCl
         <div className="people__text">인명 피해 : {data.casualty}</div>
         <div className="day__text">사건 발생일 : {data.date}</div>
         
-        
-        {/* <span>{thumb}</span> */}
-        <Like>
-          <span>
-            <p className= {likeClick ? "heart-after is_animating" : "heart" } onClick={setLikeHandler}></p>
-            <div className={likeClick ? "press" : ""} onClick={() => setLikeClick(!likeClick)}>Remember!</div>
-            <i className={likeClick ? "press" : ""} onClick={() => setLikeClick(!likeClick)}></i>
-          </span>
-        </Like>
       </div>
       <div className="acc__btn__group">
         <button className="detail__btn" onClick={() => onClick(data)}>
@@ -141,11 +132,20 @@ const AccidentListItem:React.FC<AccidentListItemProps> = ({ data, onClick, payCl
             let result = isLoginHandler();
             if(result) {
               payClick(data);
+              //console.log(data)
             }
             }}>
             후원하기
           </button>
       </div>
+      {/* <span>{thumb}</span> */}
+      <Like>
+          <span>
+            {/* <p className= {likeClick ? "heart-after is_animating" : "heart" } onClick={setLikeHandler}></p> */}
+            <div className={likeClick ? "press" : ""} onClick={() => setLikeClick(!likeClick)}>Remember!</div>
+            <i className={likeClick ? "press" : ""} onClick={() => setLikeClick(!likeClick)}></i>
+          </span>
+        </Like>
     </div>
   );
 };
@@ -155,13 +155,12 @@ export default AccidentListItem;
 const Like = styled.div`
   margin:0;
   font-family:'open sans',sans-serif;
-  height:100%;
-  
+  height: 0;
+  text-align: center;
 
   span {
     height:100px;
     // position: relative;
-    
   }
 
   i {
@@ -193,11 +192,11 @@ const Like = styled.div`
     font-size:14px;
     color:transparent;
     font-weight:400;
-
+    
   }
 
   i.press {
-    animation: size .4s;
+    // animation: size .4s;
     color:#e23b3b;
   }
 
@@ -220,8 +219,4 @@ const Like = styled.div`
       margin-top:-4px;}
     100% {padding:10px 12px 8px;}
   }
-`
-
-const LikeIcon = styled.i`
-
 `

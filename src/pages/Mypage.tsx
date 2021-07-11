@@ -110,7 +110,6 @@ const Mypage = ({ setMypageClick, mypageClick }: Props) => {
         email: token.OAuth.email, name:token.OAuth.name
       })
       .then((res) => {
-        console.log(res.data.data.donorInfo);
         setIsOauth(true);
         const { email, password, name, mobile, dateOfBirth, url } = res.data.data.userInfo;
         setDonorInfo(res.data.data.donorInfo);

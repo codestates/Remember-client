@@ -7,7 +7,7 @@ const About4 = () => {
   });
 
   return (
-    <section id="about">
+    <section id="about4">
       <div className="about__right">
         <div
           className="about__text"
@@ -15,14 +15,16 @@ const About4 = () => {
           data-aos-delay="100"
           data-aos-duration="1000"
         >
-          <h1>후원처는 정해졌습니다.한마음으로 후원해주세요.</h1>
-          <p>
-            우리는 잊혀진 사건과 사고들을 사람들에게 알리고자 합니다. <br></br>
-            또한, 사건의 희생자들을 돕기 위해 후원금을 모아서 지원하는 활동을
-            하고 있습니다.
+          <h1 className="main_text">
+            후원처는 정해졌습니다.한마음으로 후원해주세요.
+          </h1>
+          <p className="minor_text">
+            사건 사고 자세히 보기를 클릭하시고 살펴보세요.
+            <br />
+            살펴보시고 후원이 필요한 곳에 도움을 주세요.
+            <br />
+            후원자님의 후원금은 게시물에 작성되어 있는 후원처에 기부됩니다.
           </p>
-          <h2>당신의 도움과 관심을 희망합니다!</h2>
-          <h3>----Remember----</h3>
         </div>
       </div>
       <div

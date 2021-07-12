@@ -31,10 +31,12 @@
 }
 
 .header__title-img {
-  width: 16rem;
-  height: 6rem;
+  width: 20rem;
   background-color: transparent;
-  padding: 15px 0;
+  /* padding: 15px 0; */
+  position: absolute;
+  left: 1%;
+  top: -83%;
 }
 
 .github__login-btn {

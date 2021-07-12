@@ -1,5 +1,5 @@
-#about {
-  padding: 100px 0;
+#about3 {
+  /* padding: 100px 0; */
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -45,3 +45,34 @@
   padding: 15px 5px;
   line-height: 25px;
 }
+
+.about3_btn {
+  background: #036635;
+  border-radius: 10px;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 25px;
+  font-weight: 400;
+  padding: 15px;
+  border: solid #ffffff 1px;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+}
+
+.about3_btn:hover {
+  border: solid #ffffff 1px;
+  background: #048042;
+  padding: 15px;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+.main_text {
+  font-size: 35px;
+}
+
+/* .minor_text {
+
+} */

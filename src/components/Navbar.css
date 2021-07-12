@@ -31,10 +31,10 @@
 }
 
 .header__title-img {
-  width: 20rem;
+  width: 30rem;
   background-color: transparent;
-  /* padding: 15px 0; */
-  /* position: absolute; */
+  margin-left: 2%;
+  position: absolute;
   left: 1%;
 }
 

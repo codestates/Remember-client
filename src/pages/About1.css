@@ -9,11 +9,6 @@
   flex-basis: 50%;
 }
 
-.about__left img {
-  width: 100%;
-  padding: 200px 200px 200px 200px;
-}
-
 .about__right {
   flex-basis: 50%;
   text-align: center;

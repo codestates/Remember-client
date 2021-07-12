@@ -64,14 +64,23 @@
   color: #fff;
 }
 
-.progress-bar-success {
-  width: 40%;
+.progress {
+  height: 10px;
+  margin: 0 20px;
 }
 
-.progress-bar-warning {
-  width: 10%;
+.progress__percentage {
+  margin-left: 20px;
+  color: #036635;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 4;
 }
 
-.progress-bar-danger {
-  width: 20%;
+.progress__amount {
+  float: right;
+  margin-right: 20px;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 4;
 }

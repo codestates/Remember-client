@@ -175,15 +175,12 @@ const AccidentListItem:React.FC<AccidentListItemProps> = ({ data, onClick, payCl
           </span>
         </Like>
         <div className="progress">
-          <div style={{width: `${donation?.percentage1}%`}} className="progress-bar progress-bar-success" role="progressbar"/>
+          <div style={{ width: `${donation?.percentage1}%` }} className="progress-bar progress-bar-success" role="progressbar"/>
           
-          <div style={{width: `${donation?.percentage2}%`}} className="progress-bar progress-bar-warning" role="progressbar"/>
-          {/* <div className="progress-bar progress-bar-danger" role="progressbar">
-            Danger
-          </div> */}
+          <div style={{ width: `${donation?.percentage2}%` }} className="progress-bar progress-bar-warning" role="progressbar"/>
         </div>
-        <span>{donation?.percentage1 + donation.percentage2}%     </span>
-        <span>{donation?.totalAmount}원</span>
+        <span className="progress__percentage">{donation?.percentage1 + donation.percentage2}%     </span>
+        <span className="progress__amount">{donation?.totalAmount}원</span>
     </div>
   );
 };

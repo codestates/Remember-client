@@ -117,7 +117,7 @@ const OpenNav = ({ open, setOpen, auth }:Props) => {
       setSignInClick={setSignInClick}
       setModalOn={setModalOn}
       setSignUpClick={setSignUpClick}
-      setOpen={setOpen}
+
       auth={auth}
       />
       <SignUpModal 
@@ -125,7 +125,7 @@ const OpenNav = ({ open, setOpen, auth }:Props) => {
       setSignInClick={setSignInClick}
       setModalOn={setModalOn}
       setSignUpClick={setSignUpClick}
-      setOpen={setOpen}
+
       />
       <Mypage
       mypageClick={mypageClick}

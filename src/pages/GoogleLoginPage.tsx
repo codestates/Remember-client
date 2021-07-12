@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actionCreators from '../action-creators/loginCreators';
 import axios from "axios";
+import '../components/Navbar.css';
 
 interface Props {
   auth: any;

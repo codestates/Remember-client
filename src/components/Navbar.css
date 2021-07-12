@@ -40,27 +40,27 @@
 }
 
 .github__login-btn {
-  font-size: 1rem;
-  font-weight: 500;
+  font-size: 1.3rem;
+  font-weight: 700;
   text-align: center;
   text-decoration: none;
-  line-height: 2.2;
-  margin-left: 25px;
+  line-height: 2.5;
+  margin-left: 35px;
 }
 
 .google__login-btn {
-  font-size: 1rem;
-  font-weight: 500;
+  font-size: 1.3rem;
+  font-weight: 700;
   text-align: center;
   text-decoration: none;
-  line-height: 2.2;
-  margin-left: 30px;
+  line-height: 2.5;
+  margin-left: 40px;
 }
 
 .social__logo {
   width: 20px;
   height: 20px;
-  margin: 8px 35px 0 20px;
+  margin: 5px 35px 5px 20px;
 }
 
 .github__box {

@@ -9,7 +9,7 @@ import About5 from "../pages/About5";
 import About6 from "../pages/About6";
 import About8 from "../pages/About8";
 import Party from "../pages/Party";
-import JoinPage from "../pages/JoinPage";
+import About7 from "../pages/About7";
 import Footer from "../pages/Footer";
 
 const Home: React.FC = () => {
@@ -23,6 +23,7 @@ const Home: React.FC = () => {
       <About4></About4>
       <About5></About5>
       <About6></About6>
+      <About7></About7>
       <About8></About8>
       {/* <Party></Party>
       <JoinPage></JoinPage> */}

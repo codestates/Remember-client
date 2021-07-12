@@ -1,19 +1,29 @@
 import React, { useEffect } from "react";
-import "./About.css";
+import "./About1.css";
 
-const About = () => {
-  
+const About1 = () => {
   useEffect(() => {
     window.AOS.init();
-  })
-  
+  });
+
   return (
     <section id="about">
-      <div className="about__left" data-aos="fade-up" data-aos-once="false" data-aos-delay="100" data-aos-duration="1500">
-        <img src="images/Photos.jpg" alt="" />
+      <div
+        className="about__left"
+        data-aos="fade-up"
+        data-aos-once="false"
+        data-aos-delay="100"
+        data-aos-duration="1500"
+      >
+        <img src="images/about1.png" alt="" />
       </div>
-      <div className="about__right" >
-        <div className="about__text" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="1000">
+      <div className="about__right">
+        <div
+          className="about__text"
+          data-aos="zoom-in"
+          data-aos-delay="100"
+          data-aos-duration="1000"
+        >
           <h1>About Us</h1>
           <p>
             우리는 잊혀진 사건과 사고들을 사람들에게 알리고자 합니다. <br></br>
@@ -28,4 +38,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default About1;

@@ -7,7 +7,7 @@ const About1 = () => {
   });
 
   return (
-    <section id="about">
+    <section id="about1">
       <div
         className="about__left"
         data-aos="fade-up"
@@ -24,14 +24,16 @@ const About1 = () => {
           data-aos-delay="100"
           data-aos-duration="1000"
         >
-          <h1>About Us</h1>
-          <p>
-            우리는 잊혀진 사건과 사고들을 사람들에게 알리고자 합니다. <br></br>
-            또한, 사건의 희생자들을 돕기 위해 후원금을 모아서 지원하는 활동을
-            하고 있습니다.
+          <h1 className="main_text">
+            잊혀져가는 사건 사고들을 살펴보며 기억해 주세요.
+          </h1>
+          <p className="minor_text">
+            미리 제보를 받아 잊혀져가는 사건 사고들을 게시해놓았습니다.
+            <br />
+            천천히 보시고 기억해 주세요.
+            <br />
+            그리고 제보해 주세요.
           </p>
-          <h2>당신의 도움과 관심을 희망합니다!</h2>
-          <h3>----Remember----</h3>
         </div>
       </div>
     </section>

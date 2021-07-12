@@ -7,7 +7,7 @@ const About8 = () => {
   });
 
   return (
-    <section id="about">
+    <section id="about8">
       <div className="about__right">
         <div
           className="about__text"
@@ -15,11 +15,11 @@ const About8 = () => {
           data-aos-delay="100"
           data-aos-duration="1000"
         >
-          <h2>
+          <h1 className="main_text">
             전부 살펴보셨다면 <br></br>
             이제 직접 기억하러 가보실까요?
-          </h2>
-          <button className="about8_btn">채험하기</button>
+          </h1>
+          <button className="about8_btn">체험하기</button>
         </div>
       </div>
       <div

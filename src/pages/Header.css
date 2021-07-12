@@ -1,3 +1,141 @@
+.carousel {
+  display: flex;
+  justify-content: center;
+}
+
+.carousel .slide {
+  width: 100%;
+  height: 75vh;
+}
+
+.header__image {
+  background: url("https://cdn.discordapp.com/attachments/863956904118976532/864002100497612800/d9ee49de95394c5d.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.header__image2 {
+  background: url("https://cdn.discordapp.com/attachments/863956904118976532/864054577883250688/28a573f5649eaea3.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.header__image3 {
+  background: url("https://cdn.discordapp.com/attachments/863956904118976532/864064898623602698/--ConvertImage.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.carousel .thumb {
+  display: none;
+}
+
+.header__image {
+  height: 100%;
+  margin: auto;
+}
+
+.header__image2 {
+  height: 100%;
+  width: auto;
+}
+
+.header__image3 {
+  height: 100%;
+  width: auto;
+}
+
+.header__text {
+  text-align: left;
+  color: white;
+  position: absolute;
+  left: 55%;
+  top: 40%;
+  margin-right: 5rem;
+}
+
+.header__text2 {
+  text-align: left;
+  color: white;
+  position: absolute;
+  left: 15%;
+  top: 40%;
+  margin-right: 5rem;
+}
+
+.header__text3 {
+  text-align: left;
+  color: white;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  margin-right: 5rem;
+}
+
+.header__text .header__title {
+  font-size: 48px;
+  margin-bottom: 1rem;
+}
+
+.header__text2 .header__title {
+  font-size: 48px;
+  margin-bottom: 1rem;
+}
+
+.header__text3 .header__title {
+  font-size: 48px;
+  margin-bottom: 1rem;
+}
+
+.header__text .header__content__text {
+  font-size: 28px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .carousel {
+    height: 90vh;
+  }
+  .carousel .slide .header__image {
+    margin: 10vh auto;
+    width: 100vw;
+  }
+  .carousel .slide .header__image2 {
+    margin: 10vh auto;
+    width: 100vw;
+  }
+  .carousel .slide .header__image3 {
+    margin: 10vh auto;
+    width: 100vw;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .carousel {
+    height: 80vh;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .carousel {
+    height: 70vh;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .carousel {
+    height: 60vh;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .carousel {
+    height: 50vh;
+  }
+}
+
 .counter {
   color: #036635;
   font-weight: 500;

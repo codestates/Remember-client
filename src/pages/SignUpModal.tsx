@@ -11,7 +11,6 @@ interface Props {
   setSignInClick: Function;
   setModalOn: Function;
   setSignUpClick: Function;
-  setOpen: Function;
 }
 
 interface Values {
@@ -28,7 +27,6 @@ const SignUpModal = ({
   setSignInClick, 
   setModalOn, 
   setSignUpClick, 
-  setOpen,
 }:Props) => {
   const dispatch = useDispatch();
   const { notify } = bindActionCreators(
@@ -289,7 +287,6 @@ const SignUpModal = ({
             setModalOn(false);
             setSignInClick(true);
             setModalOn(true);
-            setOpen(false);
           }}>로그인</span>
           </div>
         </div>

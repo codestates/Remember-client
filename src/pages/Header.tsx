@@ -40,7 +40,7 @@ const Header: React.FC = () => {
 
   return (
     <>
-      <Carousel infiniteLoop autoPlay>
+      <Carousel infiniteLoop >
         <div className="header__image">
           <div className="header__text">
             <h1 className="header__title">기억해 주세요.</h1>

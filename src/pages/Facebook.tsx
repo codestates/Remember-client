@@ -9,7 +9,7 @@ const Facebook = () => {
   return (
     <>
       <button className="sns-btn" onClick={() => onClickFacebook()}>
-        <img className="sns-img" src="https://image.flaticon.com/icons/png/512/889/889102.png" alt="facebook"/>
+        <img className="sns-img facebook" src="https://image.flaticon.com/icons/png/512/889/889102.png" alt="facebook"/>
       </button>
     </>
   );

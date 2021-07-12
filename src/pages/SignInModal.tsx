@@ -16,7 +16,6 @@ interface Props {
   setSignInClick: Function;
   setModalOn: Function;
   setSignUpClick: Function;
-  setOpen: Function;
   auth: object;
 }
 
@@ -30,7 +29,6 @@ const SignInModal = ({
   setSignInClick, 
   setModalOn, 
   setSignUpClick, 
-  setOpen, 
   auth 
 }:Props) => {
   const dispatch = useDispatch();
@@ -127,7 +125,6 @@ const SignInModal = ({
             setModalOn(false);
             setSignUpClick(true);
             setModalOn(true);
-            setOpen(false);
           }}>회원가입</span>
           </div>
           <GithubLogin auth={auth} setSignInClick={setSignInClick} setModalOn={setModalOn} notify={notify}/>

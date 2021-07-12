@@ -22,6 +22,12 @@ interface Values {
   url: string;
 }
 
+interface Donation {
+  percentage1: number,
+  percentage2: number,
+  totalAmount: number
+}
+
 const AccidentListItem:React.FC<AccidentListItemProps> = ({ data, onClick, payClick }) => {
 
   const dispatch = useDispatch();
@@ -36,6 +42,11 @@ const AccidentListItem:React.FC<AccidentListItemProps> = ({ data, onClick, payCl
 
   const [thumb, setThumb] = useState<number>(0);
   const [likeClick, setLikeClick] = useState<boolean>(false);
+  const [donation, setDonation] = useState<Donation>({
+    percentage1: 0,
+    percentage2: 0,
+    totalAmount: 0
+  });
 
   const setLikeHandler = async () => {
     setLikeClick(!likeClick);
@@ -108,11 +119,27 @@ const AccidentListItem:React.FC<AccidentListItemProps> = ({ data, onClick, payCl
     }
   };
 
+  const donationHandler = async () => {
+    await axios.post(`${process.env.REACT_APP_API_URL}/mainpage`, {
+      title: data.title
+    })
+    .then((res) => {
+      const { percentage, totalAmount } = res.data.data;
+      if(percentage > 50) {
+        setDonation({...values, percentage1: 50, percentage2: percentage - 50, totalAmount: totalAmount})
+      } else {
+        setDonation({...values, percentage1: percentage, percentage2: 0 , totalAmount: totalAmount});
+      }
+      
+    })
+  }
+
   useEffect(() => {
     if (token.accessToken) {
       userInfoHandler();
     }
     getLikeHandler();
+    donationHandler();
   }, []);
 
   return (
@@ -137,6 +164,7 @@ const AccidentListItem:React.FC<AccidentListItemProps> = ({ data, onClick, payCl
             }}>
             후원하기
           </button>
+          
       </div>
       {/* <span>{thumb}</span> */}
       <Like>
@@ -146,6 +174,16 @@ const AccidentListItem:React.FC<AccidentListItemProps> = ({ data, onClick, payCl
             <i className={likeClick ? "press" : ""} onClick={() => setLikeClick(!likeClick)}></i>
           </span>
         </Like>
+        <div className="progress">
+          <div style={{width: `${donation?.percentage1}%`}} className="progress-bar progress-bar-success" role="progressbar"/>
+          
+          <div style={{width: `${donation?.percentage2}%`}} className="progress-bar progress-bar-warning" role="progressbar"/>
+          {/* <div className="progress-bar progress-bar-danger" role="progressbar">
+            Danger
+          </div> */}
+        </div>
+        <span>{donation?.percentage1 + donation.percentage2}%     </span>
+        <span>{donation?.totalAmount}원</span>
     </div>
   );
 };
@@ -155,7 +193,7 @@ export default AccidentListItem;
 const Like = styled.div`
   margin:0;
   font-family:'open sans',sans-serif;
-  height: 0;
+  height: 60px;
   text-align: center;
 
   span {

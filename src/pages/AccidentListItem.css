@@ -63,3 +63,15 @@
   background-image: linear-gradient(to right, #006417, #00b128);
   color: #fff;
 }
+
+.progress-bar-success {
+  width: 40%;
+}
+
+.progress-bar-warning {
+  width: 10%;
+}
+
+.progress-bar-danger {
+  width: 20%;
+}

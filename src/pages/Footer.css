@@ -1,12 +1,69 @@
 #footer {
   margin-top: 20rem;
   padding: 25px 25px;
-  background: linear-gradient(rgba(0, 0, 0, 0.1), rgb(211, 214, 214));
+  background: #036635;
   justify-content: center;
   align-items: center;
 }
 
+.footer__row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer__right__col {
+  flex-basis: 35%;
+}
+
+.footer__logo {
+  margin-left: 5rem;
+}
+
+.logo__size {
+  width: 550px;
+}
+
+.footer__left__col {
+  flex-basis: 65%;
+  margin-top: 60px;
+}
+
+.footer__links {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.link__title:nth-child(2) .footer__text {
+  color: white;
+  font-size: 20px;
+  font-weight: 300;
+}
+
 .footer__title {
+  margin-bottom: 1rem;
+  color: white;
+  font-size: 32px;
+}
+
+.footer__text {
+  color: white;
+  font-size: 26px;
+  font-weight: 300;
+}
+
+.footer__right {
+  padding: 20px;
+  font-size: 25px;
+  color: white;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* .footer__title {
   font-style: italic;
   padding: 20px;
   color: rgb(32, 55, 153);
@@ -39,10 +96,10 @@
 .sns-btn {
   border: none;
   /* background: rgb(219, 220, 220); */
-  margin: 0 5px;
-}
+/* margin: 0 5px; */
+/* } */
 
-.quiz__start {
+/* .quiz__start {
   width: 200px;
   text-align: center;
   align-items: center;
@@ -62,4 +119,4 @@
   background-color: rgb(41, 235, 235);
   color: black;
   transition: 0.5s;
-}
+}  */

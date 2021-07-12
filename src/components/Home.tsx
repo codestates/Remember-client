@@ -4,7 +4,7 @@ import Header from "../pages/Header";
 import About from "../pages/About";
 import TodoIntro from "../pages/TodoIntro";
 import Party from "../pages/Party";
-import JoinPage from "../pages/JoinPage";
+import About7 from "../pages/About7";
 import Footer from "../pages/Footer";
 
 const Home: React.FC = () => {
@@ -14,7 +14,7 @@ const Home: React.FC = () => {
       <About></About>
       <TodoIntro></TodoIntro>
       <Party></Party>
-      <JoinPage></JoinPage>
+      <About7></About7>
       <Footer></Footer>
     </>
   );

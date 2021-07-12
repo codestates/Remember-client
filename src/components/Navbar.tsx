@@ -4,7 +4,6 @@ import styled from "styled-components";
 import "./Navbar.css";
 import Hamburger from "../pages/Hamburger";
 import Notification from "../components/Notification";
-//import logo from '../images/remember.jpeg';
 import logo from "../images/headerlogo.png";
 
 const StyledMenu = styled.nav`

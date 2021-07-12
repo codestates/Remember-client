@@ -1,44 +1,4 @@
-#header {
-  height: 100vh;
-  background-image: url("../images/5272.jpg");
-  background-position: center;
-  background-size: cover;
-  display: flex;
-  justify-content: space-between;
-}
-
-.header__container {
-  margin-right: 100px;
-  margin-left: 100px;
-}
-
-.header__text {
-  max-width: 400px;
-  margin-top: 160px;
-}
-
-.header__text h1 {
-  font-size: 34px;
-  margin-bottom: 25px;
-}
-
-.header__text h3 div span {
-  font-size: 18px;
-  font-weight: bold;
-  color: #e040fb;
-  font-style: italic;
-  margin: 0 5px;
-}
-
-.header__btn__top {
-  padding: 15px 40px;
-  background: transparent;
-  outline: none;
-  border: 2px solid green;
-  cursor: pointer;
-}
-
-.header__text .header__btn__top {
-  margin-top: 20px;
-  margin-bottom: 60px;
+.counter {
+  color: #036635;
+  font-weight: 500;
 }

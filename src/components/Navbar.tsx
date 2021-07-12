@@ -4,8 +4,8 @@ import styled from "styled-components";
 import "./Navbar.css";
 import Hamburger from "../pages/Hamburger";
 import Notification from "../components/Notification";
-//import logo from '../images/remember.jpeg';
-import logo from '../images/Vanilla-1s-286px.gif';
+import logo from '../images/remember.jpeg';
+//import logo from '../images/Vanilla-1s-286px.gif';
 
 const StyledMenu = styled.nav`
   width: 100%;

@@ -1,12 +1,15 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
 import axios from "axios";
 import { CountUp } from 'countup.js';
+import img1 from "../images/d9ee49de95394c5d.jpg";
+import img2 from "../images/jonathan.jpg";
+import img3 from "../images/joel.jpg";
 
 const Header: React.FC = () => {
-  const [visit, setVisit] = useState<number>(0);
 
+  const [visit, setVisit] = useState<number>(0);
   const visitCounter = async() => {
     const today = new Date();
     const year = today.getFullYear(); // 년도
@@ -32,32 +35,13 @@ const Header: React.FC = () => {
   useEffect(() => {
     plusCounter();
   }, [visit])
+
   return (
-    <section id="header">
-      <div className="header__container">
-        <div className="header__text">
-          <h1>
-            기억해주세요! <br></br>사건 & 사고들을!
-          </h1>
-          <h3>
-            {/* <div>
-            지금까지
-            <span className="counter">0</span>
-            분께서 기억하러 오셨습니다.
-            </div> */}
-            <div>
-            오늘도
-            <span className="counter">0</span>
-            분께서 기억하러 오셨습니다.
-            </div>
-          </h3>
-          <Link to="/accident">
-            <button className="header__btn__top">자세히 보기</button>
-          </Link>
-        </div>
-      </div>
-    </section>
+    <div>
+    </div>
   );
 };
 
 export default Header;
+
+ 

@@ -16,7 +16,7 @@
 }
 
 .header__image2 {
-  background: url("https://cdn.discordapp.com/attachments/863956904118976532/864054577883250688/28a573f5649eaea3.jpg");
+  background: url("https://cdn.discordapp.com/attachments/863956904118976532/864173917928423484/7c4bcb3f0355b31b.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -52,8 +52,8 @@
   text-align: left;
   color: white;
   position: absolute;
-  left: 55%;
-  top: 40%;
+  left: 60%;
+  top: 33%;
   margin-right: 5rem;
 }
 
@@ -92,6 +92,14 @@
 
 .header__text .header__content__text {
   font-size: 28px;
+}
+
+.header__today__text {
+  font-size: 28px;
+  color: white;
+  position: absolute;
+  left: 25%;
+  top: 350%;
 }
 
 @media only screen and (max-width: 1200px) {

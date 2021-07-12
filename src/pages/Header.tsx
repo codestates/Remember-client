@@ -40,7 +40,7 @@ const Header: React.FC = () => {
 
   return (
     <>
-      <Carousel infiniteLoop >
+      <Carousel infiniteLoop>
         <div className="header__image">
           <div className="header__text">
             <h1 className="header__title">기억해 주세요.</h1>
@@ -48,14 +48,16 @@ const Header: React.FC = () => {
               리멤버는 세상에 잊혀져가는<br></br> 안타까운 사건 사고들을 잊지
               않기 위해 시작되었습니다.
             </h2>
+            <h2 className="header__today__text">
+              오늘도 1325분께서 기억하러 오셨습니다.
+            </h2>
           </div>
         </div>
         <div className="header__image2">
           <div className="header__text2">
-            <h1 className="header__title">기억해 주세요2.</h1>
+            <h1 className="header__title">쿠팡 물류센터 화재</h1>
             <h2 className="header__content__text">
-              리멤버는 세상에 잊혀져가는<br></br> 안타까운 사건 사고들을 잊지
-              않기 위해 시작되었습니다.
+              故 김동식 남성 소방경 순직
             </h2>
           </div>
         </div>

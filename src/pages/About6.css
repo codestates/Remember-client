@@ -50,3 +50,8 @@
 .todo__intro__col:nth-child(3) {
   margin-top: 0.8rem;
 }
+
+.todo__intro__img {
+  height: 300px;
+  width: 300px;
+}

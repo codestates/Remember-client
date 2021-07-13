@@ -8,7 +8,6 @@ import * as notificationCreators from "../action-creators/notificationCreators";
 import * as actionCreators from '../action-creators/loginCreators';
 import * as spinnerCreators from '../action-creators/spinnerCreators';
 import './Modal.css';
-import Spinner from "./Spinner";
 import { Root } from "../Store";
 import logo from "../images/headerlogo.png"
 
@@ -34,7 +33,6 @@ const SignInModal = ({
 }:Props) => {
   const dispatch = useDispatch();
   const token:any = useSelector((state: Root) => state.login);
-  const loading:any = useSelector((state: Root) => state.spinner);
   const { notify } = bindActionCreators(
     notificationCreators,
     dispatch
@@ -43,11 +41,6 @@ const SignInModal = ({
     actionCreators,
     dispatch
   );
-
-  const { loadingStart, loadingEnd } = bindActionCreators(
-    spinnerCreators,
-    dispatch
-  )
 
   const [values, setValues] = useState<Values>({
     email: "",
@@ -85,13 +78,7 @@ const SignInModal = ({
     //window.location.replace(window.location.pathname)
   }
 
-  useEffect(() => {
-    loadingStart(false);
-  }, [])
-
-  return loading.loading ? (
-    <Spinner></Spinner>
-  ) : (
+  return (
     <div className={signInClick? "show": "hide"}>
         <div className="modal__overlay" onClick={() => {
           setSignInClick(false);

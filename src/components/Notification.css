@@ -7,7 +7,7 @@
 .notification {
   transition: transform 0.6s ease-in-out;
   animation: toast-in-right 0.6s;
-  background: #26a69a;
+  background: #99d066;
   transition: 0.3s ease;
   border-radius: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);

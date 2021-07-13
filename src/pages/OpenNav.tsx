@@ -9,7 +9,6 @@ import SignInModal from './SignInModal';
 import SignUpModal from './SignUpModal';
 import Mypage from "../pages/Mypage";
 import logo from "../images/logo-text.png";
-import './OpenNav.css';
 
 const Ul = styled.ul<{ open: boolean }>`
   box-shadow : ${({ open }) => open ? 'rgba(0,0,0,0.2) 0 0 0 9999px' : ''};
@@ -135,10 +134,12 @@ const OpenNav = ({ open, setOpen, auth }:Props) => {
             사건 & 사고
           </li>
         </Link>
-        <li>
-          <img className="hamburger__img-use" src="https://image.flaticon.com/icons/png/512/3173/3173781.png"></img>
-          후원 사용처
-        </li>
+        <Link to='/prepare'>
+          <li onClick={() => setOpen(false)}>
+            <img className="hamburger__img-use" src="https://image.flaticon.com/icons/png/512/3173/3173781.png"></img>
+            후원 사용처
+          </li>
+        </Link>
         <li onClick={() => window.open("https://npg.nicepay.co.kr/issue/CheckCardInfo.do?TID=nictest00m01012107091552004444&svcCd=01&sendMail=1&pass2ndConf=N&cart_type=0")}>
           <img className="hamburger__img-receipt" src="https://image.flaticon.com/icons/png/512/985/985714.png"></img>
           후원 영수증

@@ -10,6 +10,7 @@ import * as spinnerCreators from '../action-creators/spinnerCreators';
 import './Modal.css';
 import Spinner from "./Spinner";
 import { Root } from "../Store";
+import logo from "../images/headerlogo.png"
 
 interface Props {
   signInClick: boolean;
@@ -97,12 +98,11 @@ const SignInModal = ({
           setModalOn(false);
         }}></div>
         <div className="modal__content">
-          <h1>Remember</h1>
-          <h3>로그인</h3>
+          <img className="modal__content-login-logo" src={logo}></img>
           <div className="modal__content-login-div">
             <input
             className="modal__signin"
-            placeholder="EMAIL"
+            placeholder="이메일"
             value={values.email}
             onChange={(e) => setValues({...values, email:e.target.value})}
             ></input>
@@ -110,7 +110,7 @@ const SignInModal = ({
           <div>
             <input
             className="modal__signin"
-            placeholder="PASSWORD"
+            placeholder="비밀번호"
             type="password"
             value={values.password}
             onChange={(e) => setValues({...values, password:e.target.value})}

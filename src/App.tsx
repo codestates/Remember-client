@@ -10,6 +10,7 @@ import Receipt from "./pages/Receipt";
 import Payment from "./components/Payment";
 import PostDetail from "./pages/PostDetail";
 import Sponsor from "./components/Sponsor";
+import Prepare from "./pages/Prepare";
 
 const App = ({ auth }: any) => {
   return (
@@ -23,6 +24,7 @@ const App = ({ auth }: any) => {
         <Route exact path="/payment" component={Payment}></Route>
         <Route path="/receipt" component={Receipt} />
         <Route exact path="/sponsor" component={Sponsor}></Route>
+        <Route path="/prepare" component={Prepare}></Route>
         <Route path="/" render={() => <div>404 에러</div>}></Route>
       </Switch>
     </Router>

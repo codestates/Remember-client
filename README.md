@@ -11,8 +11,7 @@
 
 # **Used Tech Stack**
 
-
-![기술 스택](https://user-images.githubusercontent.com/76901060/125166276-d3a4ab00-e1d5-11eb-93b6-23dc8fc3a89f.jpg)
+![슬라이드1](https://user-images.githubusercontent.com/76901060/125478655-c4aa9e66-89c1-40ee-ba4c-fde5f41737c2.JPG)
 - **Common** : TypeScript / Axios / Iamport
 - **Front-end** : React (React-Hooks) / Redux (Redux-Hooks) / Firebase / Css
 - **Back-end** : Node.js / Express / sequelize / Mysql / Nodemailer / JWT
@@ -24,7 +23,7 @@
 
 ## **Client Side**
 
-![121147769-222ff400-c87c-11eb-9b3a-012faca5f003](https://user-images.githubusercontent.com/76901060/122878803-1ca1d600-d373-11eb-955e-d7f2c6153035.png)
+![슬라이드2](https://user-images.githubusercontent.com/76901060/125478659-f5847fa2-0561-4155-8780-6c169d80dfb1.JPG)
 
 ## **Server Side**
 

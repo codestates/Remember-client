@@ -49,12 +49,12 @@ function PostDetail() {
 
   const sendComment = async () => {
     await axios.post(`${process.env.REACT_APP_API_URL}/comment`, {
-
-      name: values.name, comment: comment, title: accidentState.accidentSingle?.data.title, url: values.url
-    })
-    
-  }
-
+      name: values.name,
+      comment: comment,
+      title: accidentState.accidentSingle?.data.title,
+      url: values.url,
+    });
+  };
 
   const getUserInfo = async () => {
     if (token.OAuth.OAuth) {
@@ -95,68 +95,68 @@ function PostDetail() {
   };
 
   const getComment = async () => {
-
-    await axios.post(`${process.env.REACT_APP_API_URL}/comment-list`, {
-      title: accidentState.accidentSingle?.data.title
-    })
-    .then((res) => {
-      const arr = res.data.data.commentInfo.reverse()
-      setComments(arr);
-    })
-  }
+    await axios
+      .post(`${process.env.REACT_APP_API_URL}/comment-list`, {
+        title: accidentState.accidentSingle?.data.title,
+      })
+      .then((res) => {
+        const arr = res.data.data.commentInfo.reverse();
+        setComments(arr);
+      });
+  };
 
   useEffect(() => {
     getUserInfo();
     getComment();
     fetchSingleData(params.id);
+  }, []);
 
-  }, [])
-  
-return accidentState.loading ? (
+  return accidentState.loading ? (
     <Spinner></Spinner>
   ) : (
     <section id="postdetail">
-      <div className="postdetail__container">
-        <div className="postdetail__card">
-          <div className="postdetail__imgs">
-            <div className="postdetail__accidentCase">
-              <img
-                className="single__img"
-                src={accidentState.accidentSingle?.data.url}
-                alt=""
-              />
+      <div className="postdetail__row">
+        <div className="postdetail__col-1">
+          <h1 className="postdetail__title">
+            {accidentState.accidentSingle?.data.title}
+          </h1>
+          <h3 className="people__text">
+            인명 피해 : {accidentState.accidentSingle?.data.casualty}
+          </h3>
+          <h3 className="day__text">
+            사건 발생일 : {accidentState.accidentSingle?.data.date}
+          </h3>
+          <h3 className="location__text">
+            위치 : {accidentState.accidentSingle?.data.location}
+          </h3>
+          <p className="postdetail__text">
+            {accidentState.accidentSingle?.data.body} <br></br> <br></br>
+            {accidentState.accidentSingle?.data.body}
+          </p>
+          {/* <p>{accidentState.accidentSingle?.data.body}</p> */}
+          <div className="postdetail__btn__group">
+            <div className="btn__group__area">
+              <button
+                className="btn__post"
+                onClick={() => history.push("/accident")}
+              >
+                뒤로가기
+              </button>
+              <button className="btn__post">후원하기</button>
             </div>
-          </div>
-          <div className="postdetail__content">
-            <h2 className="postdetail__title">
-              {accidentState.accidentSingle?.data.title}
-            </h2>
-
-            <div className="postdetail__detail">
-              <p className="post__text">
-                {accidentState.accidentSingle?.data.body} Lorem ipsum dolor sit
-                amet consectetur, adipisicing elit. Aperiam voluptatibus,
-                accusantium dolorum inventore quidem deserunt totam numquam quia
-                dolorem laudantium doloribus cumque error. Accusamus, expedita
-                consequuntur. Eos iure sed eveniet.
-              </p>
-            </div>
-            <div className="postdetail__btn__group">
-              <div className="btn__group__area">
-                <button
-                  className="btn__post"
-                  onClick={() => history.push("/accident")}
-                >
-                  뒤로가기
-                </button>
-                <button className="btn__post">후원하기</button>
-              </div>
-              <KakaoShareButton />
-              <Facebook />
-            </div>
+            <KakaoShareButton />
+            <Facebook />
           </div>
         </div>
+        <div className="postdetail__col-2">
+          <img
+            src={accidentState.accidentSingle?.data.url}
+            alt=""
+            className="postdetail__img"
+          />
+        </div>
       </div>
+
       <div className="postdetail__comment">
         <div className="postdetail__content-box">
           <img

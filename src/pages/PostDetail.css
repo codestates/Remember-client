@@ -1,167 +1,87 @@
-/* .postdetail__main-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.postdetail__content {
-  width: 800px;
-  height: 300px;
-  margin: 0 auto 50px auto;
-}
-
-.postdetail__image {
-  text-align: center;
-  margin-top: 150px;
-}
-
-.postdetail__image > img {
-  width: 400px;
-  height: 300px;
-}
-
-.postdetail__image-title {
-  background-color: wheat;
-  width: 400px;
-  height: 50px;
-  text-align: center;
-}
-
-.postdetail__side {
-  text-align: center;
-  margin-top: 150px;
-}
-
-.postdetail__side-title {
-  background-color: tomato;
-  width: 60%;
-  height: 40px;
-  margin-top: 100px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.postdetail__side-bar {
-  background-color: violet;
-  width: 60%;
-  height: 40px;
-  margin-top: 50px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.postdetail__side-support {
-  margin: 150px 10px 0 10px;
-  cursor: pointer;
-  padding: 10px;
-}
-
-.postdetail__side-share {
-  margin: 150px 10px 0 10px;
-  cursor: pointer;
-  padding: 10px;
-}
-
-.postdetail__img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 250px;
-} */
-
-/* .card-wrapper {
-  width: 80%;
-  margin: 0 auto;
-} */
-
 #postdetail {
+  /* margin-top: 3rem;
+  padding-top: 10rem; */
+  width: 100%;
+  height: 100%;
   line-height: 1.5;
-  margin-top: 10rem;
-  height: 70vh;
+  background-color: #dae4ff;
+  padding-left: 6%;
+  padding-right: 6%;
 }
 
-.postdetail__container {
-  width: 80%;
-  margin: 0 auto;
+.postdetail__row {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 5rem;
-}
-
-.postdetail__card {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 1.5rem;
-}
-
-.postdetail__imgs {
-  margin-left: 5rem;
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  display: block;
-}
-
-.postdetail__img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 250px;
-}
-
-.postdetail__accidentCase {
   width: 100%;
-  display: block;
+  /* height: 82vh; */
+  background-color: #fff;
+  border-radius: 15px;
+  overflow: hidden;
 }
 
-.postdetail__accidentCase .single__img {
+.postdetail__col-1,
+.postdetail__col-2 {
+  flex-basis: 50%;
+  overflow: hidden;
+}
+
+.postdetail__col-2 .postdetail__img {
   width: 100%;
-  height: 45vh;
-  margin-top: 3rem;
+  height: 100%;
 }
 
-.postdetail__content {
-  padding: 3rem 2rem;
+.postdetail__col-1 {
+  padding: 8% 5%;
+  position: relative;
 }
 
-.postdetail__title {
-  align-items: center;
-  text-align: left;
-  font-size: 3rem;
-  font-style: italic;
-  font-weight: 700;
-  color: #12263a;
+.postdetail__col-1 .postdetail__title {
+  font-size: 60px;
+  line-height: 80px;
+  letter-spacing: 2px;
+  color: #333;
 }
 
-.postdetail__detail .post__text {
-  margin-top: 1rem;
-  width: 65%;
-  font-size: 0.9rem;
-  padding: 0.3rem;
-  opacity: 0.8;
+.postdetail__col-1 .postdetail__text {
+  color: #777;
+  line-height: 22px;
+  margin: 30px 0 30px;
+}
+
+.people__text {
+  padding: 5px 0;
+  font-weight: bold;
+  color: red;
+}
+
+.day__text {
+  padding: 5px 0;
+  font-weight: bold;
+  color: #036635;
+}
+
+.location__text {
+  padding: 5px 0;
+  font-weight: bold;
+  color: #256eff;
 }
 
 .postdetail__btn__group {
+  float: right;
   display: flex;
-  margin: 3rem 0;
   font-weight: 700;
 }
 
 .btn__post {
-  border: 1.5px solid #ddd;
-  border-radius: 25px;
   text-align: center;
-  padding: 0.45rem 0.8rem;
-  outline: 0;
-  margin-right: 0.2rem;
-  margin-bottom: 1rem;
-  cursor: pointer;
-  color: #fff;
+  align-items: center;
+  padding: 12px 36px;
+  border: 0;
+  outline: none;
+  border-radius: 25px;
   background-color: #256eff;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
 }
 
 .btn__group__area .btn__post:nth-child(2) {
@@ -169,7 +89,7 @@
 }
 
 .btn__group__area .btn__post:hover {
-  opacity: 0.8;
+  background-color: #036635;
 }
 
 /* 이 위로 작업 */
@@ -196,7 +116,8 @@
 
 .postdetail__content-box {
   display: flex;
-  margin: 10px auto;
+  margin: 20px auto;
+  margin-top: 3rem;
 }
 
 .postdetail__content-btn {
@@ -212,16 +133,17 @@
 }
 
 .postdetail__comment {
-  margin-top: 30px;
+  /* margin-top: 30px; */
   border-bottom: 1px solid gray;
-  width: 80%;
-  margin: 30px auto 0 auto;
+  width: 60%;
+  margin: 0 auto;
 }
 
 .postdetail__content-container {
   border-bottom: 1px solid gray;
-  margin: 10px auto 0 auto;
-  width: 80%;
+  /* margin: 10px auto 0 auto; */
+  margin: 0 auto;
+  width: 60%;
 }
 
 .postdetail__content-box input {
@@ -233,3 +155,82 @@
   background-color: #eeeeee;
   border: none;
 }
+
+/* .news-link {
+  font-size: 50px;
+  background-color: black;
+  margin: 0rem auto;
+  color: white;
+  text-align: center;
+  padding: 25px;
+  width: 64%;
+}
+
+.postdetail__container {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-items: center;
+}
+
+.postdetail__card {
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1.5rem;
+}
+
+.postdetail__imgs {
+  width: 100%;
+}
+
+.postdetail__img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 250px;
+}
+
+.postdetail__accidentCase {
+  width: 100%;
+  display: block;
+}
+
+.postdetail__accidentCase .single__img {
+  width: 100%;
+  height: 70vh;
+  margin-top: 3rem;
+}
+
+.postdetail__content {
+  width: 100%;
+  height: 70vh;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-bottom: 0;
+  padding: 3rem 2rem;
+  background-color: #05a35f;
+}
+
+.postdetail__title {
+  align-items: center;
+  text-align: left;
+  font-size: 30px;
+  font-style: italic;
+  font-weight: 700;
+  color: #12263a;
+}
+
+.postdetail__detail .post__text {
+  margin-top: 1rem;
+  width: 100%;
+  font-size: 18px;
+  padding: 0.3rem;
+  font-weight: 300;
+  line-height: 24px;
+} */

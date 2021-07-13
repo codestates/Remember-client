@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "./About5.css";
+import "./Aboutall.css";
 
 const About5 = () => {
   useEffect(() => {
@@ -24,10 +25,11 @@ const About5 = () => {
           data-aos-delay="100"
           data-aos-duration="1000"
         >
-          <h1 className="main_text">
-            공유하기를 통해 다른 분들도 기억할 수 있도록 도와주세요.
+          <h1>
+            공유하기를 통해
+            <br /> 다른 분들도 기억할 수 있도록 도와주세요.
           </h1>
-          <p className="minor_text">
+          <p>
             리멤버 서비스를 이용하시고 사건 사고들을 알리고 싶으시다면
             <br />
             공유하기를 통해 가족과 친구들에게 알려주세요.

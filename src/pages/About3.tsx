@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "./About3.css";
+import "./Aboutall.css";
 
 const About3 = () => {
   useEffect(() => {
@@ -24,11 +25,11 @@ const About3 = () => {
           data-aos-delay="100"
           data-aos-duration="1000"
         >
-          <h1 className="main_text">퀴즈를 통해 더 쉽게 기억해봐요.</h1>
-          <p className="minor_text">
-            우리는 잊혀진 사건과 사고들을 사람들에게 알리고자 합니다. <br></br>
-            또한, 사건의 희생자들을 돕기 위해 후원금을 모아서 지원하는 활동을
-            하고 있습니다.
+          <h1>퀴즈를 통해 더 쉽게 기억해봐요.</h1>
+          <p>
+            우리는 잊혀진 사건과 사고들을 사람들에게 알리고자 합니다. <br />
+            또한, 사건의 희생자들을 돕기 위해 후원금을 모아서
+            <br /> 지원하는 활동을 하고 있습니다.
           </p>
           <button className="about3_btn">퀴즈 시작</button>
         </div>

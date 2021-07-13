@@ -1,11 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import "./About3.css";
 import "./Aboutall.css";
+import Quiz from "../components/Quiz";
 
 const About3 = () => {
-  useEffect(() => {
+  useState(() => {
     window.AOS.init();
   });
+  const [quizClick, setQuizClick] = useState<boolean>(false);
 
   return (
     <section id="about3">
@@ -31,7 +33,15 @@ const About3 = () => {
             또한, 사건의 희생자들을 돕기 위해 후원금을 모아서
             <br /> 지원하는 활동을 하고 있습니다.
           </p>
-          <button className="about3_btn">퀴즈 시작</button>
+          <button
+            className="about3_btn"
+            onClick={() => {
+              setQuizClick(true);
+            }}
+          >
+            퀴즈 시작
+          </button>
+          <Quiz setQuizClick={setQuizClick} quizClick={quizClick}></Quiz>
         </div>
       </div>
     </section>

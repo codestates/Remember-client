@@ -12,6 +12,7 @@
   background: url("https://cdn.discordapp.com/attachments/863956904118976532/864002100497612800/d9ee49de95394c5d.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  background-size: 100% 95%;
   background-position: center;
 }
 
@@ -19,13 +20,23 @@
   background: url("https://cdn.discordapp.com/attachments/863956904118976532/864173917928423484/7c4bcb3f0355b31b.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  background-size: 100% 95%;
   background-position: center;
 }
 
 .header__image3 {
-  background: url("https://cdn.discordapp.com/attachments/863956904118976532/864064898623602698/--ConvertImage.jpg");
+  background: url("https://news.nateimg.co.kr/orgImg/hk/2021/06/09/ZA.26590746.1.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  background-size: 100% 95%;
+  background-position: center;
+}
+
+.header__image4 {
+  background: url("https://newsimg.hankookilbo.com/cms/articlerelease/2015/12/20/201512201214298390_1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: 100% 95%;
   background-position: center;
 }
 
@@ -46,6 +57,13 @@
 .header__image3 {
   height: 100%;
   width: auto;
+  filter: grayscale(100%);
+}
+
+.header__image4 {
+  height: 100%;
+  width: auto;
+  filter: grayscale(100%);
 }
 
 .header__text {
@@ -61,12 +79,21 @@
   text-align: left;
   color: white;
   position: absolute;
-  left: 15%;
-  top: 40%;
+  left: 60%;
+  top: 33%;
   margin-right: 5rem;
 }
 
 .header__text3 {
+  text-align: left;
+  color: white;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  margin-right: 5rem;
+}
+
+.header__text4 {
   text-align: left;
   color: white;
   position: absolute;
@@ -90,6 +117,11 @@
   margin-bottom: 1rem;
 }
 
+.header__text4 .header__title {
+  font-size: 48px;
+  margin-bottom: 1rem;
+}
+
 .header__text .header__content__text {
   font-size: 28px;
 }
@@ -100,6 +132,7 @@
   position: absolute;
   left: 25%;
   top: 350%;
+  white-space: nowrap;
 }
 
 @media only screen and (max-width: 1200px) {

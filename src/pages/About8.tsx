@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./About8.css";
 import "./Aboutall.css";
 
@@ -20,7 +21,9 @@ const About8 = () => {
             전부 살펴보셨다면 <br></br>
             이제 직접 기억하러 가보실까요?
           </h1>
-          <button className="about8_btn">체험하기</button>
+          <Link to="/accident">
+            <button className="about8_btn">체험하기</button>
+          </Link>
         </div>
       </div>
       <div

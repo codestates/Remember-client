@@ -4,13 +4,13 @@ import "./About6.css";
 const About6: React.FC = () => {
   return (
     <section id="todo__intro">
-      <h1 className="todo__intro__title">What We To do?</h1>
+      <h1 className="todo__intro__title">What We do?</h1>
       <div className="todo__intro__row">
         <div className="todo__intro__col">
           <img className="todo__intro__img" src="images/about6_1.png" alt="" />
           <h4>이메일 알림</h4>
           <p>회원가입 후</p>
-          <p>결제 후원하기 알림 받아보세요.</p>
+          <p>후원하기 알림 및 후원 내역들을 받아보세요.</p>
         </div>
         <div className="todo__intro__col">
           <img src="images/about6_2.png" alt="" />

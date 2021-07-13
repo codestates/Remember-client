@@ -13,29 +13,64 @@
 }
 
 .header__box {
-  border-bottom: 5px solid gray;
   width: 100%;
-  height: 100px;
-  padding-right: 90px;
+  height: 80px;
+  padding-right: 50px;
   position: fixed;
   background-color: white;
-  z-index: 2;
+  z-index: 3;
 }
 
 .header__title {
   margin: 15 15px 15px 30px;
-  font-size: 30px;
+  font-size: 13px;
+  font-weight: 500;
   font: bold;
-  display: inline-block;
   cursor: pointer;
+  display: flex;
+  justify-content: space-between;
 }
 
 .header__title-img {
-  width: 30rem;
+  width: 22rem;
   background-color: transparent;
-  margin-left: 2%;
+  margin-left: 1%;
   position: absolute;
-  left: 1%;
+  top: 13px;
+}
+
+.header__btn {
+  margin-top: 20px;
+  margin-right: 35px;
+}
+
+.header__btn button {
+  padding: 8px 12px;
+  width: 100px;
+  border-radius: 10px;
+  margin: 0 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  float: right;
+}
+
+.left {
+  background-color: transparent;
+  color: #036635;
+  border: none;
+}
+
+.left:hover {
+  background-color: #036635;
+  color: white;
+  border: none;
+}
+
+.right {
+  background-color: #036635;
+  border: none;
+  color: white;
 }
 
 .github__login-btn {
@@ -57,14 +92,22 @@
 }
 
 .social__logo {
-  width: 20px;
-  height: 20px;
-  margin: 5px 35px 5px 20px;
+  width: 16px;
+  height: 16px;
+  margin: 8px 37px 5px 23px;
+}
+
+.social__logo-github {
+  width: 25px;
+  height: 25px;
+  margin: 3px 35px 5px 20px;
 }
 
 .github__box {
   display: flex;
-  border: 1px solid black;
+  /* border: 2px solid #036635; */
+  background-color: #212121;
+  color: white;
   border-radius: 10px;
   width: 80%;
   margin: 10px auto;
@@ -74,6 +117,7 @@
 .google__box {
   display: flex;
   border: 1px solid black;
+  background-color: white;
   border-radius: 10px;
   width: 80%;
   margin: 10px auto;

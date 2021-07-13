@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import styled from "styled-components";
 import OpenNav from "./OpenNav";
+import OpenNavBody from "./OpenNavBody";
+import OpenNavTail from "./OpenNavTail";
 
 const StyledHamburger = styled.div<{ open: boolean }>`
   cursor: pointer;
-  width: 2rem;
-  height: 2rem;
+  width: 1.8rem;
+  height: 1.8rem;
   position: fixed;
   top: 30px;
-  right: 30px;
+  right: 20px;
   z-index: 20;
   display: none;
   @media {
@@ -17,10 +19,10 @@ const StyledHamburger = styled.div<{ open: boolean }>`
     flex-flow: column nowrap;
   }
   div {
-    width: 2rem;
-    height: 0.25rem;
-    background-color: ${({ open }) => open ? 'white' : 'black'};
-    border-radius: 10px;
+    width: 1.85rem;
+    height: 0.2rem;
+    background-color: ${({ open }) => open ? '#036635' : '#036635'};
+    border-radius: 20px;
     transform-origin: 1px;
     transition: all 0.3s linear;
     &:nth-child(1) {
@@ -51,6 +53,8 @@ function Hamburger({auth}:any) {
       <div />
     </StyledHamburger>
     <OpenNav auth={auth} open={open} setOpen={setOpen} />
+    <OpenNavBody auth={auth} open={open} setOpen={setOpen}/>
+    <OpenNavTail auth={auth} open={open} setOpen={setOpen}/>
     </div>
   )
 }

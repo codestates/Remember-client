@@ -2,7 +2,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 112%;
+  height: 150%;
   justify-content: center;
   align-items: center;
   position: fixed;
@@ -14,6 +14,7 @@
   width: 100%;
   height: 100%;
   position: absolute;
+  cursor: auto;
 }
 
 .modal__content {
@@ -21,14 +22,46 @@
   background-color: white;
   text-align: center;
   align-items: center;
-  position: relative;
+  position: fixed;
+  cursor: auto;
+  top: 56%;
+  left: 50%;
   width: 400px;
   height: 600px;
   border-radius: 20px;
+  margin: 0 auto;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
-.modal__scroll {
-  overflow-y: scroll;
+.withdrawmodal__content {
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15), 0 5px 5px rgba(0, 0, 0, 0.25);
+  background-color: white;
+  text-align: center;
+  align-items: center;
+  position: relative;
+  border-radius: 20px;
+  width: 650px;
+  height: 300px;
+  position: fixed;
+  cursor: auto;
+  top: 56%;
+  left: 50%;
+  margin: 0 auto;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.modal__content-login-logo {
+  width: 28rem;
+  background-color: transparent;
+  margin-top: 5%;
 }
 
 .modal__content-img-img {
@@ -40,16 +73,13 @@
   margin: 20px auto;
 }
 
-.modal__content > h3 {
-  margin: 10px auto;
-}
-
 .modal__content-login-div {
-  margin-top: 50px;
+  margin-top: 100px;
 }
 
 .modal__content-img-div {
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .modal__signup {
@@ -100,7 +130,8 @@
   padding: 10px;
   width: 80%;
   height: 40px;
-  background-color: #ffecb3;
+  background-color: #036635;
+  color: white;
   border-radius: 10px;
   margin: 5px auto;
   border: none;
@@ -109,9 +140,10 @@
 
 .modal__mypage-btn {
   width: 20%;
-  background-color: #ffecb3;
+  background-color: #036635;
+  color: white;
   border-radius: 10px;
-  margin: 10px 10px;
+  margin: 40px 10px;
   border: none;
   cursor: pointer;
   line-height: 0;
@@ -120,7 +152,8 @@
 
 .modal__content > div > div > button {
   width: 20%;
-  background-color: #ffecb3;
+  background-color: #036635;
+  color: white;
   border-radius: 10px;
   margin: 5px auto;
   border: none;
@@ -139,7 +172,7 @@
 }
 
 .modal__content-switch > span {
-  color: #ffd54f;
+  color: #036635;
   cursor: pointer;
   margin-left: 3px;
 }
@@ -147,17 +180,27 @@
 .modal__content-img {
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15), 0 5px 5px rgba(0, 0, 0, 0.25);
   background-color: white;
-
   border-radius: 20px;
   width: 500px;
   height: 500px;
+  position: fixed;
+  cursor: auto;
+  top: 50%;
+  left: 50%;
+  margin: 0 auto;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .modal__content-img > button {
   margin: 30px 5px 0 5px;
   padding: 10px;
   border-radius: 10px;
-  background-color: #ffecb3;
+  background-color: #036635;
+  color: white;
   border: none;
   cursor: pointer;
 }
@@ -192,25 +235,18 @@
   display: none;
 }
 
-.withdrawmodal__content {
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15), 0 5px 5px rgba(0, 0, 0, 0.25);
-  background-color: white;
-  text-align: center;
-  align-items: center;
-  position: relative;
-  border-radius: 20px;
-  width: 800px;
-  height: 300px;
-}
-
 .withdrawmodal__content > h1 {
   padding: 15px 0;
-  background-color: #eeeeee;
-  border-bottom: 1px solid gray;
+  margin: 0;
+  font-size: 30px;
+  box-shadow: 0 0 3px 0 rgb(0 0 0 / 30%);
 }
 
 .withdrawmodal__content > h3 {
-  margin-top: 30px;
+  margin-top: 50px;
+  font-size: 20px;
+  color: gray;
+  text-align: center;
 }
 
 .withdrawmodal__content-body {
@@ -219,13 +255,14 @@
 
 .withdrawmodal__content > div > button {
   width: 10%;
-  background-color: #ffecb3;
+  background-color: #036635;
+  color: white;
   border-radius: 10px;
-  margin: 5px auto;
+  margin: 30px auto;
   border: none;
   cursor: pointer;
   line-height: 0;
-  padding: 15px 5px;
+  padding: 20px 5px;
 }
 
 .withdrawmodal__input {
@@ -250,7 +287,8 @@
 
 .modal__signup-cert-btn {
   width: 20%;
-  background-color: #ffecb3;
+  background-color: #036635;
+  color: white;
   border-radius: 10px;
   margin: 5px 0;
   border: none;
@@ -268,6 +306,16 @@
   border-radius: 20px;
   width: 300px;
   height: 150px;
+  position: fixed;
+  cursor: auto;
+  top: 56%;
+  left: 50%;
+  margin: 0 auto;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .savemodal__content-body {
@@ -281,7 +329,9 @@
 
 .savemodal__content > div > button {
   width: 25%;
-  background-color: #ffecb3;
+  background-color: #036635;
+  color: white;
+  font-size: 13px;
   border-radius: 10px;
   margin: 30px 10px;
   border: none;
@@ -295,7 +345,8 @@
 }
 
 .table-btn {
-  background-color: #ffecb3;
+  background-color: #036635;
+  color: white;
   border-radius: 10px;
   border: none;
   cursor: pointer;
@@ -315,6 +366,7 @@
   border-radius: 10px;
   background-color: #eeeeee;
   border: none;
+  font-weight: 600;
 }
 
 .table-amount {
@@ -325,6 +377,7 @@
   border-radius: 10px;
   background-color: #eeeeee;
   border: none;
+  font-weight: 600;
 }
 
 .modal__content-table div {
@@ -333,7 +386,7 @@
 
 .modal__content > ul {
   list-style: none;
-  margin-top: 60px;
+  margin-top: 30px;
   float: left;
   text-align: left;
   margin-left: 40px;
@@ -359,11 +412,31 @@
 }
 
 .blink {
-  color: #64b5f6;
+  color: #bef67a;
   text-decoration: blink;
   -webkit-animation-name: blinker;
   -webkit-animation-duration: 1s;
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-timing-function: ease-in-out;
   -webkit-animation-direction: alternate;
+}
+
+.modal__mypage {
+  margin-top: 30px;
+}
+
+.modal__content-nothing {
+  font-size: 20px;
+  font-weight: 500;
+  color: #9e9e9e;
+  position: fixed;
+  cursor: auto;
+  top: 50%;
+  left: 50%;
+  margin: 0 auto;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }

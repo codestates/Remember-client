@@ -7,6 +7,7 @@ import * as notificationCreators from "../action-creators/notificationCreators";
 import { Root } from "../Store";
 import axios from 'axios';
 import SaveModal from './SaveModal';
+import logo from "../images/headerlogo.png"
 
 interface Values {
   email: string;
@@ -159,20 +160,19 @@ const Mypage = ({ setMypageClick, mypageClick }: Props) => {
         setMypageClick(false);
       }}/>
 
-          <div className="modal__content modal__scroll">
-            <h1>Remember</h1>
-            <h3>마이페이지</h3>
+          <div className="modal__content">
+            <img className="modal__content-login-logo" src={logo}></img>
             <SelectImg setImgUrl={setImgUrl} imgUrl={imgUrl}/>
           <input
             readOnly
-            className="modal__signup" 
-            placeholder="EMAIL" 
+            className="modal__signup modal__mypage" 
+            placeholder="이메일" 
             value={values.email}
             onClick={() => notify("읽기 전용입니다.")}
           />
           <input
             className="modal__signup" 
-            placeholder="PASSWORD"
+            placeholder="비밀번호"
             type="password"
             value={values.password ? values.password : ""}
             onClick={() => {
@@ -188,13 +188,13 @@ const Mypage = ({ setMypageClick, mypageClick }: Props) => {
           <input 
             readOnly
             className="modal__signup" 
-            placeholder="NAME"
+            placeholder="성명"
             value={values.name}
             onClick={() => notify("읽기 전용입니다.")}
             />
           <input 
             className="modal__signup-mobile-head" 
-            placeholder="MOBILE"
+            placeholder="010"
             type="number"
             value={values.mobile.head ? values.mobile.head : ""}
             onChange={(e) => {
@@ -210,7 +210,6 @@ const Mypage = ({ setMypageClick, mypageClick }: Props) => {
             }}/>-
             <input 
             className="modal__signup-mobile-bodytail" 
-            placeholder="MOBILE"
             type="number"
 
             value={values.mobile.body ? values.mobile.body : ""}
@@ -227,7 +226,6 @@ const Mypage = ({ setMypageClick, mypageClick }: Props) => {
             }}/>-
             <input 
             className="modal__signup-mobile-bodytail" 
-            placeholder="MOBILE"
             type="number"
             value={values.mobile.tail ? values.mobile.tail : ""}
             onChange={(e) => {
@@ -243,7 +241,6 @@ const Mypage = ({ setMypageClick, mypageClick }: Props) => {
             }}/>
           <input 
             className="modal__signup" 
-            placeholder="DATE OF BIRTH"
             type="date"
             value={values.dateOfBirth ? values.dateOfBirth : ""}
             onChange={(e) => setValues({...values, dateOfBirth:e.target.value})}
@@ -256,29 +253,10 @@ const Mypage = ({ setMypageClick, mypageClick }: Props) => {
             saveHandler();
             }}>저장</button>
           </div>
-          
-          
-          <ul>
-            <div className="modal__content-table-title">
-            
-              <h2>
-                후원내역 <i className="fas fa-angle-double-down blink"></i>
-              </h2>
-              {donorInfo.length !== 0 ?
-              <button className="table-btn" onClick={() => window.open("https://npg.nicepay.co.kr/issue/CheckCardInfo.do?TID=nictest00m01012107091552004444&svcCd=01&sendMail=1&pass2ndConf=N&cart_type=0")}>영수증</button>
-              : ""}
-            </div>
-            {donorInfo ? donorInfo.map((info:any) => (
-              <li key={info.id} className="modal__content-table-list">
-                <input readOnly className="table-title" value={info.mainPost_title}></input>
-                <input readOnly className="table-amount" value={`${info.donationAmount} 원` }></input>
-              </li>
-            ))
-          : ""}
-          </ul>
+      
+      </div>
       <WithdrawModal email={values.email} withdrawClick={withdrawClick} setWithdrawClick={setWithdrawClick}/>
       <SaveModal userInfoUpdate={userInfoUpdate} saveClick={saveClick} setSaveClick={setSaveClick}></SaveModal>
-      </div>
     </div>
   )
 }

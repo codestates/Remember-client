@@ -16,7 +16,7 @@ const About1 = () => {
         data-aos-delay="100"
         data-aos-duration="1500"
       >
-        <img src="images/about1.png" alt="" />
+        <img className="about1__img" src="images/about1.png" alt="" />
       </div>
       <div className="about__right">
         <div

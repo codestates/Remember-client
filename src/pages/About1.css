@@ -4,3 +4,8 @@
   align-items: center;
   flex-wrap: wrap;
 }
+
+.about1__img {
+  padding: 0px 0px 0px 25%;
+  height: 900px;
+}

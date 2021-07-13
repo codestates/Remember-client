@@ -1,0 +1,42 @@
+.prepare__container {
+  text-align: center;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin: 0 auto;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.prepare__img {
+  width: 200px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.prepare__title-bold {
+  font-size: 40px;
+  font-weight: 500;
+  color: #005005;
+}
+
+.prepare__title {
+  font-size: 40px;
+  font-weight: 300;
+  color: #2e7d32;
+}
+
+.prepare__body-first {
+  margin-top: 10px;
+  color: gray;
+  font-size: 15px;
+}
+
+.prepare__body {
+  color: gray;
+  font-size: 15px;
+}

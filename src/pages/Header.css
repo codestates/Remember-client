@@ -99,7 +99,7 @@
   color: white;
   position: absolute;
   left: 25%;
-  top: 350%;
+  top: 200%;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -145,6 +145,6 @@
 }
 
 .counter {
-  color: #036635;
+  color: #76d275;
   font-weight: 500;
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import "./Spinner.css";
-import image from '../images/Wedges-3s-200px.gif'
+import image from '../images/spinner.gif'
 
 const Spinner: React.FC<any> = () => {
   return (

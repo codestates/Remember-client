@@ -5,6 +5,7 @@ import { bindActionCreators } from "redux";
 import * as notificationCreators from "../action-creators/notificationCreators";
 import axios from 'axios';
 import './Modal.css';
+import logo from "../images/headerlogo.png"
 
 interface Props {
   signUpClick: boolean;
@@ -127,13 +128,12 @@ const SignUpModal = ({
           setModalOn(false);
         }}></div>
         <div className="modal__content">
-          <h1>Remember</h1>
-          <h3>회원가입</h3>
+          <img className="modal__content-login-logo" src={logo}></img>
           <SelectImg setImgUrl={setImgUrl} imgUrl={imgUrl}/>
           <div>
           <input
           className="modal__signup"
-          placeholder="EMAIL"
+          placeholder="이메일"
           value={values.email}
           onChange={(e) => {
             if(!certClick) {
@@ -174,7 +174,7 @@ const SignUpModal = ({
           <div>
           <input
           className="modal__signup"
-          placeholder="PASSWORD"
+          placeholder="비밀번호"
           type="password"
           value={values.password}
           onChange={(e) => {
@@ -190,7 +190,7 @@ const SignUpModal = ({
           <div>
           <input
           className="modal__signup"
-          placeholder="NAME"
+          placeholder="성명"
           value={values.name}
           onChange={(e) => {
             if(isValid) {
@@ -267,7 +267,6 @@ const SignUpModal = ({
           <div>
           <input
           className="modal__signup"
-          placeholder="DATE OF BIRTH"
           type="date"
           value={values.dateOfBirth}
           onChange={(e) => {

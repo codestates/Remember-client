@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./About8.css";
-import "./Aboutall.css";
 
 const About8 = () => {
   useEffect(() => {
@@ -10,7 +9,7 @@ const About8 = () => {
 
   return (
     <section id="about8">
-      <div className="about_8_right">
+      <div className="about8__right">
         <div
           className="about8__text"
           data-aos="zoom-in"

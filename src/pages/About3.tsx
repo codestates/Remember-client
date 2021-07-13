@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./About3.css";
-import "./Aboutall.css";
+
 import Quiz from "../components/Quiz";
 
 const About3 = () => {
@@ -12,7 +12,7 @@ const About3 = () => {
   return (
     <section id="about3">
       <div
-        className="about__left"
+        className="about3__left"
         data-aos="fade-up"
         data-aos-once="false"
         data-aos-delay="100"
@@ -20,9 +20,9 @@ const About3 = () => {
       >
         <img src="images/about3.png" alt="" />
       </div>
-      <div className="about__right">
+      <div className="about3__right">
         <div
-          className="about__text"
+          className="about3__text"
           data-aos="zoom-in"
           data-aos-delay="100"
           data-aos-duration="1000"

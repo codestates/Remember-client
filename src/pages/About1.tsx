@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import "./About1.css";
-import "./Aboutall.css";
 
 const About1 = () => {
   useEffect(() => {
@@ -10,7 +9,7 @@ const About1 = () => {
   return (
     <section id="about1">
       <div
-        className="about__left"
+        className="about1__left"
         data-aos="fade-up"
         data-aos-once="false"
         data-aos-delay="100"
@@ -18,9 +17,9 @@ const About1 = () => {
       >
         <img className="about1__img" src="images/about1.png" alt="" />
       </div>
-      <div className="about__right">
+      <div className="about1__right">
         <div
-          className="about__text"
+          className="about1__text"
           data-aos="zoom-in"
           data-aos-delay="100"
           data-aos-duration="1000"

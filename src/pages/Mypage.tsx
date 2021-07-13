@@ -7,6 +7,7 @@ import * as notificationCreators from "../action-creators/notificationCreators";
 import { Root } from "../Store";
 import axios from 'axios';
 import SaveModal from './SaveModal';
+import logo from "../images/headerlogo.png"
 
 interface Values {
   email: string;
@@ -160,19 +161,18 @@ const Mypage = ({ setMypageClick, mypageClick }: Props) => {
       }}/>
 
           <div className="modal__content modal__scroll">
-            <h1>Remember</h1>
-            <h3>마이페이지</h3>
+            <img className="modal__content-login-logo" src={logo}></img>
             <SelectImg setImgUrl={setImgUrl} imgUrl={imgUrl}/>
           <input
             readOnly
             className="modal__signup" 
-            placeholder="EMAIL" 
+            placeholder="이메일" 
             value={values.email}
             onClick={() => notify("읽기 전용입니다.")}
           />
           <input
             className="modal__signup" 
-            placeholder="PASSWORD"
+            placeholder="비밀번호"
             type="password"
             value={values.password ? values.password : ""}
             onClick={() => {
@@ -188,13 +188,13 @@ const Mypage = ({ setMypageClick, mypageClick }: Props) => {
           <input 
             readOnly
             className="modal__signup" 
-            placeholder="NAME"
+            placeholder="성명"
             value={values.name}
             onClick={() => notify("읽기 전용입니다.")}
             />
           <input 
             className="modal__signup-mobile-head" 
-            placeholder="MOBILE"
+            placeholder="010"
             type="number"
             value={values.mobile.head ? values.mobile.head : ""}
             onChange={(e) => {
@@ -210,7 +210,6 @@ const Mypage = ({ setMypageClick, mypageClick }: Props) => {
             }}/>-
             <input 
             className="modal__signup-mobile-bodytail" 
-            placeholder="MOBILE"
             type="number"
 
             value={values.mobile.body ? values.mobile.body : ""}
@@ -227,7 +226,6 @@ const Mypage = ({ setMypageClick, mypageClick }: Props) => {
             }}/>-
             <input 
             className="modal__signup-mobile-bodytail" 
-            placeholder="MOBILE"
             type="number"
             value={values.mobile.tail ? values.mobile.tail : ""}
             onChange={(e) => {
@@ -243,7 +241,6 @@ const Mypage = ({ setMypageClick, mypageClick }: Props) => {
             }}/>
           <input 
             className="modal__signup" 
-            placeholder="DATE OF BIRTH"
             type="date"
             value={values.dateOfBirth ? values.dateOfBirth : ""}
             onChange={(e) => setValues({...values, dateOfBirth:e.target.value})}

@@ -12,6 +12,7 @@ import Mypage from "../pages/Mypage";
 import * as actionCreators from '../action-creators/loginCreators';
 import { useDispatch, useSelector } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import * as notificationCreators from "../action-creators/notificationCreators";
 
 const StyledMenu = styled.nav`
   width: 100%;
@@ -41,6 +42,10 @@ function Navbar({ auth }: any) {
     actionCreators,
     dispatch
   );
+  const { notify } = bindActionCreators(
+    notificationCreators,
+    dispatch
+  )
 
   return (
     <div>
@@ -72,7 +77,8 @@ function Navbar({ auth }: any) {
             }}>로그인</button>
             :<button className="left" onClick={() => {
               logout();
-              history.push('/')
+              notify("로그아웃 되었습니다.");
+              history.push('/');
             }}>로그아웃</button>}
           </div>
           <SignInModal 

@@ -41,6 +41,12 @@
   overflow-y: scroll;
 }
 
+.modal__content-login-logo {
+  width: 28rem;
+  background-color: transparent;
+  margin-top: 5%;
+}
+
 .modal__content-img-img {
   width: 40px;
   height: 40px;
@@ -50,16 +56,13 @@
   margin: 20px auto;
 }
 
-.modal__content > h3 {
-  margin: 10px auto;
-}
-
 .modal__content-login-div {
-  margin-top: 50px;
+  margin-top: 100px;
 }
 
 .modal__content-img-div {
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .modal__signup {
@@ -110,7 +113,8 @@
   padding: 10px;
   width: 80%;
   height: 40px;
-  background-color: #ffecb3;
+  background-color: #036635;
+  color: white;
   border-radius: 10px;
   margin: 5px auto;
   border: none;
@@ -119,7 +123,8 @@
 
 .modal__mypage-btn {
   width: 20%;
-  background-color: #ffecb3;
+  background-color: #036635;
+  color: white;
   border-radius: 10px;
   margin: 10px 10px;
   border: none;
@@ -130,7 +135,8 @@
 
 .modal__content > div > div > button {
   width: 20%;
-  background-color: #ffecb3;
+  background-color: #036635;
+  color: white;
   border-radius: 10px;
   margin: 5px auto;
   border: none;
@@ -149,7 +155,7 @@
 }
 
 .modal__content-switch > span {
-  color: #ffd54f;
+  color: #036635;
   cursor: pointer;
   margin-left: 3px;
 }
@@ -259,7 +265,8 @@
 
 .modal__signup-cert-btn {
   width: 20%;
-  background-color: #ffecb3;
+  background-color: #036635;
+  color: white;
   border-radius: 10px;
   margin: 5px 0;
   border: none;
@@ -368,7 +375,7 @@
 }
 
 .blink {
-  color: #64b5f6;
+  color: #bef67a;
   text-decoration: blink;
   -webkit-animation-name: blinker;
   -webkit-animation-duration: 1s;

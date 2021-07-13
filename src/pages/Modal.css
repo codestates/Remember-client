@@ -37,8 +37,25 @@
   transform: translate(-50%, -50%);
 }
 
-.modal__scroll {
-  overflow-y: scroll;
+.withdrawmodal__content {
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15), 0 5px 5px rgba(0, 0, 0, 0.25);
+  background-color: white;
+  text-align: center;
+  align-items: center;
+  position: relative;
+  border-radius: 20px;
+  width: 650px;
+  height: 300px;
+  position: fixed;
+  cursor: auto;
+  top: 56%;
+  left: 50%;
+  margin: 0 auto;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .modal__content-login-logo {
@@ -126,7 +143,7 @@
   background-color: #036635;
   color: white;
   border-radius: 10px;
-  margin: 10px 10px;
+  margin: 40px 10px;
   border: none;
   cursor: pointer;
   line-height: 0;
@@ -166,13 +183,24 @@
   border-radius: 20px;
   width: 500px;
   height: 500px;
+  position: fixed;
+  cursor: auto;
+  top: 50%;
+  left: 50%;
+  margin: 0 auto;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .modal__content-img > button {
   margin: 30px 5px 0 5px;
   padding: 10px;
   border-radius: 10px;
-  background-color: #ffecb3;
+  background-color: #036635;
+  color: white;
   border: none;
   cursor: pointer;
 }
@@ -207,25 +235,18 @@
   display: none;
 }
 
-.withdrawmodal__content {
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15), 0 5px 5px rgba(0, 0, 0, 0.25);
-  background-color: white;
-  text-align: center;
-  align-items: center;
-  position: relative;
-  border-radius: 20px;
-  width: 800px;
-  height: 300px;
-}
-
 .withdrawmodal__content > h1 {
   padding: 15px 0;
-  background-color: #eeeeee;
-  border-bottom: 1px solid gray;
+  margin: 0;
+  font-size: 30px;
+  box-shadow: 0 0 3px 0 rgb(0 0 0 / 30%);
 }
 
 .withdrawmodal__content > h3 {
-  margin-top: 30px;
+  margin-top: 50px;
+  font-size: 20px;
+  color: gray;
+  text-align: center;
 }
 
 .withdrawmodal__content-body {
@@ -234,13 +255,14 @@
 
 .withdrawmodal__content > div > button {
   width: 10%;
-  background-color: #ffecb3;
+  background-color: #036635;
+  color: white;
   border-radius: 10px;
-  margin: 5px auto;
+  margin: 30px auto;
   border: none;
   cursor: pointer;
   line-height: 0;
-  padding: 15px 5px;
+  padding: 20px 5px;
 }
 
 .withdrawmodal__input {
@@ -284,6 +306,16 @@
   border-radius: 20px;
   width: 300px;
   height: 150px;
+  position: fixed;
+  cursor: auto;
+  top: 56%;
+  left: 50%;
+  margin: 0 auto;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .savemodal__content-body {
@@ -297,7 +329,9 @@
 
 .savemodal__content > div > button {
   width: 25%;
-  background-color: #ffecb3;
+  background-color: #036635;
+  color: white;
+  font-size: 13px;
   border-radius: 10px;
   margin: 30px 10px;
   border: none;
@@ -311,7 +345,8 @@
 }
 
 .table-btn {
-  background-color: #ffecb3;
+  background-color: #036635;
+  color: white;
   border-radius: 10px;
   border: none;
   cursor: pointer;
@@ -331,6 +366,7 @@
   border-radius: 10px;
   background-color: #eeeeee;
   border: none;
+  font-weight: 600;
 }
 
 .table-amount {
@@ -341,6 +377,7 @@
   border-radius: 10px;
   background-color: #eeeeee;
   border: none;
+  font-weight: 600;
 }
 
 .modal__content-table div {
@@ -382,4 +419,24 @@
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-timing-function: ease-in-out;
   -webkit-animation-direction: alternate;
+}
+
+.modal__mypage {
+  margin-top: 30px;
+}
+
+.modal__content-nothing {
+  font-size: 20px;
+  font-weight: 500;
+  color: #9e9e9e;
+  position: fixed;
+  cursor: auto;
+  top: 50%;
+  left: 50%;
+  margin: 0 auto;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }

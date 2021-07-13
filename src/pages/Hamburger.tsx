@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styled from "styled-components";
 import OpenNav from "./OpenNav";
+import OpenNavBody from "./OpenNavBody";
+import OpenNavTail from "./OpenNavTail";
 
 const StyledHamburger = styled.div<{ open: boolean }>`
   cursor: pointer;
@@ -8,7 +10,7 @@ const StyledHamburger = styled.div<{ open: boolean }>`
   height: 1.8rem;
   position: fixed;
   top: 30px;
-
+  right: 20px;
   z-index: 20;
   display: none;
   @media {
@@ -17,9 +19,9 @@ const StyledHamburger = styled.div<{ open: boolean }>`
     flex-flow: column nowrap;
   }
   div {
-    width: 1.9rem;
+    width: 1.85rem;
     height: 0.2rem;
-    background-color: ${({ open }) => open ? 'black' : 'black'};
+    background-color: ${({ open }) => open ? '#036635' : '#036635'};
     border-radius: 20px;
     transform-origin: 1px;
     transition: all 0.3s linear;
@@ -27,7 +29,7 @@ const StyledHamburger = styled.div<{ open: boolean }>`
       transform: ${({ open }) => open ? 'rotate(45deg)' : 'rotate(0)'};
     }
     &:nth-child(2) {
-      transform: ${({ open }) => open ? 'translateX(-100%)' : 'translateX(0)'};
+      transform: ${({ open }) => open ? 'translateX(100%)' : 'translateX(0)'};
       opacity: ${({ open }) => open ? 0 : 1};
     }
     &:nth-child(3) {
@@ -51,6 +53,8 @@ function Hamburger({auth}:any) {
       <div />
     </StyledHamburger>
     <OpenNav auth={auth} open={open} setOpen={setOpen} />
+    <OpenNavBody auth={auth} open={open} setOpen={setOpen}/>
+    <OpenNavTail auth={auth} open={open} setOpen={setOpen}/>
     </div>
   )
 }

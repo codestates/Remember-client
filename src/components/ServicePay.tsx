@@ -89,15 +89,15 @@ const ServicePay: React.FC = () => {
 
   const sendReceipt = async () => {
     if(values.group === "개인") {
-      await axios.post(`${process.env.REACT_APP_API_URL}/mailR`, {
+      await axios.post(`${process.env.REACT_APP_API_URL}/mailreceipt`, {
         name: name, email: email, amount: values.amount, title: accidentState.accidentSingle?.data.title
       })
     } else if(values.group === "법인") {
-      await axios.post(`${process.env.REACT_APP_API_URL}/mailR`, {
+      await axios.post(`${process.env.REACT_APP_API_URL}/mailreceipt`, {
         name: company, email: email, amount: values.amount, title: accidentState.accidentSingle?.data.title
       })
     } else {
-      await axios.post(`${process.env.REACT_APP_API_URL}/mailR`, {
+      await axios.post(`${process.env.REACT_APP_API_URL}/mailreceipt`, {
         name: group, email: email, amount: values.amount, title: accidentState.accidentSingle?.data.title
       })
     }

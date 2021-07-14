@@ -71,7 +71,7 @@
   color: white;
   position: absolute;
   left: 60%;
-  top: 15%;
+  top: 33%;
   margin-right: 5rem;
 }
 
@@ -103,7 +103,7 @@
 }
 
 .header__text .header__title {
-  font-size: 38px;
+  font-size: 48px;
   margin-bottom: 1rem;
 }
 

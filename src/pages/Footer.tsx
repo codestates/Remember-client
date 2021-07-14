@@ -20,17 +20,37 @@ const Footer: React.FC = () => {
           <div className="footer__links">
             <div className="link__title">
               <h1 className="footer__title">About Us</h1>
-              <h3 className="footer__text">Remember Wiki</h3>
-              <h3 className="footer__text">Client Repository</h3>
-              <h3 className="footer__text">Server Repository</h3>
+              <h3 className="footer__text">
+                <a href="https://github.com/codestates/Remember-client/wiki">
+                  Remember Wiki
+                </a>
+              </h3>
+              <h3 className="footer__text">
+                <a href="https://github.com/codestates/Remember-client">
+                  Client Repository
+                </a>
+              </h3>
+              <h3 className="footer__text">
+                <a href="https://github.com/codestates/Remember-server">
+                  Server Repository
+                </a>
+              </h3>
               <br></br>
             </div>
             <div className="link__title">
               <h1 className="footer__title">CONTACT GITHUB</h1>
-              <h3 className="footer__text">프론트엔드 김승무</h3>
-              <h3 className="footer__text">프론트엔드 이동건</h3>
-              <h3 className="footer__text">백엔드 김성희</h3>
-              <h3 className="footer__text">백엔드 이주형</h3>
+              <h3 className="footer__text1">
+                <a href="https://github.com/KimseungMoo">Front-end 김승무</a>
+              </h3>
+              <h3 className="footer__text1">
+                <a href="https://github.com/dong-geon-Lee">Front-end 이동건</a>
+              </h3>
+              <h3 className="footer__text1">
+                <a href="https://github.com/heesmile0310">Back-end 김성희</a>
+              </h3>
+              <h3 className="footer__text1">
+                <a href="https://github.com/johny985">Back-end 이주형</a>
+              </h3>
               <br></br>
             </div>
           </div>

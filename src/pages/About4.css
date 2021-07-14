@@ -89,6 +89,34 @@
   }
 }
 
+@media (max-width: 1800px) {
+  .about4__text {
+    padding: 5px;
+    max-width: 400px;
+    margin-right: 0px;
+    margin-left: 150px;
+    display: inline-block;
+  }
+
+  .about4__text h1 {
+    padding: 5px 5px;
+    margin-bottom: 1rem;
+    font-size: 25px;
+    line-height: 55px;
+    white-space: nowrap;
+    font-weight: bold;
+  }
+
+  .about4__text p {
+    font-size: 15px;
+    margin-bottom: 5px;
+    padding: 5px 5px;
+    line-height: 35px;
+    font-style: italic;
+    white-space: nowrap;
+  }
+}
+
 @media (max-width: 1280px) {
   .about4__text {
     padding: 5px;

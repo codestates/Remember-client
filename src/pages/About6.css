@@ -65,6 +65,34 @@
   width: 300px;
 }
 
+@media (max-width: 1880px) {
+  .todo__intro__col img {
+    width: 300px;
+    height: 300px;
+    margin-bottom: 15px;
+  }
+
+  .todo__intro__title {
+    font-style: oblique;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    padding-bottom: 30px;
+  }
+
+  .todo__intro__col h4 {
+    margin-bottom: 15px;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .todo__intro__col P {
+    margin-bottom: 15px;
+    font-size: 13px;
+    font-weight: 400;
+  }
+}
+
 @media (max-width: 1280px) {
   .todo__intro__col img {
     width: 200px;

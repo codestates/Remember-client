@@ -8,7 +8,7 @@ const About7: React.FC = () => {
       <section className="testimonials">
         <div className="testimonials__service">서비스 후기</div>
         <div className="testimonials__row">
-          <div className="testimonial__col1">
+          <div className="testimonial__col">
             <img
               className="testimonial__img"
               src="https://dimg.donga.com/wps/NEWS/IMAGE/2021/01/17/104953245.2.jpg"
@@ -33,7 +33,7 @@ const About7: React.FC = () => {
               </p>
             </div>
           </div>
-          <div className="testimonial__col2">
+          <div className="testimonial__col">
             <img
               className="testimonial__img"
               src="https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BB17FGN0.img?h=0&w=600&m=6&q=60&u=t&o=f&l=f&x=286&y=318"
@@ -53,7 +53,7 @@ const About7: React.FC = () => {
               </p>
             </div>
           </div>
-          <div className="testimonial__col3">
+          <div className="testimonial__col">
             <img
               className="testimonial__img"
               src="https://newsimg.hankookilbo.com/cms/articlerelease/2018/10/11/201810111638721435_5.jpg"

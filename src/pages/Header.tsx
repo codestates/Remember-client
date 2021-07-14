@@ -49,9 +49,8 @@ const Header: React.FC = () => {
               않기 위해 시작되었습니다.
             </h2>
             <h2 className="header__today__text">
-
-              오늘도 <span className="counter">{visit}</span> 분께서 기억하러 오셨습니다.
-
+              오늘도 <span className="counter">{visit}</span> 분께서 기억하러
+              오셨습니다.
             </h2>
           </div>
         </div>

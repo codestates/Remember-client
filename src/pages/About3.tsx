@@ -41,8 +41,9 @@ const About3 = () => {
           >
             퀴즈 시작
           </button>
-          <Quiz setQuizClick={setQuizClick} quizClick={quizClick}></Quiz>
+          
         </div>
+        <Quiz setQuizClick={setQuizClick} quizClick={quizClick}></Quiz>
       </div>
     </section>
   );

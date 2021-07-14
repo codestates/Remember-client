@@ -1,16 +1,26 @@
+.quizmodal__overlay {
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  cursor: auto;
+}
+
 .quiz__end {
   padding-top: 5rem;
   padding-bottom: 5rem;
   color: black;
-  font-size: 2rem;
+  font-size: 3.5rem;
+  font-weight: 550;
+  margin-bottom: 50px;
 }
 .quiz__score__result {
   margin: 1rem auto;
-  font-size: 25px;
+  font-size: 30px;
   font-weight: 500;
   justify-content: center;
   align-items: center;
-  color: red;
+  color: #60ad5e;
 }
 
 .quiz__section {
@@ -56,7 +66,8 @@
 }
 
 .quiz__btn:hover {
-  background-color: #ffecb3;
+  background-color: #60ad5e;
+  color: white;
 }
 
 .quiz__btn__back {
@@ -65,7 +76,8 @@
   font-style: italic;
   font-weight: 600;
   color: black;
-  background-color: #ffecb3;
+  background-color: #036635;
+  color: white;
   border-radius: 10px;
   display: flex;
   padding: 10px;
@@ -81,7 +93,8 @@
 }
 
 .correct {
-  background-color: #98ee99;
+  background-color: #60ad5e;
+  color: white;
 }
 
 .quizmodal__content {
@@ -89,11 +102,10 @@
   background-color: white;
   text-align: center;
   align-items: center;
-  margin: 150px auto;
   border-radius: 20px;
   width: 500px;
   height: 450px;
-  position: relative;
+  position: absolute;
 }
 
 .show__quiz {

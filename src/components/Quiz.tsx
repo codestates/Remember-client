@@ -53,12 +53,12 @@ const QuizArea = ({ setQuizClick, quizClick }: Props) => {
 
   return (
     <div className={quizClick ? "show__quiz" : "hide"}>
-      <div className="modal__overlay" onClick={() => setQuizClick(false)}></div>
+      <div className="quizmodal__overlay" onClick={() => setQuizClick(false)}></div>
       {showScore ? (
         <div className="quizmodal__content">
           <h1 className="quiz__end">참여해주셔서 감사합니다!</h1>
           <p className="quiz__score__result">
-            <span className="quiz__black">정답 개수: </span>
+            <span className="quiz__black">정답 개수 : </span>
             {score} / {questions.length}개
           </p>
           <p className="quiz__score__result">

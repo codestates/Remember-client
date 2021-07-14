@@ -249,7 +249,7 @@
     color: white;
     position: absolute;
     left: 25%;
-    top: 330%;
+    top: 200%;
     white-space: nowrap;
   }
 }
@@ -260,7 +260,54 @@
     color: white;
     position: absolute;
     left: 15%;
-    top: 330%;
+    top: 230%;
+    white-space: nowrap;
+  }
+
+  .header__text .header__title {
+    font-size: 35px;
+    margin-bottom: 1rem;
+  }
+
+  .header__text2 .header__title {
+    font-size: 35px;
+    margin-bottom: 1rem;
+  }
+
+  .header__text3 .header__title {
+    font-size: 35px;
+    margin-bottom: 1rem;
+  }
+
+  .header__text4 .header__title {
+    font-size: 35px;
+    margin-bottom: 1rem;
+  }
+
+  .header__text .header__content__text {
+    font-size: 15px;
+  }
+
+  .header__text2 .header__content__text {
+    font-size: 15px;
+  }
+
+  .header__text3 .header__content__text {
+    font-size: 15px;
+  }
+
+  .header__text4 .header__content__text {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .header__today__text {
+    font-size: 18px;
+    color: white;
+    position: absolute;
+    left: 15%;
+    top: 230%;
     white-space: nowrap;
   }
 }

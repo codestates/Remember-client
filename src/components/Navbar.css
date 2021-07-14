@@ -124,3 +124,30 @@
   margin: 10px auto;
   cursor: pointer;
 }
+
+.scroll__up {
+  position: fixed;
+  bottom: 3%;
+  right: 2%;
+  z-index: 10;
+  cursor: pointer;
+  color: grey;
+  font-weight: 500;
+}
+
+.scroll__up-img {
+  width: 42px;
+  margin-bottom: 5px;
+  padding-right: 4px;
+  transform: rotate(-45deg);
+  animation: up-down 1.4s infinite ease-in-out alternate;
+}
+
+@keyframes up-down {
+  0% {
+    transform: translatey(-7px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}

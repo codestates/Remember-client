@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./AccidentListItem.css";
-import { Link } from "react-router-dom";
 import { AccidentData } from "../types/accident";
-import { dummyList } from "../data/types";
 import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as notificationCreators from "../action-creators/notificationCreators";
@@ -10,6 +8,7 @@ import * as postCreators from "../action-creators/postCreators";
 import axios from "axios";
 import { Root } from "../Store";
 import styled from "styled-components";
+import ProgressBar from 'react-bootstrap/ProgressBar'
 
 interface AccidentListItemProps {
   data: AccidentData;
@@ -157,8 +156,10 @@ const AccidentListItem: React.FC<AccidentListItemProps> = ({
 
   return (
     <div className="accident__detail">
+
       <div className="click">
         <img src={data.url} alt="" className="accident__img"></img>
+        <div className="overlay"></div>
         <div className="acc__btn__group">
           <button className="detail__btn" onClick={() => onClick(data)}>
             자세히보기
@@ -177,15 +178,18 @@ const AccidentListItem: React.FC<AccidentListItemProps> = ({
           </button>
         </div>
       </div>
+
       <h2 className="accident__title">{data.title}</h2>
-      {/* <div className="text__group">
-        <div className="people__text">인명 피해 : {data.casualty}</div>
-        <div className="day__text">사건 발생일 : {data.date}</div>
-      </div> */}
-      {/* <span>{thumb}</span> */}
+      <ProgressBar>
+        <ProgressBar variant="success" now={donation?.percentage1} ></ProgressBar>
+        <ProgressBar variant="warning" now={donation?.percentage2}></ProgressBar>
+      </ProgressBar>
+      <span className="progress__percentage">
+        {donation?.percentage1 + donation.percentage2}%{" "}
+      </span>
+      <span className="progress__amount">{donation?.totalAmount}원</span>
       <Like>
         <span>
-          {/* <p className= {likeClick ? "heart-after is_animating" : "heart" } onClick={setLikeHandler}></p> */}
           <div
             className={likeClick ? "press" : ""}
             onClick={() => setLikeClick(!likeClick)}
@@ -198,23 +202,6 @@ const AccidentListItem: React.FC<AccidentListItemProps> = ({
           ></i>
         </span>
       </Like>
-      <div className="progress">
-        <div
-          style={{ width: `${donation?.percentage1}%` }}
-          className="progress-bar progress-bar-success"
-          role="progressbar"
-        />
-
-        <div
-          style={{ width: `${donation?.percentage2}%` }}
-          className="progress-bar progress-bar-warning"
-          role="progressbar"
-        />
-      </div>
-      <span className="progress__percentage">
-        {donation?.percentage1 + donation.percentage2}%{" "}
-      </span>
-      <span className="progress__amount">{donation?.totalAmount}원</span>
     </div>
   );
 };
@@ -222,32 +209,15 @@ const AccidentListItem: React.FC<AccidentListItemProps> = ({
 export default AccidentListItem;
 
 const Like = styled.div`
-  margin: 0;
   font-family: "open sans", sans-serif;
-  height: -5px;
   text-align: center;
-
-  span {
-    height: 100px;
-    // position: relative;
-  }
-
-  /* .gHcqsK {
-    height: 0;
-  } */
-
   i {
     cursor: pointer;
-    padding: 10px 12px 8px;
-    background: #fff;
-    border-radius: 50%;
-    display: inline-block;
+    background: transparent;
     color: #aaa;
     transition: 0.2s;
     position: absolute;
-    left: 50%;
-    bottom: 2%;
-    transform: translate(-50%, -2%);
+    left: 48%;
   }
 
   i:hover {
@@ -261,26 +231,19 @@ const Like = styled.div`
   }
 
   div {
-    /* position: absolute; */
-    left: 0;
-    right: 0;
-    bottom: 3%;
     visibility: hidden;
-    transition: 0.6s;
-    z-index: -2;
-    /* padding: 5px; */
-    font-size: 14px;
     color: transparent;
+    transition: 0.6s;
+    font-size: 10px;
     font-weight: 400;
   }
 
+  span {
+    
+  }
+
   i.press {
-    // animation: size .4s;
     color: #e23b3b;
-    position: absolute;
-    left: 50%;
-    bottom: 2%;
-    transform: translate(-50%, -2%);
   }
 
   div.press {
@@ -298,19 +261,6 @@ const Like = styled.div`
     }
     100% {
       color: transparent;
-    }
-  }
-
-  @keyframes size {
-    0% {
-      padding: 10px 12px 8px;
-    }
-    50% {
-      padding: 14px 16px 12px;
-      margin-top: -4px;
-    }
-    100% {
-      padding: 10px 12px 8px;
     }
   }
 `;

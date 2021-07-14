@@ -119,6 +119,8 @@
   transition: 0.5s;
   margin-left: 15px;
   margin-top: 20px;
+  font-size: 13px;
+  font-weight: 500;
 }
 
 .btn__second {
@@ -133,6 +135,8 @@
   transition: 0.5s;
   margin-top: 20px;
   margin-left: 5px;
+  font-size: 13px;
+  font-weight: 500;
 }
 
 .btn__first:hover {

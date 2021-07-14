@@ -11,9 +11,9 @@ const About2 = () => {
       <div className="about2__right">
         <div
           className="about2__text"
-          data-aos="zoom-in"
-          data-aos-delay="100"
-          data-aos-duration="1000"
+          // data-aos="zoom-in"
+          // data-aos-delay="100"
+          // data-aos-duration="1000"
         >
           <h1>
             다른 사람들과 함께 해당 사고의
@@ -30,10 +30,10 @@ const About2 = () => {
       </div>
       <div
         className="about2__left"
-        data-aos="fade-up"
+        data-aos="fade-down-left"
         data-aos-once="false"
         data-aos-delay="100"
-        data-aos-duration="1500"
+        data-aos-duration="2000"
       >
         <img src="images/about2.png" alt="" />
       </div>

@@ -12,19 +12,19 @@ const About3 = () => {
     <section id="about3">
       <div
         className="about3__left"
-        data-aos="fade-up"
+        data-aos="flip-right"
         data-aos-once="false"
         data-aos-delay="100"
-        data-aos-duration="1500"
+        data-aos-duration="2000"
       >
         <img src="images/about3.png" alt="" />
       </div>
       <div className="about3__right">
         <div
           className="about3__text"
-          data-aos="zoom-in"
-          data-aos-delay="100"
-          data-aos-duration="1000"
+          // data-aos="zoom-in"
+          // data-aos-delay="100"
+          // data-aos-duration="1000"
         >
           <h1>퀴즈를 통해 더 쉽게 기억해봐요.</h1>
           <p>
@@ -40,7 +40,6 @@ const About3 = () => {
           >
             퀴즈 시작
           </button>
-          
         </div>
         <Quiz setQuizClick={setQuizClick} quizClick={quizClick}></Quiz>
       </div>

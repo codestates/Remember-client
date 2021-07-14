@@ -1,10 +1,4 @@
 #service__pay {
-  width: 100%;
-  height: 100vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), #fff),
-    url("../images/cy.jpg");
-  background-position: center;
-  background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,11 +7,14 @@
 .service__pay__box {
   width: 40%;
   min-width: 600px;
-  margin-top: 5rem;
+  margin-top: 10rem;
+  margin-bottom: 3rem;
 }
 
 .service__pay__title {
-  margin-left: 10px;
+  margin-left: 15px;
+  margin-bottom: 0;
+  color: #ffb300;
 }
 
 .radio__row {
@@ -45,33 +42,39 @@
 .input__group {
   margin-bottom: 30px;
   position: relative;
-  margin-left: 10px;
+  margin-left: 15px;
 }
 
 .input__group-input {
-  width: 96%;
+  width: 98%;
   padding: 10px 0 10px 10px;
   background-color: transparent;
   font-weight: 550;
   font-size: 15px;
+  border: none;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1), 0 5px 5px rgba(0, 0, 0, 0.1);
 }
 
 .input__group-mobile-head {
-  width: 23%;
+  width: 25%;
   padding: 10px 0 10px 10px;
   background-color: transparent;
   font-weight: 550;
   font-size: 15px;
   margin: 0 5px 0 0;
+  border: none;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1), 0 5px 5px rgba(0, 0, 0, 0.1);
 }
 
 .input__group-mobile-bodytail {
-  width: 30.5%;
+  width: 31%;
   padding: 10px 0 10px 10px;
   background-color: transparent;
   font-weight: 550;
   font-size: 15px;
   margin: 0 5px;
+  border: none;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1), 0 5px 5px rgba(0, 0, 0, 0.1);
 }
 
 #service__label__textarea {
@@ -100,11 +103,12 @@
   color: black;
   outline: none;
   background-color: transparent;
-  border: 1px solid black;
+  border: none;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1), 0 5px 5px rgba(0, 0, 0, 0.1);
   width: 96%;
   cursor: pointer;
   transition: 0.5s;
-  margin-left: 10px;
+  margin-left: 15px;
   margin-top: 20px;
 }
 
@@ -113,22 +117,24 @@
   color: black;
   outline: none;
   background-color: transparent;
-  border: 1px solid black;
+  border: none;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1), 0 5px 5px rgba(0, 0, 0, 0.1);
   width: 96%;
   cursor: pointer;
   transition: 0.5s;
   margin-top: 20px;
+  margin-left: 5px;
 }
 
 .btn__first:hover {
   width: 96%;
-  background-color: blue;
+  background-color: #036635;
   color: #fff;
 }
 
 .btn__second:hover {
   width: 96%;
-  background-color: blue;
+  background-color: #036635;
   color: #fff;
 }
 
@@ -136,27 +142,34 @@
   margin: 0 0 5px 5px;
 }
 
-/* #name:focus ~ .service__label {
-  top: -30px;
-  font-size: 14px;
+.radio__group {
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1), 0 5px 5px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  height: 150px;
 }
 
-#number:focus ~ .service__label {
-  top: -30px;
-  font-size: 14px;
+.radio__group:hover {
+  background-color: #80e27e;
+  color: white;
 }
 
-#email:focus ~ .service__label {
-  top: -30px;
-  font-size: 14px;
+.radio__group-head {
+  text-align: center;
+  margin-top: 15px;
 }
 
-#message:focus ~ #service__label__textarea {
-  top: -10px;
-  font-size: 14px;
+.radio__group-img1 {
+  width: 70px;
 }
 
-#date:focus ~ .service__date {
-  opacity: 0;
-  font-size: 14px;
-} */
+.radio__group-text {
+  text-align: center;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.service__pay__radio {
+  text-align: center;
+  align-items: center;
+  margin-top: 10px;
+}

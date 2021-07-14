@@ -11,9 +11,9 @@ const About4 = () => {
       <div className="about4__right">
         <div
           className="about4__text"
-          data-aos="zoom-in"
-          data-aos-delay="100"
-          data-aos-duration="1000"
+          // data-aos="zoom-in"
+          // data-aos-delay="100"
+          // data-aos-duration="1000"
         >
           <h1>
             후원처는 정해졌습니다.
@@ -31,10 +31,10 @@ const About4 = () => {
       </div>
       <div
         className="about4__left"
-        data-aos="fade-up"
+        data-aos="zoom-in-up"
         data-aos-once="false"
         data-aos-delay="100"
-        data-aos-duration="1500"
+        data-aos-duration="2000"
       >
         <img src="images/about4.png" alt="" />
       </div>

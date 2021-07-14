@@ -10,19 +10,19 @@ const About5 = () => {
     <section id="about5">
       <div
         className="about5__left"
-        data-aos="fade-up"
+        data-aos="zoom-out-up"
         data-aos-once="false"
         data-aos-delay="100"
-        data-aos-duration="1500"
+        data-aos-duration="2000"
       >
         <img src="images/about5.png" alt="" />
       </div>
       <div className="about5__right">
         <div
           className="about5__text"
-          data-aos="zoom-in"
-          data-aos-delay="100"
-          data-aos-duration="1000"
+          // data-aos="zoom-in"
+          // data-aos-delay="100"
+          // data-aos-duration="1000"
         >
           <h1>
             공유하기를 통해

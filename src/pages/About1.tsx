@@ -10,19 +10,19 @@ const About1 = () => {
     <section id="about1">
       <div
         className="about1__left"
-        data-aos="fade-up"
+        data-aos="fade-down-right"
         data-aos-once="false"
         data-aos-delay="100"
-        data-aos-duration="1500"
+        data-aos-duration="2000"
       >
         <img className="about1__img" src="images/about1.png" alt="" />
       </div>
       <div className="about1__right">
         <div
           className="about1__text"
-          data-aos="zoom-in"
-          data-aos-delay="100"
-          data-aos-duration="1000"
+          // data-aos="zoom-in"
+          // data-aos-delay="100"
+          // data-aos-duration="1000"
         >
           <h1>
             잊혀져가는 사건 사고들을

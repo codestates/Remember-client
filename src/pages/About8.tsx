@@ -12,9 +12,9 @@ const About8 = () => {
       <div className="about8__right">
         <div
           className="about8__text"
-          data-aos="zoom-in"
-          data-aos-delay="100"
-          data-aos-duration="1000"
+          // data-aos="zoom-in"
+          // data-aos-delay="100"
+          // data-aos-duration="1000"
         >
           <h1>
             전부 살펴보셨다면 <br></br>
@@ -27,10 +27,10 @@ const About8 = () => {
       </div>
       <div
         className="about8__left"
-        data-aos="fade-up"
+        data-aos="zoom-in-left"
         data-aos-once="false"
         data-aos-delay="100"
-        data-aos-duration="1500"
+        data-aos-duration="2000"
       >
         <img src="images/about8.png" alt="" />
       </div>

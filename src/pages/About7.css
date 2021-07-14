@@ -112,7 +112,8 @@
 
 .testimonial__col {
   display: flex;
-  flex-basis: 45%;
+  flex-wrap: wrap;
+  flex-basis: 33%;
   border-radius: 10px;
   margin: 0px 50px 0px 50px;
   margin-bottom: 5%;
@@ -120,7 +121,7 @@
   background-color: #b1f3d2;
   padding: 25px;
   cursor: pointer;
-  height: 500px;
+  height: 100%;
 }
 
 /* .testimonial__col2 {
@@ -172,6 +173,14 @@
   margin-left: 10px;
   color: #036635;
 }
+
+/* 시도 중 - 이동건 */
+/* @media only screen and (max-width: 1300px) {
+  .testimonial__col {
+    flex-basis: 100%;
+    flex-wrap: wrap;
+  }
+} */
 
 @media (max-width: 2400px) {
   .testimonial__text {

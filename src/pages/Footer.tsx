@@ -51,42 +51,47 @@ const Footer: React.FC = () => {
             </div>
             <div className="link__title">
               <h1 className="footer__title">CONTACT GITHUB</h1>
-              <h3 className="footer__text1">
-                <a
-                  className="weblink"
-                  href="https://github.com/KimseungMoo"
-                  target="_blank"
-                >
-                  Front-end 김승무
-                </a>
-              </h3>
-              <h3 className="footer__text1">
-                <a
-                  className="weblink"
-                  href="https://github.com/dong-geon-Lee"
-                  target="_blank"
-                >
-                  Front-end 이동건
-                </a>
-              </h3>
-              <h3 className="footer__text1">
-                <a
-                  className="weblink"
-                  href="https://github.com/heesmile0310"
-                  target="_blank"
-                >
-                  Back-end 김성희
-                </a>
-              </h3>
-              <h3 className="footer__text1">
-                <a
-                  className="weblink"
-                  href="https://github.com/johny985"
-                  target="_blank"
-                >
-                  Back-end 이주형
-                </a>
-              </h3>
+              <div className="position">
+                <h3 className="footer__text1">
+                  <a
+                    className="weblink"
+                    href="https://github.com/KimseungMoo"
+                    target="_blank"
+                  >
+                    Front-end 김승무
+                  </a>
+                </h3>
+                <h3 className="footer__text1">
+                  <a
+                    className="weblink"
+                    href="https://github.com/dong-geon-Lee"
+                    target="_blank"
+                  >
+                    Front-end 이동건
+                  </a>
+                </h3>
+              </div>
+              <div className="position">
+                <h3 className="footer__text1">
+                  <a
+                    className="weblink"
+                    href="https://github.com/heesmile0310"
+                    target="_blank"
+                  >
+                    Back-end 김성희
+                  </a>
+                </h3>
+                <h3 className="footer__text1">
+                  <a
+                    className="weblink"
+                    href="https://github.com/johny985"
+                    target="_blank"
+                  >
+                    Back-end 이주형
+                  </a>
+                </h3>
+              </div>
+
               <br></br>
             </div>
           </div>

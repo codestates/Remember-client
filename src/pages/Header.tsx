@@ -53,9 +53,7 @@ const Header: React.FC = () => {
         <div className="header__image2">
           <div className="header__text2">
             <h1 className="header__title">쿠팡 물류센터 화재</h1>
-            <h2 className="header__content__text">
-              故 김동식 남성 소방경 순직
-            </h2>
+            <h2 className="header__content__text">故 김동식 소방경 순직</h2>
           </div>
         </div>
         <div className="header__image3">

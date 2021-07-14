@@ -64,3 +64,31 @@
   height: 300px;
   width: 300px;
 }
+
+@media (max-width: 1280px) {
+  .todo__intro__col img {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 15px;
+  }
+
+  .todo__intro__title {
+    font-style: oblique;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    padding-bottom: 30px;
+  }
+
+  .todo__intro__col h4 {
+    margin-bottom: 15px;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .todo__intro__col P {
+    margin-bottom: 15px;
+    font-size: 13px;
+    font-weight: 400;
+  }
+}

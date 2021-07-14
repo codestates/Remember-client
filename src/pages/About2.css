@@ -88,3 +88,35 @@
     height: 30%;
   }
 }
+@media (max-width: 1280px) {
+  .about2__text {
+    padding: 5px;
+    max-width: 400px;
+    margin-right: 0px;
+    margin-left: 150px;
+    display: inline-block;
+  }
+
+  .about2__text h1 {
+    padding: 5px 5px;
+    margin-bottom: 1rem;
+    font-size: 25px;
+    line-height: 55px;
+    white-space: nowrap;
+    font-weight: bold;
+  }
+
+  .about2__text p {
+    font-size: 15px;
+    margin-bottom: 5px;
+    padding: 5px 5px;
+    line-height: 35px;
+    font-style: italic;
+    white-space: nowrap;
+  }
+
+  .about2__left img {
+    width: 100%;
+    height: 30%;
+  }
+}

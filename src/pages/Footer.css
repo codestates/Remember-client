@@ -88,7 +88,18 @@
   height: 34px;
   border-radius: 5px;
 }
-
+a.weblink:link {
+  text-decoration: none;
+}
+a.weblink:visited {
+  text-decoration: none;
+  color: inherit;
+}
+a.weblink:hover {
+  text-decoration: none;
+  /* color: rgb(38, 108, 154); */
+  color: inherit;
+}
 /* .footer__title {
   font-style: italic;
   padding: 20px;

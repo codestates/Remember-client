@@ -128,7 +128,7 @@
 .scroll__up {
   position: fixed;
   bottom: 3%;
-  right: 2%;
+  right: 3%;
   z-index: 10;
   cursor: pointer;
   color: grey;
@@ -136,11 +136,15 @@
 }
 
 .scroll__up-img {
-  width: 42px;
+  width: 50px;
   margin-bottom: 5px;
-  padding-right: 4px;
   transform: rotate(-45deg);
   animation: up-down 1.4s infinite ease-in-out alternate;
+}
+
+.scroll__up-text {
+  padding-left: 7px;
+  font-size: 14px;
 }
 
 @keyframes up-down {

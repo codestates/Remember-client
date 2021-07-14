@@ -1,7 +1,8 @@
 .accident__detail {
-  box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 20px 1px rgba(75, 155, 65, 0.5);
   position: relative;
-  margin-top: 30px;
+  margin-top: 80px;
+  margin-left: 10px;
   background-color: #fff;
 }
 
@@ -10,8 +11,15 @@
   height: 270px;
 }
 
+.accident__detail {
+  height: 460px;
+}
+
+.accident__title {
+  margin: 20px 0;
+}
+
 .accident__detail .accident__title {
-  padding-left: 15px;
   text-align: center;
   font-size: 20px;
   color: black;
@@ -23,26 +31,12 @@
   text-align: center;
 }
 
-/* .people__text {
-  padding: 5px 0;
-  font-size: 15px;
-  font-weight: bold;
-  color: red;
-}
-
-.day__text {
-  padding: 5px 0;
-  font-size: 15px;
-  font-weight: bold;
-  color: green;
-} */
-
 .acc__btn__group {
   margin-top: 0;
   margin-bottom: 0;
   width: 100%;
   position: absolute;
-  top: 55%;
+  top: 25%;
   left: 50%;
   transform: translate(-50%, -30%);
   text-align: center;
@@ -51,36 +45,40 @@
   justify-content: space-evenly;
 }
 
+.click:hover .overlay {
+  background: rgba(0, 0, 0, 0.6);
+}
+
 .click:hover .detail__btn {
-  opacity: 0.9;
+  opacity: 1;
 }
 
 .detail__btn {
   transition: 0.5s;
   opacity: 0;
   justify-content: space-between;
-  background-image: linear-gradient(to right, #1c03b5, #5c8bef);
-  padding: 5px 12px 8px;
-  border-radius: 20px;
+  border: 3px solid white;
+  background-color: transparent;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
   line-height: 20px;
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: 700;
   align-items: center;
-  color: #fff;
-  border: none;
-  text-decoration: none;
-  width: 45%;
-  margin: auto;
+  width: 30%;
   cursor: pointer;
 }
 
 .detail__btn:hover {
-  background-image: linear-gradient(to right, #006417, #00b128);
-  color: #fff;
+  text-decoration: underline 2px;
 }
 
 .progress {
   height: 10px;
   margin: 0 20px;
+  margin-top: 20px;
+  border-radius: 5px;
 }
 
 .progress__percentage {
@@ -97,4 +95,14 @@
   font-size: 15px;
   font-weight: 600;
   line-height: 4;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 58.4%;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.5s ease;
 }

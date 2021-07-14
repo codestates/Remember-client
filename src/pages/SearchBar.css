@@ -1,13 +1,14 @@
 #search {
   align-items: center;
   justify-content: center;
+  margin-top: 150px;
+  margin-bottom: 50px;
 }
 
 .search__container {
-  width: 100%;
 }
 
-.search__input {
+/* .search__input {
   border: none;
   width: 450px;
   height: 50px;
@@ -24,4 +25,4 @@
   padding-inline-start: 20px;
   line-height: 1.5;
   text-align: left;
-}
+} */

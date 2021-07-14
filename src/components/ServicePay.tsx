@@ -112,7 +112,7 @@ const ServicePay: React.FC = () => {
   ) : (
     <section id="service__pay">
       <form className="service__pay__box">
-        <h3 className="service__pay__title">후원인 또는 후원단체 정보를 입력해주세요</h3>
+        <h3 className="service__pay__title">후원인 또는 후원단체 정보를 입력해주세요.</h3>
         <div className="radio__row">
           <div className="radio__group">
             <div className="radio__group-head">

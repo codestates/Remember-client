@@ -71,6 +71,8 @@
   display: inline-block;
   cursor: pointer;
   text-align: center;
+  margin-left: 11rem;
+  margin-top: 2rem;
 }
 
 .about8_btn:hover {

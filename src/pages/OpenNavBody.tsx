@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import styled from 'styled-components';
-import Donation from "./DonationModal";
 
 const Ul = styled.ul<{ open: boolean }>`
   list-style: none;
@@ -122,7 +121,6 @@ const OpenNav = ({ open, setOpen }:Props) => {
           </li>
         </Link>
       </Ul>
-      <Donation setDonationClick={setDonationClick} donationClick={donationClick}></Donation>
     </div>
   )
 }

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import OpenNav from "./OpenNav";
 import OpenNavBody from "./OpenNavBody";
 import OpenNavTail from "./OpenNavTail";
+import OpenNavThird from "./OpenNavThird";
 
 const StyledHamburger = styled.div<{ open: boolean }>`
   cursor: pointer;
@@ -55,6 +56,7 @@ function Hamburger({auth}:any) {
     <OpenNav auth={auth} open={open} setOpen={setOpen} />
     <OpenNavBody auth={auth} open={open} setOpen={setOpen}/>
     <OpenNavTail auth={auth} open={open} setOpen={setOpen}/>
+    <OpenNavThird auth={auth} open={open} setOpen={setOpen}/>
     </div>
   )
 }

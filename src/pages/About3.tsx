@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./About3.css";
-
 import Quiz from "../components/Quiz";
 
 const About3 = () => {

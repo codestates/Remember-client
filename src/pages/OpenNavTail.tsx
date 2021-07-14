@@ -16,6 +16,10 @@ const Ul = styled.ul<{ open: boolean }>`
     box-shadow: 0 0 3px 0 rgb(0 0 0 / 20%);
     margin-bottom: 30px;
   }
+  
+  span {
+    margin-top: 5px;
+  }
 
   .hamburger__img {
     width: 23rem;
@@ -39,16 +43,10 @@ const Ul = styled.ul<{ open: boolean }>`
     margin-right: 25px;
   }
 
-  .hamburger__img-accident {
-    width: 20px;
-    margin-left: 6px;
-    margin-right: 28px; 
-  }
-
   .hamburger__img-receipt {
     width: 25px;
     margin-left: 3px;
-    margin-right: 26px;
+    margin-right: 27px;
   }
 
   .hamburger__img-use {

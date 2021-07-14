@@ -1,6 +1,7 @@
 #postdetail {
   /* margin-top: 3rem;
   padding-top: 10rem; */
+  padding: 10rem;
   width: 100%;
   height: 100%;
   line-height: 1.5;
@@ -10,12 +11,17 @@
 }
 
 .postdetail__row {
+  border: 1px solid black;
   display: flex;
   width: 100%;
-  /* height: 82vh; */
+  height: 80vh;
   background-color: #fff;
   border-radius: 15px;
   overflow: hidden;
+}
+
+.postdetail__col-1 {
+  border-right: 1px solid black;
 }
 
 .postdetail__col-1,
@@ -92,7 +98,22 @@
   background-color: #036635;
 }
 
-/* 이 위로 작업 */
+/* 댓글  */
+.postdetail__comment {
+  /* margin-top: 30px; */
+  border-bottom: 1px solid gray;
+  width: 60%;
+  margin: 0 auto;
+}
+
+.postdetail__content-box {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin: 20px auto;
+  margin-top: 3rem;
+}
+
 .postdetail__content-profile {
   width: 25px;
   height: 25px;
@@ -103,21 +124,14 @@
   font-size: 18px;
 }
 
-.postdetail__content-body {
-  font-size: 20px;
-  margin: 10px 0 5px 10px;
-}
-
-.postdetail__content-box {
-  display: flex;
-  justify-content: left;
-  align-items: center;
-}
-
-.postdetail__content-box {
-  display: flex;
-  margin: 20px auto;
-  margin-top: 3rem;
+.postdetail__content-box input {
+  padding: 10px;
+  margin: 5px 10px;
+  width: 75%;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #eeeeee;
+  border: none;
 }
 
 .postdetail__content-btn {
@@ -132,30 +146,103 @@
   text-align: center;
 }
 
-.postdetail__comment {
-  /* margin-top: 30px; */
-  border-bottom: 1px solid gray;
-  width: 60%;
-  margin: 0 auto;
-}
-
 .postdetail__content-container {
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid red;
   /* margin: 10px auto 0 auto; */
   margin: 0 auto;
   width: 60%;
 }
 
-.postdetail__content-box input {
-  padding: 10px;
-  margin: 5px 10px;
-  width: 75%;
-  height: 40px;
-  border-radius: 10px;
-  background-color: #eeeeee;
-  border: none;
+.postdetail__content-body {
+  font-size: 20px;
+  margin: 10px 0 5px 10px;
 }
 
+.talk__comment {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8rem;
+}
+
+.talk__box {
+  width: 45%;
+  max-width: 800px;
+  height: 200px;
+  border-radius: 10px;
+  box-shadow: -10px 10px 40px rgba(0, 0, 0, 0.25);
+  position: relative;
+}
+
+.talk__card {
+  height: 220px;
+  padding: 40px;
+  color: #777;
+  line-height: 22px;
+  box-sizing: border-box;
+  background-color: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+.talk__card .talk__text {
+  align-items: center;
+  justify-content: center;
+  margin-top: 2.5rem;
+  font-size: 18px;
+  padding-left: 25px;
+}
+
+.talk__line {
+  margin-top: 2rem;
+}
+
+.talk__date {
+  margin-top: 1rem;
+  float: right;
+}
+
+.talk__profile {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.talk__profile .talk__img {
+  width: 20px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.talk__profile .talk__name {
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  color: black;
+  margin-top: 12px;
+}
+
+.talk__icon {
+  font-size: 15px;
+  margin-left: 80%;
+  margin-top: 12px;
+}
+
+.talk__like {
+  margin-top: 2rem;
+  padding: 0 5px;
+}
+
+.talk__icon .far {
+  font-size: 18px;
+  padding: 0 5px;
+  margin-left: 1rem;
+  color: red;
+}
+
+.far {
+  color: red;
+}
 /* .news-link {
   font-size: 50px;
   background-color: black;

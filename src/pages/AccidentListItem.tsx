@@ -261,11 +261,14 @@ const Like = styled.div`
   }
 
   div {
+    /* position: absolute; */
     left: 0;
     right: 0;
+    bottom: 3%;
     visibility: hidden;
     transition: 0.6s;
     z-index: -2;
+    /* padding: 5px; */
     font-size: 14px;
     color: transparent;
     font-weight: 400;

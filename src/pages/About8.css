@@ -113,3 +113,44 @@
     height: 30%;
   }
 }
+
+@media (max-width: 1800px) {
+  #about8 {
+    /* padding: 100px 0; */
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 20px;
+    /*background-color: rgb(239, 239, 239);*/
+  }
+
+  .about8__text {
+    padding: 5px;
+    max-width: 400px;
+    margin-right: 0px;
+    margin-left: 230px;
+    display: inline-block;
+  }
+
+  .about8__text h1 {
+    padding: 5px 5px;
+    margin-bottom: 1rem;
+    font-size: 25px;
+    line-height: 55px;
+    white-space: nowrap;
+    font-weight: bold;
+  }
+
+  .about8__text p {
+    font-size: 15px;
+    margin-bottom: 5px;
+    padding: 5px 5px;
+    line-height: 35px;
+    font-style: italic;
+    white-space: nowrap;
+  }
+  .about8__left img {
+    width: 80%;
+    height: 30%;
+  }
+}

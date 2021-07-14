@@ -37,6 +37,26 @@ function PostDetail() {
   });
   const token: any = useSelector((state: Root) => state.login);
 
+  const [count, setCount] = useState(7);
+  const [countState, setCountState] = useState<any>(false);
+
+  const upCount = () => {
+    if (!countState) {
+      setCount(count + 1);
+      setCountState(true);
+    } else if (countState) {
+      setCount(count - 1);
+      setCountState(false);
+    }
+  };
+
+  // const downCount = () => {
+  //   if (countState) {
+  //     setCount(count - 1);
+  //   }
+  //   setCountState(false);
+  // };
+
   const writeHandler = () => {
     if (values.name && values.url) {
       sendComment();
@@ -192,13 +212,31 @@ function PostDetail() {
           </div>
         </div>
       </div>
-      {comments.map((el: any) => (
+      {/* {comments.map((el: any) => (
         <div className="postdetail__content-container" key={el.id}>
           <div className="postdetail__content-box">
             <img className="postdetail__content-profile" src={el.url}></img>
             <div className="postdetail__content-name">{el.user_name}</div>
           </div>
           <div className="postdetail__content-body">{el.comment}</div>
+        </div>
+      ))} */}
+      {comments.map((el: any) => (
+        <div className="talk__comment" key={el.id}>
+          <div className="talk__box">
+            <div className="talk__card">
+              <div className="talk__profile">
+                <img src={el.url} className="talk__img" alt="" />
+                <h3 className="talk__name">{el.user_name}</h3>
+                <span className="talk__icon">
+                  <i onClick={upCount} className="far fa-heart"></i> {count}
+                </span>
+              </div>
+              <hr className="talk__line" />
+              <p className="talk__text">{el.comment}</p>
+              <p className="talk__date">{el.createdAt.slice(0, 10)}</p>
+            </div>
+          </div>
         </div>
       ))}
     </section>

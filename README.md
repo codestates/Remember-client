@@ -18,8 +18,9 @@
 - **Deploy** : AWS S3 / AWS EC2 / AWS RDS / AWS Route53 / AWS CloudFront
 - **Tools** : Notion / Postman (API) / Figma (Flowchart, Wireframe, Mockup) / Discord
 
-# **Flow Chart**
 ---
+
+# **Flow Chart**
 
 ## **Client Side**
 
@@ -27,6 +28,9 @@
 
 ## **Server Side**
 
+![프레젠테이션1](https://user-images.githubusercontent.com/76901060/125633438-2050f847-fac8-4f03-99c8-f80cc14ae7d2.jpg)
+
+---
 
 🗨️ [For more details about Remember project, please check our Wiki!](https://github.com/codestates/Remember-client/wiki)
 

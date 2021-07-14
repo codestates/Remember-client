@@ -48,10 +48,6 @@ const Header: React.FC = () => {
               리멤버는 세상에 잊혀져가는<br></br> 안타까운 사건 사고들을 잊지
               않기 위해 시작되었습니다.
             </h2>
-            <h2 className="header__today__text">
-              오늘도 <span className="counter">{visit}</span> 분께서 기억하러
-              오셨습니다.
-            </h2>
           </div>
         </div>
         <div className="header__image2">

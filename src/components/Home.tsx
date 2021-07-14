@@ -11,11 +11,13 @@ import About8 from "../pages/About8";
 import Party from "../pages/Party";
 import About7 from "../pages/About7";
 import Footer from "../pages/Footer";
+import AboutToday from "../pages/AboutToday";
 
 const Home: React.FC = () => {
   return (
     <>
       <Header></Header>
+      <AboutToday></AboutToday>
       <About1></About1>
       <About2></About2>
       {/* <About></About> */}

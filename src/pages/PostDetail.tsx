@@ -12,7 +12,7 @@ import { useTypedSelector } from "../hook/useTypedSelector";
 import { useActionDispatch } from "../hook/useActionDispatch";
 import Spinner from "./Spinner";
 import styled from "styled-components";
-import ProgressBar from 'react-bootstrap/ProgressBar'
+import ProgressBar from "react-bootstrap/ProgressBar";
 
 interface Values {
   name: string;
@@ -147,7 +147,6 @@ function PostDetail() {
         .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
 
         if (percentage > 50) {
-          
           setDonation({
             ...values,
             percentage1: 50,
@@ -163,7 +162,7 @@ function PostDetail() {
           });
         }
       });
-  }
+  };
 
   const isLoginHandler = () => {
     if (!token.accessToken) {
@@ -210,7 +209,6 @@ function PostDetail() {
               >
                 뒤로가기
               </button>
-              
             </div>
             <div className="btn__group-sns">
               <KakaoShareButton />
@@ -271,24 +269,35 @@ function PostDetail() {
           </h1>
         </div>
         <ProgressBar>
-          <ProgressBar variant="success" now={donation?.percentage1} ></ProgressBar>
-          <ProgressBar variant="warning" now={donation?.percentage2}></ProgressBar>
+          <ProgressBar
+            variant="success"
+            now={donation?.percentage1}
+          ></ProgressBar>
+          <ProgressBar
+            variant="warning"
+            now={donation?.percentage2}
+          ></ProgressBar>
         </ProgressBar>
-        <div className="postdetail__donation-date">2020.12.31 ~ 2021.12.31까지</div>
+        <div className="postdetail__donation-date">
+          2020.12.31 ~ 2021.12.31까지
+        </div>
         <div className="postdetail__donation-dday">D - 60</div>
-        <h1 className="postdetail__donation-amount">{donation?.totalAmount} 원</h1>
+        <h1 className="postdetail__donation-amount">
+          {donation?.totalAmount} 원
+        </h1>
         <button
-                className="btn__pay"
-                onClick={() => {
-                  let result = isLoginHandler();
-                  if(result) {
-                    history.push(`/service/${accidentState.accidentSingle?.data.id}`)
-                  }
-                }}
-              >
-                후원하기
-              </button>
+          className="btn__pay"
+          onClick={() => {
+            let result = isLoginHandler();
+            if (result) {
+              history.push(`/service/${accidentState.accidentSingle?.data.id}`);
+            }
+          }}
+        >
+          후원하기
+        </button>
       </span>
+
       {comments.map((el: any) => (
         <div className="talk__comment" key={el.id}>
           <div className="talk__box">

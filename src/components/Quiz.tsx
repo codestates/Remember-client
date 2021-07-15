@@ -53,7 +53,10 @@ const QuizArea = ({ setQuizClick, quizClick }: Props) => {
 
   return (
     <div className={quizClick ? "show__quiz" : "hide"}>
-      <div className="quizmodal__overlay" onClick={() => setQuizClick(false)}></div>
+      <div
+        className="quizmodal__overlay"
+        onClick={() => setQuizClick(false)}
+      ></div>
       {showScore ? (
         <div className="quizmodal__content">
           <h1 className="quiz__end">참여해주셔서 감사합니다!</h1>
@@ -74,7 +77,7 @@ const QuizArea = ({ setQuizClick, quizClick }: Props) => {
         <>
           <div className="quizmodal__content">
             <div className="quiz__count">
-              <span>문제 {currentQuestion + 1} / 4</span>
+              <span>문제 {currentQuestion + 1} / 5</span>
             </div>
             <div className="quiz__text">{questions[currentQuestion].quiz}</div>
             <div className="quiz__answer__area">

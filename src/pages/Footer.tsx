@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
             <div className="footer__logo">
               <img
                 className="logo__size"
-                src="https://cdn.discordapp.com/attachments/863956904118976532/864004779197464596/9369b5199406e997.png"
+                src="https://cdn.discordapp.com/attachments/851273290893754417/865056755422855208/e92be368d550a3fe.png"
                 alt=""
               />
             </div>

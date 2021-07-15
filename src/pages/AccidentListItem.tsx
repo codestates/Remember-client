@@ -4,7 +4,6 @@ import { AccidentData } from "../types/accident";
 import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as notificationCreators from "../action-creators/notificationCreators";
-import * as postCreators from "../action-creators/postCreators";
 import axios from "axios";
 import { Root } from "../Store";
 import styled from "styled-components";
@@ -34,9 +33,7 @@ const AccidentListItem: React.FC<AccidentListItemProps> = ({
 }) => {
   const dispatch = useDispatch();
   const { notify } = bindActionCreators(notificationCreators, dispatch);
-  const { setLike } = bindActionCreators(postCreators, dispatch);
   const token: any = useSelector((state: Root) => state.login);
-  const post: any = useSelector((state: Root) => state.post);
   const [values, setValues] = useState<Values>({
     name: "",
     url: "",
@@ -128,21 +125,45 @@ const AccidentListItem: React.FC<AccidentListItemProps> = ({
       })
       .then((res) => {
         const { percentage, totalAmount } = res.data.data;
-        if (percentage > 50) {
-          setDonation({
-            ...values,
-            percentage1: 50,
-            percentage2: percentage - 50,
-            totalAmount: totalAmount,
-          });
+        if(totalAmount === 0) {
+          const amount = totalAmount
+          if (percentage > 50) {
+            setDonation({
+              ...values,
+              percentage1: 50,
+              percentage2: percentage - 50,
+              totalAmount: amount,
+            });
+          } else {
+            setDonation({
+              ...values,
+              percentage1: percentage,
+              percentage2: 0,
+              totalAmount: amount,
+            });
+          }
         } else {
-          setDonation({
-            ...values,
-            percentage1: percentage,
-            percentage2: 0,
-            totalAmount: totalAmount,
-          });
+          const amount = totalAmount
+          .toString()
+          .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+          if (percentage > 50) {
+            setDonation({
+              ...values,
+              percentage1: 50,
+              percentage2: percentage - 50,
+              totalAmount: amount,
+            });
+          } else {
+            setDonation({
+              ...values,
+              percentage1: percentage,
+              percentage2: 0,
+              totalAmount: amount,
+            });
+          }
         }
+
+        
       });
   };
 
@@ -168,7 +189,7 @@ const AccidentListItem: React.FC<AccidentListItemProps> = ({
             className={likeClick ? "press" : ""}
             onClick={() => setLikeClick(!likeClick)}
           ></i>
-          
+          <span className="thumb">{thumb}</span>
         </span>
       </Like>
     
@@ -255,6 +276,12 @@ const Like = styled.div`
     font-size: 14px;
     visibility: visible;
     animation: fade 1s;
+  }
+
+  .thumb {
+    font-size: 17px;
+    font-weight: 600;
+    margin-left: 5px;
   }
 
   @keyframes fade {

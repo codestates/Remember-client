@@ -72,7 +72,7 @@ const Footer: React.FC = () => {
                 </h3>
               </div>
               <div className="position">
-                <h3 className="footer__text1">
+              <h3 className="footer__text1">
                   <a
                     className="weblink"
                     href="https://github.com/dong-geon-Lee"

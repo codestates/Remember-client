@@ -198,3 +198,22 @@
     display: inline-block;
   }
 }
+
+@media only screen and (max-width: 890px) {
+  .about3__left img {
+    width: 80%;
+    margin-left: 10rem;
+  }
+
+  .about3__right {
+    padding-bottom: 30%;
+  }
+  .about3_btn {
+    width: 300px;
+    padding-left: 6%;
+    margin: auto;
+  }
+  .btn__area {
+    padding-top: 15px;
+  }
+}

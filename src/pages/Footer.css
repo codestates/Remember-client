@@ -183,3 +183,9 @@ a.weblink:hover {
     display: none;
   }
 }
+
+@media screen and (max-width: 890px) {
+  .logo__size {
+    margin: 0 auto;
+  }
+}

@@ -342,3 +342,12 @@
     height: 50vh;
   }
 }
+
+@media only screen and (max-width: 890px) {
+  .header__text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

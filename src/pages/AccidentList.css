@@ -4,3 +4,15 @@
   gap: 3rem;
   padding-bottom: 20%;
 }
+
+@media screen and (max-width: 1200px) {
+  .accident__row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .accident__row {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

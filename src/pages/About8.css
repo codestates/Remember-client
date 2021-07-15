@@ -197,3 +197,24 @@
     /*background-color: rgb(239, 239, 239);*/
   }
 }
+
+@media screen and (max-width: 890px) {
+  .about8__text {
+    margin-left: 27rem;
+    margin-bottom: 10rem;
+    /* flex-basis: 100%; */
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .about8__left img {
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 100%;
+    margin-left: 45%;
+    justify-content: center;
+    align-items: center;
+  }
+  .about8_btn {
+    margin: 0 auto;
+  }
+}

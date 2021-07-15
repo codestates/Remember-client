@@ -156,7 +156,7 @@
   }
 
   .about5__left img {
-    width: 100%;
+    width: 80%;
   }
 
   .about5__img {
@@ -171,5 +171,15 @@
     margin-right: 100px;
     margin-left: 250px;
     display: inline-block;
+  }
+}
+
+@media screen and (max-width: 890px) {
+  .about5__left img {
+    width: 80%;
+    margin-left: 10rem;
+  }
+  .about5__text {
+    padding-bottom: 15%;
   }
 }

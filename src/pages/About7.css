@@ -197,6 +197,7 @@
 
 @media (max-width: 1800px) {
   .testimonials__service {
+    margin-left: 2.5rem;
     text-align: left;
     font-size: 25px;
     font-weight: bold;
@@ -236,6 +237,10 @@
 }
 
 @media (max-width: 1440px) {
+  .testimonials__service {
+    margin-left: 2.5rem;
+  }
+
   .testimonial__img {
     height: 80px;
     margin-left: 5px;
@@ -265,7 +270,7 @@
   }
   .testimonial__text {
     padding: 10px 20px 0px 5px;
-    font-size: 13px;
+    font-size: 15px;
   }
   .testimonial__col {
     display: flex;
@@ -295,15 +300,27 @@
 }
 
 @media (max-width: 1280px) {
+  .testimonial__col {
+    display: flex;
+    flex-wrap: wrap;
+    /* grid-template-columns: repeat(2, 1fr); */
+  }
+
+  .testimonial__text__area {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
   .testimonial__title {
+    text-align: center;
     margin-top: 10px;
-    margin-left: 10px;
+    /* margin-right: 10px; */
     font-size: 13px;
-    text-align: left;
   }
   .testimonial__text {
     padding: 10px 20px 0px 5px;
-    font-size: 11px;
+    font-size: 14px;
   }
   .testimonial__col {
     display: flex;
@@ -320,8 +337,12 @@
 
   .testimonial__img {
     height: 75px;
-    margin-left: 5px;
-    margin-right: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: 41%;
+    /* margin-right: 30px; */
     border-radius: 50%;
   }
 
@@ -329,5 +350,57 @@
     text-align: left;
     font-size: 25px;
     font-weight: bold;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .testimonials__service {
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+
+  .testimonials__row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 80%;
+    margin: auto;
+  }
+
+  .testimonial__col {
+    display: flex;
+    flex-wrap: wrap;
+    /* grid-template-columns: repeat(2, 1fr); */
+  }
+}
+
+@media screen and (max-width: 890px) {
+  .testimonials {
+    padding-top: 0;
+  }
+
+  .testimonial__text {
+    padding: 20px 0px;
+    font-size: 11px;
+    /* padding-bottom: 25px; */
+  }
+
+  .testimonials__service {
+    margin-right: 2rem;
+  }
+
+  .testimonials__row {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    width: 60%;
+    margin: auto;
+    padding-left: 5%;
+  }
+  .testimonial__col {
+    width: 80%;
+    height: 250px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 5rem;
   }
 }

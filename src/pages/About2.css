@@ -173,3 +173,14 @@
     display: inline-block;
   }
 }
+
+@media only screen and (max-width: 890px) {
+  .about2__right {
+    padding-top: 25%;
+  }
+  .about2__left img {
+    width: 80%;
+    margin-left: 10rem;
+    padding-bottom: 25%;
+  }
+}

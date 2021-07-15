@@ -11,3 +11,18 @@
   -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+
+@media screen and (max-width: 1200px) {
+  .accList__container {
+    margin-top: 90%;
+  }
+}
+
+/* @media screen and (max-width: 800px) {
+  .accList__container {
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+} */

@@ -101,7 +101,9 @@
 }
 a.weblink:link {
   text-decoration: none;
+  color: white;
 }
+
 a.weblink:visited {
   text-decoration: none;
   color: inherit;

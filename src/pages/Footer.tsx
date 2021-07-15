@@ -64,21 +64,21 @@ const Footer: React.FC = () => {
                 <h3 className="footer__text1">
                   <a
                     className="weblink"
-                    href="https://github.com/dong-geon-Lee"
-                    target="_blank"
-                  >
-                    Front-end 이동건
-                  </a>
-                </h3>
-              </div>
-              <div className="position">
-                <h3 className="footer__text1">
-                  <a
-                    className="weblink"
                     href="https://github.com/heesmile0310"
                     target="_blank"
                   >
                     Back-end 김성희
+                  </a>
+                </h3>
+              </div>
+              <div className="position">
+              <h3 className="footer__text1">
+                  <a
+                    className="weblink"
+                    href="https://github.com/dong-geon-Lee"
+                    target="_blank"
+                  >
+                    Front-end 이동건
                   </a>
                 </h3>
                 <h3 className="footer__text1">
@@ -97,7 +97,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
       </div>
-      <p className="footer__right">2021 Team: Remember All rights reserved</p>
+      {/* <p className="footer__right">2021 Team: Remember All rights reserved</p> */}
     </section>
   );
 };

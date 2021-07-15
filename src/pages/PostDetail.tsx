@@ -11,6 +11,8 @@ import * as notificationCreators from "../action-creators/notificationCreators";
 import { useTypedSelector } from "../hook/useTypedSelector";
 import { useActionDispatch } from "../hook/useActionDispatch";
 import Spinner from "./Spinner";
+import styled from "styled-components";
+import ProgressBar from 'react-bootstrap/ProgressBar'
 
 interface Values {
   name: string;
@@ -19,6 +21,12 @@ interface Values {
 
 interface PostDetailParams {
   id: string;
+}
+
+interface Donation {
+  percentage1: number;
+  percentage2: number;
+  totalAmount: number;
 }
 
 function PostDetail() {
@@ -37,19 +45,12 @@ function PostDetail() {
   });
   const token: any = useSelector((state: Root) => state.login);
 
-  const [count, setCount] = useState(7);
-  const [countState, setCountState] = useState<any>(false);
-  const [num, setNum] = useState<number>(0);
-
-  const upCount = () => {
-    if (!countState) {
-      setCount(count + 1);
-      setCountState(true);
-    } else if (countState) {
-      setCount(count - 1);
-      setCountState(false);
-    }
-  };
+  const [likeClick, setLikeClick] = useState<boolean>(false);
+  const [donation, setDonation] = useState<Donation>({
+    percentage1: 0,
+    percentage2: 0,
+    totalAmount: 0,
+  });
 
   // const downCount = () => {
   //   if (countState) {
@@ -126,10 +127,48 @@ function PostDetail() {
       });
   };
 
+  const getDonorInfo = async () => {
+    await axios
+      .post(`${process.env.REACT_APP_API_URL}/mainpage`, {
+        title: accidentState.accidentSingle?.data.title,
+      })
+      .then((res) => {
+        const { percentage, totalAmount } = res.data.data;
+        const amount = totalAmount.toString()
+        .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+
+        if (percentage > 50) {
+          
+          setDonation({
+            ...values,
+            percentage1: 50,
+            percentage2: percentage - 50,
+            totalAmount: amount,
+          });
+        } else {
+          setDonation({
+            ...values,
+            percentage1: percentage,
+            percentage2: 0,
+            totalAmount: amount,
+          });
+        }
+      });
+  }
+
+  const isLoginHandler = () => {
+    if (!token.accessToken) {
+      notify("로그인이 필요합니다.");
+    } else {
+      return true;
+    }
+  };
+
   useEffect(() => {
     getUserInfo();
     getComment();
     fetchSingleData(params.id);
+    getDonorInfo();
   }, []);
 
   return accidentState.loading ? (
@@ -141,6 +180,10 @@ function PostDetail() {
           <h1 className="postdetail__title">
             {accidentState.accidentSingle?.data.title}
           </h1>
+          <p className="postdetail__text">
+            {accidentState.accidentSingle?.data.body} <br></br> <br></br>
+            {accidentState.accidentSingle?.data.body}
+          </p>
           <h3 className="people__text">
             인명 피해 : {accidentState.accidentSingle?.data.casualty}
           </h3>
@@ -150,11 +193,6 @@ function PostDetail() {
           <h3 className="location__text">
             위치 : {accidentState.accidentSingle?.data.location}
           </h3>
-          <p className="postdetail__text">
-            {accidentState.accidentSingle?.data.body} <br></br> <br></br>
-            {accidentState.accidentSingle?.data.body}
-          </p>
-          {/* <p>{accidentState.accidentSingle?.data.body}</p> */}
           <div className="postdetail__btn__group">
             <div className="btn__group__area">
               <button
@@ -163,10 +201,12 @@ function PostDetail() {
               >
                 뒤로가기
               </button>
-              <button className="btn__post">후원하기</button>
+              
             </div>
-            <KakaoShareButton />
-            <Facebook />
+            <div className="btn__group-sns">
+              <KakaoShareButton />
+              <Facebook />
+            </div>
           </div>
         </div>
         <div className="postdetail__col-2">
@@ -178,50 +218,68 @@ function PostDetail() {
         </div>
       </div>
 
-      <div className="postdetail__comment">
-        <div className="postdetail__content-box">
-          <img
-            className="postdetail__content-profile"
-            src={
-              values.url
-                ? values.url
-                : "https://image.flaticon.com/icons/png/512/64/64572.png"
-            }
-          ></img>
-          <div className="postdetail__content-name">
-            {values.name ? values.name : "비회원"}
-          </div>
-          <input
-            placeholder="댓글내용"
-            value={comment}
-            onChange={(e) => {
-              if (values.name) {
-                setComment(e.target.value);
-              } else {
-                return;
+      <div className="postdetail__bottom">
+        <div className="postdetail__comment">
+          <div className="postdetail__content-box">
+            <img
+              className="postdetail__content-profile"
+              src={
+                values.url
+                  ? values.url
+                  : "https://image.flaticon.com/icons/png/512/64/64572.png"
               }
-            }}
-          ></input>
-          <div
-            className="postdetail__content-btn"
-            onClick={() => {
-              writeHandler();
-              //window.location.replace('/postdetail')
-            }}
-          >
-            댓글쓰기
+            ></img>
+            <div className="postdetail__content-name">
+              {values.name ? values.name : "비회원"}
+            </div>
+            <input
+              placeholder="댓글내용"
+              value={comment}
+              onChange={(e) => {
+                if (values.name) {
+                  setComment(e.target.value);
+                } else {
+                  return;
+                }
+              }}
+            ></input>
+            <div
+              className="postdetail__content-btn"
+              onClick={() => {
+                writeHandler();
+                //window.location.replace('/postdetail')
+              }}
+            >
+              댓글쓰기
+            </div>
           </div>
         </div>
       </div>
-      {/* {comments.map((el: any) => (
-        <div className="postdetail__content-container" key={el.id}>
-          <div className="postdetail__content-box">
-            <img className="postdetail__content-profile" src={el.url}></img>
-            <div className="postdetail__content-name">{el.user_name}</div>
-          </div>
-          <div className="postdetail__content-body">{el.comment}</div>
+      <span className="postdetail__donation">
+        <div>
+          <h1 className="postdetail__donation-percent">
+            {donation?.percentage1 + donation.percentage2}%{" "}
+          </h1>
         </div>
-      ))} */}
+        <ProgressBar>
+          <ProgressBar variant="success" now={donation?.percentage1} ></ProgressBar>
+          <ProgressBar variant="warning" now={donation?.percentage2}></ProgressBar>
+        </ProgressBar>
+        <div className="postdetail__donation-date">2020.12.31 ~ 2021.12.31까지</div>
+        <div className="postdetail__donation-dday">D - 60</div>
+        <h1 className="postdetail__donation-amount">{donation?.totalAmount} 원</h1>
+        <button
+                className="btn__pay"
+                onClick={() => {
+                  let result = isLoginHandler();
+                  if(result) {
+                    history.push(`/service/${accidentState.accidentSingle?.data.id}`)
+                  }
+                }}
+              >
+                후원하기
+              </button>
+      </span>
       {comments.map((el: any) => (
         <div className="talk__comment" key={el.id}>
           <div className="talk__box">
@@ -229,9 +287,20 @@ function PostDetail() {
               <div className="talk__profile">
                 <img src={el.url} className="talk__img" alt="" />
                 <h3 className="talk__name">{el.user_name}</h3>
-                <span className="talk__icon">
-                  <i onClick={upCount} className="far fa-heart"></i> {count}
-                </span>
+                <Like>
+                  <span>
+                    {/* <div
+                      className={likeClick ? "press" : ""}
+                      onClick={() => setLikeClick(!likeClick)}
+                    >
+                      Liked!
+                    </div> */}
+                    <i
+                      className={likeClick ? "press" : "press"}
+                      // onClick={() => setLikeClick(!likeClick)}
+                    ></i>
+                  </span>
+                </Like>
               </div>
               <hr className="talk__line" />
               <p className="talk__text">{el.comment}</p>
@@ -245,3 +314,60 @@ function PostDetail() {
 }
 
 export default PostDetail;
+
+const Like = styled.div`
+  font-family: "open sans", sans-serif;
+  i {
+    // cursor: pointer;
+    background: transparent;
+    color: #aaa;
+    transition: 0.2s;
+    position: absolute;
+    right: 10%;
+    font-size: 20px;
+  }
+
+  i:hover {
+    color: #666;
+  }
+
+  i:before {
+    font-family: fontawesome;
+    content: "\f004";
+    font-style: normal;
+  }
+
+  div {
+    visibility: hidden;
+    color: transparent;
+    transition: 0.6s;
+    font-size: 10px;
+    font-weight: 400;
+    position: absolute;
+    right: 9%;
+    top: 8%;
+    text-align: center;
+  }
+
+  i.press {
+    color: #e23b3b;
+  }
+
+  div.press {
+    font-size: 12px;
+    visibility: visible;
+    animation: fade 1s;
+  }
+
+  @keyframes fade {
+    0% {
+      color: transparent;
+    }
+    50% {
+      color: #e23b3b;
+    }
+    100% {
+      color: transparent;
+    }
+  }
+`;

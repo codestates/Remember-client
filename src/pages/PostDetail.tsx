@@ -38,7 +38,7 @@ function PostDetail() {
   const dispatch = useDispatch();
   const { notify } = bindActionCreators(notificationCreators, dispatch);
   const [comment, setComment] = useState<string>("");
-  const [comments, setComments] = useState<string[]>([]);
+  const [comments, setComments] = useState<any>([]);
   const [values, setValues] = useState<Values>({
     name: "",
     url: "",
@@ -60,10 +60,20 @@ function PostDetail() {
   // };
 
   const writeHandler = () => {
-    if (values.name && values.url) {
+    if(!comment) {
+      notify("내용을 입력해주세요.")
+    }
+    else if (values.name && values.url) {
+      // const obj = {
+      //   name: values.name,
+      //   comment: comment,
+      //   title: accidentState.accidentSingle?.data.title,
+      //   url: values.url,
+      // }
+      
+      // setComments([obj, ...comments]);
       sendComment();
       setComment("");
-      notify("새로고침 후 확인 가능합니다.");
     } else {
       notify("로그인이 필요합니다.");
     }
@@ -118,12 +128,10 @@ function PostDetail() {
 
   const getComment = async () => {
     await axios
-      .post(`${process.env.REACT_APP_API_URL}/comment-list`, {
-        title: accidentState.accidentSingle?.data.title,
-      })
+      .get(`${process.env.REACT_APP_API_URL}/comment-list`)
       .then((res) => {
-        const arr = res.data.data.commentInfo.reverse();
-        setComments(arr);
+        const result = res.data.data.filter((el:any) => el.post_title === accidentState.accidentSingle?.data.title).reverse();
+        setComments(result);
       });
   };
 
@@ -134,7 +142,8 @@ function PostDetail() {
       })
       .then((res) => {
         const { percentage, totalAmount } = res.data.data;
-        const amount = totalAmount.toString()
+        const amount = totalAmount
+        .toString()
         .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
 
         if (percentage > 50) {
@@ -165,9 +174,9 @@ function PostDetail() {
   };
 
   useEffect(() => {
+    fetchSingleData(params.id);
     getUserInfo();
     getComment();
-    fetchSingleData(params.id);
     getDonorInfo();
   }, []);
 
@@ -247,7 +256,7 @@ function PostDetail() {
               className="postdetail__content-btn"
               onClick={() => {
                 writeHandler();
-                //window.location.replace('/postdetail')
+
               }}
             >
               댓글쓰기

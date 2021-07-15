@@ -174,3 +174,27 @@
     height: 30%;
   }
 }
+
+@media (max-width: 1100px) {
+  .about3__left {
+    flex-basis: 100%;
+  }
+
+  .about3__left img {
+    width: 100%;
+  }
+
+  .about3__img {
+    padding: 5% 10% 0% 10%;
+    height: 900px;
+  }
+
+  .about3__text {
+    flex-basis: 100%;
+    padding: 5px;
+    max-width: 400px;
+    margin-right: 100px;
+    margin-left: 250px;
+    display: inline-block;
+  }
+}

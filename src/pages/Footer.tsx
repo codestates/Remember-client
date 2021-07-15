@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
             <div className="footer__logo">
               <img
                 className="logo__size"
-                src="https://cdn.discordapp.com/attachments/863956904118976532/864004779197464596/9369b5199406e997.png"
+                src="https://cdn.discordapp.com/attachments/851273290893754417/865056755422855208/e92be368d550a3fe.png"
                 alt=""
               />
             </div>
@@ -64,10 +64,10 @@ const Footer: React.FC = () => {
                 <h3 className="footer__text1">
                   <a
                     className="weblink"
-                    href="https://github.com/dong-geon-Lee"
+                    href="https://github.com/heesmile0310"
                     target="_blank"
                   >
-                    Front-end 이동건
+                    Back-end 김성희
                   </a>
                 </h3>
               </div>
@@ -75,10 +75,10 @@ const Footer: React.FC = () => {
                 <h3 className="footer__text1">
                   <a
                     className="weblink"
-                    href="https://github.com/heesmile0310"
+                    href="https://github.com/dong-geon-Lee"
                     target="_blank"
                   >
-                    Back-end 김성희
+                    Front-end 이동건
                   </a>
                 </h3>
                 <h3 className="footer__text1">
@@ -97,7 +97,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
       </div>
-      <p className="footer__right">2021 Team: Remember All rights reserved</p>
+      {/* <p className="footer__right">2021 Team: Remember All rights reserved</p> */}
     </section>
   );
 };

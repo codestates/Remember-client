@@ -39,6 +39,7 @@ function PostDetail() {
 
   const [count, setCount] = useState(7);
   const [countState, setCountState] = useState<any>(false);
+  const [num, setNum] = useState<number>(0);
 
   const upCount = () => {
     if (!countState) {

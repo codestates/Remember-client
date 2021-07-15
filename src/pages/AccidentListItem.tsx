@@ -8,7 +8,7 @@ import * as postCreators from "../action-creators/postCreators";
 import axios from "axios";
 import { Root } from "../Store";
 import styled from "styled-components";
-import ProgressBar from 'react-bootstrap/ProgressBar'
+import ProgressBar from 'react-bootstrap/ProgressBar';
 
 interface AccidentListItemProps {
   data: AccidentData;
@@ -155,39 +155,7 @@ const AccidentListItem: React.FC<AccidentListItemProps> = ({
   }, []);
 
   return (
-    <div className="accident__detail">
-
-      <div className="click">
-        <img src={data.url} alt="" className="accident__img"></img>
-        <div className="overlay"></div>
-        <div className="acc__btn__group">
-          <button className="detail__btn" onClick={() => onClick(data)}>
-            자세히보기
-          </button>
-          <button
-            className="detail__btn"
-            onClick={() => {
-              let result = isLoginHandler();
-              if (result) {
-                payClick(data);
-                //console.log(data)
-              }
-            }}
-          >
-            후원하기
-          </button>
-        </div>
-      </div>
-
-      <h2 className="accident__title">{data.title}</h2>
-      <ProgressBar>
-        <ProgressBar variant="success" now={donation?.percentage1} ></ProgressBar>
-        <ProgressBar variant="warning" now={donation?.percentage2}></ProgressBar>
-      </ProgressBar>
-      <span className="progress__percentage">
-        {donation?.percentage1 + donation.percentage2}%{" "}
-      </span>
-      <span className="progress__amount">{donation?.totalAmount}원</span>
+    <div>
       <Like>
         <span>
           <div
@@ -200,8 +168,45 @@ const AccidentListItem: React.FC<AccidentListItemProps> = ({
             className={likeClick ? "press" : ""}
             onClick={() => setLikeClick(!likeClick)}
           ></i>
+          
         </span>
       </Like>
+    
+      <div className="accident__detail">
+        
+        <div className="click">
+          <img src={data.url} alt="" className="accident__img"></img>
+          <div className="overlay"></div>
+          <div className="acc__btn__group">
+            <button className="detail__btn" onClick={() => onClick(data)}>
+              자세히보기
+            </button>
+            <button
+              className="detail__btn"
+              onClick={() => {
+                let result = isLoginHandler();
+                if (result) {
+                  payClick(data);
+                  //console.log(data)
+                }
+              }}
+            >
+              후원하기
+            </button>
+          </div>
+        </div>
+
+        <h2 className="accident__title">{data.title}</h2>
+        <ProgressBar>
+          <ProgressBar variant="success" now={donation?.percentage1} ></ProgressBar>
+          <ProgressBar variant="warning" now={donation?.percentage2}></ProgressBar>
+        </ProgressBar>
+        <span className="progress__percentage">
+          {donation?.percentage1 + donation.percentage2}%{" "}
+        </span>
+        <span className="progress__amount">{donation?.totalAmount}원</span>
+
+      </div>
     </div>
   );
 };
@@ -209,15 +214,16 @@ const AccidentListItem: React.FC<AccidentListItemProps> = ({
 export default AccidentListItem;
 
 const Like = styled.div`
+  margin-bottom: 5px;
   font-family: "open sans", sans-serif;
-  text-align: center;
   i {
     cursor: pointer;
     background: transparent;
     color: #aaa;
     transition: 0.2s;
-    position: absolute;
-    left: 48%;
+    position: relative;
+    margin-left: 13px;
+    font-size: 20px;
   }
 
   i:hover {
@@ -233,13 +239,12 @@ const Like = styled.div`
   div {
     visibility: hidden;
     color: transparent;
+    position: relative;
+    top: 3%;
+    left: -2.5%;
     transition: 0.6s;
-    font-size: 10px;
+    font-size: 14px;
     font-weight: 400;
-  }
-
-  span {
-    
   }
 
   i.press {

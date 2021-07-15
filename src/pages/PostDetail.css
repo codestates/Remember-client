@@ -2,26 +2,22 @@
   /* margin-top: 3rem;
   padding-top: 10rem; */
   padding: 10rem;
-  width: 100%;
   height: 100%;
   line-height: 1.5;
-  background-color: #dae4ff;
   padding-left: 6%;
   padding-right: 6%;
 }
 
 .postdetail__row {
-  border: 1px solid black;
   display: flex;
-  width: 100%;
+  margin: 0 auto;
+  width: 90%;
   height: 80vh;
   background-color: #fff;
   border-radius: 15px;
   overflow: hidden;
-}
-
-.postdetail__col-1 {
-  border-right: 1px solid black;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 100px;
 }
 
 .postdetail__col-1,
@@ -36,56 +32,72 @@
 }
 
 .postdetail__col-1 {
-  padding: 8% 5%;
+  padding: 5% 5% 0 5%;
   position: relative;
 }
 
 .postdetail__col-1 .postdetail__title {
-  font-size: 60px;
+  font-size: 55px;
   line-height: 80px;
   letter-spacing: 2px;
-  color: #333;
+  color: #ffb300;
 }
 
 .postdetail__col-1 .postdetail__text {
-  color: #777;
+  color: black;
   line-height: 22px;
   margin: 30px 0 30px;
+  font-size: 15px;
+  font-weight: 500;
 }
 
 .people__text {
   padding: 5px 0;
   font-weight: bold;
-  color: red;
+  color: #a4a4a4;
 }
 
 .day__text {
   padding: 5px 0;
   font-weight: bold;
-  color: #036635;
+  color: #a4a4a4;
 }
 
 .location__text {
   padding: 5px 0;
   font-weight: bold;
-  color: #256eff;
+  color: #a4a4a4;
 }
 
 .postdetail__btn__group {
-  float: right;
   display: flex;
   font-weight: 700;
 }
 
 .btn__post {
-  text-align: center;
-  align-items: center;
   padding: 12px 36px;
   border: 0;
   outline: none;
-  border-radius: 25px;
-  background-color: #256eff;
-  color: #fff;
+  border-radius: 10px;
+  font-size: 12px;
+  position: absolute;
+  bottom: 6%;
+  background-color: #66bb6a;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn__pay {
+  padding: 12px 36px;
+  border: 0;
+  outline: none;
+  font-size: 14px;
+  width: 100%;
+  bottom: 0%;
+  position: absolute;
+  background-color: #66bb6a;
+  color: white;
   cursor: pointer;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
 }
@@ -95,15 +107,16 @@
 }
 
 .btn__group__area .btn__post:hover {
-  background-color: #036635;
+  background-color: #338a3e;
 }
 
 /* 댓글  */
 .postdetail__comment {
-  /* margin-top: 30px; */
-  border-bottom: 1px solid gray;
-  width: 60%;
-  margin: 0 auto;
+  border-bottom: 1px solid #a4a4a4;
+  width: 50%;
+  height: 60px;
+  position: absolute;
+  right: 10%;
 }
 
 .postdetail__content-box {
@@ -111,7 +124,7 @@
   justify-content: left;
   align-items: center;
   margin: 20px auto;
-  margin-top: 3rem;
+  margin-top: 0rem;
 }
 
 .postdetail__content-profile {
@@ -122,21 +135,28 @@
 
 .postdetail__content-name {
   font-size: 18px;
+  font-weight: 500;
 }
 
 .postdetail__content-box input {
   padding: 10px;
-  margin: 5px 10px;
-  width: 75%;
+  margin: 5px 0;
+  position: absolute;
+  right: 12%;
+  width: 70%;
   height: 40px;
   border-radius: 10px;
   background-color: #eeeeee;
   border: none;
+  font-size: 12px;
 }
 
 .postdetail__content-btn {
   width: 10%;
-  background-color: #ffecb3;
+  background-color: #66bb6a;
+  position: absolute;
+  right: 0;
+  color: white;
   border-radius: 10px;
   margin: 5px 0;
   border: none;
@@ -144,6 +164,12 @@
   line-height: 0;
   padding: 20px 5px;
   text-align: center;
+  font-size: 12px;
+  font-weight: 550;
+}
+
+.postdetail__content-btn:hover {
+  background-color: #338a3e;
 }
 
 .postdetail__content-container {
@@ -160,14 +186,13 @@
 
 .talk__comment {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 8rem;
+  position: relative;
+  left: 38.5%;
+  margin-top: 10rem;
 }
 
 .talk__box {
-  width: 45%;
-  max-width: 800px;
+  width: 57%;
   height: 200px;
   border-radius: 10px;
   box-shadow: -10px 10px 40px rgba(0, 0, 0, 0.25);
@@ -190,7 +215,6 @@
   justify-content: center;
   margin-top: 2.5rem;
   font-size: 18px;
-  padding-left: 25px;
 }
 
 .talk__line {
@@ -204,28 +228,27 @@
 
 .talk__profile {
   display: flex;
-  align-items: center;
+
   margin-bottom: 20px;
 }
 
 .talk__profile .talk__img {
   width: 20px;
+  height: 20px;
   border-radius: 50%;
   margin-right: 10px;
 }
 
 .talk__profile .talk__name {
-  align-items: center;
-  justify-content: center;
   font-size: 15px;
   color: black;
-  margin-top: 12px;
 }
 
 .talk__icon {
   font-size: 15px;
-  margin-left: 80%;
   margin-top: 12px;
+  position: absolute;
+  right: 10%;
 }
 
 .talk__like {
@@ -243,81 +266,52 @@
 .far {
   color: red;
 }
-/* .news-link {
-  font-size: 50px;
-  background-color: black;
-  margin: 0rem auto;
-  color: white;
-  text-align: center;
-  padding: 25px;
-  width: 64%;
-}
 
-.postdetail__container {
-  width: 80%;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-items: center;
-}
-
-.postdetail__card {
-  justify-content: center;
-  align-items: center;
-  width: 80%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 1.5rem;
-}
-
-.postdetail__imgs {
-  width: 100%;
-}
-
-.postdetail__img {
+.btn__group-sns {
+  float: right;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 250px;
+  bottom: 5%;
+  right: 8%;
 }
 
-.postdetail__accidentCase {
-  width: 100%;
-  display: block;
+.postdetail__donation {
+  width: 300px;
+  height: 330px;
+  box-shadow: -10px 10px 40px rgba(0, 0, 0, 0.25);
+  position: absolute;
+  left: 10.5%;
+  border-radius: 10px;
 }
 
-.postdetail__accidentCase .single__img {
-  width: 100%;
-  height: 70vh;
-  margin-top: 3rem;
+.postdetail__donation-percent {
+  margin: 30px 0 0 20px;
+  font-weight: bold;
+  color: #338a3e;
 }
 
-.postdetail__content {
-  width: 100%;
-  height: 70vh;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  margin-bottom: 0;
-  padding: 3rem 2rem;
-  background-color: #05a35f;
+.postdetail__donation-date {
+  margin: 20px 0 10px 20px;
+  color: gray;
+  margin-top: 10px;
+  font-size: 15px;
 }
 
-.postdetail__title {
-  align-items: center;
-  text-align: left;
+.postdetail__donation-dday {
+  text-align: center;
+  margin: 20px 0 10px 20px;
+  background-color: #ffb300;
+  color: white;
+  font-size: 15px;
+  padding: 5px;
+  width: 60px;
+}
+
+.postdetail__donation-amount {
+  margin: 20px 0 10px 20px;
   font-size: 30px;
-  font-style: italic;
-  font-weight: 700;
-  color: #12263a;
+  font-weight: bold;
 }
 
-.postdetail__detail .post__text {
-  margin-top: 1rem;
-  width: 100%;
-  font-size: 18px;
-  padding: 0.3rem;
-  font-weight: 300;
-  line-height: 24px;
-} */
+.postdetail__bottom {
+  display: flex;
+}

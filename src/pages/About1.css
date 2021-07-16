@@ -180,6 +180,20 @@
   }
 }
 
+@media (max-width: 700px) {
+  .about1__right {
+    position: relative;
+    right: 20%;
+  }
+}
+
+@media (max-width: 550px) {
+  .about1__right {
+    position: relative;
+    right: 40%;
+  }
+}
+
 @media only screen and (max-width: 890px) {
   .about1__img {
     width: 70%;

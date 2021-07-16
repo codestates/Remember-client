@@ -198,6 +198,20 @@
   }
 }
 
+@media (max-width: 700px) {
+  .about8__right {
+    position: relative;
+    right: 15%;
+  }
+}
+
+@media (max-width: 550px) {
+  .about8__right {
+    position: relative;
+    right: 30%;
+  }
+}
+
 @media screen and (max-width: 890px) {
   .about8__text {
     margin-left: 27rem;

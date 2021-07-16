@@ -18,7 +18,7 @@
 }
 
 .footer__logo {
-  margin-left: 5rem;
+  margin: 0 auto;
 }
 
 .logo__size {
@@ -187,5 +187,12 @@ a.weblink:hover {
 @media screen and (max-width: 890px) {
   .logo__size {
     margin: 0 auto;
+  }
+}
+
+@media (max-width: 550px) {
+  .footer__row {
+    position: relative;
+    right: 15%;
   }
 }

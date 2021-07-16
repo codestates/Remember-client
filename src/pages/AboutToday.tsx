@@ -38,7 +38,7 @@ const AboutToday: React.FC = () => {
     <>
       <div className="AboutToday_text">
         오늘도 <span className="counter">{visit}</span> 분께서 기억하러
-        오셨습니다🌼.
+        오셨습니다 🌼
       </div>
       <div className="arrow">
         <span></span>

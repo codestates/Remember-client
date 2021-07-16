@@ -154,3 +154,9 @@
     transform: translatey(0px);
   }
 }
+
+@media (max-width: 550px) {
+  .header__btn {
+    margin-right: 10px;
+  }
+}

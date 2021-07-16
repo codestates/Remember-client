@@ -199,6 +199,25 @@
   }
 }
 
+@media (max-width: 700px) {
+  .about3__right {
+    position: relative;
+    right: 15%;
+  }
+}
+
+@media (max-width: 550px) {
+  .about3__right {
+    position: relative;
+    right: 33%;
+  }
+
+  .about3__left {
+    position: relative;
+    right: 10%;
+  }
+}
+
 @media only screen and (max-width: 890px) {
   .about3__left img {
     width: 80%;

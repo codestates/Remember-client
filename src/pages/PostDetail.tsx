@@ -60,17 +60,16 @@ function PostDetail() {
   // };
 
   const writeHandler = () => {
-    if(!comment) {
-      notify("내용을 입력해주세요.")
-    }
-    else if (values.name && values.url) {
+    if (!comment) {
+      notify("내용을 입력해주세요.");
+    } else if (values.name && values.url) {
       // const obj = {
       //   name: values.name,
       //   comment: comment,
       //   title: accidentState.accidentSingle?.data.title,
       //   url: values.url,
       // }
-      
+
       // setComments([obj, ...comments]);
       sendComment();
       setComment("");
@@ -130,7 +129,12 @@ function PostDetail() {
     await axios
       .get(`${process.env.REACT_APP_API_URL}/comment-list`)
       .then((res) => {
-        const result = res.data.data.filter((el:any) => el.post_title === accidentState.accidentSingle?.data.title).reverse();
+        const result = res.data.data
+          .filter(
+            (el: any) =>
+              el.post_title === accidentState.accidentSingle?.data.title
+          )
+          .reverse();
         setComments(result);
       });
   };
@@ -143,8 +147,8 @@ function PostDetail() {
       .then((res) => {
         const { percentage, totalAmount } = res.data.data;
         const amount = totalAmount
-        .toString()
-        .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+          .toString()
+          .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
 
         if (percentage > 50) {
           setDonation({
@@ -190,7 +194,7 @@ function PostDetail() {
           </h1>
           <p className="postdetail__text">
             {accidentState.accidentSingle?.data.body} <br></br> <br></br>
-            {accidentState.accidentSingle?.data.body}
+            {/* {accidentState.accidentSingle?.data.body} */}
           </p>
           <h3 className="people__text">
             인명 피해 : {accidentState.accidentSingle?.data.casualty}
@@ -254,7 +258,6 @@ function PostDetail() {
               className="postdetail__content-btn"
               onClick={() => {
                 writeHandler();
-
               }}
             >
               댓글쓰기

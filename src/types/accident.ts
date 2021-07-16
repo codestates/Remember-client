@@ -15,6 +15,8 @@ export type AccidentData = {
   location: string;
   url: string;
   body: string;
+  donationUsage: string;
+  miniTitle: string;
 };
 
 export enum AccidentActionTypes {

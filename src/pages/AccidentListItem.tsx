@@ -7,7 +7,7 @@ import * as notificationCreators from "../action-creators/notificationCreators";
 import axios from "axios";
 import { Root } from "../Store";
 import styled from "styled-components";
-import ProgressBar from 'react-bootstrap/ProgressBar';
+import ProgressBar from "react-bootstrap/ProgressBar";
 
 interface AccidentListItemProps {
   data: AccidentData;
@@ -125,8 +125,8 @@ const AccidentListItem: React.FC<AccidentListItemProps> = ({
       })
       .then((res) => {
         const { percentage, totalAmount } = res.data.data;
-        if(totalAmount === 0) {
-          const amount = totalAmount
+        if (totalAmount === 0) {
+          const amount = totalAmount;
           if (percentage > 50) {
             setDonation({
               ...values,
@@ -144,8 +144,8 @@ const AccidentListItem: React.FC<AccidentListItemProps> = ({
           }
         } else {
           const amount = totalAmount
-          .toString()
-          .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+            .toString()
+            .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
           if (percentage > 50) {
             setDonation({
               ...values,
@@ -162,8 +162,6 @@ const AccidentListItem: React.FC<AccidentListItemProps> = ({
             });
           }
         }
-
-        
       });
   };
 
@@ -189,12 +187,11 @@ const AccidentListItem: React.FC<AccidentListItemProps> = ({
             className={likeClick ? "press" : ""}
             onClick={() => setLikeClick(!likeClick)}
           ></i>
-          <span className="thumb">{thumb}</span>
+          {/* <span className="thumb">{thumb}</span> */}
         </span>
       </Like>
-    
+
       <div className="accident__detail">
-        
         <div className="click">
           <img src={data.url} alt="" className="accident__img"></img>
           <div className="overlay"></div>
@@ -217,16 +214,22 @@ const AccidentListItem: React.FC<AccidentListItemProps> = ({
           </div>
         </div>
 
-        <h2 className="accident__title">{data.title}</h2>
+        <h2 className="accident__title">{data.miniTitle}</h2>
+        <p className="accident__orgize">{data.donationUsage}</p>
         <ProgressBar>
-          <ProgressBar variant="success" now={donation?.percentage1} ></ProgressBar>
-          <ProgressBar variant="warning" now={donation?.percentage2}></ProgressBar>
+          <ProgressBar
+            variant="success"
+            now={donation?.percentage1}
+          ></ProgressBar>
+          <ProgressBar
+            variant="warning"
+            now={donation?.percentage2}
+          ></ProgressBar>
         </ProgressBar>
         <span className="progress__percentage">
           {donation?.percentage1 + donation.percentage2}%{" "}
         </span>
         <span className="progress__amount">{donation?.totalAmount}원</span>
-
       </div>
     </div>
   );

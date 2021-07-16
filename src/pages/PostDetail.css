@@ -37,7 +37,7 @@
 }
 
 .postdetail__col-1 .postdetail__title {
-  font-size: 55px;
+  font-size: 50px;
   line-height: 80px;
   letter-spacing: 2px;
   color: #ffb300;
@@ -45,9 +45,11 @@
 
 .postdetail__col-1 .postdetail__text {
   color: black;
-  line-height: 22px;
+  line-height: 30px;
+  letter-spacing: 3px;
   margin: 30px 0 30px;
-  font-size: 15px;
+  /* font-size: 15px; */
+  font-size: 24px;
   font-weight: 500;
 }
 
@@ -326,7 +328,7 @@
 @media screen and (max-width: 1400px) {
   .postdetail__row {
     width: 70%;
-    height: 700px;
+    height: 800px;
   }
   .postdetail__col-1 .postdetail__title {
     font-size: 30px;
@@ -335,6 +337,9 @@
 }
 
 @media screen and (max-width: 1200px) {
+  .postdetail__content-name {
+    font-size: 15px;
+  }
   .postdetail__row {
     height: 600px;
   }
@@ -361,10 +366,11 @@
     display: none;
   }
   .postdetail__donation {
-    width: 30%;
+    display: none;
+    /* width: 30%;
     margin-top: 18%;
     margin-left: 22%;
-    margin-bottom: 5%;
+    margin-bottom: 5%; */
   }
 
   .postdetail__comment {
@@ -373,6 +379,10 @@
 }
 
 @media screen and (max-width: 1000px) {
+  .postdetail__content-box input {
+    width: 65%;
+    margin-right: 5rem;
+  }
   .postdetail__row {
     height: 500px;
   }
@@ -402,11 +412,16 @@
     margin-right: 10rem;
   }
   .postdetail__content-name {
-    position: absolute;
+    /* position: absolute;
     left: 7%;
-    bottom: 32%;
+    bottom: 32%; */
   }
   .postdetail__content-profile {
     margin-right: 5rem;
+  }
+  .postdetail__content-btn {
+    padding: 20px;
+    font-size: 10px;
+    width: 20%;
   }
 }

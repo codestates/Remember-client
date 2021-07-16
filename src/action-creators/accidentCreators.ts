@@ -1,9 +1,6 @@
-import {
-  AccidentActionTypes,
-  AccidentAction,
-  AccidentState,
-  AccidentSingleData,
-} from "../types/accident";
+import { AccidentAction } from "../actions/accident";
+import { AccidentActionTypes } from "../action-types/accidentActionTypes";
+import { AccidentState, AccidentSingleData } from "../types/accident";
 import { Dispatch } from "redux";
 import axios from "axios";
 

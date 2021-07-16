@@ -306,15 +306,15 @@
     height: 90vh;
   } */
   .carousel .slide .header__image {
-    margin: 0 auto 10vh auto;
+    margin: 0 auto;
     width: 100vw;
   }
   .carousel .slide .header__image2 {
-    margin: 0 auto 10vh auto;
+    margin: 0 auto;
     width: 100vw;
   }
   .carousel .slide .header__image3 {
-    margin: 0 auto 10vh auto;
+    margin: 0 auto;
     width: 100vw;
   }
 }

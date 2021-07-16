@@ -118,7 +118,7 @@
   margin: 0px 50px 0px 50px;
   margin-bottom: 5%;
   text-align: left;
-  background-color: #b1f3d2;
+  background-color: #d7ffd9;
   padding: 25px;
   cursor: pointer;
   height: 100%;
@@ -211,7 +211,6 @@
     margin: 0px 30px 0px 30px;
     margin-bottom: 5%;
     text-align: left;
-    background-color: #b1f3d2;
     padding: 25px;
     cursor: pointer;
     height: 350px;
@@ -280,7 +279,6 @@
     margin: 0px 20px 0px 20px;
     margin-bottom: 5%;
     text-align: left;
-    background-color: #b1f3d2;
     padding: 25px;
     cursor: pointer;
     height: 250px;
@@ -320,7 +318,7 @@
     font-size: 13px;
   }
   .testimonial__text {
-    padding: 10px 20px 0px 5px;
+    padding: 10px 5px 0px 5px;
     font-size: 14px;
     text-align: left;
   }
@@ -331,7 +329,6 @@
     margin: 0px 20px 0px 20px;
     margin-bottom: 5%;
     text-align: left;
-    background-color: #b1f3d2;
     padding: 25px;
     cursor: pointer;
     height: 300px;

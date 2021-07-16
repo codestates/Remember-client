@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./About1.css";
 
-const About1 = () => {
+const About1: React.FC = () => {
   useEffect(() => {
     window.AOS.init();
   });
@@ -18,12 +18,7 @@ const About1 = () => {
         <img className="about1__img" src="images/about1.png" alt="" />
       </div>
       <div className="about1__right">
-        <div
-          className="about1__text"
-          // data-aos="zoom-in"
-          // data-aos-delay="100"
-          // data-aos-duration="1000"
-        >
+        <div className="about1__text">
           <h1>
             잊혀져가는 사건 사고들을
             <br /> 살펴보며 기억해 주세요.

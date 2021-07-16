@@ -72,7 +72,7 @@ const Footer: React.FC = () => {
                 </h3>
               </div>
               <div className="position">
-              <h3 className="footer__text1">
+                <h3 className="footer__text1">
                   <a
                     className="weblink"
                     href="https://github.com/dong-geon-Lee"
@@ -97,7 +97,6 @@ const Footer: React.FC = () => {
           </div>
         </div>
       </div>
-      {/* <p className="footer__right">2021 Team: Remember All rights reserved</p> */}
     </section>
   );
 };

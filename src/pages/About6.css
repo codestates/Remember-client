@@ -48,10 +48,6 @@
   margin-top: 3rem;
 }
 
-/* .todo__intro__col:nth-child(1) img {
-  height: 400px;
-} */
-
 .todo__intro__col:nth-child(1) p {
   padding: 3px 0;
 }

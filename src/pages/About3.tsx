@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./About3.css";
 import Quiz from "../components/Quiz";
 
-const About3 = () => {
+const About3: React.FC = () => {
   useState(() => {
     window.AOS.init();
   });
@@ -20,12 +20,7 @@ const About3 = () => {
         <img src="images/about3.png" alt="" />
       </div>
       <div className="about3__right">
-        <div
-          className="about3__text"
-          // data-aos="zoom-in"
-          // data-aos-delay="100"
-          // data-aos-duration="1000"
-        >
+        <div className="about3__text">
           <h1>퀴즈를 통해 더 쉽게 기억해봐요.</h1>
           <p>
             우리는 잊혀진 사건과 사고들을 사람들에게 알리고자 합니다. <br />

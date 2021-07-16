@@ -302,9 +302,6 @@
 }
 
 @media only screen and (max-width: 1200px) {
-  /* .carousel {
-    height: 90vh;
-  } */
   .carousel .slide .header__image {
     margin: 0 auto;
     width: 100vw;

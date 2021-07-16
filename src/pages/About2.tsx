@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./About2.css";
 
-const About2 = () => {
+const About2: React.FC = () => {
   useEffect(() => {
     window.AOS.init();
   });
@@ -9,12 +9,7 @@ const About2 = () => {
   return (
     <section id="about2">
       <div className="about2__right">
-        <div
-          className="about2__text"
-          // data-aos="zoom-in"
-          // data-aos-delay="100"
-          // data-aos-duration="1000"
-        >
+        <div className="about2__text">
           <h1>
             다른 사람들과 함께 해당 사고의
             <br /> 피해자분들께 따뜻한 한마디를 남겨주세요.

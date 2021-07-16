@@ -1,11 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import "./Header.css";
 import axios from "axios";
 import { CountUp } from "countup.js";
-import img1 from "../images/d9ee49de95394c5d.jpg";
-import img2 from "../images/jonathan.jpg";
-import img3 from "../images/joel.jpg";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 

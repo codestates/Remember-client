@@ -42,7 +42,6 @@ const AccidentList: React.FC = () => {
           ))}
       </div>
     </>
-
   );
 };
 

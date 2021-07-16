@@ -1,13 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./Quiz.css";
 import { questions } from "../data/dummyData";
-import { useEffect } from "react";
-import axios from "axios";
-import { useTypedSelector } from "../hook/useTypedSelector";
-import { useActionDispatch } from "../hook/useActionDispatch";
-import { useSelector, useDispatch } from "react-redux";
-import { bindActionCreators } from "redux";
-import * as notificationCreators from "../action-creators/notificationCreators";
 
 export type isCorrectQuiz = {
   answerOptions: { [key: string]: string | boolean };
@@ -23,16 +16,6 @@ const QuizArea = ({ setQuizClick, quizClick }: Props) => {
   const [score, setScore] = useState(0);
   const [clicked, setClicked] = useState(false);
   const [showScore, setShowScore] = useState(false);
-
-  const quizState = useTypedSelector((state) => state.quiz);
-  const { fetchQuiz, fetchQuizList } = useActionDispatch();
-  const dispatch = useDispatch();
-  const { notify } = bindActionCreators(notificationCreators, dispatch);
-
-  useEffect(() => {
-    // fetchQuiz();
-    fetchQuizList();
-  }, []);
 
   const selectClick = (isTrue: isCorrectQuiz | boolean) => {
     if (isTrue) {
@@ -68,16 +51,14 @@ const QuizArea = ({ setQuizClick, quizClick }: Props) => {
             <span className="quiz__black">점수 : </span>
             {score * 20} / 100점
           </p>
-          <div>
-            {/* <button className="quiz__btn__back">Home으로 이동</button>
-              <button className="quiz__btn__back">다시 풀기</button> */}
-          </div>
         </div>
       ) : (
         <>
           <div className="quizmodal__content">
             <div className="quiz__count">
-              <span>문제 {currentQuestion + 1} / 5</span>
+              <span>
+                문제 {currentQuestion + 1} / {questions.length}
+              </span>
             </div>
             <div className="quiz__text">{questions[currentQuestion].quiz}</div>
             <div className="quiz__answer__area">

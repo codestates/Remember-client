@@ -4,15 +4,13 @@ import loginReducer from "./loginReducer";
 import notificationReducer from "./notificationReducer";
 import postReducer from "./postReducer";
 import spinnerReducer from "./spinnerReducer";
-import { quizReducer } from "./quizReducer";
 
 const rootReducer = combineReducers({
   login: loginReducer,
   noti: notificationReducer,
   post: postReducer,
   accident: accidentReducer,
-  quiz: quizReducer,
-  spinner: spinnerReducer
+  spinner: spinnerReducer,
 });
 
 export default rootReducer;

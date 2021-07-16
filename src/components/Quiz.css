@@ -14,6 +14,7 @@
   font-weight: 550;
   margin-bottom: 50px;
 }
+
 .quiz__score__result {
   margin: 1rem auto;
   font-size: 30px;
@@ -30,7 +31,7 @@
 }
 
 .quiz__count {
-  padding: 30px 0;
+  padding: 25px 0;
   align-items: center;
   text-align: center;
 }
@@ -41,10 +42,12 @@
 }
 
 .quiz__text {
+  margin-left: 10%;
+  width: 400px;
   font-size: 20px;
   color: black;
   font-weight: bold;
-  margin-bottom: 12px;
+  margin-bottom: 0px;
   text-align: center;
   padding: 0 15px;
 }
@@ -86,6 +89,7 @@
   align-items: center;
   border: none;
   cursor: pointer;
+
   margin: 10px auto 5px auto;
   justify-content: center;
   text-align: center;
@@ -104,7 +108,9 @@
   text-align: center;
   align-items: center;
   border-radius: 20px;
+
   width: 530px;
+
   height: 480px;
   position: absolute;
 }

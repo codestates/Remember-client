@@ -1,9 +1,6 @@
-import {
-  AccidentState,
-  AccidentAction,
-  AccidentActionTypes,
-  AccidentSingleData,
-} from "../types/accident";
+import { AccidentAction } from "../actions/accident";
+import { AccidentActionTypes } from "../action-types/accidentActionTypes";
+import { AccidentState, AccidentSingleData } from "../types/accident";
 
 interface initialStateI {
   loading: boolean;

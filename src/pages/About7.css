@@ -22,7 +22,6 @@
   margin-top: 50px;
   display: flex;
   justify-content: space-between;
-  /* 변경사항 */
   position: relative;
 }
 
@@ -31,7 +30,6 @@
   border-radius: 10px;
   margin-bottom: 30px;
   position: relative;
-  /* 변경사항 */
 }
 
 .join__hover {
@@ -112,7 +110,6 @@
 
 .testimonial__col {
   display: flex;
-  /* flex-wrap: wrap; */
   flex-basis: 50%;
   border-radius: 10px;
   margin: 0px 50px 0px 50px;
@@ -123,32 +120,6 @@
   cursor: pointer;
   height: 100%;
 }
-
-/* .testimonial__col2 {
-  display: flex;
-  flex-basis: 45%;
-  border-radius: 10px;
-  margin: 0px 70px 0px 70px;
-  margin-bottom: 5%;
-  text-align: left;
-  background-color: #b1f3d2;
-  padding: 25px;
-  cursor: pointer;
-  height: 500px;
-} */
-/* 
-.testimonial__col3 {
-  display: flex;
-  flex-basis: 45%;
-  border-radius: 10px;
-  margin: 0px 70px 0px 70px;
-  margin-bottom: 5%;
-  text-align: left;
-  background-color: #b1f3d2;
-  padding: 25px;
-  cursor: pointer;
-  height: 500px;
-} */
 
 .testimonial__img {
   height: 140px;
@@ -174,14 +145,6 @@
   margin-left: 10px;
   color: #036635;
 }
-
-/* 시도 중 - 이동건 */
-/* @media only screen and (max-width: 1300px) {
-  .testimonial__col {
-    flex-basis: 100%;
-    flex-wrap: wrap;
-  }
-} */
 
 @media (max-width: 2400px) {
   .testimonial__text {
@@ -302,7 +265,6 @@
   .testimonial__col {
     display: flex;
     flex-wrap: wrap;
-    /* grid-template-columns: repeat(2, 1fr); */
   }
 
   .testimonial__text__area {
@@ -314,14 +276,15 @@
   .testimonial__title {
     text-align: center;
     margin-top: 10px;
-    /* margin-right: 10px; */
     font-size: 13px;
   }
+
   .testimonial__text {
     padding: 10px 5px 0px 5px;
     font-size: 14px;
     text-align: left;
   }
+
   .testimonial__col {
     display: flex;
     flex-basis: 45%;
@@ -341,7 +304,6 @@
     align-items: center;
     text-align: center;
     margin-left: 41%;
-    /* margin-right: 30px; */
     border-radius: 50%;
   }
 
@@ -374,7 +336,6 @@
   .testimonial__col {
     display: flex;
     flex-wrap: wrap;
-    /* grid-template-columns: repeat(2, 1fr); */
   }
 }
 
@@ -386,7 +347,6 @@
   .testimonial__text {
     padding: 20px 0px;
     font-size: 11px;
-    /* padding-bottom: 25px; */
   }
 
   .testimonials__service {

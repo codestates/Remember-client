@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./About7.css";
 
 const About7: React.FC = () => {
@@ -23,12 +22,8 @@ const About7: React.FC = () => {
               <i className="fa fa-star-o"></i>
               <p className="testimonial__text">
                 너무 너무 좋았어요 마음이 따뜻해지는 서비스 최고입니다~!
-                후원금을 냈는데 바로 후원처 정보도 볼 수 있어서
-                다른 사이트와 차별이 되어 좋았습니다. 
-                {/* 개선할 점은 커뮤니티 기능이 조금 부족하지 않나 싶어요.
-                <br /> 이런 점만 업데이트해주시면 너무 좋은 서비스가 될 거
-                같아요!! */}
-                {/* <br /> 화이팅하세요~ 리멤버팀 :) */}
+                후원금을 냈는데 바로 후원처 정보도 볼 수 있어서 다른 사이트와
+                차별이 되어 좋았습니다.
               </p>
             </div>
           </div>
@@ -66,10 +61,9 @@ const About7: React.FC = () => {
               <i className="fa fa-star"></i>
               <i className="fa fa-star-o"></i>
               <p className="testimonial__text">
-                요즘 시대에 정말 필요한 서비스 인 것 같습니다.
-                정기적 후원도 있었으면 좋을 것 같습니다!!!
-                + 굿즈도 같이 판매하여 기부금으로 사용해도 좋을 것 같네요
-                ㅎㅎ
+                요즘 시대에 정말 필요한 서비스 인 것 같습니다. 정기적 후원도
+                있었으면 좋을 것 같습니다!!! + 굿즈도 같이 판매하여 기부금으로
+                사용해도 좋을 것 같네요 ㅎㅎ
               </p>
             </div>
           </div>

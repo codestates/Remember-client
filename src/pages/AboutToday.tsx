@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import "./AboutToday.css";
 import axios from "axios";
 import { CountUp } from "countup.js";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from "react-responsive-carousel";
 
 const AboutToday: React.FC = () => {
   const [visit, setVisit] = useState<number>(0);

@@ -1,14 +1,11 @@
 #about8 {
-  /* padding: 100px 0; */
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  /*background-color: rgb(239, 239, 239);*/
 }
 
 .about8__left {
   flex-basis: 50%;
-  /* margin-left: 100px; */
 }
 
 .about8__left img {
@@ -118,12 +115,10 @@
 
 @media (max-width: 1800px) {
   #about8 {
-    /* padding: 100px 0; */
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     padding-top: 20px;
-    /*background-color: rgb(239, 239, 239);*/
   }
 
   .about8__text {
@@ -189,12 +184,10 @@
     height: 30%;
   }
   #about8 {
-    /* padding: 100px 0; */
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     padding-top: 20px;
-    /*background-color: rgb(239, 239, 239);*/
   }
 }
 
@@ -216,7 +209,6 @@
   .about8__text {
     margin-left: 27rem;
     margin-bottom: 10rem;
-    /* flex-basis: 100%; */
     display: flex;
     flex-wrap: wrap;
   }

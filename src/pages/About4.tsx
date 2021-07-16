@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./About4.css";
 
-const About4 = () => {
+const About4: React.FC = () => {
   useEffect(() => {
     window.AOS.init();
   });
@@ -9,12 +9,7 @@ const About4 = () => {
   return (
     <section id="about4">
       <div className="about4__right">
-        <div
-          className="about4__text"
-          // data-aos="zoom-in"
-          // data-aos-delay="100"
-          // data-aos-duration="1000"
-        >
+        <div className="about4__text">
           <h1>
             후원처는 정해졌습니다.
             <br />

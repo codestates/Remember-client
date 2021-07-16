@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./About8.css";
 
-const About8 = () => {
+const About8: React.FC = () => {
   useEffect(() => {
     window.AOS.init();
   });
@@ -10,12 +10,7 @@ const About8 = () => {
   return (
     <section id="about8">
       <div className="about8__right">
-        <div
-          className="about8__text"
-          // data-aos="zoom-in"
-          // data-aos-delay="100"
-          // data-aos-duration="1000"
-        >
+        <div className="about8__text">
           <h1>
             전부 살펴보셨다면 <br></br>
             이제 직접 기억하러 가보실까요?

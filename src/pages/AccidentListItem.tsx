@@ -47,13 +47,9 @@ const AccidentListItem: React.FC<AccidentListItemProps> = ({
     totalAmount: 0,
   });
 
+  // 사용하는 함수인가??
   const setLikeHandler = async () => {
     setLikeClick(!likeClick);
-    // if (post.like) {
-    //   setThumb(thumb + 1);
-    // } else if(!post.like) {
-    //   setThumb(thumb - 1);
-    // }
 
     await axios.put(`${process.env.REACT_APP_API_URL}/put-like`, {
       name: values.name,
@@ -187,7 +183,6 @@ const AccidentListItem: React.FC<AccidentListItemProps> = ({
             className={likeClick ? "press" : ""}
             onClick={() => setLikeClick(!likeClick)}
           ></i>
-          {/* <span className="thumb">{thumb}</span> */}
         </span>
       </Like>
 
@@ -205,7 +200,6 @@ const AccidentListItem: React.FC<AccidentListItemProps> = ({
                 let result = isLoginHandler();
                 if (result) {
                   payClick(data);
-                  //console.log(data)
                 }
               }}
             >

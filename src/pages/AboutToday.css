@@ -44,3 +44,42 @@
     transform: rotate(45deg) translate(20px, 20px);
   }
 }
+
+@media (max-width: 800px) {
+  .arrow {
+    right: 100%;
+  }
+
+  .AboutToday_text {
+    position: absolute;
+    top: 80%;
+    left: 20%;
+  }
+}
+
+@media (max-width: 650px) {
+  .arrow {
+    top: 85%;
+    right: 90%;
+  }
+
+  .AboutToday_text {
+    position: absolute;
+    top: 70%;
+    left: 10%;
+  }
+}
+
+@media (max-width: 550px) {
+  .arrow {
+    top: 85%;
+    right: 90%;
+  }
+
+  .AboutToday_text {
+    position: absolute;
+    font-size: 22px;
+    top: 70%;
+    left: 7%;
+  }
+}

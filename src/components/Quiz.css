@@ -46,6 +46,7 @@
   font-weight: bold;
   margin-bottom: 12px;
   text-align: center;
+  padding: 0 15px;
 }
 
 .quiz__btn {
@@ -85,7 +86,7 @@
   align-items: center;
   border: none;
   cursor: pointer;
-  margin: 10px auto;
+  margin: 10px auto 5px auto;
   justify-content: center;
   text-align: center;
   text-decoration: none;
@@ -103,8 +104,8 @@
   text-align: center;
   align-items: center;
   border-radius: 20px;
-  width: 500px;
-  height: 450px;
+  width: 530px;
+  height: 480px;
   position: absolute;
 }
 

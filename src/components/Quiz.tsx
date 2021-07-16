@@ -66,7 +66,7 @@ const QuizArea = ({ setQuizClick, quizClick }: Props) => {
           </p>
           <p className="quiz__score__result">
             <span className="quiz__black">점수 : </span>
-            {score * 25} / 100점
+            {score * 20} / 100점
           </p>
           <div>
             {/* <button className="quiz__btn__back">Home으로 이동</button>

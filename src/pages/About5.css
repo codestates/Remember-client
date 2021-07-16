@@ -5,6 +5,7 @@
 }
 
 .about5__left {
+  z-index: -2;
   flex-basis: 50%;
 }
 

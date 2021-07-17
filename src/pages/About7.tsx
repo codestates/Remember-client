@@ -14,7 +14,7 @@ const About7: React.FC = () => {
               alt=""
             />
             <div className="testimonial__text__area">
-              <h3 className="testimonial__title">무야호</h3>
+              <h3 className="testimonial__title">아이유</h3>
               <i className="fa fa-star"></i>
               <i className="fa fa-star"></i>
               <i className="fa fa-star"></i>
@@ -54,7 +54,7 @@ const About7: React.FC = () => {
               alt=""
             />
             <div className="testimonial__text__area">
-              <h3 className="testimonial__title">간디 환생</h3>
+              <h3 className="testimonial__title">간디</h3>
               <i className="fa fa-star"></i>
               <i className="fa fa-star"></i>
               <i className="fa fa-star"></i>

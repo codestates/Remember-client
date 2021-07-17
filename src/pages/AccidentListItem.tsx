@@ -121,24 +121,24 @@ const AccidentListItem: React.FC<AccidentListItemProps> = ({
       })
       .then((res) => {
         const { percentage, totalAmount } = res.data.data;
-        if (totalAmount === 0) {
-          const amount = totalAmount;
-          if (percentage > 50) {
-            setDonation({
-              ...values,
-              percentage1: 50,
-              percentage2: percentage - 50,
-              totalAmount: amount,
-            });
-          } else {
-            setDonation({
-              ...values,
-              percentage1: percentage,
-              percentage2: 0,
-              totalAmount: amount,
-            });
-          }
-        } else {
+        // if (totalAmount === 0) {
+        //   const amount = totalAmount;
+        //   if (percentage > 50) {
+        //     setDonation({
+        //       ...values,
+        //       percentage1: 50,
+        //       percentage2: percentage - 50,
+        //       totalAmount: amount,
+        //     });
+        //   } else {
+        //     setDonation({
+        //       ...values,
+        //       percentage1: percentage,
+        //       percentage2: 0,
+        //       totalAmount: amount,
+        //     });
+        //   }
+        // } else {
           const amount = totalAmount
             .toString()
             .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
@@ -157,7 +157,7 @@ const AccidentListItem: React.FC<AccidentListItemProps> = ({
               totalAmount: amount,
             });
           }
-        }
+        
       });
   };
 

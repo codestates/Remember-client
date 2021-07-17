@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Ul = styled.ul<{ open: boolean }>`
   list-style: none;
@@ -41,7 +41,7 @@ const Ul = styled.ul<{ open: boolean }>`
   .hamburger__img-accident {
     width: 20px;
     margin-left: 6px;
-    margin-right: 28px; 
+    margin-right: 28px;
   }
 
   .hamburger__img-receipt {
@@ -90,7 +90,7 @@ const Ul = styled.ul<{ open: boolean }>`
     flex-flow: column nowrap;
     background-color: white;
     position: fixed;
-    transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(100%)'};
+    transform: ${({ open }) => (open ? "translateX(0)" : "translateX(100%)")};
     margin-top: 80px;
     right: -10px;
     height: 60px;
@@ -102,27 +102,26 @@ const Ul = styled.ul<{ open: boolean }>`
 `;
 interface Props {
   open: boolean;
-  setOpen:any;
+  setOpen: any;
   auth: any;
-};
+}
 
-const OpenNav = ({ open, setOpen }:Props) => {
-
-  const [donationClick, setDonationClick] = useState<boolean>(false);
-
+const OpenNav = ({ open, setOpen }: Props) => {
   return (
     <div>
       <Ul open={open}>
-      
-        <Link to='/accident'>
+        <Link to="/accident">
           <li className="hamburger__list-first" onClick={() => setOpen(false)}>
-            <img className="hamburger__img-accident" src="https://image.flaticon.com/icons/png/512/876/876209.png"></img>
+            <img
+              className="hamburger__img-accident"
+              src="https://image.flaticon.com/icons/png/512/876/876209.png"
+            ></img>
             사건 & 사고
           </li>
         </Link>
       </Ul>
     </div>
-  )
-}
+  );
+};
 
 export default OpenNav;

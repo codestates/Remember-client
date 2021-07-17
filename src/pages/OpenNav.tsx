@@ -1,12 +1,9 @@
-import React, { useState } from 'react';
-import { Link } from "react-router-dom";
-import styled from 'styled-components';
-import logo from "../images/logo-text.png";
+import { useState } from "react";
+import styled from "styled-components";
 import Donation from "./DonationModal";
 
 const Ul = styled.ul<{ open: boolean }>`
-  //box-shadow : ${({ open }) => open ? 'rgba(0,0,0,0.2) 0 0 0 9999px' : ''};
-  
+  box-shadow: ${({ open }) => (open ? "rgba(0,0,0,0.2) 0 0 0 9999px" : "")};
   list-style: none;
   display: flex;
   flex-flow: row nowrap;
@@ -45,7 +42,7 @@ const Ul = styled.ul<{ open: boolean }>`
   .hamburger__img-accident {
     width: 20px;
     margin-left: 6px;
-    margin-right: 28px; 
+    margin-right: 28px;
   }
 
   .hamburger__img-receipt {
@@ -93,7 +90,7 @@ const Ul = styled.ul<{ open: boolean }>`
     flex-flow: column nowrap;
     background-color: white;
     position: fixed;
-    transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(100%)'};
+    transform: ${({ open }) => (open ? "translateX(0)" : "translateX(100%)")};
     margin-top: 15px;
     right: -10px;
     height: 50px;
@@ -105,49 +102,22 @@ const Ul = styled.ul<{ open: boolean }>`
 `;
 interface Props {
   open: boolean;
-  setOpen:any;
+  setOpen: any;
   auth: any;
-};
+}
 
-const OpenNav = ({ open, setOpen }:Props) => {
-
+const OpenNav = ({ open, setOpen }: Props) => {
   const [donationClick, setDonationClick] = useState<boolean>(false);
 
   return (
     <div>
-      <Ul open={open}>
-        {/* <div>
-          <Link to='/'>
-            <img className="hamburger__img" src={logo} onClick={() => setOpen(false)}></img>
-          </Link>
-        </div> */}
-        {/* <Link to='/accident'>
-          <li className="hamburger__list-first" onClick={() => setOpen(false)}>
-            <img className="hamburger__img-accident" src="https://image.flaticon.com/icons/png/512/876/876209.png"></img>
-            사건 & 사고
-          </li>
-        </Link> */}
-        {/* <Link to='/prepare'>
-          <li onClick={() => setOpen(false)}>
-            <img className="hamburger__img-use" src="https://image.flaticon.com/icons/png/512/3173/3173781.png"></img>
-            후원 사용처
-          </li>
-        </Link>
-        <li onClick={() => window.open("https://npg.nicepay.co.kr/issue/CheckCardInfo.do?TID=nictest00m01012107091552004444&svcCd=01&sendMail=1&pass2ndConf=N&cart_type=0")}>
-          <img className="hamburger__img-receipt" src="https://image.flaticon.com/icons/png/512/985/985714.png"></img>
-          후원 영수증
-        </li>
-        <li onClick={() => {
-          setDonationClick(true);
-          setOpen(false);
-        }}>
-          <img className="hamburger__img-history" src="https://image.flaticon.com/icons/png/512/5064/5064717.png"></img>
-          <span>후원 내역</span>
-        </li> */}
-      </Ul>
-      <Donation setDonationClick={setDonationClick} donationClick={donationClick}></Donation>
+      <Ul open={open}></Ul>
+      <Donation
+        setDonationClick={setDonationClick}
+        donationClick={donationClick}
+      ></Donation>
     </div>
-  )
-}
+  );
+};
 
 export default OpenNav;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./PostDetail.css";
 import KakaoShareButton from "./KakaoShareButton";
 import Facebook from "./Facebook";
@@ -52,25 +52,10 @@ function PostDetail() {
     totalAmount: 0,
   });
 
-  // const downCount = () => {
-  //   if (countState) {
-  //     setCount(count - 1);
-  //   }
-  //   setCountState(false);
-  // };
-
   const writeHandler = () => {
     if (!comment) {
       notify("내용을 입력해주세요.");
     } else if (values.name && values.url) {
-      // const obj = {
-      //   name: values.name,
-      //   comment: comment,
-      //   title: accidentState.accidentSingle?.data.title,
-      //   url: values.url,
-      // }
-
-      // setComments([obj, ...comments]);
       sendComment();
       setComment("");
     } else {
@@ -194,7 +179,6 @@ function PostDetail() {
           </h1>
           <p className="postdetail__text">
             {accidentState.accidentSingle?.data.body} <br></br> <br></br>
-            {/* {accidentState.accidentSingle?.data.body} */}
           </p>
           <h3 className="people__text">
             인명 피해 : {accidentState.accidentSingle?.data.casualty}
@@ -310,16 +294,7 @@ function PostDetail() {
                 <h3 className="talk__name">{el.user_name}</h3>
                 <Like>
                   <span>
-                    {/* <div
-                      className={likeClick ? "press" : ""}
-                      onClick={() => setLikeClick(!likeClick)}
-                    >
-                      Liked!
-                    </div> */}
-                    <i
-                      className={likeClick ? "press" : "press"}
-                      // onClick={() => setLikeClick(!likeClick)}
-                    ></i>
+                    <i className={likeClick ? "press" : "press"}></i>
                   </span>
                 </Like>
               </div>

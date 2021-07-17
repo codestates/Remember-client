@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import styled from 'styled-components';
+import styled from "styled-components";
 import Donation from "./DonationModal";
 
 const Ul = styled.ul<{ open: boolean }>`
@@ -16,7 +16,7 @@ const Ul = styled.ul<{ open: boolean }>`
     box-shadow: 0 0 3px 0 rgb(0 0 0 / 20%);
     margin-bottom: 30px;
   }
-  
+
   span {
     margin-top: 5px;
   }
@@ -89,7 +89,7 @@ const Ul = styled.ul<{ open: boolean }>`
     flex-flow: column nowrap;
     background-color: white;
     position: fixed;
-    transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(100%)'};
+    transform: ${({ open }) => (open ? "translateX(0)" : "translateX(100%)")};
     margin-top: 150px;
     right: -10px;
     height: 200px;
@@ -101,39 +101,57 @@ const Ul = styled.ul<{ open: boolean }>`
 `;
 interface Props {
   open: boolean;
-  setOpen:any;
+  setOpen: any;
   auth: any;
-};
+}
 
-const OpenNav = ({ open, setOpen }:Props) => {
-
+const OpenNav = ({ open, setOpen }: Props) => {
   const [donationClick, setDonationClick] = useState<boolean>(false);
 
   return (
     <div>
       <Ul open={open}>
-        
-        <Link to='/prepare'>
+        <Link to="/prepare">
           <li onClick={() => setOpen(false)}>
-            <img className="hamburger__img-use" src="https://image.flaticon.com/icons/png/512/3173/3173781.png"></img>
+            <img
+              className="hamburger__img-use"
+              src="https://image.flaticon.com/icons/png/512/3173/3173781.png"
+            ></img>
             후원 사용처
           </li>
         </Link>
-        <li onClick={() => window.open("https://npg.nicepay.co.kr/issue/CheckCardInfo.do?TID=nictest00m01012107091552004444&svcCd=01&sendMail=1&pass2ndConf=N&cart_type=0")}>
-          <img className="hamburger__img-receipt" src="https://image.flaticon.com/icons/png/512/985/985714.png"></img>
+        <li
+          onClick={() =>
+            window.open(
+              "https://npg.nicepay.co.kr/issue/CheckCardInfo.do?TID=nictest00m01012107091552004444&svcCd=01&sendMail=1&pass2ndConf=N&cart_type=0"
+            )
+          }
+        >
+          <img
+            className="hamburger__img-receipt"
+            src="https://image.flaticon.com/icons/png/512/985/985714.png"
+          ></img>
           후원 영수증
         </li>
-        <li onClick={() => {
-          setDonationClick(true);
-          setOpen(false);
-        }}>
-          <img className="hamburger__img-history" src="https://image.flaticon.com/icons/png/512/5064/5064717.png"></img>
+        <li
+          onClick={() => {
+            setDonationClick(true);
+            setOpen(false);
+          }}
+        >
+          <img
+            className="hamburger__img-history"
+            src="https://image.flaticon.com/icons/png/512/5064/5064717.png"
+          ></img>
           <span>후원 내역</span>
         </li>
       </Ul>
-      <Donation setDonationClick={setDonationClick} donationClick={donationClick}></Donation>
+      <Donation
+        setDonationClick={setDonationClick}
+        donationClick={donationClick}
+      ></Donation>
     </div>
-  )
-}
+  );
+};
 
 export default OpenNav;

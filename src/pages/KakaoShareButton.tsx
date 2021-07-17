@@ -1,23 +1,22 @@
-import React, { useEffect } from 'react';
+import { useEffect } from "react";
 
 const KakaoShareButton = () => {
-
   const createKakaoButton = () => {
     // kakao sdk script이 정상적으로 불러와졌으면 window.Kakao로 접근이 가능합니다
     if (window.Kakao) {
-      const kakao = window.Kakao
+      const kakao = window.Kakao;
       // 중복 initialization 방지
       if (!kakao.isInitialized()) {
         // 두번째 step 에서 가져온 javascript key 를 이용하여 initialize
-        kakao.init(`${process.env.REACT_APP_KAKAO_KEY}`)
+        kakao.init(`${process.env.REACT_APP_KAKAO_KEY}`);
       }
       kakao.Link.createDefaultButton({
-        container: '#kakao-link-btn',
-        objectType: 'feed',
+        container: "#kakao-link-btn",
+        objectType: "feed",
         content: {
-          title: '타이틀',
-          description: '#리액트 #카카오 #공유버튼',
-          imageUrl: 'IMAGE_URL', // i.e. process.env.FETCH_URL + '/logo.png'
+          title: "타이틀",
+          description: "#리액트 #카카오 #공유버튼",
+          imageUrl: "IMAGE_URL", // i.e. process.env.FETCH_URL + '/logo.png'
           link: {
             mobileWebUrl: window.location.href,
             webUrl: window.location.href,
@@ -30,34 +29,38 @@ const KakaoShareButton = () => {
         },
         buttons: [
           {
-            title: '웹으로 보기',
+            title: "웹으로 보기",
             link: {
               mobileWebUrl: window.location.href,
               webUrl: window.location.href,
             },
           },
           {
-            title: '앱으로 보기',
+            title: "앱으로 보기",
             link: {
               mobileWebUrl: window.location.href,
               webUrl: window.location.href,
             },
           },
         ],
-      })
+      });
     }
-  }
-  
+  };
+
   useEffect(() => {
-    createKakaoButton()
-  }, [])
+    createKakaoButton();
+  }, []);
 
   return (
     <>
       <button id="kakao-link-btn" className="sns-btn">
-        <img className="kakao-img sns-img" src="//developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png" alt="kakao-share-icon"></img>
+        <img
+          className="kakao-img sns-img"
+          src="//developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"
+          alt="kakao-share-icon"
+        ></img>
       </button>
     </>
-  )
-}
-export default KakaoShareButton
+  );
+};
+export default KakaoShareButton;

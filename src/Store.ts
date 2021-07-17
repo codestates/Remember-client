@@ -4,12 +4,11 @@ import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
-import { AccidentState } from "./types/accident";
 
 const persistConfig = {
-  key: 'root',
+  key: "root",
   storage,
-}
+};
 
 const enhancedReducer = persistReducer(persistConfig, rootReducer);
 const store = createStore(

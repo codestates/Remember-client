@@ -1,6 +1,4 @@
 #postdetail {
-  /* margin-top: 3rem;
-  padding-top: 10rem; */
   padding: 10rem;
   height: 100%;
   line-height: 1.5;
@@ -48,8 +46,8 @@
   line-height: 30px;
   letter-spacing: 3px;
   margin: 30px 0 30px;
-  /* font-size: 15px; */
-  font-size: 20px;
+
+  font-size: 24px;
   font-weight: 500;
 }
 
@@ -176,7 +174,6 @@
 
 .postdetail__content-container {
   border-bottom: 1px solid red;
-  /* margin: 10px auto 0 auto; */
   margin: 0 auto;
   width: 60%;
 }
@@ -230,7 +227,6 @@
 
 .talk__profile {
   display: flex;
-
   margin-bottom: 20px;
 }
 
@@ -277,7 +273,6 @@
 }
 
 .comment__donation__wrap {
-  /* position: absolute; */
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -378,10 +373,6 @@
   }
   .postdetail__donation {
     display: none;
-    /* width: 30%;
-    margin-top: 18%;
-    margin-left: 22%;
-    margin-bottom: 5%; */
   }
 
   .postdetail__comment {

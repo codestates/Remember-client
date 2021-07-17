@@ -119,6 +119,7 @@
   padding: 25px;
   cursor: pointer;
   height: 100%;
+  z-index: -2;
 }
 
 .testimonial__img {
@@ -150,6 +151,7 @@
   .testimonial__text {
     padding: 20px 50px 0px 5px;
     font-size: 15px;
+    margin-top: 40px;
   }
   .testimonial__title {
     margin-top: 30px;
@@ -212,7 +214,7 @@
   }
 
   .testimonial__text {
-    padding: 20px 50px 0px 5px;
+    padding: 10px 50px 0px 5px;
     font-size: 14px;
   }
 
@@ -283,6 +285,7 @@
     padding: 10px 5px 0px 5px;
     font-size: 14px;
     text-align: left;
+    margin-top: 0;
   }
 
   .testimonial__col {
@@ -345,8 +348,8 @@
   }
 
   .testimonial__text {
-    padding: 20px 0px;
-    font-size: 11px;
+    padding: 20px 0 0 0;
+    font-size: 13px;
   }
 
   .testimonials__service {

@@ -1,0 +1,110 @@
+.accident__detail {
+  box-shadow: 0px 0px 20px 1px rgba(75, 155, 65, 0.5);
+  position: relative;
+  margin-left: 10px;
+  background-color: #fff;
+}
+
+.accident__detail {
+  height: 430px;
+}
+
+.accident__title {
+  margin: 20px 0;
+}
+
+.accident__detail .accident__title {
+  padding-left: 20px;
+  text-align: left;
+  font-size: 19px;
+  color: black;
+  margin-top: 10;
+  margin-bottom: 0;
+}
+
+.text__group {
+  text-align: center;
+}
+
+.acc__btn__group {
+  margin-top: 0;
+  margin-bottom: 0;
+  width: 100%;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  text-align: center;
+  padding: 15px 0px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.click:hover .overlay {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.click:hover .detail__btn {
+  opacity: 1;
+}
+
+.accident__orgize {
+  color: grey;
+  font-size: 15px;
+  padding-top: 10px;
+  padding-left: 20px;
+}
+
+.detail__btn {
+  transition: 0.5s;
+  opacity: 0;
+  justify-content: space-between;
+  border: 3px solid white;
+  background-color: transparent;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  line-height: 20px;
+  font-size: 16px;
+  font-weight: 700;
+  align-items: center;
+  width: 30%;
+  cursor: pointer;
+}
+
+.detail__btn:hover {
+  text-decoration: underline 2px;
+}
+
+.progress {
+  height: 10px;
+  margin: 0 20px;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+.progress__percentage {
+  margin-left: 20px;
+  color: #036635;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 4;
+}
+
+.progress__amount {
+  float: right;
+  margin-right: 20px;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 4;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 63%;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.5s ease;
+}

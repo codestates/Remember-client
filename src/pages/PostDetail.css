@@ -1,0 +1,440 @@
+#postdetail {
+  padding: 10rem;
+  height: 100%;
+  line-height: 1.5;
+  padding-left: 6%;
+  padding-right: 6%;
+}
+
+.postdetail__row {
+  display: flex;
+  margin: 0 auto;
+  width: 90%;
+  height: 700px;
+  background-color: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 100px;
+}
+
+.postdetail__col-1,
+.postdetail__col-2 {
+  flex-basis: 50%;
+  overflow: hidden;
+}
+
+.postdetail__col-2 .postdetail__img {
+  width: 100%;
+  height: 100%;
+}
+
+.postdetail__col-1 {
+  padding: 5% 5% 0 5%;
+  position: relative;
+}
+
+.postdetail__col-1 .postdetail__title {
+  font-size: 40px;
+  line-height: 80px;
+  letter-spacing: 2px;
+  color: #ffb300;
+}
+
+.postdetail__col-1 .postdetail__text {
+  color: black;
+  line-height: 30px;
+  letter-spacing: 3px;
+  margin: 30px 0 30px;
+
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.people__text {
+  padding: 5px 0;
+  font-weight: bold;
+  color: #a4a4a4;
+}
+
+.day__text {
+  padding: 5px 0;
+  font-weight: bold;
+  color: #a4a4a4;
+}
+
+.location__text {
+  padding: 5px 0;
+  font-weight: bold;
+  color: #a4a4a4;
+}
+
+.postdetail__btn__group {
+  display: flex;
+  font-weight: 700;
+}
+
+.btn__post {
+  padding: 12px 36px;
+  border: 0;
+  outline: none;
+  border-radius: 10px;
+  font-size: 12px;
+  position: absolute;
+  bottom: 6%;
+  background-color: #66bb6a;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn__pay {
+  padding: 12px 36px;
+  border: 0;
+  outline: none;
+  font-size: 14px;
+  width: 100%;
+  bottom: 0%;
+  position: absolute;
+  background-color: #66bb6a;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn__group__area .btn__post:nth-child(2) {
+  background-color: red;
+}
+
+.btn__group__area .btn__post:hover {
+  background-color: #338a3e;
+}
+
+/* 댓글  */
+.postdetail__comment {
+  border-bottom: 1px solid #a4a4a4;
+  width: 50%;
+  height: 60px;
+  position: absolute;
+  right: 10%;
+}
+
+.postdetail__content-box {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin: 20px auto;
+  margin-top: 0rem;
+}
+
+.postdetail__content-profile {
+  width: 25px;
+  height: 25px;
+  margin: 10px;
+}
+
+.postdetail__content-name {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.postdetail__content-box input {
+  padding: 10px;
+  margin: 5px 0;
+  position: absolute;
+  right: 12%;
+  width: 70%;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #eeeeee;
+  border: none;
+  font-size: 12px;
+}
+
+.postdetail__content-btn {
+  width: 10%;
+  background-color: #66bb6a;
+  position: absolute;
+  right: 0;
+  color: white;
+  border-radius: 10px;
+  margin: 5px 0;
+  border: none;
+  cursor: pointer;
+  line-height: 0;
+  padding: 20px 5px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 550;
+}
+
+.postdetail__content-btn:hover {
+  background-color: #338a3e;
+}
+
+.postdetail__content-container {
+  border-bottom: 1px solid red;
+  margin: 0 auto;
+  width: 60%;
+}
+
+.postdetail__content-body {
+  font-size: 20px;
+  margin: 10px 0 5px 10px;
+}
+
+.talk__comment {
+  display: flex;
+  position: relative;
+  left: 38.5%;
+  margin-top: 10rem;
+}
+
+.talk__box {
+  width: 57%;
+  height: 200px;
+  border-radius: 10px;
+  box-shadow: -10px 10px 40px rgba(0, 0, 0, 0.25);
+  position: relative;
+}
+
+.talk__card {
+  height: 220px;
+  padding: 40px;
+  color: #777;
+  line-height: 22px;
+  box-sizing: border-box;
+  background-color: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+.talk__card .talk__text {
+  align-items: center;
+  justify-content: center;
+  margin-top: 2.5rem;
+  font-size: 18px;
+}
+
+.talk__line {
+  margin-top: 2rem;
+}
+
+.talk__date {
+  margin-top: 1rem;
+  float: right;
+}
+
+.talk__profile {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.talk__profile .talk__img {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.talk__profile .talk__name {
+  font-size: 15px;
+  color: black;
+}
+
+.talk__icon {
+  font-size: 15px;
+  margin-top: 12px;
+  position: absolute;
+  right: 10%;
+}
+
+.talk__like {
+  margin-top: 2rem;
+  padding: 0 5px;
+}
+
+.talk__icon .far {
+  font-size: 18px;
+  padding: 0 5px;
+  margin-left: 1rem;
+  color: red;
+}
+
+.far {
+  color: red;
+}
+
+.btn__group-sns {
+  float: right;
+  position: absolute;
+  bottom: 5%;
+  right: 8%;
+}
+
+.comment__donation__wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.postdetail__donation {
+  width: 300px;
+  height: 330px;
+  box-shadow: -10px 10px 40px rgba(0, 0, 0, 0.25);
+  position: absolute;
+  left: 10.5%;
+  border-radius: 10px;
+}
+
+.postdetail__donation-percent {
+  margin: 30px 0 0 20px;
+  font-weight: bold;
+  color: #338a3e;
+}
+
+.postdetail__donation-date {
+  margin: 20px 0 10px 20px;
+  color: gray;
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+.postdetail__donation-dday {
+  text-align: center;
+  margin: 20px 0 10px 20px;
+  background-color: #ffb300;
+  color: white;
+  font-size: 15px;
+  padding: 5px;
+  width: 60px;
+}
+
+.postdetail__donation-amount {
+  margin: 20px 0 10px 20px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.postdetail__bottom {
+  display: flex;
+}
+
+@media screen and (max-width: 1400px) {
+  .postdetail__row {
+    width: 70%;
+    height: 800px;
+  }
+  .postdetail__col-1 .postdetail__title {
+    font-size: 30px;
+    line-height: 40px;
+  }
+
+  .postdetail__content-box input {
+    width: 60%;
+    margin-right: 2rem;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .postdetail__content-box input {
+    width: 60%;
+    margin-right: 2rem;
+  }
+
+  .postdetail__content-name {
+    font-size: 15px;
+  }
+  .postdetail__row {
+    height: 600px;
+  }
+  .postdetail__col-1 .postdetail__title {
+    font-size: 30px;
+    line-height: 40px;
+  }
+  .postdetail__col-1 .postdetail__text {
+    font-size: 12px;
+    font-weight: 550;
+  }
+  .people__text {
+    font-size: 15px;
+  }
+  .day__text {
+    font-size: 15px;
+  }
+  .location__text {
+    font-size: 15px;
+  }
+  .btn__post {
+    display: none;
+  }
+  .btn__group-sns {
+    display: none;
+  }
+  .postdetail__donation {
+    display: none;
+  }
+
+  .postdetail__comment {
+    margin-right: 20rem;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .postdetail__content-box input {
+    width: 60%;
+    margin-right: 5rem;
+  }
+  .postdetail__row {
+    height: 500px;
+  }
+
+  .postdetail__col-1 .postdetail__title {
+    font-size: 20px;
+    line-height: 40px;
+  }
+
+  .postdetail__col-1 .postdetail__text {
+    font-size: 10px;
+    font-weight: 550;
+  }
+
+  .people__text {
+    font-size: 10px;
+  }
+  .day__text {
+    font-size: 10px;
+  }
+  .location__text {
+    font-size: 10px;
+  }
+  .postdetail__col-1 .postdetail__text {
+    margin: 10px 0 10px;
+  }
+  .postdetail__comment {
+    margin-right: 10rem;
+  }
+  .postdetail__content-name {
+    display: none;
+  }
+  .postdetail__content-profile {
+    margin-right: 5rem;
+  }
+  .postdetail__content-btn {
+    padding: 20px;
+    font-size: 10px;
+    width: 20%;
+  }
+}
+
+@media (max-width: 850px) {
+  .postdetail__content-btn {
+    padding: 20px 5px;
+  }
+}
+
+@media (max-width: 600px) {
+  .postdetail__comment {
+    display: none;
+  }
+}

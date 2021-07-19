@@ -1,0 +1,161 @@
+.navbar__btn {
+  background-color: black;
+  color: white;
+  padding: 15px;
+  margin-top: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.navbar__body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.header__box {
+  width: 100%;
+  height: 80px;
+  padding-right: 50px;
+  position: fixed;
+  background-color: white;
+  z-index: 3;
+}
+
+.header__title {
+  margin: 15 15px 15px 30px;
+  font-size: 13px;
+  font-weight: 500;
+  font: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__title-img {
+  width: 22rem;
+  background-color: transparent;
+  margin-left: 1%;
+  position: absolute;
+  top: 13px;
+}
+
+.header__btn {
+  margin-top: 20px;
+  margin-right: 35px;
+}
+
+.header__btn button {
+  padding: 8px 12px;
+  width: 100px;
+  border-radius: 10px;
+  margin: 0 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  float: right;
+}
+
+.left {
+  background-color: transparent;
+  color: #036635;
+  border: none;
+}
+
+.left:hover {
+  background-color: #036635;
+  color: white;
+  border: none;
+}
+
+.right {
+  background-color: #036635;
+  border: none;
+  color: white;
+}
+
+.github__login-btn {
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  line-height: 2.5;
+  margin-left: 35px;
+}
+
+.google__login-btn {
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  line-height: 2.5;
+  margin-left: 40px;
+}
+
+.social__logo {
+  width: 16px;
+  height: 16px;
+  margin: 8px 37px 5px 23px;
+}
+
+.social__logo-github {
+  width: 25px;
+  height: 25px;
+  margin: 3px 35px 5px 20px;
+}
+
+.github__box {
+  display: flex;
+  background-color: #212121;
+  color: white;
+  border-radius: 10px;
+  width: 80%;
+  margin: 10px auto;
+  cursor: pointer;
+}
+
+.google__box {
+  display: flex;
+  border: 1px solid black;
+  background-color: white;
+  border-radius: 10px;
+  width: 80%;
+  margin: 10px auto;
+  cursor: pointer;
+}
+
+.scroll__up {
+  position: fixed;
+  bottom: 3%;
+  right: 3%;
+  z-index: 10;
+  cursor: pointer;
+  color: grey;
+  font-weight: 500;
+}
+
+.scroll__up-img {
+  width: 50px;
+  margin-bottom: 5px;
+  transform: rotate(-45deg);
+  animation: up-down 1.4s infinite ease-in-out alternate;
+}
+
+.scroll__up-text {
+  padding-left: 7px;
+  font-size: 14px;
+}
+
+@keyframes up-down {
+  0% {
+    transform: translatey(-7px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+
+@media (max-width: 550px) {
+  .header__btn {
+    margin-right: 10px;
+  }
+}

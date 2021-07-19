@@ -1,0 +1,131 @@
+.quizmodal__overlay {
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  cursor: auto;
+}
+
+.quiz__end {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  color: black;
+  font-size: 3.5rem;
+  font-weight: 550;
+  margin-bottom: 50px;
+}
+
+.quiz__score__result {
+  margin: 1rem auto;
+  font-size: 30px;
+  font-weight: 500;
+  justify-content: center;
+  align-items: center;
+  color: #60ad5e;
+}
+
+.quiz__section {
+  width: 100%;
+  position: relative;
+  margin-top: 1rem;
+}
+
+.quiz__count {
+  padding: 25px 0;
+  align-items: center;
+  text-align: center;
+}
+
+.quiz__count span {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.quiz__text {
+  margin-left: 10%;
+  width: 400px;
+  font-size: 20px;
+  color: black;
+  font-weight: bold;
+  margin-bottom: 0px;
+  text-align: center;
+  padding: 0 15px;
+}
+
+.quiz__btn {
+  width: 60%;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 600;
+  color: black;
+  background-color: white;
+  border-radius: 15px;
+  padding: 10px 20px 10px 10px;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  margin-top: 15px;
+  justify-content: center;
+}
+
+.quiz__btn:hover {
+  background-color: #60ad5e;
+  color: white;
+}
+
+.quiz__btn__back {
+  width: 15%;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 600;
+  color: black;
+  background-color: #036635;
+  color: white;
+  border-radius: 10px;
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+
+  margin: 10px auto 5px auto;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  list-style: none;
+}
+
+.correct {
+  background-color: #60ad5e;
+  color: white;
+}
+
+.quizmodal__content {
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15), 0 5px 5px rgba(0, 0, 0, 0.25);
+  background-color: white;
+  text-align: center;
+  align-items: center;
+  border-radius: 20px;
+
+  width: 530px;
+
+  height: 480px;
+  position: absolute;
+}
+
+.show__quiz {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 111%;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  display: flex;
+}
+
+.quiz__black {
+  color: black;
+}

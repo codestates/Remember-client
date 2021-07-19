@@ -1,0 +1,441 @@
+.show {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 150%;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  display: flex;
+}
+
+.modal__overlay {
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  cursor: auto;
+}
+
+.modal__content {
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15), 0 5px 5px rgba(0, 0, 0, 0.25);
+  background-color: white;
+  text-align: center;
+  align-items: center;
+  position: fixed;
+  cursor: auto;
+  top: 56%;
+  left: 50%;
+  width: 400px;
+  height: 600px;
+  border-radius: 20px;
+  margin: 0 auto;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.withdrawmodal__content {
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15), 0 5px 5px rgba(0, 0, 0, 0.25);
+  background-color: white;
+  text-align: center;
+  align-items: center;
+  border-radius: 20px;
+  width: 650px;
+  height: 300px;
+  position: fixed;
+  cursor: auto;
+  top: 56%;
+  left: 50%;
+  margin: 0 auto;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.modal__content-login-logo {
+  width: 28rem;
+  background-color: transparent;
+  margin-top: 5%;
+}
+
+.modal__content-img-img {
+  width: 40px;
+  height: 40px;
+}
+
+.modal__content > h1 {
+  margin: 20px auto;
+}
+
+.modal__content-login-div {
+  margin-top: 100px;
+}
+
+.modal__content-img-div {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.modal__signup {
+  padding: 10px;
+  margin: 5px auto;
+  width: 80%;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #eeeeee;
+  border: none;
+}
+
+.modal__signin {
+  padding: 10px;
+  margin: 5px auto;
+  width: 80%;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #eeeeee;
+  border: none;
+}
+
+.modal__signup-mobile-head {
+  padding: 10px;
+  margin: 5px 5px;
+  width: 20%;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #eeeeee;
+  border: none;
+}
+
+.modal__signup-mobile-bodytail {
+  padding: 10px;
+  margin: 5px 5px;
+  width: 26%;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #eeeeee;
+  border: none;
+}
+
+.mobile-font {
+  font-weight: bold;
+}
+
+.modal__content > button {
+  padding: 10px;
+  width: 80%;
+  height: 40px;
+  background-color: #036635;
+  color: white;
+  border-radius: 10px;
+  margin: 5px auto;
+  border: none;
+  cursor: pointer;
+}
+
+.modal__mypage-btn {
+  width: 20%;
+  background-color: #036635;
+  color: white;
+  border-radius: 10px;
+  margin: 40px 10px;
+  border: none;
+  cursor: pointer;
+  line-height: 0;
+  padding: 20px 5px;
+}
+
+.modal__content > div > div > button {
+  width: 20%;
+  background-color: #036635;
+  color: white;
+  border-radius: 10px;
+  margin: 5px auto;
+  border: none;
+  cursor: pointer;
+  line-height: 0;
+  padding: 15px 5px;
+}
+
+.modal__content-switch {
+  color: gray;
+  margin: 20px auto;
+}
+
+.modal__content-switch-login {
+  margin: 30px auto;
+}
+
+.modal__content-switch > span {
+  color: #036635;
+  cursor: pointer;
+  margin-left: 3px;
+}
+
+.modal__content-img {
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15), 0 5px 5px rgba(0, 0, 0, 0.25);
+  background-color: white;
+  border-radius: 20px;
+  width: 500px;
+  height: 500px;
+  position: fixed;
+  cursor: auto;
+  top: 50%;
+  left: 50%;
+  margin: 0 auto;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.modal__content-img > button {
+  margin: 30px 5px 0 5px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #036635;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.modal__content-img > img {
+  width: 40px;
+  height: 40px;
+  margin: 40px 40px 0 40px;
+}
+
+.modal__content-img > div > input:nth-child(1) {
+  margin-left: 63px;
+  margin-right: 49px;
+}
+
+.modal__content-img > div > input:nth-child(2) {
+  margin-left: 59px;
+  margin-right: 53px;
+}
+
+.modal__content-img > div > input:nth-child(3) {
+  margin-left: 55px;
+  margin-right: 57px;
+}
+
+.modal__content-img > div > input:nth-child(4) {
+  margin-left: 50px;
+  margin-right: 62px;
+}
+
+.hide {
+  display: none;
+}
+
+.withdrawmodal__content > h1 {
+  padding: 15px 0;
+  margin: 0;
+  font-size: 30px;
+  box-shadow: 0 0 3px 0 rgb(0 0 0 / 30%);
+}
+
+.withdrawmodal__content > h3 {
+  margin-top: 50px;
+  font-size: 20px;
+  color: gray;
+  text-align: center;
+}
+
+.withdrawmodal__content-body {
+  margin-top: 10px;
+}
+
+.withdrawmodal__content > div > button {
+  width: 10%;
+  background-color: #036635;
+  color: white;
+  border-radius: 10px;
+  margin: 30px auto;
+  border: none;
+  cursor: pointer;
+  line-height: 0;
+  padding: 20px 5px;
+}
+
+.withdrawmodal__input {
+  padding: 10px;
+  margin: 5px auto;
+  width: 80%;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #eeeeee;
+  border: none;
+}
+
+.modal__signup-cert {
+  width: 57%;
+  padding: 10px;
+  margin: 5px 10px 5px 0;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #eeeeee;
+  border: none;
+}
+
+.modal__signup-cert-btn {
+  width: 20%;
+  background-color: #036635;
+  color: white;
+  border-radius: 10px;
+  margin: 5px 0;
+  border: none;
+  cursor: pointer;
+  line-height: 0;
+  padding: 20px 5px;
+}
+
+.savemodal__content {
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15), 0 5px 5px rgba(0, 0, 0, 0.25);
+  background-color: white;
+  text-align: center;
+  align-items: center;
+  position: relative;
+  border-radius: 20px;
+  width: 300px;
+  height: 150px;
+  position: fixed;
+  cursor: auto;
+  top: 56%;
+  left: 50%;
+  margin: 0 auto;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.savemodal__content-body {
+  margin-top: 40px;
+}
+
+.savemodal__content div {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.savemodal__content > div > button {
+  width: 25%;
+  background-color: #036635;
+  color: white;
+  font-size: 13px;
+  border-radius: 10px;
+  margin: 30px 10px;
+  border: none;
+  cursor: pointer;
+  line-height: 0;
+  padding: 15px 5px;
+}
+
+.modal__content-table {
+  display: flex;
+}
+
+.table-btn {
+  background-color: #036635;
+  color: white;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  padding: 10px 10px;
+  margin: 40px 0 0 5px;
+}
+
+.modal__content-table-list {
+  margin-top: 10px;
+}
+
+.table-title {
+  padding: 10px;
+  margin: 0 5px;
+  width: 40%;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #eeeeee;
+  border: none;
+  font-weight: 600;
+}
+
+.table-amount {
+  padding: 10px;
+  margin: 0 5px;
+  width: 30%;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #eeeeee;
+  border: none;
+  font-weight: 600;
+}
+
+.modal__content-table div {
+  margin: 10px 10px 10px 0;
+}
+
+.modal__content > ul {
+  list-style: none;
+  margin-top: 30px;
+  float: left;
+  text-align: left;
+  margin-left: 40px;
+  margin-bottom: 50px;
+}
+
+@-webkit-keyframes blinker {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes blinker {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.blink {
+  color: #bef67a;
+  text-decoration: blink;
+  -webkit-animation-name: blinker;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-direction: alternate;
+}
+
+.modal__mypage {
+  margin-top: 30px;
+}
+
+.modal__content-nothing {
+  font-size: 20px;
+  font-weight: 500;
+  color: #9e9e9e;
+  position: fixed;
+  cursor: auto;
+  top: 50%;
+  left: 50%;
+  margin: 0 auto;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}

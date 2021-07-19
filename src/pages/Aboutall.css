@@ -1,0 +1,36 @@
+@media (max-width: 2150px) {
+  .about8__text {
+    padding: 5px;
+    max-width: 400px;
+    margin-right: 100px;
+    /* 차이점 아래 */
+    margin-left: 350px;
+    display: inline-block;
+  }
+
+  .about8__text h1 {
+    padding: 5px 5px;
+    margin-bottom: 1rem;
+    /* 차이점 아래 */
+    font-size: 35px;
+    line-height: 55px;
+    white-space: nowrap;
+    font-weight: bold;
+  }
+
+  .about8__text p {
+    /* 차이점 아래 */
+    font-size: 20px;
+    margin-bottom: 5px;
+    padding: 5px 5px;
+    line-height: 35px;
+    font-style: italic;
+    white-space: nowrap;
+  }
+
+  .about8__left img {
+    width: 100%;
+    /* 차이점 아래 */
+    height: 30%;
+  }
+}

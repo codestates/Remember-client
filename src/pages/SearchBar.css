@@ -1,0 +1,11 @@
+#search {
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 250px;
+}
+
+@media screen and (max-width: 1000px) {
+  #search {
+    margin-top: 10rem;
+  }
+}

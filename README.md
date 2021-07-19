@@ -34,7 +34,7 @@
 
 # **Used Tech Stack**
 
-![슬라이드1](https://user-images.githubusercontent.com/76901060/125478655-c4aa9e66-89c1-40ee-ba4c-fde5f41737c2.JPG)
+![프레젠테이션1](https://user-images.githubusercontent.com/76901060/126139242-5ccb6dfe-551b-4fd1-b421-de0793d68643.png)
 - **Common** : TypeScript / Axios / Iamport
 - **Front-end** : React (React-Hooks) / Redux (Redux-Hooks) / Firebase / Styled-components
 - **Back-end** : Node.js / Express / sequelize / Mysql / Nodemailer / JWT

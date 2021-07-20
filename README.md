@@ -87,4 +87,5 @@ Crew | Role | GitHub
 
 
 - [Check Client side dev-logs!](https://github.com/codestates/Remember-client/projects/1)
-- [Check Sever side dev-logs!](https://github.com/codestates/Remember-server/projects/2)
+- [Check Sever side 김성희 dev-logs!](https://github.com/codestates/Remember-server/projects/3)
+- [Check Sever side 이주형 dev-logs!](https://github.com/codestates/Remember-server/projects/4)

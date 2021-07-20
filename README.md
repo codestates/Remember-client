@@ -34,7 +34,7 @@
 
 # **Used Tech Stack**
 
-![프레젠테이션1](https://user-images.githubusercontent.com/76901060/126139242-5ccb6dfe-551b-4fd1-b421-de0793d68643.png)
+![슬라이드1](https://user-images.githubusercontent.com/76901060/125478655-c4aa9e66-89c1-40ee-ba4c-fde5f41737c2.JPG)
 - **Common** : TypeScript / Axios / Iamport
 - **Front-end** : React (React-Hooks) / Redux (Redux-Hooks) / Firebase / Styled-components
 - **Back-end** : Node.js / Express / sequelize / Mysql / Nodemailer / JWT
@@ -87,4 +87,5 @@ Crew | Role | GitHub
 
 
 - [Check Client side dev-logs!](https://github.com/codestates/Remember-client/projects/1)
-- [Check Sever side dev-logs!](https://github.com/codestates/Remember-server/projects/2)
+- [Check Sever side 김성희 dev-logs!](https://github.com/codestates/Remember-server/projects/3)
+- [Check Sever side 이주형 dev-logs!](https://github.com/codestates/Remember-server/projects/4)

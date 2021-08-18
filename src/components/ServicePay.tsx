@@ -11,7 +11,8 @@ import { useParams } from "react-router";
 import { useTypedSelector } from "../hook/useTypedSelector";
 import { useActionDispatch } from "../hook/useActionDispatch";
 import Spinner from "../pages/Spinner";
-
+import userInfoHandler from "../functions/userInfoHandler";
+//
 interface Values {
   mobile: any;
   amount: string | number;
@@ -23,7 +24,7 @@ interface servicePayParams {
   id: string;
 }
 
-const ServicePay:React.FC = () => {
+const ServicePay: React.FC = () => {
   const params = useParams<servicePayParams>();
   const accidentState = useTypedSelector((state) => state.accident);
   const { fetchSingleData } = useActionDispatch();
@@ -32,7 +33,6 @@ const ServicePay:React.FC = () => {
   const { notify } = bindActionCreators(notificationCreators, dispatch);
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
-  const [group, setGroup] = useState<string>("");
   const [company, setCompany] = useState<string>("");
   const [values, setValues] = useState<Values>({
     mobile: {
@@ -47,19 +47,21 @@ const ServicePay:React.FC = () => {
 
   const getUserInfo = async () => {
     if (!token.OAuth.OAuth) {
-      await axios
-        .get(`${process.env.REACT_APP_API_URL}/mypage`, {
-          headers: {
-            authorization: `Bearer ${token.accessToken}`,
-            "Content-Type": "application/json",
-          },
-          withCredentials: true,
-        })
-        .then((res) => {
-          const { email, name } = res.data.data.userInfo;
-          setName(name);
-          setEmail(email);
-        });
+      const userInfo = userInfoHandler(token);
+      console.log(userInfo);
+      // await axios
+      //   .get(`${process.env.REACT_APP_API_URL}/mypage`, {
+      //     headers: {
+      //       authorization: `Bearer ${token.accessToken}`,
+      //       "Content-Type": "application/json",
+      //     },
+      //     withCredentials: true,
+      //   })
+      //   .then((res) => {
+      //     const { email, name } = res.data.data.userInfo;
+      //     setName(name);
+      //     setEmail(email);
+      //   });
     } else {
       const { name, email } = token.OAuth;
       setName(name);
@@ -84,7 +86,7 @@ const ServicePay:React.FC = () => {
       });
     } else {
       await axios.post(`${process.env.REACT_APP_API_URL}/payment`, {
-        name: group,
+        name: company,
         email: email,
         amount: values.amount,
         title: accidentState.accidentSingle?.data.title,
@@ -109,7 +111,7 @@ const ServicePay:React.FC = () => {
       });
     } else {
       await axios.post(`${process.env.REACT_APP_API_URL}/mailreceipt`, {
-        name: group,
+        name: company,
         email: email,
         amount: values.amount,
         title: accidentState.accidentSingle?.data.title,
@@ -162,7 +164,7 @@ const ServicePay:React.FC = () => {
                 name="radio"
                 onClick={() => {
                   setValues({ ...values, group: "법인" });
-                  setName("");
+                  setCompany("");
                 }}
               />{" "}
             </div>
@@ -182,7 +184,7 @@ const ServicePay:React.FC = () => {
                 className="service__pay__radio"
                 onClick={() => {
                   setValues({ ...values, group: "학교단체" });
-                  setName("");
+                  setCompany("");
                 }}
               />{" "}
             </div>
@@ -195,15 +197,15 @@ const ServicePay:React.FC = () => {
             {values.group === "법인" ? (
               <input
                 placeholder="법인명"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                value={company}
+                onChange={(e) => setCompany(e.target.value)}
                 className="input__group-input"
               />
             ) : values.group === "학교단체" ? (
               <input
                 placeholder="학교 or 단체명"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                value={company}
+                onChange={(e) => setCompany(e.target.value)}
                 className="input__group-input"
               />
             ) : values.group === "개인" ? (

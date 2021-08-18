@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./AccidentListItem.css";
 import { AccidentData } from "../types/accident";
-import { useDispatch, useSelector } from "react-redux";
-import { bindActionCreators } from "redux";
-import * as notificationCreators from "../action-creators/notificationCreators";
+import { useSelector } from "react-redux";
 import axios from "axios";
 import { Root } from "../Store";
 import styled from "styled-components";
 import ProgressBar from "react-bootstrap/ProgressBar";
-
+//
 interface AccidentListItemProps {
   data: AccidentData;
   onClick: (data: AccidentData) => void;
@@ -31,8 +29,6 @@ const AccidentListItem: React.FC<AccidentListItemProps> = ({
   onClick,
   payClick,
 }) => {
-  const dispatch = useDispatch();
-  const { notify } = bindActionCreators(notificationCreators, dispatch);
   const token: any = useSelector((state: Root) => state.login);
   const [values, setValues] = useState<Values>({
     name: "",
@@ -106,14 +102,6 @@ const AccidentListItem: React.FC<AccidentListItemProps> = ({
       });
   };
 
-  const isLoginHandler = () => {
-    if (!token.accessToken) {
-      notify("로그인이 필요합니다.");
-    } else {
-      return true;
-    }
-  };
-
   const donationHandler = async () => {
     await axios
       .post(`${process.env.REACT_APP_API_URL}/mainpage`, {
@@ -121,43 +109,24 @@ const AccidentListItem: React.FC<AccidentListItemProps> = ({
       })
       .then((res) => {
         const { percentage, totalAmount } = res.data.data;
-        // if (totalAmount === 0) {
-        //   const amount = totalAmount;
-        //   if (percentage > 50) {
-        //     setDonation({
-        //       ...values,
-        //       percentage1: 50,
-        //       percentage2: percentage - 50,
-        //       totalAmount: amount,
-        //     });
-        //   } else {
-        //     setDonation({
-        //       ...values,
-        //       percentage1: percentage,
-        //       percentage2: 0,
-        //       totalAmount: amount,
-        //     });
-        //   }
-        // } else {
-          const amount = totalAmount
-            .toString()
-            .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-          if (percentage > 50) {
-            setDonation({
-              ...values,
-              percentage1: 50,
-              percentage2: percentage - 50,
-              totalAmount: amount,
-            });
-          } else {
-            setDonation({
-              ...values,
-              percentage1: percentage,
-              percentage2: 0,
-              totalAmount: amount,
-            });
-          }
-        
+        const amount = totalAmount
+          .toString()
+          .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+        if (percentage > 50) {
+          setDonation({
+            ...values,
+            percentage1: 50,
+            percentage2: percentage - 50,
+            totalAmount: amount,
+          });
+        } else {
+          setDonation({
+            ...values,
+            percentage1: percentage,
+            percentage2: 0,
+            totalAmount: amount,
+          });
+        }
       });
   };
 
@@ -197,10 +166,7 @@ const AccidentListItem: React.FC<AccidentListItemProps> = ({
             <button
               className="detail__btn"
               onClick={() => {
-                let result = isLoginHandler();
-                if (result) {
-                  payClick(data);
-                }
+                payClick(data);
               }}
             >
               후원하기

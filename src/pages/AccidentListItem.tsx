@@ -6,7 +6,7 @@ import axios from "axios";
 import { Root } from "../Store";
 import styled from "styled-components";
 import ProgressBar from "react-bootstrap/ProgressBar";
-
+//
 interface AccidentListItemProps {
   data: AccidentData;
   onClick: (data: AccidentData) => void;

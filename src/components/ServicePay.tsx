@@ -12,7 +12,7 @@ import { useTypedSelector } from "../hook/useTypedSelector";
 import { useActionDispatch } from "../hook/useActionDispatch";
 import Spinner from "../pages/Spinner";
 import userInfoHandler from "../functions/userInfoHandler";
-
+//
 interface Values {
   mobile: any;
   amount: string | number;

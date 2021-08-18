@@ -13,6 +13,7 @@ const userInfoHandler = async (token) => {
       .then((res) => {
         return res.data.data.userInfo;
       });
+    //
   } else {
     await axios
       .post(

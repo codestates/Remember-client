@@ -47,23 +47,12 @@ const ServicePay: React.FC = () => {
 
   const getUserInfo = async () => {
     if (!token.OAuth.OAuth) {
-      // await axios
-      //   .get(`${process.env.REACT_APP_API_URL}/mypage`, {
-      //     headers: {
-      //       authorization: `Bearer ${token.accessToken}`,
-      //       "Content-Type": "application/json",
-      //     },
-      //     withCredentials: true,
-      //   })
-      //   .then((res) => {
-      //     const { email, name } = res.data.data.userInfo;
-      //     setName(name);
-      //     setEmail(email);
-      //   });
       await API.get("/mypage", {
         headers: {
           authorization: `Bearer ${token.accessToken}`,
+          "Content-Type": "application/json",
         },
+        withCredentials: true,
       }).then((res) => {
         const { email, name } = res.data.data.userInfo;
         setName(name);
@@ -77,52 +66,36 @@ const ServicePay: React.FC = () => {
   };
 
   const setPaymentInfo = async () => {
+    const data = {
+      name: name,
+      email: email,
+      amount: values.amount,
+      title: accidentState.accidentSingle?.data.title,
+    };
+
     if (values.group === "개인") {
-      await axios.post(`${process.env.REACT_APP_API_URL}/payment`, {
-        name: name,
-        email: email,
-        amount: values.amount,
-        title: accidentState.accidentSingle?.data.title,
-      });
+      await API.post(`/payment`, data);
     } else if (values.group === "법인") {
-      await axios.post(`${process.env.REACT_APP_API_URL}/payment`, {
-        name: company,
-        email: email,
-        amount: values.amount,
-        title: accidentState.accidentSingle?.data.title,
-      });
+      await API.post(`/payment`, { ...data, name: company });
     } else {
-      await axios.post(`${process.env.REACT_APP_API_URL}/payment`, {
-        name: company,
-        email: email,
-        amount: values.amount,
-        title: accidentState.accidentSingle?.data.title,
-      });
+      await API.post(`/payment`, { ...data, name: company });
     }
   };
 
   const sendReceipt = async () => {
+    const data = {
+      name: name,
+      email: email,
+      amount: values.amount,
+      title: accidentState.accidentSingle?.data.title,
+    };
+
     if (values.group === "개인") {
-      await axios.post(`${process.env.REACT_APP_API_URL}/mailreceipt`, {
-        name: name,
-        email: email,
-        amount: values.amount,
-        title: accidentState.accidentSingle?.data.title,
-      });
+      await API.post(`/mailreceipt`, data);
     } else if (values.group === "법인") {
-      await axios.post(`${process.env.REACT_APP_API_URL}/mailreceipt`, {
-        name: company,
-        email: email,
-        amount: values.amount,
-        title: accidentState.accidentSingle?.data.title,
-      });
+      await API.post(`/mailreceipt`, { ...data, name: company });
     } else {
-      await axios.post(`${process.env.REACT_APP_API_URL}/mailreceipt`, {
-        name: company,
-        email: email,
-        amount: values.amount,
-        title: accidentState.accidentSingle?.data.title,
-      });
+      await API.post(`/mailreceipt`, { ...data, name: company });
     }
   };
 

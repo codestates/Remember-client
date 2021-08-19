@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./AboutToday.css";
-import axios from "axios";
 import { CountUp } from "countup.js";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import API from "../utils/api";
 
 const AboutToday: React.FC = () => {
   const [visit, setVisit] = useState<number>(0);
@@ -13,11 +13,9 @@ const AboutToday: React.FC = () => {
     const date = today.getDate(); // 날짜
 
     const check = `${year}-${month}-${date}`;
-    await axios
-      .post(`${process.env.REACT_APP_API_URL}/today`, { check })
-      .then((res) => {
-        setVisit(res.data.data);
-      });
+    await API.post(`/today`, { check }).then((res) => {
+      setVisit(res.data.data);
+    });
   };
 
   const plusCounter = () => {

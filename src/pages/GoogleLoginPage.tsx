@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actionCreators from "../action-creators/loginCreators";
-import axios from "axios";
+import API from "../utils/api";
 import "../components/Navbar.css";
 
 interface Props {
@@ -28,7 +28,7 @@ const GoogleLoginPage = ({
         const name = data.user.displayName;
         setOauth({ email, name, OAuth: true });
         toMainPage();
-        await axios.post(`${process.env.REACT_APP_API_URL}/oauth-info`, {
+        await API.post(`/oauth-info`, {
           email,
           name,
           url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/320px-Google_%22G%22_Logo.svg.png",

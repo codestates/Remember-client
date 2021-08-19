@@ -11,8 +11,8 @@ import { useParams } from "react-router";
 import { useTypedSelector } from "../hook/useTypedSelector";
 import { useActionDispatch } from "../hook/useActionDispatch";
 import Spinner from "../pages/Spinner";
-import userInfoHandler from "../functions/userInfoHandler";
-//
+import API from "../utils/api";
+
 interface Values {
   mobile: any;
   amount: string | number;
@@ -47,8 +47,6 @@ const ServicePay: React.FC = () => {
 
   const getUserInfo = async () => {
     if (!token.OAuth.OAuth) {
-      const userInfo = userInfoHandler(token);
-      console.log(userInfo);
       // await axios
       //   .get(`${process.env.REACT_APP_API_URL}/mypage`, {
       //     headers: {
@@ -62,6 +60,15 @@ const ServicePay: React.FC = () => {
       //     setName(name);
       //     setEmail(email);
       //   });
+      await API.get("/mypage", {
+        headers: {
+          authorization: `Bearer ${token.accessToken}`,
+        },
+      }).then((res) => {
+        const { email, name } = res.data.data.userInfo;
+        setName(name);
+        setEmail(email);
+      });
     } else {
       const { name, email } = token.OAuth;
       setName(name);

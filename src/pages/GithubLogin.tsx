@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actionCreators from "../action-creators/loginCreators";
-import axios from "axios";
+import API from "../utils/api";
 
 interface Props {
   auth: any;
@@ -22,7 +22,7 @@ const GithubLogin = ({ auth, setSignInClick, setModalOn, notify }: Props) => {
         const name = data.user.displayName;
         setOauth({ email, name, OAuth: true });
         toMainPage();
-        await axios.post(`${process.env.REACT_APP_API_URL}/oauth-info`, {
+        await API.post(`/oauth-info`, {
           email,
           name,
           url: "https://image.flaticon.com/icons/png/512/25/25231.png",

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "./ServicePay.css";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import axios from "axios";
 import Iamport from "react-iamport";
 import { Root } from "../Store";
 import { bindActionCreators } from "redux";

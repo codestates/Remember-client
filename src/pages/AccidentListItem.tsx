@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import "./AccidentListItem.css";
 import { AccidentData } from "../types/accident";
 import { useSelector } from "react-redux";
-import axios from "axios";
 import { Root } from "../Store";
 import styled from "styled-components";
 import ProgressBar from "react-bootstrap/ProgressBar";
+import API from "../utils/api";
 
 interface AccidentListItemProps {
   data: AccidentData;
@@ -35,7 +35,6 @@ const AccidentListItem: React.FC<AccidentListItemProps> = ({
     url: "",
   });
 
-  const [thumb, setThumb] = useState<number>(0);
   const [likeClick, setLikeClick] = useState<boolean>(false);
   const [donation, setDonation] = useState<Donation>({
     percentage1: 0,
@@ -43,98 +42,64 @@ const AccidentListItem: React.FC<AccidentListItemProps> = ({
     totalAmount: 0,
   });
 
-  // 사용하는 함수인가??
-  const setLikeHandler = async () => {
-    setLikeClick(!likeClick);
-
-    await axios.put(`${process.env.REACT_APP_API_URL}/put-like`, {
-      name: values.name,
-      title: data.title,
-    });
-  };
-
   const userInfoHandler = async () => {
+    const options = {
+      headers: {
+        authorization: `Bearer ${token.accessToken}`,
+        "Content-Type": "application/json",
+      },
+      withCredentials: true,
+    };
+
     if (token.OAuth.OAuth) {
-      await axios
-        .post(
-          `${process.env.REACT_APP_API_URL}/mypage`,
-          {
-            email: token.OAuth.email,
-            name: token.OAuth.name,
-            OAuth: token.OAuth.OAuth,
-          },
-          {
-            headers: {
-              authorization: `Bearer ${token.accessToken}`,
-              "Content-Type": "application/json",
-            },
-            withCredentials: true,
-          }
-        )
-        .then((res) => {
-          const { name, url } = res.data.data.userInfo;
-          setValues({ ...values, name: name, url: url });
-        });
+      await API.post(
+        "/mypage",
+        {
+          email: token.OAuth.email,
+          name: token.OAuth.name,
+          OAuth: token.OAuth.OAuth,
+        },
+        options
+      ).then((res) => {
+        const { name, url } = res.data.data.userInfo;
+        setValues({ ...values, name: name, url: url });
+      });
     } else {
-      await axios
-        .get(`${process.env.REACT_APP_API_URL}/mypage`, {
-          headers: {
-            authorization: `Bearer ${token.accessToken}`,
-            "Content-Type": "application/json",
-          },
-          withCredentials: true,
-        })
-        .then((res) => {
-          const { name, url } = res.data.data.userInfo;
-          setValues({ ...values, name: name, url: url });
-        });
+      await API.get("/mypage", options).then((res) => {
+        const { name, url } = res.data.data.userInfo;
+        setValues({ ...values, name: name, url: url });
+      });
     }
   };
 
-  const getLikeHandler = async () => {
-    await axios
-      .post(`${process.env.REACT_APP_API_URL}/post-like`, {
-        title: data.title,
-      })
-      .then((res) => {
-        const likeNum = res.data.data.likeTable.length;
-        setThumb(likeNum);
-      });
-  };
-
   const donationHandler = async () => {
-    await axios
-      .post(`${process.env.REACT_APP_API_URL}/mainpage`, {
-        title: data.title,
-      })
-      .then((res) => {
-        const { percentage, totalAmount } = res.data.data;
-        const amount = totalAmount
-          .toString()
-          .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-        if (percentage > 50) {
-          setDonation({
-            ...values,
-            percentage1: 50,
-            percentage2: percentage - 50,
-            totalAmount: amount,
-          });
-        } else {
-          setDonation({
-            ...values,
-            percentage1: percentage,
-            percentage2: 0,
-            totalAmount: amount,
-          });
-        }
-      });
+    await API.post("/mainpage", { title: data.title }).then((res) => {
+      const { percentage, totalAmount } = res.data.data;
+      const amount = totalAmount
+        .toString()
+        .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+      if (percentage > 50) {
+        setDonation({
+          ...values,
+          percentage1: 50,
+          percentage2: percentage - 50,
+          totalAmount: amount,
+        });
+      } else {
+        setDonation({
+          ...values,
+          percentage1: percentage,
+          percentage2: 0,
+          totalAmount: amount,
+        });
+      }
+    });
   };
 
   useEffect(() => {
     if (token.accessToken) {
       userInfoHandler();
     }
-    getLikeHandler();
     donationHandler();
   }, []);
 

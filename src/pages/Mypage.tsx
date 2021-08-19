@@ -5,7 +5,7 @@ import WithdrawModal from "./WithdrawModal";
 import { bindActionCreators } from "redux";
 import * as notificationCreators from "../action-creators/notificationCreators";
 import { Root } from "../Store";
-import axios from "axios";
+import API from "../utils/api";
 import SaveModal from "./SaveModal";
 import logo from "../images/headerlogo.png";
 
@@ -13,8 +13,14 @@ interface Values {
   email: string;
   password: string;
   name: string;
-  mobile: any;
+  mobile: Mobile;
   dateOfBirth: string;
+}
+
+interface Mobile {
+  head: string;
+  body: string;
+  tail: string;
 }
 
 interface Props {
@@ -39,27 +45,22 @@ const Mypage = ({ setMypageClick, mypageClick }: Props) => {
     },
     dateOfBirth: "",
   });
-  const [donorInfo, setDonorInfo] = useState<any>([]);
   const [withdrawClick, setWithdrawClick] = useState<boolean>(false);
   const [saveClick, setSaveClick] = useState<boolean>(false);
 
   const userInfoUpdate = async () => {
-    const email = values.email;
-    const password = values.password;
     const mobile = `${values.mobile.head}-${values.mobile.body}-${values.mobile.tail}`;
-    const dateOfBirth = values.dateOfBirth;
     notify("저장 되었습니다.");
-    await axios
-      .put(`${process.env.REACT_APP_API_URL}/update-user`, {
-        email: email,
-        password: password,
-        mobile: mobile,
-        dateOfBirth: dateOfBirth,
-        url: imgUrl,
-      })
-      .then(() => {
-        userInfoHandler();
-      });
+
+    await API.put(`/update-user`, {
+      email: values.email,
+      password: values.password,
+      mobile: mobile,
+      dateOfBirth: values.dateOfBirth,
+      url: imgUrl,
+    }).then(() => {
+      userInfoHandler();
+    });
   };
 
   const saveHandler = () => {
@@ -109,55 +110,14 @@ const Mypage = ({ setMypageClick, mypageClick }: Props) => {
 
   const userInfoHandler = async () => {
     if (token.OAuth.OAuth) {
-      await axios
-        .post(`${process.env.REACT_APP_API_URL}/mypage`, {
-          email: token.OAuth.email,
-          name: token.OAuth.name,
-        })
-        .then((res) => {
-          setIsOauth(true);
-          const { email, password, name, mobile, dateOfBirth, url } =
-            res.data.data.userInfo;
-          setDonorInfo(res.data.data.donorInfo);
-          if (mobile) {
-            setValues({
-              ...values,
-              email: email,
-              password: password,
-              name: name,
-              mobile: {
-                head: mobile.slice(0, 3),
-                body: mobile.slice(4, 8),
-                tail: mobile.slice(9),
-              },
-              dateOfBirth: dateOfBirth,
-            });
-            setImgUrl(url);
-          } else {
-            setValues({
-              ...values,
-              email: email,
-              password: password,
-              name: name,
-              dateOfBirth: dateOfBirth,
-            });
-            setImgUrl(url);
-          }
-        });
-    } else {
-      await axios
-        .get(`${process.env.REACT_APP_API_URL}/mypage`, {
-          headers: {
-            authorization: `Bearer ${token.accessToken}`,
-            "Content-Type": "application/json",
-          },
-          withCredentials: true,
-        })
-        .then((res) => {
-          const { email, password, name, mobile, dateOfBirth, url } =
-            res.data.data.userInfo;
-
-          setDonorInfo(res.data.data.donorInfo);
+      await API.post(`/mypage`, {
+        email: token.OAuth.email,
+        name: token.OAuth.name,
+      }).then((res) => {
+        setIsOauth(true);
+        const { email, password, name, mobile, dateOfBirth, url } =
+          res.data.data.userInfo;
+        if (mobile) {
           setValues({
             ...values,
             email: email,
@@ -171,7 +131,41 @@ const Mypage = ({ setMypageClick, mypageClick }: Props) => {
             dateOfBirth: dateOfBirth,
           });
           setImgUrl(url);
+        } else {
+          setValues({
+            ...values,
+            email: email,
+            password: password,
+            name: name,
+            dateOfBirth: dateOfBirth,
+          });
+          setImgUrl(url);
+        }
+      });
+    } else {
+      await API.get(`/mypage`, {
+        headers: {
+          authorization: `Bearer ${token.accessToken}`,
+          "Content-Type": "application/json",
+        },
+        withCredentials: true,
+      }).then((res) => {
+        const { email, password, name, mobile, dateOfBirth, url } =
+          res.data.data.userInfo;
+        setValues({
+          ...values,
+          email: email,
+          password: password,
+          name: name,
+          mobile: {
+            head: mobile.slice(0, 3),
+            body: mobile.slice(4, 8),
+            tail: mobile.slice(9),
+          },
+          dateOfBirth: dateOfBirth,
         });
+        setImgUrl(url);
+      });
     }
   };
 

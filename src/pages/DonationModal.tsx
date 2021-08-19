@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Root } from "../Store";
 import { useSelector } from "react-redux";
-import axios from "axios";
+import API from "../utils/api";
 
 interface Props {
   setDonationClick: Function;
@@ -14,26 +14,22 @@ const DonationModal = ({ setDonationClick, donationClick }: Props) => {
 
   const userInfoHandler = async () => {
     if (token.OAuth.OAuth) {
-      await axios
-        .post(`${process.env.REACT_APP_API_URL}/mypage`, {
-          email: token.OAuth.email,
-          name: token.OAuth.name,
-        })
-        .then((res) => {
-          setDonorInfo(res.data.data.donorInfo);
-        });
+      await API.post(`/mypage`, {
+        email: token.OAuth.email,
+        name: token.OAuth.name,
+      }).then((res) => {
+        setDonorInfo(res.data.data.donorInfo);
+      });
     } else {
-      await axios
-        .get(`${process.env.REACT_APP_API_URL}/mypage`, {
-          headers: {
-            authorization: `Bearer ${token.accessToken}`,
-            "Content-Type": "application/json",
-          },
-          withCredentials: true,
-        })
-        .then((res) => {
-          setDonorInfo(res.data.data.donorInfo);
-        });
+      await API.get(`/mypage`, {
+        headers: {
+          authorization: `Bearer ${token.accessToken}`,
+          "Content-Type": "application/json",
+        },
+        withCredentials: true,
+      }).then((res) => {
+        setDonorInfo(res.data.data.donorInfo);
+      });
     }
   };
 
